@@ -9,8 +9,13 @@ export const DialogTrigger = ({
 	...props
 }: DialogTriggerProps) => {
 	return (
-		<BaseDialog.Trigger className={cn("", className)} ref={ref} {...props}>
-			{children}
-		</BaseDialog.Trigger>
+		<BaseDialog.Trigger
+			className={cn("", className)}
+			ref={ref}
+			{...props}
+			render={(_props, _statee) => {
+				return children as React.ReactElement
+			}}
+		></BaseDialog.Trigger>
 	)
 }
