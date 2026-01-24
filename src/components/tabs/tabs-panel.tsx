@@ -10,7 +10,7 @@ export const TabsPanel = ({ className, ...props }: TabsPanelProps) => {
 		<SwitchTabs.Panel
 			className={cn(
 				"relative rounded-xl bg-surface-neutral-primary-default",
-				orientation === "horizontal" ? "h-full min-h-0 flex-1" : "grow",
+				orientation === "vertical" ? "h-full min-h-0 flex-1" : "grow",
 				"flex items-center justify-start overflow-auto p-4",
 				className,
 			)}

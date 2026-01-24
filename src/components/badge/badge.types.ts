@@ -32,7 +32,6 @@ export const badgeVariants = cva(
 			radius: "rounded",
 		},
 		compoundVariants: [
-			// Primary tone
 			{
 				tone: "primary",
 				style: "solid",
@@ -43,8 +42,6 @@ export const badgeVariants = cva(
 				style: "outline",
 				className: "outline-primary text-primary",
 			},
-
-			// Secondary tone
 			{
 				tone: "secondary",
 				style: "solid",
@@ -55,7 +52,6 @@ export const badgeVariants = cva(
 				style: "outline",
 				className: "outline-secondary text-secondary",
 			},
-
 			{
 				tone: "accent",
 				style: "solid",
@@ -66,8 +62,6 @@ export const badgeVariants = cva(
 				style: "outline",
 				className: "outline-accent text-accent",
 			},
-
-			// Neutral tone
 			{
 				tone: "neutral",
 				style: "solid",
@@ -93,8 +87,6 @@ export const badgeVariants = cva(
 				style: "outline",
 				className: "outline-on-surface-variant text-on-surface-variant",
 			},
-
-			// error tone
 			{
 				tone: "error",
 				style: "solid",
@@ -115,8 +107,6 @@ export const badgeVariants = cva(
 				style: "outline",
 				className: "outline-success text-success",
 			},
-
-			// Warning tone
 			{
 				tone: "warning",
 				style: "solid",

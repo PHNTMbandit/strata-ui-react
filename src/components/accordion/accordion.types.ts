@@ -37,9 +37,8 @@ export const accordionItemVariants = cva(
 	},
 )
 
-export type AccordionItemProps = Omit<
-	React.ComponentProps<typeof BaseAccordion.Item>,
-	"style"
+export type AccordionItemProps = React.ComponentProps<
+	typeof BaseAccordion.Item
 > &
 	VariantProps<typeof accordionItemVariants> &
 	React.ComponentProps<typeof BaseAccordion.Trigger>

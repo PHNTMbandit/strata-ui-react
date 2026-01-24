@@ -5,11 +5,11 @@ import { TabsOrientationContext, type TabsProps } from "./tabs.types"
 
 export const Tabs = ({ className, ref, ...props }: TabsProps) => {
 	const [orientation, _setOrientation] = useState<"horizontal" | "vertical">(
-		props.orientation ?? "vertical",
+		props.orientation ?? "horizontal",
 	)
 
 	props.orientation = orientation
-	if (props.orientation === "horizontal") {
+	if (props.orientation === "vertical") {
 		return (
 			<TabsOrientationContext.Provider value={props.orientation}>
 				<SwitchTabs.Root

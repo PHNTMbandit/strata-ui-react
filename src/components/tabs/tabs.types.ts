@@ -8,5 +8,5 @@ export type TabsIndicatorProps = ComponentProps<typeof SwitchTabs.Indicator>
 export type TabsListProps = ComponentProps<typeof SwitchTabs.List>
 
 export const TabsOrientationContext = createContext<"horizontal" | "vertical">(
-	"vertical",
+	"horizontal",
 )

@@ -3,9 +3,9 @@ import { type BadgeExtendedProps, badgeVariants } from "./badge.types"
 
 export const Badge = ({
 	className,
-	tone,
-	style,
-	radius,
+	tone = "primary",
+	style = "solid",
+	radius = "rounded",
 	children,
 	ref,
 	...props

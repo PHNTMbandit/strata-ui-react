@@ -4,9 +4,9 @@ import type { DialogPopupProps } from "./dialog.types"
 import { DialogClose } from "./dialog-close"
 
 export const DialogPopup = ({
+	showCloseButton = true,
 	className,
 	children,
-	showCloseButton = true,
 	ref,
 	...props
 }: DialogPopupProps) => {
@@ -19,16 +19,14 @@ export const DialogPopup = ({
 			/>
 			<BaseDialog.Popup
 				className={cn(
-					"fixed top-1/2 left-1/2 min-w-1/3 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 space-y-2xs rounded-lg bg-surface-container px-md py-sm outline-1 outline-outline transition-all duration-150 data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0",
+					"fixed inset-shadow-raised-md top-1/2 left-1/2 min-w-1/3 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 space-y-lg rounded-xl bg-surface-container-mid px-lg py-md shadow-md transition-all duration-150 data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0",
 					className,
 				)}
 				ref={ref}
 				{...props}
 			>
+				{showCloseButton && <DialogClose />}
 				{children}
-				<div className="flex justify-end">
-					{showCloseButton && <DialogClose />}
-				</div>
 			</BaseDialog.Popup>
 		</BaseDialog.Portal>
 	)

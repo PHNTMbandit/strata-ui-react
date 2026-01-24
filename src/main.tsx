@@ -1,6 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
-import "./styles.css"
+import "./styles/index.css"
 import {
 	CalendarIcon,
 	GearIcon,
@@ -8,23 +8,7 @@ import {
 	MagnifyingGlassIcon,
 	MailboxIcon,
 } from "@phosphor-icons/react"
-import {
-	Badge,
-	Sidebar,
-	SidebarContent,
-	SidebarFooter,
-	SidebarGroup,
-	SidebarGroupContent,
-	SidebarGroupLabel,
-	SidebarHeader,
-	SidebarMenu,
-	SidebarMenuLink,
-	SidebarSubMenu,
-	SidebarSubMenuPanel,
-	SidebarSubMenuTrigger,
-} from "./components"
-import { SidebarProvider } from "./components/sidebar/sidebar-provider"
-import { SidebarToggle } from "./components/sidebar/sidebar-toggle"
+import { Tabs, TabsIndicator, TabsList, TabsPanel, TabsTab } from "./components"
 
 const rootElement = document.getElementById("root")
 
@@ -36,7 +20,6 @@ const _items = [
 		active: false,
 	},
 	{
-		title: "Inbox",
 		url: "#",
 		icon: MailboxIcon,
 		active: false,
@@ -65,7 +48,18 @@ if (rootElement) {
 	ReactDOM.createRoot(rootElement).render(
 		<React.StrictMode>
 			<main className="h-screen w-full">
-				<SidebarProvider>
+				<Tabs defaultValue="tab1">
+					<TabsList>
+						<TabsTab value="tab1">Tab 1</TabsTab>
+						<TabsTab value="tab2">Tab 2</TabsTab>
+						<TabsTab value="tab3">Tab 3</TabsTab>
+						<TabsIndicator />
+					</TabsList>
+					<TabsPanel value="tab1">Content for Tab 1</TabsPanel>
+					<TabsPanel value="tab2">Content for Tab 2</TabsPanel>
+					<TabsPanel value="tab3">Content for Tab 3</TabsPanel>
+				</Tabs>
+				{/* <SidebarProvider>
 					<Sidebar>
 						<SidebarHeader className="flex items-center justify-between">
 							<span className="style-text-strong-2">Suwa UI</span>
@@ -120,7 +114,7 @@ if (rootElement) {
 					</Sidebar>
 					<SidebarToggle />
 					<div className="grow">Content goes here</div>
-				</SidebarProvider>
+				</SidebarProvider> */}
 			</main>
 		</React.StrictMode>,
 	)

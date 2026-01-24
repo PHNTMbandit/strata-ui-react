@@ -11,5 +11,8 @@ const config: StorybookConfig = {
 		"@storybook/addon-themes",
 	],
 	framework: "@storybook/react-vite",
+	docs: {
+		defaultName: "Overview",
+	},
 }
 export default config

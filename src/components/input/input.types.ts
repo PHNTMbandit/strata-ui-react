@@ -4,5 +4,4 @@ import type { ComponentProps } from "react"
 
 export type InputProps = ComponentProps<typeof BaseInput> & {
 	leadingIcon?: Icon
-	showSeparator?: boolean
 }

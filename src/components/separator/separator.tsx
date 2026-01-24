@@ -2,9 +2,9 @@ import { cn } from "@/utils/cn"
 import { type SeparatorProps, separatorVariants } from "./separator.types"
 
 export const Separator = ({
-	tone,
-	orientation,
-	thickness,
+	tone = "default",
+	orientation = "horizontal",
+	thickness = "medium",
 	className,
 	children,
 	ref,
