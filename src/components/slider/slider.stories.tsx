@@ -1,4 +1,5 @@
 import { SpeakerHighIcon, SpeakerLowIcon } from "@phosphor-icons/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Slider } from "./slider"
 
 export default {
@@ -16,27 +17,22 @@ export default {
 	args: {
 		defaultValues: [50],
 		label: "Volume",
-		leadingIcon: SpeakerLowIcon,
 		min: 0,
 		max: 100,
 		showTickLabels: true,
 		stepSize: 1,
-		trailingIcon: SpeakerHighIcon,
 	},
 	argTypes: {
-		min: "number",
-		max: "number",
-		stepSize: "number",
 		defaultValues: {
-			control: "none",
+			control: false,
 		},
-		leadingIcon: { control: "none" },
-		trailingIcon: { control: "none" },
+		leadingIcon: { control: false },
+		trailingIcon: { control: false },
 		showTickLabels: {
 			control: "boolean",
 		},
 	},
-	render: (args: React.ComponentProps<typeof Slider>) => (
+	render: (args) => (
 		<Slider
 			{...args}
 			className="h-[100px] w-[500px]"
@@ -44,9 +40,11 @@ export default {
 			trailingIcon={args.trailingIcon ? args.trailingIcon : undefined}
 		/>
 	),
-}
+} satisfies Meta<typeof Slider>
 
-export const Default = {
+type Story = StoryObj<typeof Slider>
+
+export const Default: Story = {
 	args: {
 		leadingIcon: undefined,
 		trailingIcon: undefined,
@@ -54,15 +52,16 @@ export const Default = {
 	},
 }
 
-export const WithTickLabels = {
+export const WithTickLabels: Story = {
 	args: {
 		showTickLabels: true,
 	},
 }
 
-export const WithIcons = {
+export const WithIcons: Story = {
 	args: {
 		leadingIcon: SpeakerLowIcon,
 		trailingIcon: SpeakerHighIcon,
+		showTickLabels: false,
 	},
 }

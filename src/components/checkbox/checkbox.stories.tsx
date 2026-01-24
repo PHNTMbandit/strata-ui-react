@@ -1,3 +1,5 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, waitFor } from "storybook/test"
 import { Checkbox } from "./checkbox"
 
 export default {
@@ -19,6 +21,39 @@ export default {
 	render: (args: React.ComponentProps<typeof Checkbox>) => (
 		<Checkbox {...args} id="checkbox" />
 	),
-}
+	play: async ({ userEvent, canvas, step }) => {
+		await step("Checkbox should be unchecked initially", async () => {
+			const checkbox = canvas.getByRole("checkbox")
+			expect(checkbox).not.toBeChecked()
+		})
 
-export const Default = {}
+		await step("User can check the checkbox", async () => {
+			const checkbox = canvas.getByRole("checkbox")
+			await userEvent.click(checkbox)
+			await waitFor(() => {
+				expect(checkbox).toBeChecked()
+			})
+		})
+
+		await step("User can uncheck the checkbox", async () => {
+			const checkbox = canvas.getByRole("checkbox")
+			await userEvent.click(checkbox)
+			await waitFor(() => {
+				expect(checkbox).not.toBeChecked()
+			})
+		})
+
+		await step("Checkbox can be checked through label click", async () => {
+			const label = canvas.getByText("Accept Terms and Conditions")
+			const checkbox = canvas.getByRole("checkbox")
+			await userEvent.click(label)
+			await waitFor(() => {
+				expect(checkbox).toBeChecked()
+			})
+		})
+	},
+} satisfies Meta<typeof Checkbox>
+
+type Story = StoryObj<typeof Checkbox>
+
+export const Default: Story = {}

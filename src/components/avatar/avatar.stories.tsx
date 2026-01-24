@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Avatar } from "./avatar"
 import { AvatarFallback } from "./avatar-fallback"
 import { AvatarImage } from "./avatar-image"
@@ -15,24 +16,22 @@ export default {
 			},
 		},
 	},
-	args: {
-		src: "https://github.com/shadcn.png",
-		fallback: "SU",
-	},
-}
+} satisfies Meta<typeof Avatar>
 
-export const Default = {
-	render: (args: any) => (
-		<Avatar {...args}>
-			<AvatarImage src={args.src} />
+type Story = StoryObj<typeof Avatar>
+
+export const Default: Story = {
+	render: () => (
+		<Avatar>
+			<AvatarImage src={"https://github.com/shadcn.png"} />
 		</Avatar>
 	),
 }
 
-export const WithFallback = {
-	render: (args: any) => (
-		<Avatar {...args}>
-			<AvatarFallback>{args.fallback}</AvatarFallback>
+export const WithFallback: Story = {
+	render: () => (
+		<Avatar>
+			<AvatarFallback>SU</AvatarFallback>
 		</Avatar>
 	),
 }

@@ -1,4 +1,5 @@
 import { InfoIcon } from "@phosphor-icons/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Accordion } from "./accordion"
 import { AccordionItem } from "./accordion-item"
 import { AccordionPanel } from "./accordion-panel"
@@ -21,85 +22,155 @@ export default {
 			},
 		},
 	},
-	args: {
-		icon: InfoIcon,
-		heading: "Accordion Heading",
-		subtitle: "Accordion Subtitle",
-		title: "Accordion Title",
-		tone: "neutral",
-	},
-	argTypes: {
-		icon: {
-			control: "none",
-		},
-		tone: {
-			control: { type: "select" },
-			options: [
-				"primary",
-				"secondary",
-				"accent",
-				"neutral",
-				"error",
-				"success",
-				"warning",
-			],
-		},
-	},
-	render: (args: any) => (
+} satisfies Meta<typeof Accordion>
+
+type Story = StoryObj<typeof Accordion>
+
+export const Primary: Story = {
+	render: (args) => (
 		<Accordion {...args} className={"w-[500px]"}>
-			<AccordionItem tone={args.tone}>
+			<AccordionItem tone="primary">
 				<AccordionTrigger
-					icon={args.icon}
-					subtitle={args.subtitle}
-					title={args.title}
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Primary Accordion"}
 				/>
-				<AccordionPanel heading={args.heading}>
-					<p>This is the content for section 1.</p>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the primary accordion panel.</p>
+				</AccordionPanel>
+			</AccordionItem>
+		</Accordion>
+	),
+}
+export const Secondary: Story = {
+	render: (args) => (
+		<Accordion {...args} className={"w-[500px]"}>
+			<AccordionItem tone="secondary">
+				<AccordionTrigger
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Secondary Accordion"}
+				/>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the secondary accordion panel.</p>
+				</AccordionPanel>
+			</AccordionItem>
+		</Accordion>
+	),
+}
+export const Accent: Story = {
+	render: (args) => (
+		<Accordion {...args} className={"w-[500px]"}>
+			<AccordionItem tone="accent">
+				<AccordionTrigger
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Accent Accordion"}
+				/>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the accent accordion panel.</p>
+				</AccordionPanel>
+			</AccordionItem>
+		</Accordion>
+	),
+}
+export const Neutral: Story = {
+	render: (args) => (
+		<Accordion {...args} className={"w-[500px]"}>
+			<AccordionItem tone="neutral">
+				<AccordionTrigger
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Neutral Accordion"}
+				/>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the neutral accordion panel.</p>
+				</AccordionPanel>
+			</AccordionItem>
+		</Accordion>
+	),
+}
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Name of story
+export const Error: Story = {
+	render: (args) => (
+		<Accordion {...args} className={"w-[500px]"}>
+			<AccordionItem tone="error">
+				<AccordionTrigger
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Error Accordion"}
+				/>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the error accordion panel.</p>
+				</AccordionPanel>
+			</AccordionItem>
+		</Accordion>
+	),
+}
+export const Success: Story = {
+	render: (args) => (
+		<Accordion {...args} className={"w-[500px]"}>
+			<AccordionItem tone="success">
+				<AccordionTrigger
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Success Accordion"}
+				/>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the success accordion panel.</p>
+				</AccordionPanel>
+			</AccordionItem>
+		</Accordion>
+	),
+}
+export const Warning: Story = {
+	render: (args) => (
+		<Accordion {...args} className={"w-[500px]"}>
+			<AccordionItem tone="warning">
+				<AccordionTrigger
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Warning Accordion"}
+				/>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the warning accordion panel.</p>
 				</AccordionPanel>
 			</AccordionItem>
 		</Accordion>
 	),
 }
 
-export const Primary = { args: { tone: "primary" } }
-export const Secondary = { args: { tone: "secondary" } }
-export const Accent = { args: { tone: "accent" } }
-export const Neutral = { args: {} }
-// biome-ignore lint/suspicious/noShadowRestrictedNames: Name of story
-export const Error = { args: { tone: "error" } }
-export const Success = { args: { tone: "success" } }
-export const Warning = { args: { tone: "warning" } }
-export const MultipleItems = {
+export const MultipleItems: Story = {
 	args: {},
-	render: (args: any) => (
+	render: (args) => (
 		<Accordion {...args} className={"w-[500px]"}>
 			<AccordionItem tone="primary">
 				<AccordionTrigger
-					icon={args.icon}
-					subtitle={args.subtitle}
-					title={`${args.title} 1`}
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={`Accordion 1`}
 				/>
-				<AccordionPanel heading={args.heading}>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
 					<p>This is the content for section 1.</p>
 				</AccordionPanel>
 			</AccordionItem>
 			<AccordionItem tone="secondary">
 				<AccordionTrigger
-					icon={args.icon}
-					subtitle={args.subtitle}
-					title={`${args.title} 2`}
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={`Accordion 2`}
 				/>
-				<AccordionPanel heading={args.heading}>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
 					<p>This is the content for section 2.</p>
 				</AccordionPanel>
 			</AccordionItem>
 			<AccordionItem tone="accent">
 				<AccordionTrigger
-					icon={args.icon}
-					subtitle={args.subtitle}
-					title={`${args.title} 3`}
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={`Accordion 3`}
 				/>
-				<AccordionPanel heading={args.heading}>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
 					<p>This is the content for section 3.</p>
 				</AccordionPanel>
 			</AccordionItem>

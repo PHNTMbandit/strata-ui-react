@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Profile } from "./profile"
 
 export default {
@@ -19,10 +20,12 @@ export default {
 		profileEmail: "john.smith@example.com",
 		compact: false,
 	},
-}
+} satisfies Meta<typeof Profile>
 
-export const Default = {}
-export const Compact = {
+type Story = StoryObj<typeof Profile>
+
+export const Default: Story = {}
+export const Compact: Story = {
 	args: {
 		compact: true,
 	},

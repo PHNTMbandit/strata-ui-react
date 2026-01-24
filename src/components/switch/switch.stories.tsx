@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Switch } from "./switch"
 
 export default {
@@ -16,9 +17,9 @@ export default {
 	args: {
 		label: "Enable Notifications",
 	},
-	render: (args: React.ComponentProps<typeof Switch>) => (
-		<Switch {...args} id="switch" />
-	),
-}
+	render: (args) => <Switch {...args} id="switch" />,
+} satisfies Meta<typeof Switch>
 
-export const Default = {}
+type Story = StoryObj<typeof Switch>
+
+export const Default: Story = {}

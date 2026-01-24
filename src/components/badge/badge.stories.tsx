@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Badge } from "./badge"
 
 export default {
@@ -41,76 +42,78 @@ export default {
 			options: ["rounded", "circle"],
 		},
 	},
-}
+} satisfies Meta<typeof Badge>
 
-export const Primary = {
+type Story = StoryObj<typeof Badge>
+
+export const Primary: Story = {
 	args: {
 		tone: "primary",
 	},
 }
 
-export const Secondary = {
+export const Secondary: Story = {
 	args: {
 		tone: "secondary",
 	},
 }
 
-export const Accent = {
+export const Accent: Story = {
 	args: {
 		tone: "accent",
 	},
 }
 
-export const Neutral = {
+export const Neutral: Story = {
 	args: {
 		tone: "neutral",
 	},
 }
 
-export const NeutralVariant = {
+export const NeutralVariant: Story = {
 	args: {
 		tone: "neutralVariant",
 	},
 }
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: This is a story name
-export const Error = {
+export const Error: Story = {
 	args: {
 		tone: "error",
 	},
 }
 
-export const Success = {
+export const Success: Story = {
 	args: {
 		tone: "success",
 	},
 }
 
-export const Warning = {
+export const Warning: Story = {
 	args: {
 		tone: "warning",
 	},
 }
 
-export const Solid = {
+export const Solid: Story = {
 	args: {
 		style: "solid",
 	},
 }
 
-export const Outline = {
+export const Outline: Story = {
 	args: {
 		style: "outline",
 	},
 }
 
-export const Rounded = {
+export const Rounded: Story = {
 	args: {
 		radius: "rounded",
 	},
 }
 
-export const Circle = {
+export const Circle: Story = {
 	args: {
 		radius: "circle",
 	},

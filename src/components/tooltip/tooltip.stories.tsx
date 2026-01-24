@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Tooltip } from "./tooltip"
 import { TooltipContent } from "./tooltip-context"
 import { TooltipTrigger } from "./tooltip-trigger"
@@ -16,16 +17,16 @@ export default {
 			},
 		},
 	},
-	args: {
-		delay: 300,
-		content: "This is a tooltip message providing additional information.",
-	},
-	render: (args: any) => (
+	render: (args) => (
 		<Tooltip {...args}>
-			<TooltipTrigger delay={args.delay}>Hover me</TooltipTrigger>
-			<TooltipContent>{args.content}</TooltipContent>
+			<TooltipTrigger className={"hover:cursor-pointer hover:underline"}>
+				Hover me
+			</TooltipTrigger>
+			<TooltipContent>Tooltip</TooltipContent>
 		</Tooltip>
 	),
-}
+} satisfies Meta<typeof Tooltip>
 
-export const Default = {}
+type Story = StoryObj<typeof Tooltip>
+
+export const Default: Story = {}

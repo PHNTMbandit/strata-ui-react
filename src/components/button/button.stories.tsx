@@ -1,4 +1,5 @@
 import { PlusIcon } from "@phosphor-icons/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Button } from "./button"
 
 export default {
@@ -43,108 +44,104 @@ export default {
 			options: ["small", "medium", "large"],
 		},
 	},
-}
+} satisfies Meta<typeof Button>
 
-export const Primary = {
+type Story = StoryObj<typeof Button>
+
+export const Primary: Story = {
 	args: {
 		tone: "primary",
 	},
 }
 
-export const Secondary = {
+export const Secondary: Story = {
 	args: {
 		tone: "secondary",
 	},
 }
 
-export const Accent = {
+export const Accent: Story = {
 	args: {
 		tone: "accent",
 	},
 }
 
-export const Neutral = {
+export const Neutral: Story = {
 	args: {
 		tone: "neutral",
 	},
 }
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: This is a story name
-export const Error = {
+export const Error: Story = {
 	args: {
 		tone: "error",
 	},
 }
 
-export const Success = {
+export const Success: Story = {
 	args: {
 		tone: "success",
 	},
 }
 
-export const Warning = {
+export const Warning: Story = {
 	args: {
 		tone: "warning",
 	},
 }
 
-export const Glass = {
-	args: {
-		tone: "glass",
-	},
-}
-
-export const Solid = {
+export const Solid: Story = {
 	args: {
 		style: "solid",
 	},
 }
 
-export const Outline = {
+export const Outline: Story = {
 	args: {
 		style: "outline",
 	},
 }
 
-export const Ghost = {
+export const Ghost: Story = {
 	args: {
 		style: "ghost",
 	},
 }
 
-export const Small = {
+export const Small: Story = {
 	args: {
 		size: "small",
 	},
 }
 
-export const Medium = {
+export const Medium: Story = {
 	args: {
 		size: "medium",
 	},
 }
 
-export const Large = {
+export const Large: Story = {
 	args: {
 		size: "large",
 	},
 }
 
-export const IconSmall = {
+export const IconSmall: Story = {
 	args: {
 		children: <PlusIcon weight="bold" />,
 		size: "iconSmall",
 	},
 }
 
-export const IconMedium = {
+export const IconMedium: Story = {
 	args: {
 		children: <PlusIcon weight="bold" />,
 		size: "iconMedium",
 	},
 }
 
-export const IconLarge = {
+export const IconLarge: Story = {
 	args: {
 		children: <PlusIcon weight="bold" />,
 		size: "iconLarge",

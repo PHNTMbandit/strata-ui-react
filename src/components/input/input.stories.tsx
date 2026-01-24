@@ -1,4 +1,5 @@
 import { MagnifyingGlassIcon } from "@phosphor-icons/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Input } from "./input"
 
 export default {
@@ -18,7 +19,7 @@ export default {
 		leadingIcon: MagnifyingGlassIcon,
 	},
 	argTypes: {
-		leadingIcon: { control: "none" },
+		leadingIcon: { control: false },
 	},
 	render: (args: React.ComponentProps<typeof Input>) => (
 		<Input
@@ -27,15 +28,17 @@ export default {
 			leadingIcon={args.leadingIcon ? args.leadingIcon : undefined}
 		/>
 	),
-}
+} satisfies Meta<typeof Input>
 
-export const Default = {
+type Story = StoryObj<typeof Input>
+
+export const Default: Story = {
 	args: {
 		leadingIcon: undefined,
 	},
 }
 
-export const WithIcon = {
+export const WithIcon: Story = {
 	args: {
 		leadingIcon: MagnifyingGlassIcon,
 	},

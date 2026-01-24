@@ -1,9 +1,10 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Label } from "./label"
 
 export default {
 	title: "Components/Label",
 	component: Label,
-	parameteres: {
+	parameters: {
 		docs: {
 			subtitle:
 				"A component for displaying text labels associated with form elements.",
@@ -14,10 +15,11 @@ export default {
 		},
 	},
 	args: {
-		label: "Example Label",
 		htmlFor: "example-input",
 	},
-	render: (args: any) => <Label {...args}>{args.label}</Label>,
-}
+	render: (args) => <Label {...args}>Example Input</Label>,
+} satisfies Meta<typeof Label>
 
-export const Default = {}
+type Story = StoryObj<typeof Label>
+
+export const Default: Story = {}

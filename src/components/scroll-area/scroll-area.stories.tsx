@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { ScrollArea } from "./scroll-area"
 
 export default {
@@ -62,7 +63,7 @@ export default {
 			</p>
 		</ScrollArea>
 	),
-}
+} satisfies Meta<typeof ScrollArea>
 
 interface Artwork {
 	artist: string
@@ -84,13 +85,15 @@ const works: Artwork[] = [
 	},
 ]
 
-export const Vertical = {}
-export const Horizontal = {
+type Story = StoryObj<typeof ScrollArea>
+
+export const Vertical: Story = {}
+export const Horizontal: Story = {
 	args: {
 		orientation: "horizontal",
 		defaultHeight: 150,
 	},
-	render: (args: any) => (
+	render: (args) => (
 		<ScrollArea {...args}>
 			{works.map((artwork) => (
 				<figure className="shrink-0" key={artwork.artist}>

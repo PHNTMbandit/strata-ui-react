@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Popover } from "./popover"
 import { PopoverDescription } from "./popover-description"
 import { PopoverPanel } from "./popover-panel"
@@ -22,25 +23,22 @@ export default {
 			},
 		},
 	},
-	args: {
-		title: "Popover Title",
-		description: "This is the popover content.",
-		openOnHover: false,
-		onOpenChange: () => {},
-	},
-	render: (args: any) => (
+
+	render: (args) => (
 		<Popover {...args}>
-			<PopoverTrigger openOnHover={args.openOnHover}>
+			<PopoverTrigger>
 				<span className="style-text-default-0 hover:cursor-pointer hover:underline">
 					Click me
 				</span>
 			</PopoverTrigger>
 			<PopoverPanel side="top">
-				<PopoverTitle>{args.title}</PopoverTitle>
-				<PopoverDescription>{args.description}</PopoverDescription>
+				<PopoverTitle>Popover Title</PopoverTitle>
+				<PopoverDescription>Popover content goes here.</PopoverDescription>
 			</PopoverPanel>
 		</Popover>
 	),
-}
+} satisfies Meta<typeof Popover>
 
-export const Default = {}
+type Story = StoryObj<typeof Popover>
+
+export const Default: Story = {}

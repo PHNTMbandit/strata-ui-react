@@ -1,4 +1,6 @@
 import { InfoIcon } from "@phosphor-icons/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, waitFor, within } from "storybook/test"
 import { Button } from "../button"
 import { Dialog } from "./dialog"
 import { DialogClose } from "./dialog-close"
@@ -28,35 +30,57 @@ export default {
 			},
 		},
 	},
-	args: {
-		title: "Dialog Title",
-		description: "This is the dialog content.",
-		showCloseButton: true,
-	},
-	render: (args: any) => (
+	render: () => (
 		<Dialog>
 			<DialogTrigger>
 				<Button>Open Dialog</Button>
 			</DialogTrigger>
-			<DialogPopup showCloseButton={args.showCloseButton}>
+			<DialogPopup>
 				<DialogHeader>
 					<DialogTitle>
 						<InfoIcon weight="bold" />
-						{args.title}
+						Dialog Title
 					</DialogTitle>
-					<DialogDescription>{args.description}</DialogDescription>
+					<DialogDescription>Description of the dialog</DialogDescription>
 				</DialogHeader>
 				<DialogContent>
 					<div className="flex items-center gap-xs">
-						<Button className="w-full" style="ghost" tone="error">
-							Cancel
-						</Button>
+						<DialogClose data-testid="close-button" />
 						<Button className="w-full">Confirm</Button>
 					</div>
 				</DialogContent>
 			</DialogPopup>
 		</Dialog>
 	),
-}
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
 
-export const Default = {}
+		await step("Dialog should not be visible initially", async () => {
+			expect(body.queryByRole("dialog")).toBeNull()
+		})
+
+		await step("Open dialog", async () => {
+			const trigger = canvas.getByRole("button", { name: "Open Dialog" })
+			await userEvent.click(trigger)
+		})
+
+		await step("Dialog should be visible", async () => {
+			const dialog = await body.findByRole("dialog")
+			expect(dialog).toBeInTheDocument()
+		})
+
+		await step("Close dialog", async () => {
+			const closeButton = await body.findByTestId("close-button")
+			await userEvent.click(closeButton)
+
+			await waitFor(() => {
+				expect(body.queryByRole("dialog")).toBeNull()
+			})
+		})
+	},
+} satisfies Meta<typeof Dialog>
+
+type Story = StoryObj<typeof Dialog>
+
+export const Default: Story = {}

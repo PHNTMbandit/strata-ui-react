@@ -1,3 +1,4 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Separator } from "./separator"
 
 export default {
@@ -31,7 +32,7 @@ export default {
 			options: ["thick", "medium", "thin"],
 		},
 	},
-	render: (args: React.ComponentProps<typeof Separator>) => (
+	render: (args) => (
 		<div
 			style={{
 				height: args.orientation === "vertical" ? "250px" : "auto",
@@ -41,45 +42,47 @@ export default {
 			<Separator {...args} />
 		</div>
 	),
-}
+} satisfies Meta<typeof Separator>
 
-export const Default = {
+type Story = StoryObj<typeof Separator>
+
+export const Default: Story = {
 	args: {
 		tone: "default",
 	},
 }
 
-export const Variant = {
+export const Variant: Story = {
 	args: {
 		tone: "variant",
 	},
 }
 
-export const Horizontal = {
+export const Horizontal: Story = {
 	args: {
 		orientation: "horizontal",
 	},
 }
 
-export const Vertical = {
+export const Vertical: Story = {
 	args: {
 		orientation: "vertical",
 	},
 }
 
-export const Thin = {
+export const Thin: Story = {
 	args: {
 		thickness: "thin",
 	},
 }
 
-export const Medium = {
+export const Medium: Story = {
 	args: {
 		thickness: "medium",
 	},
 }
 
-export const Thick = {
+export const Thick: Story = {
 	args: {
 		thickness: "thick",
 	},

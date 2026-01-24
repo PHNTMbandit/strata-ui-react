@@ -1,4 +1,5 @@
 import { AxeIcon, BoatIcon, CloudIcon } from "@phosphor-icons/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Tabs } from "./tabs"
 import { TabsIndicator } from "./tabs-indicator"
 import { TabsList } from "./tabs-list"
@@ -29,7 +30,7 @@ export default {
 				"Defines the orientation of the Tabs component, either horizontal or vertical.",
 		},
 	},
-	render: (args: any) => {
+	render: (args) => {
 		return (
 			<div className="w-[500px]">
 				<Tabs defaultValue="tab1" {...args}>
@@ -46,19 +47,21 @@ export default {
 			</div>
 		)
 	},
-}
+} satisfies Meta<typeof Tabs>
 
-export const Horizontal = {
+type Story = StoryObj<typeof Tabs>
+
+export const Horizontal: Story = {
 	args: {
 		orientation: "horizontal",
 	},
 }
 
-export const Vertical = {
+export const Vertical: Story = {
 	args: {
 		orientation: "vertical",
 	},
-	render: (args: any) => {
+	render: (args) => {
 		return (
 			<div className="h-[400px]">
 				<Tabs defaultValue="tab1" {...args}>

@@ -13,9 +13,7 @@ export const DialogTrigger = ({
 			className={cn("", className)}
 			ref={ref}
 			{...props}
-			render={(_props, _statee) => {
-				return children as React.ReactElement
-			}}
+			render={children as React.ReactElement}
 		></BaseDialog.Trigger>
 	)
 }

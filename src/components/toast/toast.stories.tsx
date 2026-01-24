@@ -1,3 +1,5 @@
+import type { Meta, StoryObj } from "@storybook/react-vite"
+import { expect, within } from "storybook/test"
 import { cn } from "@/utils/cn"
 import { Button } from "../button"
 import { Toast } from "./toast"
@@ -56,7 +58,6 @@ export default {
 	},
 	args: {
 		position: "bottom-center",
-		tone: "success",
 	},
 	argTypes: {
 		position: {
@@ -70,73 +71,205 @@ export default {
 				"bottom-right",
 			],
 		},
-		tone: {
-			control: "select",
-			options: [
-				"primary",
-				"secondary",
-				"accent",
-				"neutral",
-				"error",
-				"success",
-				"warning",
-			],
-		},
 	},
-	render: (args: any) => {
+} satisfies Meta<typeof Toast>
+
+type Story = StoryObj<typeof Toast>
+
+export const Primary: Story = {
+	args: {
+		position: "top-left",
+	},
+	render: (args) => {
 		return (
 			<ToastProvider position={args.position}>
-				<TestButton tone={args.tone}>Click here</TestButton>
+				<TestButton tone={"primary"}>Click here</TestButton>
 			</ToastProvider>
 		)
 	},
-}
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
 
-export const Primary = {
-	args: {
-		tone: "primary",
-		position: "top-left",
+		await step("Check if toast uses variant tone", async () => {
+			const button = canvas.getByRole("button", { name: "Click here" })
+			await userEvent.click(button)
+
+			const toast = await body.findByRole("dialog")
+			expect(toast).toBeInTheDocument()
+			expect(toast).toHaveClass(
+				"bg-primary-container",
+				"text-on-primary-container",
+			)
+		})
 	},
 }
 
-export const Secondary = {
+export const Secondary: Story = {
 	args: {
-		tone: "secondary",
 		position: "top-center",
 	},
-}
+	render: (args) => {
+		return (
+			<ToastProvider position={args.position}>
+				<TestButton tone={"secondary"}>Click here</TestButton>
+			</ToastProvider>
+		)
+	},
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
 
-export const Accent = {
-	args: {
-		tone: "accent",
-		position: "top-right",
+		await step("Check if toast uses variant tone", async () => {
+			const button = canvas.getByRole("button", { name: "Click here" })
+			await userEvent.click(button)
+
+			const toast = await body.findByRole("dialog")
+			expect(toast).toBeInTheDocument()
+			expect(toast).toHaveClass(
+				"bg-secondary-container",
+				"text-on-secondary-container",
+			)
+		})
 	},
 }
 
-export const Neutral = {
+export const Accent: Story = {
 	args: {
-		tone: "neutral",
+		position: "top-right",
+	},
+	render: (args) => {
+		return (
+			<ToastProvider position={args.position}>
+				<TestButton tone={"accent"}>Click here</TestButton>
+			</ToastProvider>
+		)
+	},
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
+
+		await step("Check if toast uses variant tone", async () => {
+			const button = canvas.getByRole("button", { name: "Click here" })
+			await userEvent.click(button)
+
+			const toast = await body.findByRole("dialog")
+			expect(toast).toBeInTheDocument()
+			expect(toast).toHaveClass(
+				"bg-accent-container",
+				"text-on-accent-container",
+			)
+		})
+	},
+}
+
+export const Neutral: Story = {
+	args: {
 		position: "bottom-left",
+	},
+	render: (args) => {
+		return (
+			<ToastProvider position={args.position}>
+				<TestButton tone={"neutral"}>Click here</TestButton>
+			</ToastProvider>
+		)
+	},
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
+
+		await step("Check if toast uses variant tone", async () => {
+			const button = canvas.getByRole("button", { name: "Click here" })
+			await userEvent.click(button)
+
+			const toast = await body.findByRole("dialog")
+			expect(toast).toBeInTheDocument()
+			expect(toast).toHaveClass("bg-surface-bright", "text-on-surface")
+		})
 	},
 }
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: This is a story name
-export const Error = {
+export const Error: Story = {
 	args: {
-		tone: "error",
 		position: "bottom-right",
 	},
-}
+	render: (args) => {
+		return (
+			<ToastProvider position={args.position}>
+				<TestButton tone={"error"}>Click here</TestButton>
+			</ToastProvider>
+		)
+	},
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
 
-export const Success = {
-	args: {
-		tone: "success",
-		position: "bottom-center",
+		await step("Check if toast uses variant tone", async () => {
+			const button = canvas.getByRole("button", { name: "Click here" })
+			await userEvent.click(button)
+
+			const toast = await body.findByRole("dialog")
+			expect(toast).toBeInTheDocument()
+			expect(toast).toHaveClass("bg-error-container", "text-on-error-container")
+		})
 	},
 }
 
-export const Warning = {
+export const Success: Story = {
 	args: {
-		tone: "warning",
+		position: "bottom-center",
+	},
+	render: (args) => {
+		return (
+			<ToastProvider position={args.position}>
+				<TestButton tone={"success"}>Click here</TestButton>
+			</ToastProvider>
+		)
+	},
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
+
+		await step("Check if toast uses variant tone", async () => {
+			const button = canvas.getByRole("button", { name: "Click here" })
+			await userEvent.click(button)
+
+			const toast = await body.findByRole("dialog")
+			expect(toast).toBeInTheDocument()
+			expect(toast).toHaveClass(
+				"bg-success-container",
+				"text-on-success-container",
+			)
+		})
+	},
+}
+
+export const Warning: Story = {
+	args: {
+		position: "bottom-center",
+	},
+	render: (args) => {
+		return (
+			<ToastProvider position={args.position}>
+				<TestButton tone={"warning"}>Click here</TestButton>
+			</ToastProvider>
+		)
+	},
+	play: async ({ userEvent, canvasElement, step }) => {
+		const canvas = within(canvasElement)
+		const body = within(document.body)
+
+		await step("Check if toast uses variant tone", async () => {
+			const button = canvas.getByRole("button", { name: "Click here" })
+			await userEvent.click(button)
+
+			const toast = await body.findByRole("dialog")
+			expect(toast).toBeInTheDocument()
+			expect(toast).toHaveClass(
+				"bg-warning-container",
+				"text-on-warning-container",
+			)
+		})
 	},
 }
