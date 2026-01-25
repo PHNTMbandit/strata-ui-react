@@ -1,3 +1,15 @@
+# [1.0.0-beta.6](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2026-01-25)
+
+
+### Styles
+
+* **sidebar:** add ghost tone variant ([e48391e](https://github.com/PHNTMbandit/suwa-ui/commit/e48391e623ceb0cff168162a1025392b0ba6a709))
+
+
+### BREAKING CHANGES
+
+* **sidebar:** change to using isActive prop instead of setting data-active attribute
+
 # [1.0.0-beta.5](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2026-01-25)
 
 
