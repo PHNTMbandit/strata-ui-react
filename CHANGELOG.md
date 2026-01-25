@@ -1,3 +1,20 @@
+# [1.0.0-beta.5](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.4...v1.0.0-beta.5) (2026-01-25)
+
+
+### Bug Fixes
+
+* **dialog-trigger:** use render to resolve hydration errors when button is a child ([c3dbf06](https://github.com/PHNTMbandit/suwa-ui/commit/c3dbf0601076c4944ac216f7afd08b6291940dcf))
+
+
+### Features
+
+* add storybook stories and toast variants ([241b694](https://github.com/PHNTMbandit/suwa-ui/commit/241b69493dd395d3e221566cfe5aa6ca327edebb))
+
+
+### BREAKING CHANGES
+
+* No longer use BaseToast class to use the toast manager
+
 # [1.0.0-beta.4](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.3...v1.0.0-beta.4) (2026-01-17)
 
 
