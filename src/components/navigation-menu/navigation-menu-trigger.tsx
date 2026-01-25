@@ -1,6 +1,7 @@
 import { NavigationMenu as BaseNavigationMenu } from "@base-ui/react/navigation-menu"
 import { cn } from "@/utils/cn"
 import type { NavigationMenuTriggerProps } from "./navigation-menu.types"
+import { NavigationMenuIcon } from "./navigation-menu-icon"
 
 export const NavigationMenuTrigger = ({
 	className,
@@ -18,6 +19,7 @@ export const NavigationMenuTrigger = ({
 			{...props}
 		>
 			{children}
+			<NavigationMenuIcon />
 		</BaseNavigationMenu.Trigger>
 	)
 }
