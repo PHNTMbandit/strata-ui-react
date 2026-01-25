@@ -13,8 +13,8 @@ export const SidebarHeader = ({
 	return (
 		<div
 			className={cn(
-				"overflow-hidden truncate transition-all duration-300 ease-in-out",
-				open ? "px-xl pt-xl" : "max-w-2xl overflow-hidden p-sm",
+				"style-text-strong-2 overflow-hidden truncate transition-all duration-300 ease-in-out",
+				open ? "px-lg pt-lg" : "max-w-2xl p-sm",
 				className,
 			)}
 			ref={ref}

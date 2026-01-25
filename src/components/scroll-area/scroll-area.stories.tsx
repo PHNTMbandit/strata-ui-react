@@ -24,7 +24,7 @@ export default {
 			options: ["vertical", "horizontal"],
 		},
 	},
-	render: (args: any) => (
+	render: (args) => (
 		<ScrollArea {...args}>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod

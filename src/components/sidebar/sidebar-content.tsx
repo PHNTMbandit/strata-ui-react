@@ -15,7 +15,7 @@ export const SidebarContent = ({
 			className={cn(
 				"flex grow flex-col overflow-y-auto overflow-x-hidden transition-all duration-300 ease-in-out",
 				open
-					? "gap-xl pr-sm pl-lg"
+					? "gap-md pr-xs pl-sm"
 					: "gap-xs divide-y divide-outline-variant pr-0 pl-sm",
 				className,
 			)}
