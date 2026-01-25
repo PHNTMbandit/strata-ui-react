@@ -6,6 +6,7 @@ import {
 import { useSidebar } from "./sidebar-provider"
 
 export const SidebarMenuLink = ({
+	isActive,
 	size,
 	label,
 	leadingIcon: Icon,
@@ -21,6 +22,7 @@ export const SidebarMenuLink = ({
 			className={cn(
 				sidebarMenuLinkVariants({ size: open ? size : "compact", className }),
 			)}
+			data-active={isActive ? true : undefined}
 			ref={ref}
 			{...props}
 		>

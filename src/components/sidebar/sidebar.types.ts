@@ -12,12 +12,14 @@ export type SidebarHeaderProps = React.ComponentProps<"div">
 export type SidebarFooterProps = React.ComponentProps<"div">
 export type SidebarMenuProps = React.ComponentProps<"div">
 export type SidebarProps = React.ComponentProps<"div"> & {
+	tone?: "default" | "ghost"
 	width?: string | number
 }
 
 export type SidebarMenuButtonProps = React.ComponentProps<"button">
 export type SidebarMenuLinkProps = React.ComponentProps<"div"> &
 	VariantProps<typeof sidebarMenuLinkVariants> & {
+		isActive?: boolean
 		label: string
 		leadingIcon?: Icon
 	}

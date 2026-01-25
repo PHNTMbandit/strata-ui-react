@@ -1,4 +1,5 @@
 import {
+	CubeIcon,
 	GearIcon,
 	GridFourIcon,
 	SlidersHorizontalIcon,
@@ -209,6 +210,63 @@ export const Mobile: Story = {
 						</SidebarGroup>
 					</SidebarContent>
 					<SidebarFooter></SidebarFooter>
+				</Sidebar>
+				<SidebarToggle />
+			</SidebarProvider>
+		</div>
+	),
+}
+
+export const Minimal: Story = {
+	render: (args) => (
+		<div className="h-[70vh] w-[700px]">
+			<SidebarProvider>
+				<Sidebar {...args}>
+					<SidebarContent>
+						<SidebarGroup>
+							<SidebarGroupLabel>Components</SidebarGroupLabel>
+							<SidebarGroupContent>
+								<SidebarSubMenu>
+									<SidebarSubMenuTrigger
+										label={"Components"}
+										leadingIcon={CubeIcon}
+									/>
+									<SidebarSubMenuPanel>
+										<SidebarMenuLink label={"Alerts"} />
+									</SidebarSubMenuPanel>
+								</SidebarSubMenu>
+							</SidebarGroupContent>
+						</SidebarGroup>
+					</SidebarContent>
+				</Sidebar>
+				<SidebarToggle />
+			</SidebarProvider>
+		</div>
+	),
+}
+
+export const Ghost: Story = {
+	render: (args) => (
+		<div className="h-[70vh] w-[700px]">
+			<SidebarProvider>
+				<Sidebar {...args} tone="ghost">
+					<SidebarContent>
+						<SidebarGroup>
+							<SidebarGroupLabel>Components</SidebarGroupLabel>
+							<SidebarGroupContent>
+								<SidebarSubMenu>
+									<SidebarSubMenuTrigger
+										label={"Components"}
+										leadingIcon={CubeIcon}
+									/>
+									<SidebarSubMenuPanel>
+										<SidebarMenuLink isActive={true} label={"Alerts"} />
+										<SidebarMenuLink isActive={false} label={"Domenic"} />
+									</SidebarSubMenuPanel>
+								</SidebarSubMenu>
+							</SidebarGroupContent>
+						</SidebarGroup>
+					</SidebarContent>
 				</Sidebar>
 				<SidebarToggle />
 			</SidebarProvider>
