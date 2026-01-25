@@ -370,9 +370,9 @@
   --suwa-spacing-xl-2xl: clamp(2.25rem, 1.5341rem + 3.1818vw, 4rem);
   --suwa-spacing-2xl-3xl: clamp(3rem, 1.7727rem + 5.4545vw, 6rem);
   
-  --suwa-font-display: "Sora", sans-serif;
-  --suwa-font-heading: "Space Grotesk", sans-serif;
-  --suwa-font-body: "IBM Plex Sans", sans-serif;
+  --suwa-font-display: "Nunito", sans-serif;
+  --suwa-font-heading: "Nunito", sans-serif;
+  --suwa-font-body: "Inter", sans-serif;
 
   --suwa-text-xs: clamp(0.5926rem, 0.5509rem + 0.1852vw, 0.6944rem);
   --suwa-text-sm: clamp(0.6667rem, 0.5985rem + 0.303vw, 0.8333rem);

@@ -6,7 +6,7 @@ import {
 } from "./accordion.types"
 
 export const AccordionItem = ({
-	tone,
+	tone = "neutral",
 	className,
 	children,
 	ref,

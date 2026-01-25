@@ -4,6 +4,7 @@ import type { SidebarProps } from "./sidebar.types"
 import { useSidebar } from "./sidebar-provider"
 
 export const Sidebar = ({
+	width = 250,
 	className,
 	children,
 	ref,
@@ -37,9 +38,9 @@ export const Sidebar = ({
 				"flex h-full flex-col justify-between overflow-hidden border-outline-variant border-r bg-surface-bright transition-[width] duration-300 ease-in-out",
 				className,
 				open
-					? "w-1/3 gap-xl lg:w-1/5"
+					? `w-1/3 gap-lg lg:w-[${width}px]`
 					: isMobile
-						? "absolute w-[0px] gap-sm"
+						? "absolute w-[0px] gap-sm border-none"
 						: "gap-sm lg:w-[80px]",
 			)}
 			ref={sidebarRef}

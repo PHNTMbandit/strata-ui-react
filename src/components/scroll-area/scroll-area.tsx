@@ -14,25 +14,29 @@ export const ScrollArea = ({
 		<BaseScrollArea.Root
 			className={cn(
 				className,
-				`h-[${defaultHeight}px] rounded-lg bg-surface-container`,
+				`rounded-lg bg-surface-container`,
 				orientation === "horizontal" && "h-full",
 			)}
 			ref={ref}
+			style={{
+				height: orientation === "vertical" ? `${defaultHeight}px` : "100%",
+			}}
 			{...props}
 		>
 			<BaseScrollArea.Viewport
-				className={
-					"prose-step-0 inset-shadow-md flex h-full flex-col gap-xs overscroll-contain rounded-2xl bg-surface-dim py-2xs pr-md pl-sm"
-				}
+				className={cn(
+					"prose-step-0 inset-shadow-sm flex h-full gap-xs overscroll-contain rounded-lg bg-surface-dim py-xs pr-md",
+					orientation === "horizontal" && "flex-row pb-md pl-sm",
+					orientation === "vertical" && "flex-col pl-sm",
+				)}
 			>
 				{children}
 			</BaseScrollArea.Viewport>
 			<BaseScrollArea.Scrollbar
 				className={cn(
-					"flex justify-center rounded opacity-0 transition-opacity delay-300 hover:cursor-pointer data-hovering:opacity-100 data-scrolling:opacity-100 data-hovering:delay-0 data-scrolling:delay-0 data-hovering:duration-75 data-scrolling:duration-75",
+					"ml-sm opacity-0 transition-opacity delay-300 hover:cursor-pointer data-hovering:opacity-100 data-scrolling:opacity-100 data-hovering:delay-0 data-scrolling:delay-0 data-hovering:duration-75 data-scrolling:duration-75",
 					orientation === "vertical" && "my-xs mr-2xs w-2xs",
-					orientation === "horizontal" && "mx-xs mb-2xs h-2xs flex-col",
-					className,
+					orientation === "horizontal" && "mx-xs mb-xs h-2xs",
 				)}
 				orientation={orientation}
 			>

@@ -10,7 +10,7 @@ export const DialogDescription = ({
 }: DialogDescriptionProps) => {
 	return (
 		<BaseDialog.Description
-			className={cn("mb-0 text-prose-0", className)}
+			className={cn("style-text-prose-0 mb-0", className)}
 			ref={ref}
 			{...props}
 		>

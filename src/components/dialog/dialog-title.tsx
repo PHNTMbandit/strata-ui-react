@@ -10,7 +10,10 @@ export const DialogTitle = ({
 }: DialogTitleProps) => {
 	return (
 		<BaseDialog.Title
-			className={cn("text-strong-2", className)}
+			className={cn(
+				"style-text-strong-2 flex items-center gap-2xs [&>svg]:size-md",
+				className,
+			)}
 			ref={ref}
 			{...props}
 		>

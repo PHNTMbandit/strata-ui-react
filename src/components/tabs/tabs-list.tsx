@@ -6,11 +6,11 @@ import { type TabsListProps, TabsOrientationContext } from "./tabs.types"
 export const TabsList = ({ className, ...props }: TabsListProps) => {
 	const orientation = useContext(TabsOrientationContext)
 
-	if (orientation === "horizontal") {
+	if (orientation === "vertical") {
 		return (
 			<SwitchTabs.List
 				className={cn(
-					"relative inset-shadow-sm z-0 flex flex-col gap-xs overflow-hidden rounded-full bg-surface-dim px-xs",
+					"relative inset-shadow-sm z-0 flex flex-col gap-xs overflow-hidden rounded-full bg-surface-dim",
 					className,
 				)}
 				{...props}

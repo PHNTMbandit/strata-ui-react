@@ -13,9 +13,9 @@ export const separatorVariants = cva("shrink-0 rounded-full transition-all", {
 			vertical: "h-full",
 		},
 		thickness: {
-			thick: "",
-			medium: "",
 			thin: "",
+			medium: "",
+			thick: "",
 		},
 	},
 	defaultVariants: {

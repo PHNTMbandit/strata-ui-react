@@ -7,7 +7,7 @@ export const Profile = ({
 	imageUrl,
 	fallbackText,
 	profileName,
-	profileEmail = "",
+	profileEmail,
 	compact = false,
 	children,
 	ref,

@@ -15,12 +15,12 @@ import { SliderTrack } from "./slider-track"
 export const Slider = ({
 	leadingIcon: LeadingIcon,
 	trailingIcon: TrailingIcon,
-	min,
-	max,
-	stepSize,
-	defaultValues,
-	showTickLabels,
-	label,
+	min = 0,
+	max = 100,
+	stepSize = 1,
+	defaultValues = [50],
+	showTickLabels = false,
+	label = "",
 	className,
 	ref,
 	...props
@@ -42,7 +42,7 @@ export const Slider = ({
 	})
 
 	return (
-		<div className={cn("space-y-2xs", className)} ref={ref} {...props}>
+		<div className={cn("w-full space-y-2xs", className)} ref={ref} {...props}>
 			{label && (
 				<p className="style-text-default--1 text-on-surface-variant">{label}</p>
 			)}
@@ -78,6 +78,7 @@ export const Slider = ({
 								index,
 							) => (
 								<SliderHandle
+									aria-label={`Slider handle ${index + 1}, value ${value}`}
 									isActive={isActive}
 									key={index}
 									onKeyDownHandler={onKeyDownHandler}
