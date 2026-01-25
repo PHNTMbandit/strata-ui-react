@@ -14,7 +14,7 @@ export const SidebarFooter = ({
 		<div
 			className={cn(
 				"truncate transition-all duration-300 ease-in-out",
-				open ? "px-md pb-sm" : "max-w-2xl overflow-hidden p-sm",
+				open ? "px-md" : "max-w-2xl overflow-hidden p-sm",
 				className,
 			)}
 			ref={ref}

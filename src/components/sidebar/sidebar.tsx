@@ -4,6 +4,7 @@ import type { SidebarProps } from "./sidebar.types"
 import { useSidebar } from "./sidebar-provider"
 
 export const Sidebar = ({
+	tone = "default",
 	width = 250,
 	className,
 	children,
@@ -35,8 +36,9 @@ export const Sidebar = ({
 	return (
 		<div
 			className={cn(
-				"flex h-full flex-col justify-between overflow-hidden border-outline-variant border-r bg-surface-bright transition-[width] duration-300 ease-in-out",
+				"flex h-full flex-col justify-between overflow-hidden border-outline-variant border-r bg-surface-bright py-md transition-[width] duration-300 ease-in-out",
 				className,
+				tone === "ghost" && "border-none bg-transparent",
 				open
 					? `w-1/3 gap-lg lg:w-[${width}px]`
 					: isMobile
