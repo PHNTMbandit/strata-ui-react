@@ -16,7 +16,7 @@ export const SidebarHeader = ({
 	return (
 		<div
 			className={cn(
-				"style-text-strong-2 overflow-hidden truncate transition-all duration-300 ease-in-out",
+				"style-text-strong-2 shrink-0 overflow-hidden truncate transition-all duration-300 ease-in-out",
 				isExpanded ? "px-lg" : "max-w-2xl p-sm",
 				className,
 			)}

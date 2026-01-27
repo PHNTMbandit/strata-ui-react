@@ -13,7 +13,7 @@ export const SidebarFooter = ({
 	return (
 		<div
 			className={cn(
-				"truncate transition-all duration-300 ease-in-out",
+				"footer truncate transition-all duration-300 ease-in-out",
 				open ? "px-md" : "max-w-2xl overflow-hidden p-sm",
 				className,
 			)}
