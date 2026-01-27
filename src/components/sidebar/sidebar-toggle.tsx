@@ -10,7 +10,12 @@ export const SidebarToggle = ({
 	ref,
 	...props
 }: SidebarToggleProps) => {
-	const { trigger } = useSidebar()
+	const { trigger, collapsible } = useSidebar()
+
+	// Don't render toggle for non-collapsible sidebars
+	if (collapsible === "none") {
+		return null
+	}
 
 	const handleClick = (e: React.MouseEvent) => {
 		e.stopPropagation()

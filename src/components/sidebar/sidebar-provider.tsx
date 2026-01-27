@@ -9,6 +9,7 @@ type SidebarContextProps = React.ComponentProps<"div"> & {
 	isMobile?: boolean
 	setIsMobile?: (isMobile: boolean) => void
 	side?: "left" | "right"
+	collapsible?: "offcanvas" | "icon" | "none"
 }
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null)
@@ -16,6 +17,7 @@ const SidebarContext = React.createContext<SidebarContextProps | null>(null)
 export const SidebarProvider = ({
 	defaultOpen = true,
 	side = "left",
+	collapsible = "offcanvas",
 	className,
 	children,
 	ref,
@@ -30,7 +32,7 @@ export const SidebarProvider = ({
 		const checkIsMobile = () => {
 			const mobile = window.innerWidth < 1024
 			setIsMobile(mobile)
-			if (mobile && defaultOpen) {
+			if (mobile && defaultOpen && collapsible !== "none") {
 				setOpen(false)
 			}
 		}
@@ -39,7 +41,7 @@ export const SidebarProvider = ({
 		window.addEventListener("resize", checkIsMobile)
 
 		return () => window.removeEventListener("resize", checkIsMobile)
-	}, [defaultOpen])
+	}, [defaultOpen, collapsible])
 
 	return (
 		<SidebarContext.Provider
@@ -51,6 +53,7 @@ export const SidebarProvider = ({
 				trigger,
 				isMobile,
 				setIsMobile,
+				collapsible,
 			}}
 		>
 			<div

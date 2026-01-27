@@ -549,6 +549,9 @@
   .w-\[50px\] {
     width: 50px;
   }
+  .w-\[80px\] {
+    width: 80px;
+  }
   .w-\[500px\] {
     width: 500px;
   }
@@ -608,6 +611,10 @@
   }
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1/2 * 100%) * -1);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
+  .-translate-x-full {
+    --tw-translate-x: -100%;
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .translate-x-\(--active-tab-left\) {
@@ -941,9 +948,6 @@
   .py-3xs {
     padding-block: var(--spacing-3xs);
   }
-  .py-lg {
-    padding-block: var(--spacing-lg);
-  }
   .py-md {
     padding-block: var(--spacing-md);
   }
@@ -952,9 +956,6 @@
   }
   .py-xs {
     padding-block: var(--spacing-xs);
-  }
-  .pt-lg {
-    padding-top: var(--spacing-lg);
   }
   .pr-3xs {
     padding-right: var(--spacing-3xs);
@@ -1280,6 +1281,11 @@
   }
   .transition-\[width\,height\,border\] {
     transition-property: width,height,border;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-\[width\,transform\] {
+    transition-property: width,transform;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }

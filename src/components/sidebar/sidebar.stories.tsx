@@ -51,6 +51,11 @@ export default {
 			control: "number",
 			description: "Sets the width of the sidebar when expanded.",
 		},
+		collapsible: {
+			control: "select",
+			options: ["offcanvas", "icon", "none"],
+			description: "Sets the collapsible behavior of the sidebar.",
+		},
 	},
 	parameters: {
 		docs: {
@@ -68,87 +73,13 @@ export default {
 
 type Story = StoryObj<typeof Sidebar>
 
-export const Desktop: Story = {
-	render: (args) => (
-		<div className="h-[70vh] w-[700px]">
-			<SidebarProvider>
-				<Sidebar {...args}>
-					<SidebarHeader>My Application</SidebarHeader>
-					<SidebarContent>
-						<SidebarGroup>
-							<SidebarGroupLabel>Main Menu</SidebarGroupLabel>
-							<SidebarGroupContent>
-								<SidebarMenu>
-									<SidebarMenuLink
-										label="Dashboard"
-										leadingIcon={GridFourIcon}
-									/>
-									<SidebarMenuLink label="Profile" leadingIcon={UserIcon} />
-									<SidebarSubMenu>
-										<SidebarSubMenuTrigger
-											label={"Settings"}
-											leadingIcon={GearIcon}
-										/>
-										<SidebarSubMenuPanel>
-											<SidebarMenuLink
-												label="Account"
-												leadingIcon={SlidersIcon}
-											/>
-											<SidebarMenuLink
-												label="Preferences"
-												leadingIcon={SlidersHorizontalIcon}
-											/>
-										</SidebarSubMenuPanel>
-									</SidebarSubMenu>
-								</SidebarMenu>
-							</SidebarGroupContent>
-						</SidebarGroup>
-						<SidebarGroup>
-							<SidebarGroupLabel>Main Menu</SidebarGroupLabel>
-							<SidebarGroupContent>
-								<SidebarMenu>
-									<SidebarMenuLink
-										label="Dashboard"
-										leadingIcon={GridFourIcon}
-									/>
-									<SidebarMenuLink label="Profile" leadingIcon={UserIcon} />
-									<SidebarSubMenu>
-										<SidebarSubMenuTrigger
-											label={"Settings"}
-											leadingIcon={GearIcon}
-										/>
-										<SidebarSubMenuPanel>
-											<SidebarMenuLink
-												label="Account"
-												leadingIcon={SlidersIcon}
-											/>
-											<SidebarMenuLink
-												label="Preferences"
-												leadingIcon={SlidersHorizontalIcon}
-											/>
-										</SidebarSubMenuPanel>
-									</SidebarSubMenu>
-								</SidebarMenu>
-							</SidebarGroupContent>
-						</SidebarGroup>
-					</SidebarContent>
-					<SidebarFooter></SidebarFooter>
-				</Sidebar>
-				<SidebarToggle />
-			</SidebarProvider>
-		</div>
-	),
-}
-
-export const Mobile: Story = {
-	parameters: {
-		viewport: {
-			defaultViewport: "mobile2",
-		},
+export const CollapsibleIcon: Story = {
+	args: {
+		collapsible: "icon",
 	},
 	render: (args) => (
-		<div className="h-[70vh] w-[1000px]">
-			<SidebarProvider>
+		<div className="h-[70vh] w-[700px]">
+			<SidebarProvider collapsible="icon">
 				<Sidebar {...args}>
 					<SidebarHeader>My Application</SidebarHeader>
 					<SidebarContent>
@@ -210,34 +141,6 @@ export const Mobile: Story = {
 						</SidebarGroup>
 					</SidebarContent>
 					<SidebarFooter></SidebarFooter>
-				</Sidebar>
-				<SidebarToggle />
-			</SidebarProvider>
-		</div>
-	),
-}
-
-export const Minimal: Story = {
-	render: (args) => (
-		<div className="h-[70vh] w-[700px]">
-			<SidebarProvider>
-				<Sidebar {...args}>
-					<SidebarContent>
-						<SidebarGroup>
-							<SidebarGroupLabel>Components</SidebarGroupLabel>
-							<SidebarGroupContent>
-								<SidebarSubMenu>
-									<SidebarSubMenuTrigger
-										label={"Components"}
-										leadingIcon={CubeIcon}
-									/>
-									<SidebarSubMenuPanel>
-										<SidebarMenuLink label={"Alerts"} />
-									</SidebarSubMenuPanel>
-								</SidebarSubMenu>
-							</SidebarGroupContent>
-						</SidebarGroup>
-					</SidebarContent>
 				</Sidebar>
 				<SidebarToggle />
 			</SidebarProvider>
@@ -267,6 +170,143 @@ export const Ghost: Story = {
 							</SidebarGroupContent>
 						</SidebarGroup>
 					</SidebarContent>
+				</Sidebar>
+				<SidebarToggle />
+			</SidebarProvider>
+		</div>
+	),
+}
+
+export const CollapsibleOffcanvas: Story = {
+	args: {
+		collapsible: "offcanvas",
+	},
+	render: (args) => (
+		<div className="h-[70vh] w-[700px]">
+			<SidebarProvider collapsible="offcanvas">
+				<Sidebar {...args}>
+					<SidebarHeader>My Application</SidebarHeader>
+					<SidebarContent>
+						<SidebarGroup>
+							<SidebarGroupLabel>Main Menu</SidebarGroupLabel>
+							<SidebarGroupContent>
+								<SidebarMenu>
+									<SidebarMenuLink
+										label="Dashboard"
+										leadingIcon={GridFourIcon}
+									/>
+									<SidebarMenuLink label="Profile" leadingIcon={UserIcon} />
+									<SidebarSubMenu>
+										<SidebarSubMenuTrigger
+											label={"Settings"}
+											leadingIcon={GearIcon}
+										/>
+										<SidebarSubMenuPanel>
+											<SidebarMenuLink
+												label="Account"
+												leadingIcon={SlidersIcon}
+											/>
+											<SidebarMenuLink
+												label="Preferences"
+												leadingIcon={SlidersHorizontalIcon}
+											/>
+										</SidebarSubMenuPanel>
+									</SidebarSubMenu>
+								</SidebarMenu>
+							</SidebarGroupContent>
+						</SidebarGroup>
+					</SidebarContent>
+					<SidebarFooter></SidebarFooter>
+				</Sidebar>
+				<SidebarToggle />
+			</SidebarProvider>
+		</div>
+	),
+}
+
+export const NonCollapsible: Story = {
+	args: {
+		collapsible: "none",
+	},
+	render: (args) => (
+		<div className="h-[70vh] w-[700px]">
+			<SidebarProvider collapsible="none">
+				<Sidebar {...args}>
+					<SidebarHeader>My Application</SidebarHeader>
+					<SidebarContent>
+						<SidebarGroup>
+							<SidebarGroupLabel>Main Menu</SidebarGroupLabel>
+							<SidebarGroupContent>
+								<SidebarMenu>
+									<SidebarMenuLink
+										label="Dashboard"
+										leadingIcon={GridFourIcon}
+									/>
+									<SidebarMenuLink label="Profile" leadingIcon={UserIcon} />
+									<SidebarSubMenu>
+										<SidebarSubMenuTrigger
+											label={"Settings"}
+											leadingIcon={GearIcon}
+										/>
+										<SidebarSubMenuPanel>
+											<SidebarMenuLink
+												label="Account"
+												leadingIcon={SlidersIcon}
+											/>
+											<SidebarMenuLink
+												label="Preferences"
+												leadingIcon={SlidersHorizontalIcon}
+											/>
+										</SidebarSubMenuPanel>
+									</SidebarSubMenu>
+								</SidebarMenu>
+							</SidebarGroupContent>
+						</SidebarGroup>
+					</SidebarContent>
+					<SidebarFooter></SidebarFooter>
+				</Sidebar>
+			</SidebarProvider>
+		</div>
+	),
+}
+
+export const Right: Story = {
+	render: (args) => (
+		<div className="h-[70vh] w-[700px]">
+			<SidebarProvider collapsible="offcanvas" side="right">
+				<Sidebar {...args}>
+					<SidebarHeader>My Application</SidebarHeader>
+					<SidebarContent>
+						<SidebarGroup>
+							<SidebarGroupLabel>Main Menu</SidebarGroupLabel>
+							<SidebarGroupContent>
+								<SidebarMenu>
+									<SidebarMenuLink
+										label="Dashboard"
+										leadingIcon={GridFourIcon}
+									/>
+									<SidebarMenuLink label="Profile" leadingIcon={UserIcon} />
+									<SidebarSubMenu>
+										<SidebarSubMenuTrigger
+											label={"Settings"}
+											leadingIcon={GearIcon}
+										/>
+										<SidebarSubMenuPanel>
+											<SidebarMenuLink
+												label="Account"
+												leadingIcon={SlidersIcon}
+											/>
+											<SidebarMenuLink
+												label="Preferences"
+												leadingIcon={SlidersHorizontalIcon}
+											/>
+										</SidebarSubMenuPanel>
+									</SidebarSubMenu>
+								</SidebarMenu>
+							</SidebarGroupContent>
+						</SidebarGroup>
+					</SidebarContent>
+					<SidebarFooter></SidebarFooter>
 				</Sidebar>
 				<SidebarToggle />
 			</SidebarProvider>
