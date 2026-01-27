@@ -60,18 +60,18 @@ export const Sidebar = ({
 
 	const getGapClasses = () => {
 		if (collapsible === "none") {
-			return "gap-lg"
+			return "gap-sm"
 		}
 
 		if (collapsible === "offcanvas") {
-			return open ? "gap-lg" : "gap-sm"
+			return open ? "gap-sm" : "gap-sm"
 		}
 
 		if (collapsible === "icon") {
-			return open ? "gap-lg" : "gap-sm"
+			return open ? "gap-sm" : "gap-sm"
 		}
 
-		return "gap-lg"
+		return "gap-sm"
 	}
 
 	const getPositionClasses = () => {
@@ -97,9 +97,9 @@ export const Sidebar = ({
 	return (
 		<div
 			className={cn(
-				"flex h-full flex-col justify-between overflow-hidden border-outline-variant border-r bg-surface-bright py-md transition-[width,transform] duration-200 ease-out",
+				"sticky left-[0px] flex h-full flex-col justify-between overflow-hidden border-outline-variant border-r bg-surface-bright py-md transition-[width,transform] duration-200 ease-out",
 				className,
-				tone === "ghost" && "border-none bg-transparent",
+				tone === "ghost" && !isMobile && "border-none bg-transparent",
 				getGapClasses(),
 				getPositionClasses(),
 				collapsible === "offcanvas" && !open && isMobile && "border-none",

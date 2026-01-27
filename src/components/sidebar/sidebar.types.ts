@@ -4,7 +4,9 @@ import { cva, type VariantProps } from "class-variance-authority"
 import type { ButtonExtendedProps } from "@/components/button/button.types"
 
 export type SidebarToggleProps = ButtonExtendedProps
-export type SidebarContentProps = React.ComponentProps<"div">
+export type SidebarContentProps = React.ComponentProps<"div"> & {
+	hideScrollbar?: boolean
+}
 export type SidebarGroupContentProps = React.ComponentProps<"div">
 export type SidebarGroupLabelProps = React.ComponentProps<"span">
 export type SidebarGroupProps = React.ComponentProps<"div">

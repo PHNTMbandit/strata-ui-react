@@ -74,7 +74,7 @@ export const CollapsibleIcon: Story = {
 			<SidebarProvider collapsible="icon">
 				<Sidebar {...args}>
 					<SidebarHeader>My Application</SidebarHeader>
-					<SidebarContent>
+					<SidebarContent hideScrollbar>
 						<SidebarGroup>
 							<SidebarGroupLabel>Main Menu</SidebarGroupLabel>
 							<SidebarGroupContent>
@@ -112,6 +112,38 @@ export const CollapsibleIcon: Story = {
 										leadingIcon={GridFourIcon}
 									/>
 									<SidebarMenuLink label="Profile" leadingIcon={UserIcon} />
+									<SidebarSubMenu>
+										<SidebarSubMenuTrigger
+											label={"Settings"}
+											leadingIcon={GearIcon}
+										/>
+										<SidebarSubMenuPanel>
+											<SidebarMenuLink
+												label="Account"
+												leadingIcon={SlidersIcon}
+											/>
+											<SidebarMenuLink
+												label="Preferences"
+												leadingIcon={SlidersHorizontalIcon}
+											/>
+										</SidebarSubMenuPanel>
+									</SidebarSubMenu>
+									<SidebarSubMenu>
+										<SidebarSubMenuTrigger
+											label={"Settings"}
+											leadingIcon={GearIcon}
+										/>
+										<SidebarSubMenuPanel>
+											<SidebarMenuLink
+												label="Account"
+												leadingIcon={SlidersIcon}
+											/>
+											<SidebarMenuLink
+												label="Preferences"
+												leadingIcon={SlidersHorizontalIcon}
+											/>
+										</SidebarSubMenuPanel>
+									</SidebarSubMenu>
 									<SidebarSubMenu>
 										<SidebarSubMenuTrigger
 											label={"Settings"}
