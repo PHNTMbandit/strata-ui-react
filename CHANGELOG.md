@@ -1,3 +1,10 @@
+# [1.0.0-beta.8](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2026-01-27)
+
+
+### Bug Fixes
+
+* **sidebar:** add collapsible icon mobile support ([bb3df9e](https://github.com/PHNTMbandit/suwa-ui/commit/bb3df9e3ab11055e931ba17a7ed24cb08f19c7d6))
+
 # [1.0.0-beta.7](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2026-01-27)
 
 
