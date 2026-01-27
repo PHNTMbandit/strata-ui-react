@@ -12,7 +12,6 @@ export const SidebarToggle = ({
 }: SidebarToggleProps) => {
 	const { trigger, collapsible } = useSidebar()
 
-	// Don't render toggle for non-collapsible sidebars
 	if (collapsible === "none") {
 		return null
 	}

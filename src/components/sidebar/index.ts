@@ -13,6 +13,7 @@ export type {
 	SidebarSubMenuPanelProps,
 	SidebarSubMenuProps,
 	SidebarSubMenuTriggerProps,
+	SidebarToggleProps,
 } from "./sidebar.types"
 export { SidebarContent } from "./sidebar-content"
 export { SidebarFooter } from "./sidebar-footer"
@@ -26,3 +27,4 @@ export { SidebarProvider } from "./sidebar-provider"
 export { SidebarSubMenu } from "./sidebar-sub-menu"
 export { SidebarSubMenuPanel } from "./sidebar-sub-menu-panel"
 export { SidebarSubMenuTrigger } from "./sidebar-sub-menu-trigger"
+export { SidebarToggle } from "./sidebar-toggle"

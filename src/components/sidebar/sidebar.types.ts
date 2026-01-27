@@ -14,7 +14,6 @@ export type SidebarMenuProps = React.ComponentProps<"div">
 export type SidebarProps = React.ComponentProps<"div"> & {
 	tone?: "default" | "ghost"
 	width?: string | number
-	collapsible?: "offcanvas" | "icon" | "none"
 }
 
 export type SidebarMenuButtonProps = React.ComponentProps<"button">
