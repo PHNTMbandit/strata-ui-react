@@ -1,3 +1,10 @@
+# [1.0.0-beta.10](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2026-01-27)
+
+
+### Bug Fixes
+
+* add option to hide sidebar content scrollbar ([665ab29](https://github.com/PHNTMbandit/suwa-ui/commit/665ab29afb95b8f01a2cf72660ef6964b054280f))
+
 # [1.0.0-beta.9](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2026-01-27)
 
 
