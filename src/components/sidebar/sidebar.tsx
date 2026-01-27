@@ -6,34 +6,22 @@ import { useSidebar } from "./sidebar-provider"
 export const Sidebar = ({
 	tone = "default",
 	width = 250,
-	collapsible = "offcanvas",
 	className,
 	children,
 	ref,
 	...props
 }: SidebarProps) => {
-	const {
-		open,
-		setOpen,
-		isMobile,
-		collapsible: providerCollapsible,
-	} = useSidebar()
+	const { open, setOpen, isMobile, collapsible } = useSidebar()
 	const sidebarRef = React.useRef<HTMLDivElement>(null)
-
-	const activeCollapsible = providerCollapsible || collapsible
 
 	React.useEffect(() => {
 		const handleOutsideClick = (event: MouseEvent) => {
 			if (
 				sidebarRef.current &&
 				!sidebarRef.current.contains(event.target as Node) &&
-				activeCollapsible !== "none"
+				collapsible !== "none"
 			) {
-				if (
-					(isMobile || activeCollapsible === "offcanvas") &&
-					open &&
-					setOpen
-				) {
+				if ((isMobile || collapsible === "offcanvas") && open && setOpen) {
 					setOpen(false)
 				}
 			}
@@ -44,14 +32,14 @@ export const Sidebar = ({
 		return () => {
 			document.removeEventListener("click", handleOutsideClick)
 		}
-	}, [open, setOpen, isMobile, activeCollapsible])
+	}, [open, setOpen, isMobile, collapsible])
 
 	const getWidthStyle = (): React.CSSProperties => {
-		if (activeCollapsible === "none") {
+		if (collapsible === "none") {
 			return { width: `${width}px` }
 		}
 
-		if (activeCollapsible === "offcanvas") {
+		if (collapsible === "offcanvas") {
 			if (open) {
 				return isMobile ? { width: "33.333333%" } : { width: `${width}px` }
 			} else {
@@ -59,23 +47,27 @@ export const Sidebar = ({
 			}
 		}
 
-		if (activeCollapsible === "icon") {
-			return open ? { width: `${width}px` } : { width: "80px" }
+		if (collapsible === "icon") {
+			if (open) {
+				return isMobile ? { width: `${width}px` } : { width: `${width}px` }
+			} else {
+				return isMobile ? { width: "0px" } : { width: "80px" }
+			}
 		}
 
 		return { width: `${width}px` }
 	}
 
 	const getGapClasses = () => {
-		if (activeCollapsible === "none") {
+		if (collapsible === "none") {
 			return "gap-lg"
 		}
 
-		if (activeCollapsible === "offcanvas") {
+		if (collapsible === "offcanvas") {
 			return open ? "gap-lg" : "gap-sm"
 		}
 
-		if (activeCollapsible === "icon") {
+		if (collapsible === "icon") {
 			return open ? "gap-lg" : "gap-sm"
 		}
 
@@ -83,11 +75,19 @@ export const Sidebar = ({
 	}
 
 	const getPositionClasses = () => {
-		if (activeCollapsible === "offcanvas" && !open && isMobile) {
+		if (
+			(collapsible === "offcanvas" || collapsible === "icon") &&
+			!open &&
+			isMobile
+		) {
 			return "absolute z-50 -translate-x-full"
 		}
 
-		if (activeCollapsible === "offcanvas" && open && isMobile) {
+		if (
+			(collapsible === "offcanvas" || collapsible === "icon") &&
+			open &&
+			isMobile
+		) {
 			return "absolute z-50"
 		}
 
@@ -102,8 +102,8 @@ export const Sidebar = ({
 				tone === "ghost" && "border-none bg-transparent",
 				getGapClasses(),
 				getPositionClasses(),
-				activeCollapsible === "offcanvas" && !open && isMobile && "border-none",
-				activeCollapsible === "offcanvas" && !open && "border-none",
+				collapsible === "offcanvas" && !open && isMobile && "border-none",
+				collapsible === "offcanvas" && !open && "border-none",
 			)}
 			ref={sidebarRef}
 			style={getWidthStyle()}

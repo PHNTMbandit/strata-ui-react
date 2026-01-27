@@ -51,11 +51,6 @@ export default {
 			control: "number",
 			description: "Sets the width of the sidebar when expanded.",
 		},
-		collapsible: {
-			control: "select",
-			options: ["offcanvas", "icon", "none"],
-			description: "Sets the collapsible behavior of the sidebar.",
-		},
 	},
 	parameters: {
 		docs: {
@@ -74,9 +69,6 @@ export default {
 type Story = StoryObj<typeof Sidebar>
 
 export const CollapsibleIcon: Story = {
-	args: {
-		collapsible: "icon",
-	},
 	render: (args) => (
 		<div className="h-[70vh] w-[700px]">
 			<SidebarProvider collapsible="icon">
@@ -178,9 +170,6 @@ export const Ghost: Story = {
 }
 
 export const CollapsibleOffcanvas: Story = {
-	args: {
-		collapsible: "offcanvas",
-	},
 	render: (args) => (
 		<div className="h-[70vh] w-[700px]">
 			<SidebarProvider collapsible="offcanvas">
@@ -225,9 +214,6 @@ export const CollapsibleOffcanvas: Story = {
 }
 
 export const NonCollapsible: Story = {
-	args: {
-		collapsible: "none",
-	},
 	render: (args) => (
 		<div className="h-[70vh] w-[700px]">
 			<SidebarProvider collapsible="none">

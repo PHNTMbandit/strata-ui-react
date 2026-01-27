@@ -846,9 +846,6 @@
   .bg-error-container {
     background-color: var(--color-error-container);
   }
-  .bg-on-accent {
-    background-color: var(--color-on-accent);
-  }
   .bg-on-surface-variant {
     background-color: var(--color-on-surface-variant);
   }
@@ -2121,21 +2118,6 @@
       animation-delay: 0s;
       --tw-animation-delay: calc(0*1ms);
       --tw-animation-delay: 0s;
-    }
-  }
-  .data-indeterminate\:block {
-    &[data-indeterminate] {
-      display: block;
-    }
-  }
-  .data-indeterminate\:hidden {
-    &[data-indeterminate] {
-      display: none;
-    }
-  }
-  .data-indeterminate\:opacity-50 {
-    &[data-indeterminate] {
-      opacity: 50%;
     }
   }
   .data-instant\:transition-none {

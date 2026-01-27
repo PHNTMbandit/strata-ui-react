@@ -1,6 +1,7 @@
 export { NavigationMenu } from "./navigation-menu"
 export type {
 	NavigationMenuContentProps,
+	NavigationMenuIconProps,
 	NavigationMenuItemProps,
 	NavigationMenuLinkProps,
 	NavigationMenuListProps,
@@ -9,6 +10,7 @@ export type {
 	NavigationMenuViewportProps,
 } from "./navigation-menu.types"
 export { NavigationMenuContent } from "./navigation-menu-content"
+export { NavigationMenuIcon } from "./navigation-menu-icon"
 export { NavigationMenuItem } from "./navigation-menu-item"
 export { NavigationMenuLink } from "./navigation-menu-link"
 export { NavigationMenuList } from "./navigation-menu-list"
