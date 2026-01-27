@@ -1,3 +1,10 @@
+# [1.0.0-beta.7](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.6...v1.0.0-beta.7) (2026-01-27)
+
+
+### Features
+
+* **checkbox-group:** add checkbox group component ([213026e](https://github.com/PHNTMbandit/suwa-ui/commit/213026e1595564baa346bf5d5d48c382b466957a))
+
 # [1.0.0-beta.6](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.5...v1.0.0-beta.6) (2026-01-25)
 
 
