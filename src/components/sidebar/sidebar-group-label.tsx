@@ -8,17 +8,22 @@ export const SidebarGroupLabel = ({
 	ref,
 	...props
 }: SidebarGroupLabelProps) => {
-	const { open } = useSidebar()
+	const { open, collapsible } = useSidebar()
 
-	if (!open) {
+	// Show label if sidebar is non-collapsible or when it's open
+	const showLabel = collapsible === "none" || open
+
+	if (!showLabel) {
 		return null
 	}
 
 	return (
 		<span
 			className={cn(
-				"style-text-default--2 slide-in-from-left-2 fade-in-0 fade-in truncate pl-sm text-on-surface-variant uppercase transition-all duration-200 ease-out",
-				open && "animate-in",
+				"style-text-default--2 truncate pl-sm text-on-surface-variant uppercase transition-all duration-200 ease-out",
+				collapsible !== "none" &&
+					open &&
+					"slide-in-from-left-2 fade-in-0 animate-in",
 				className,
 			)}
 			ref={ref}

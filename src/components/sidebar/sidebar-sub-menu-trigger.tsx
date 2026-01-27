@@ -17,14 +17,20 @@ export const SidebarSubMenuTrigger = ({
 	ref,
 	...props
 }: SidebarSubMenuTriggerProps) => {
-	const { open } = useSidebar()
+	const { open, collapsible } = useSidebar()
 
-	if (!open) {
+	// Determine if we should show text based on collapsible type and open state
+	const showText = collapsible === "none" || open
+
+	// Determine size based on collapsible type and open state
+	const triggerSize = showText ? size : "compact"
+
+	if (!showText) {
 		return (
 			<PopoverTrigger
 				className={cn(
 					sidebarSubMenuTriggerVariants({
-						size: open ? size : "compact",
+						size: triggerSize,
 						className,
 					}),
 					"relative",
@@ -49,7 +55,7 @@ export const SidebarSubMenuTrigger = ({
 		<BaseCollapsible.Trigger
 			className={cn(
 				sidebarSubMenuTriggerVariants({
-					size: open ? size : "compact",
+					size: triggerSize,
 					className,
 				}),
 			)}
@@ -63,10 +69,13 @@ export const SidebarSubMenuTrigger = ({
 						weight="bold"
 					/>
 				)}
-				{open && (
+				{showText && (
 					<span
 						className={cn(
-							"style-text-default-0 slide-in-from-left-2 fade-in-0 animate-in transition-all duration-200 ease-out",
+							"style-text-default-0 transition-all duration-200 ease-out",
+							collapsible !== "none" &&
+								open &&
+								"slide-in-from-left-2 fade-in-0 animate-in",
 							size === "compact" && "hidden",
 						)}
 					>
@@ -74,14 +83,26 @@ export const SidebarSubMenuTrigger = ({
 					</span>
 				)}
 			</div>
-			{open && (
-				<div className="slide-in-from-left-2 fade-in-0 animate-in transition-all duration-200 ease-out">
+			{showText && (
+				<div
+					className={cn(
+						"transition-all duration-200 ease-out",
+						collapsible !== "none" &&
+							open &&
+							"slide-in-from-left-2 fade-in-0 animate-in",
+					)}
+				>
 					{children}
 				</div>
 			)}
-			{open && (
+			{showText && (
 				<CaretRightIcon
-					className="slide-in-from-right-2 fade-in-0 size-xs animate-in transition-all duration-300 ease-out group-data-panel-open:rotate-90"
+					className={cn(
+						"size-xs transition-all duration-300 ease-out group-data-panel-open:rotate-90",
+						collapsible !== "none" &&
+							open &&
+							"slide-in-from-right-2 fade-in-0 animate-in",
+					)}
 					weight="bold"
 				/>
 			)}

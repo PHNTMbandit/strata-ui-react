@@ -8,13 +8,16 @@ export const SidebarHeader = ({
 	ref,
 	...props
 }: SidebarHeaderProps) => {
-	const { open } = useSidebar()
+	const { open, collapsible } = useSidebar()
+
+	// Determine if we should show expanded styles
+	const isExpanded = collapsible === "none" || open
 
 	return (
 		<div
 			className={cn(
 				"style-text-strong-2 overflow-hidden truncate transition-all duration-300 ease-in-out",
-				open ? "px-lg" : "max-w-2xl p-sm",
+				isExpanded ? "px-lg" : "max-w-2xl p-sm",
 				className,
 			)}
 			ref={ref}
@@ -22,8 +25,9 @@ export const SidebarHeader = ({
 		>
 			<div
 				className={cn(
-					"animate-in transition-all duration-200 ease-out",
-					open ? "fade-in-0" : "fade-out-0",
+					"transition-all duration-200 ease-out",
+					collapsible !== "none" && "animate-in",
+					isExpanded ? "fade-in-0" : "fade-out-0",
 				)}
 			>
 				{children}

@@ -15,13 +15,17 @@ export const SidebarMenuLink = ({
 	ref,
 	...props
 }: SidebarMenuLinkProps) => {
-	const { open } = useSidebar()
+	const { open, collapsible } = useSidebar()
+
+	// Determine if we should show text based on collapsible type and open state
+	const showText = collapsible === "none" || open
+
+	// Determine size based on collapsible type and open state
+	const linkSize = showText ? size : "compact"
 
 	return (
 		<div
-			className={cn(
-				sidebarMenuLinkVariants({ size: open ? size : "compact", className }),
-			)}
+			className={cn(sidebarMenuLinkVariants({ size: linkSize, className }))}
 			data-active={isActive ? true : undefined}
 			ref={ref}
 			{...props}
@@ -39,10 +43,13 @@ export const SidebarMenuLink = ({
 						weight="fill"
 					/>
 				)}
-				{open && (
+				{showText && (
 					<span
 						className={cn(
-							"style-text-default-0 slide-in-from-left-2 fade-in-0 animate-in transition-all duration-200 ease-out",
+							"style-text-default-0 transition-all duration-200 ease-out",
+							collapsible !== "none" &&
+								open &&
+								"slide-in-from-left-2 fade-in-0 animate-in",
 							size === "compact" && "hidden",
 						)}
 					>
@@ -50,7 +57,7 @@ export const SidebarMenuLink = ({
 					</span>
 				)}
 			</div>
-			{open && children}
+			{showText && children}
 		</div>
 	)
 }

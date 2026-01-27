@@ -9,7 +9,7 @@ export const SidebarGroupContent = ({
 }: SidebarGroupContentProps) => {
 	return (
 		<div
-			className={cn("flex flex-col gap-2xs", className)}
+			className={cn("flex flex-col gap-3xs", className)}
 			ref={ref}
 			{...props}
 		>
