@@ -1,3 +1,10 @@
+# [1.0.0-beta.9](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.8...v1.0.0-beta.9) (2026-01-27)
+
+
+### Bug Fixes
+
+* **sidebar:** sidebar no longer closes on an outside click ([5d111ce](https://github.com/PHNTMbandit/suwa-ui/commit/5d111ce45745d17e2f1a7e84e976a4b1db6fd86e))
+
 # [1.0.0-beta.8](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.7...v1.0.0-beta.8) (2026-01-27)
 
 
