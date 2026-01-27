@@ -19,9 +19,9 @@ export const Sidebar = ({
 			if (
 				sidebarRef.current &&
 				!sidebarRef.current.contains(event.target as Node) &&
-				collapsible !== "none"
+				isMobile
 			) {
-				if ((isMobile || collapsible === "offcanvas") && open && setOpen) {
+				if (open && setOpen) {
 					setOpen(false)
 				}
 			}
@@ -32,7 +32,7 @@ export const Sidebar = ({
 		return () => {
 			document.removeEventListener("click", handleOutsideClick)
 		}
-	}, [open, setOpen, isMobile, collapsible])
+	}, [open, setOpen, isMobile])
 
 	const getWidthStyle = (): React.CSSProperties => {
 		if (collapsible === "none") {
