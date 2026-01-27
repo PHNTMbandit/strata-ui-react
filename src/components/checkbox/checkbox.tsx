@@ -1,5 +1,4 @@
 import { Checkbox as BaseCheckbox } from "@base-ui/react/checkbox"
-import { CheckIcon } from "@phosphor-icons/react"
 import { cn } from "@/utils/cn"
 import { Label } from "../label"
 import type { CheckboxRootProps } from "./checkbox.types"
@@ -25,9 +24,7 @@ export const Checkbox = ({
 				ref={ref}
 				{...props}
 			>
-				<CheckboxIndicator>
-					<CheckIcon weight="bold" />
-				</CheckboxIndicator>
+				<CheckboxIndicator />
 			</BaseCheckbox.Root>
 			{label && (
 				<Label className={cn(disabled && "opacity-50")} htmlFor={props.id}>
