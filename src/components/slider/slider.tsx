@@ -1,102 +1,77 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: Just because */
-"use no memo"
-
-import type { Ranger } from "@tanstack/react-ranger"
-import { useRanger } from "@tanstack/react-ranger"
-import { useRef, useState } from "react"
+import { Slider as BaseSlider } from "@base-ui/react"
 import { cn } from "@/utils/cn"
 import type { SliderProps } from "./slider.types"
-import { SliderHandle } from "./slider-handle"
-import { SliderSegment } from "./slider-segment"
-import { SliderTick } from "./slider-tick"
-import { SliderTickLabel } from "./slider-tick-label"
-import { SliderTrack } from "./slider-track"
+import { SliderThumb } from "./slider-thumb"
 
 export const Slider = ({
+	defaultValue,
+	description,
+	label,
 	leadingIcon: LeadingIcon,
-	trailingIcon: TrailingIcon,
-	min = 0,
 	max = 100,
-	stepSize = 1,
-	defaultValues = [50],
-	showTickLabels = false,
-	label = "",
+	min = 0,
+	showMax = false,
+	showMin = false,
+	trailingIcon: TrailingIcon,
+	value,
 	className,
 	ref,
 	...props
 }: SliderProps) => {
-	const sliderRef = useRef<HTMLDivElement>(null)
-	const [values, setValues] = useState<ReadonlyArray<number>>(
-		defaultValues || [50],
-	)
-
-	const sliderInstance = useRanger<HTMLDivElement>({
-		getRangerElement: () => sliderRef.current,
-		values,
-		min: min ?? 0,
-		max: max ?? 100,
-		stepSize: stepSize ?? 1,
-		onChange: (instance: Ranger<HTMLDivElement>) => {
-			setValues(instance.sortedValues)
-		},
-	})
+	const _values = Array.isArray(value)
+		? value
+		: Array.isArray(defaultValue)
+			? defaultValue
+			: [min, max]
 
 	return (
-		<div className={cn("w-full space-y-2xs", className)} ref={ref} {...props}>
-			{label && (
-				<p className="style-text-default--1 text-on-surface-variant">{label}</p>
-			)}
-			<div className="flex w-full items-center gap-sm">
-				{LeadingIcon && <LeadingIcon className="size-sm" weight="bold" />}
-				<SliderTrack sliderRef={sliderRef}>
-					{showTickLabels &&
-						sliderInstance.getTicks().map(({ value, key, percentage }) => (
-							<SliderTick key={key} percentage={percentage}>
-								<SliderTickLabel>{value}</SliderTickLabel>
-							</SliderTick>
-						))}
-					{sliderInstance.getSteps().map(({ left, width }, index) => (
-						<SliderSegment
-							index={index}
-							key={index}
-							left={left}
-							steps={sliderInstance.getSteps().length}
-							width={width}
+		<div className="flex flex-col gap-xs">
+			{label && <span className="style-text-default-0">{label}</span>}
+			<BaseSlider.Root
+				aria-label={label}
+				aria-valuemax={max}
+				aria-valuemin={min}
+				aria-valuenow={
+					Array.isArray(value) ? value[0] : (value ?? defaultValue ?? min)
+				}
+				className={cn("flex h-xs items-center gap-sm", className)}
+				defaultValue={defaultValue}
+				max={max}
+				min={min}
+				ref={ref}
+				role="slider"
+				value={value}
+				{...props}
+			>
+				{LeadingIcon && (
+					<LeadingIcon className="size-sm shrink-0" weight="fill" />
+				)}
+				{showMin && <span className="style-text-default-0">{min}</span>}
+				<BaseSlider.Control className={"shrink-0 grow hover:cursor-pointer"}>
+					<BaseSlider.Track
+						className={
+							"relative inset-shadow-xs h-2xs rounded-full bg-surface-dim"
+						}
+					>
+						<BaseSlider.Indicator
+							className={"inset-shadow-xs rounded-full bg-secondary"}
 						/>
-					))}
-					{sliderInstance
-						.handles()
-						.map(
-							(
-								{
-									isActive,
-									onKeyDownHandler,
-									onMouseDownHandler,
-									onTouchStart,
-									value,
-								},
-								index,
-							) => (
-								<SliderHandle
-									aria-label={`Slider handle ${index + 1}, value ${value}`}
-									isActive={isActive}
-									key={index}
-									onKeyDownHandler={onKeyDownHandler}
-									onMouseDownHandler={onMouseDownHandler}
-									onTouchStart={onTouchStart}
-									sliderInstance={sliderInstance}
-									value={value}
-								/>
-							),
-						)}
-				</SliderTrack>
-				{TrailingIcon && <TrailingIcon className="size-sm" weight="bold" />}
-				{values.map((value, index) => (
-					<span className="style-text-default-0" key={index}>
-						{value}
-					</span>
-				))}
-			</div>
+						{Array.from({ length: _values.length }, (_, index) => (
+							// biome-ignore lint/suspicious/noArrayIndexKey: For simplicity in this case
+							<SliderThumb index={index} key={index} />
+						))}
+					</BaseSlider.Track>
+				</BaseSlider.Control>
+				{showMax && <span className="style-text-default-0">{max}</span>}
+				{TrailingIcon && (
+					<TrailingIcon className="size-sm shrink-0" weight="fill" />
+				)}
+			</BaseSlider.Root>
+			{description && (
+				<span className="style-text-prose--1 text-on-surface-variant">
+					{description}
+				</span>
+			)}
 		</div>
 	)
 }
