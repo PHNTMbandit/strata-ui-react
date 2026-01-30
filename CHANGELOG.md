@@ -1,3 +1,10 @@
+# [1.0.0-beta.11](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2026-01-30)
+
+
+### Features
+
+* **slider:** revert from tanstack-ranger to base ui ([0e0d67c](https://github.com/PHNTMbandit/suwa-ui/commit/0e0d67cf0fa7c3f115b686985164295a4e76c2e7))
+
 # [1.0.0-beta.10](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.9...v1.0.0-beta.10) (2026-01-27)
 
 
