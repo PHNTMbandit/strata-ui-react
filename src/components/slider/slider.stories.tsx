@@ -15,21 +15,25 @@ export default {
 		},
 	},
 	args: {
-		defaultValues: [50],
 		label: "Volume",
+		description: "Adjust the volume level",
+		defaultValue: 50,
+		step: 1,
 		min: 0,
 		max: 100,
-		showTickLabels: true,
-		stepSize: 1,
+		showMin: false,
+		showMax: false,
 	},
 	argTypes: {
-		defaultValues: {
-			control: false,
+		leadingIcon: {
+			table: {
+				disable: true,
+			},
 		},
-		leadingIcon: { control: false },
-		trailingIcon: { control: false },
-		showTickLabels: {
-			control: "boolean",
+		trailingIcon: {
+			table: {
+				disable: true,
+			},
 		},
 	},
 	render: (args) => (
@@ -48,13 +52,6 @@ export const Default: Story = {
 	args: {
 		leadingIcon: undefined,
 		trailingIcon: undefined,
-		showTickLabels: false,
-	},
-}
-
-export const WithTickLabels: Story = {
-	args: {
-		showTickLabels: true,
 	},
 }
 
@@ -62,6 +59,11 @@ export const WithIcons: Story = {
 	args: {
 		leadingIcon: SpeakerLowIcon,
 		trailingIcon: SpeakerHighIcon,
-		showTickLabels: false,
+	},
+}
+
+export const range: Story = {
+	args: {
+		defaultValue: [20, 80],
 	},
 }
