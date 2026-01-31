@@ -1,6 +1,7 @@
 import { cn } from "@/utils/cn"
+import { useFieldContext } from "../form/form-context"
 import { Input } from "../input"
-import { type FieldInputProps, useFieldContext } from "./form.types"
+import type { FieldInputProps } from "./field.types"
 
 export const FieldInput = ({
 	className,
@@ -9,22 +10,19 @@ export const FieldInput = ({
 	...props
 }: FieldInputProps) => {
 	const field = useFieldContext<string>()
+	const isInvalid =
+		field.state.meta.isTouched &&
+		field.state.meta.errors.length > 0 &&
+		!field.state.meta.isValid
 
 	return (
 		<Input
-			className={cn(
-				field.state.value &&
-					field.getMeta().errors.length > 0 &&
-					"outline-error",
-				field.state.value && field.getMeta().isValid && "outline-success",
-				className,
-			)}
+			aria-invalid={isInvalid}
+			className={cn("", className, isInvalid && "outline-error")}
 			id={field.name}
 			name={field.name}
 			onChange={(e) => field.handleChange(e.target.value)}
 			ref={ref}
-			required
-			type="text"
 			value={field.state.value}
 			{...props}
 		>

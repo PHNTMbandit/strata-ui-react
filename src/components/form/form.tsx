@@ -1,19 +1,11 @@
-import { createFormHook } from "@tanstack/react-form"
-import { FieldErrors } from "./field-errors"
-import { FieldInput } from "./field-input"
-import { fieldContext, formContext } from "./form.types"
-import { FormErrors } from "./form-errors"
-import { FormSubmit } from "./form-submit"
+import { withForm } from "./form-context"
 
-export const Form = createFormHook({
-	fieldComponents: {
-		FieldErrors,
-		FieldInput,
+export const Form = withForm({
+	render: function Render({ form, children }) {
+		return (
+			<form action={form.handleSubmit}>
+				<form.AppForm>{children}</form.AppForm>
+			</form>
+		)
 	},
-	formComponents: {
-		FormErrors,
-		FormSubmit,
-	},
-	fieldContext,
-	formContext,
 })
