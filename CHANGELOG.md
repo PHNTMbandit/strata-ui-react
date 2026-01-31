@@ -1,3 +1,15 @@
+# [1.0.0-beta.12](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2026-01-31)
+
+
+### Bug Fixes
+
+* fix field and form exports ([b289fc2](https://github.com/PHNTMbandit/suwa-ui/commit/b289fc2ae03da4cd31bc27537ee246dd6a8b725e))
+
+
+### Features
+
+* add field slider ([abea7fc](https://github.com/PHNTMbandit/suwa-ui/commit/abea7fc05c6eebc403edeb5f383bfc9ac436e242))
+
 # [1.0.0-beta.11](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.10...v1.0.0-beta.11) (2026-01-30)
 
 
