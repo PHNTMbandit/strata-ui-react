@@ -1,30 +1,21 @@
 import { Tabs as SwitchTabs } from "@base-ui/react/tabs"
-import { useState } from "react"
 import { cn } from "@/utils/cn"
-import { TabsOrientationContext, type TabsProps } from "./tabs.types"
+import { type TabsProps, tabsVariants } from "./tabs.types"
 
-export const Tabs = ({ className, ref, ...props }: TabsProps) => {
-	const [orientation, _setOrientation] = useState<"horizontal" | "vertical">(
-		props.orientation ?? "horizontal",
-	)
-
-	props.orientation = orientation
-	if (props.orientation === "vertical") {
-		return (
-			<TabsOrientationContext.Provider value={props.orientation}>
-				<SwitchTabs.Root
-					className={cn("flex gap-xs overflow-clip", className)}
-					ref={ref}
-					{...props}
-				/>
-			</TabsOrientationContext.Provider>
-		)
-	}
-
+export const Tabs = ({
+	style,
+	size,
+	orientation,
+	shape,
+	fill,
+	className,
+	ref,
+	...props
+}: TabsProps) => {
 	return (
 		<SwitchTabs.Root
 			className={cn(
-				"flex flex-col items-center gap-xs overflow-auto",
+				tabsVariants({ style, size, orientation, shape, fill }),
 				className,
 			)}
 			ref={ref}
