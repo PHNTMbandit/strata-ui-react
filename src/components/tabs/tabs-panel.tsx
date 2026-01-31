@@ -1,17 +1,12 @@
 import { Tabs as SwitchTabs } from "@base-ui/react/tabs"
-import { useContext } from "react"
 import { cn } from "@/utils/cn"
-import { TabsOrientationContext, type TabsPanelProps } from "./tabs.types"
+import type { TabsPanelProps } from "./tabs.types"
 
 export const TabsPanel = ({ className, ...props }: TabsPanelProps) => {
-	const orientation = useContext(TabsOrientationContext)
-
 	return (
 		<SwitchTabs.Panel
 			className={cn(
-				"relative rounded-xl bg-surface-neutral-primary-default",
-				orientation === "vertical" ? "h-full min-h-0 flex-1" : "grow",
-				"flex items-center justify-start overflow-auto p-4",
+				"relative inset-shadow-sm flex grow items-center justify-start overflow-auto rounded-md bg-surface-dim p-4 p-md",
 				className,
 			)}
 			{...props}
