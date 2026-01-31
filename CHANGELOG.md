@@ -1,3 +1,10 @@
+# [1.0.0-beta.13](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.12...v1.0.0-beta.13) (2026-01-31)
+
+
+### Features
+
+* redesign tab component ([b558aa5](https://github.com/PHNTMbandit/suwa-ui/commit/b558aa5e6dbeed0b6eabf4607aebf43f33959abc))
+
 # [1.0.0-beta.12](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.11...v1.0.0-beta.12) (2026-01-31)
 
 
