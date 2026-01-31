@@ -1,28 +1,32 @@
 import { cn } from "@/utils/cn"
 import { Button } from "../button"
-import type { FormSubmitProps } from "./form.types"
+import type { FormResetProps } from "./form.types"
 import { useFormContext } from "./form-context"
 
-export const FormSubmit = ({
-	submittingText = "Submitting...",
+export const FormReset = ({
 	className,
 	children,
 	ref,
 	...props
-}: FormSubmitProps) => {
+}: FormResetProps) => {
 	const form = useFormContext()
+
+	const handleClick = () => {
+		form.reset()
+	}
 
 	return (
 		<form.Subscribe selector={(state) => state}>
 			{(state) => (
 				<Button
 					className={cn("", className)}
-					disabled={state.isSubmitting || !state.canSubmit}
+					disabled={!state.values}
+					onClick={handleClick}
 					ref={ref}
-					type="submit"
+					type="reset"
 					{...props}
 				>
-					{state.isSubmitting ? submittingText : children}
+					{children}
 				</Button>
 			)}
 		</form.Subscribe>

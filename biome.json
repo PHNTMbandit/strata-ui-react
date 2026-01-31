@@ -19,6 +19,9 @@
 			"recommended": true,
 			"nursery": {
 				"useSortedClasses": "on"
+			},
+			"correctness": {
+				"noChildrenProp": "off"
 			}
 		}
 	},

@@ -1,14 +1,8 @@
-import { createFormHookContexts } from "@tanstack/react-form"
-import type { ComponentProps } from "react"
-import type { ButtonExtendedProps } from "../button"
-import type { InputProps } from "../input"
+import type { Button } from "../button"
 
-export const { fieldContext, useFieldContext, formContext, useFormContext } =
-	createFormHookContexts()
-
-export type FieldInputProps = InputProps
-export type FieldErrorsProps = ComponentProps<"div">
-export type FormErrorsProps = ComponentProps<"div">
-export type FieldSubmitButtonProps = ButtonExtendedProps & {
+export type FormProps = React.ComponentProps<"form">
+export type FormErrorsProps = React.ComponentProps<"div">
+export type FormResetProps = React.ComponentProps<typeof Button>
+export type FormSubmitProps = React.ComponentProps<typeof Button> & {
 	submittingText?: string
 }
