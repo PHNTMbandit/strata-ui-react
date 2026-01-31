@@ -1,6 +1,5 @@
 import { cn } from "@/utils/cn"
-
-type FieldDescriptionProps = React.ComponentProps<"p">
+import type { FieldDescriptionProps } from "./field.types"
 
 export const FieldDescription = ({
 	className,

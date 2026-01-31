@@ -1,11 +1,9 @@
 /** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
 /** biome-ignore-all lint/suspicious/noExplicitAny: <explanation> */
 
-import type * as React from "react"
 import { cn } from "@/utils/cn"
+import type { FormErrorsProps } from "./form.types"
 import { useFormContext } from "./form-context"
-
-type FormErrorsProps = React.ComponentProps<"div">
 
 export const FormErrors = ({
 	className,
