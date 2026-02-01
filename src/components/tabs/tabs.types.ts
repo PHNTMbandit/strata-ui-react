@@ -8,12 +8,11 @@ export type TabsIndicatorProps = ComponentProps<typeof BaseTabs.Indicator>
 export type TabsListProps = ComponentProps<typeof BaseTabs.List>
 
 export const tabsVariants = cva(
-	"space-y-2xs gap-2xs rounded-md bg-surface-bright p-2xs inset-shadow-raised-sm shadow-sm",
+	"space-y-2xs gap-2xs rounded-md bg-surface-container-mid p-2xs inset-shadow-raised-sm shadow-sm",
 	{
 		variants: {
 			style: {
-				default:
-					"[&_[role=tablist]]:bg-surface-dim [&_[role=tablist]]:overflow-hidden",
+				default: "[&_[role=tablist]]:overflow-hidden",
 				minimal: "",
 				underline: "",
 			},
