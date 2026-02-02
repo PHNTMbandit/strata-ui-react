@@ -16,8 +16,10 @@ export const FormSubmit = ({
 		<form.Subscribe selector={(state) => state}>
 			{(state) => (
 				<Button
-					className={cn("", className)}
-					disabled={state.isSubmitting || !state.canSubmit}
+					className={cn("w-full", className)}
+					disabled={
+						state.isSubmitting || !state.canSubmit || form.state.isPristine
+					}
 					ref={ref}
 					type="submit"
 					{...props}

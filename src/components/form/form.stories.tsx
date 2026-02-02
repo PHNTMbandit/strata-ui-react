@@ -1,6 +1,7 @@
-import { UserIcon } from "@phosphor-icons/react"
+import { PasswordIcon, UserIcon } from "@phosphor-icons/react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { z } from "zod"
+import { Field } from "../field"
 import { Form } from "./form"
 import { useAppForm } from "./form-context"
 
@@ -19,27 +20,42 @@ export default {
 
 type Story = StoryObj<typeof Form>
 
-export const Input: Story = {
+export const FieldInput: Story = {
 	render: () => {
-		const schema = z.object({
-			firstName: z.string().min(2, "First name must be at least 2 characters"),
-			lastName: z.string().min(2, "Last name must be at least 2 characters"),
-		})
+		const schema = z
+			.object({
+				firstName: z
+					.string()
+					.min(2, "First name must be at least 2 characters"),
+				lastName: z.string().min(2, "Last name must be at least 2 characters"),
+				password: z.string().min(6, "Password must be at least 6 characters"),
+				confirmPassword: z
+					.string()
+					.min(6, "Confirm Password must be at least 6 characters"),
+			})
+			.superRefine(({ password, confirmPassword }, ctx) => {
+				if (confirmPassword !== password) {
+					ctx.addIssue({
+						code: "custom",
+						message: "Passwords do not match",
+						path: ["confirmPassword"],
+					})
+				}
+			})
 
 		const form = useAppForm({
 			defaultValues: {
 				firstName: "",
 				lastName: "",
+				password: "",
+				confirmPassword: "",
 			},
 			validators: {
 				onSubmit: schema,
 			},
-			onSubmit: async (values) => {
-				return new Promise<void>((resolve) => {
+			onSubmit: async () => {
+				await new Promise<void>((resolve) => {
 					setTimeout(() => {
-						alert(
-							`Form submitted successfully!\n\n${values.value.firstName} ${values.value.lastName}`,
-						)
 						resolve()
 					}, 2000)
 				})
@@ -50,37 +66,79 @@ export const Input: Story = {
 			<Form form={form as any}>
 				<form.AppField
 					children={(field) => (
-						<div>
+						<Field>
 							<field.FieldLabel />
 							<field.FieldInput
 								leadingIcon={UserIcon}
 								placeholder="First Name"
 							/>
+							<field.FieldErrors />
 							<field.FieldDescription>
 								Please enter your first name.
 							</field.FieldDescription>
-							<field.FieldError />
-						</div>
+						</Field>
 					)}
 					name="firstName"
 				/>
 				<form.AppField
 					children={(field) => (
-						<div>
+						<Field>
 							<field.FieldLabel />
 							<field.FieldInput
 								leadingIcon={UserIcon}
-								placeholder="First Name"
+								placeholder="Last Name"
 							/>
+							<field.FieldErrors />
 							<field.FieldDescription>
 								Please enter your last name.
 							</field.FieldDescription>
-							<field.FieldError />
-						</div>
+						</Field>
 					)}
 					name="lastName"
 				/>
-				<form.FormErrors />
+				<form.AppField name="password">
+					{(field) => (
+						<Field>
+							<field.FieldLabel />
+							<field.FieldInput
+								leadingIcon={PasswordIcon}
+								placeholder="Password"
+								type="password"
+							/>
+							<field.FieldErrors />
+							<field.FieldDescription>
+								Your password must be at least 6 characters.
+							</field.FieldDescription>
+						</Field>
+					)}
+				</form.AppField>
+				<form.AppField
+					name="confirmPassword"
+					validators={{
+						onChangeListenTo: ["password"],
+						onChange: ({ value, fieldApi }) => {
+							const password = fieldApi.form.getFieldValue("password")
+							if (value && value !== password) {
+								return new Error("Passwords do not match")
+							}
+						},
+					}}
+				>
+					{(field) => (
+						<Field>
+							<field.FieldLabel />
+							<field.FieldInput
+								leadingIcon={PasswordIcon}
+								placeholder="Confirm Password"
+								type="password"
+							/>
+							<field.FieldErrors />
+							<field.FieldDescription>
+								Please confirm your password.
+							</field.FieldDescription>
+						</Field>
+					)}
+				</form.AppField>
 				<form.FormReset style="ghost" tone="error">
 					Reset
 				</form.FormReset>
@@ -90,48 +148,60 @@ export const Input: Story = {
 	},
 }
 
-export const Slider: Story = {
+export const SubmitError: Story = {
 	render: () => {
 		const schema = z.object({
-			age: z.number().min(0).max(120),
+			username: z.string().min(2, "Username must be at least 2 characters"),
+			password: z.string().min(6, "Password must be at least 6 characters"),
 		})
 
 		const form = useAppForm({
 			defaultValues: {
-				age: 0,
+				username: "",
+				password: "",
 			},
 			validators: {
 				onSubmit: schema,
-			},
-			onSubmit: async (values) => {
-				return new Promise<void>((resolve) => {
-					setTimeout(() => {
-						alert(
-							`Form submitted successfully!\n\n${values.value.age} years old`,
-						)
-						resolve()
-					}, 2000)
-				})
+				onSubmitAsync: async () => {
+					await new Promise<void>((resolve) => {
+						setTimeout(() => {
+							resolve()
+						}, 1000)
+					})
+
+					return {
+						form: "Invalid username or password",
+					}
+				},
 			},
 		})
 
 		return (
 			<Form form={form as any}>
-				<form.AppField
-					children={(field) => (
-						<div>
-							<field.FieldLabel />
-							<field.FieldSlider leadingIcon={UserIcon} max={120} min={0} />
-							<field.FieldDescription>
-								Please enter your age.
-							</field.FieldDescription>
-							<field.FieldError />
-						</div>
-					)}
-					name="age"
-				/>
-
 				<form.FormErrors />
+				<form.AppField name="username">
+					{(field) => (
+						<Field>
+							<field.FieldLabel />
+							<field.FieldInput leadingIcon={UserIcon} placeholder="Username" />
+							<field.FieldErrors />
+						</Field>
+					)}
+				</form.AppField>
+
+				<form.AppField name="password">
+					{(field) => (
+						<Field>
+							<field.FieldLabel />
+							<field.FieldInput
+								leadingIcon={PasswordIcon}
+								placeholder="Password"
+								type="password"
+							/>
+							<field.FieldErrors />
+						</Field>
+					)}
+				</form.AppField>
 				<form.FormReset style="ghost" tone="error">
 					Reset
 				</form.FormReset>

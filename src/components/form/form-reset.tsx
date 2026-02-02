@@ -19,7 +19,7 @@ export const FormReset = ({
 		<form.Subscribe selector={(state) => state}>
 			{(state) => (
 				<Button
-					className={cn("", className)}
+					className={cn("w-full", className)}
 					disabled={!state.values}
 					onClick={handleClick}
 					ref={ref}

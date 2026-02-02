@@ -1,11 +1,12 @@
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
-/** biome-ignore-all lint/suspicious/noExplicitAny: <explanation> */
-
+import { XCircleIcon } from "@phosphor-icons/react"
 import { cn } from "@/utils/cn"
+import { Alert, AlertDescription } from "../alert"
+import { AlertHeader } from "../alert/alert-header"
 import type { FormErrorsProps } from "./form.types"
 import { useFormContext } from "./form-context"
 
 export const FormErrors = ({
+	headerLabel,
 	className,
 	children,
 	ref,
@@ -16,34 +17,24 @@ export const FormErrors = ({
 	return (
 		<form.Subscribe selector={(state) => [state.errorMap]}>
 			{([errorMap]) => {
-				const errors: string[] = []
-				const onSubmit = errorMap.onSubmit
-				if (onSubmit) {
-					if (typeof onSubmit === "string") {
-						errors.push(onSubmit)
-					} else if (Array.isArray(onSubmit)) {
-						errors.push(
-							...onSubmit.map((err: any) => err.message ?? String(err)),
-						)
-					} else if (typeof onSubmit === "object" && onSubmit !== null) {
-						Object.values(onSubmit)
-							.flat()
-							.forEach((err: any) => {
-								errors.push(err.message ?? String(err))
-							})
-					} else {
-						errors.push(String(onSubmit))
-					}
-				}
-				return errors.length > 0 ? (
-					<div className={cn("", className)} ref={ref} {...props}>
-						<ul style={{ margin: 0, paddingLeft: 20 }}>
-							{errors.map((err, i) => (
-								<li key={i}>{err}</li>
-							))}
-						</ul>
-					</div>
-				) : null
+				const error = errorMap.onSubmit
+				const errorMessage =
+					typeof error === "object" && "form" in error ? error.form : null
+
+				if (!error || !errorMessage) return null
+
+				return (
+					<Alert className={cn("", className)} ref={ref} {...props}>
+						{headerLabel && (
+							<AlertHeader>
+								<XCircleIcon weight="fill" />
+								Error
+							</AlertHeader>
+						)}
+						<AlertDescription>{errorMessage}</AlertDescription>
+						{children}
+					</Alert>
+				)
 			}}
 		</form.Subscribe>
 	)
