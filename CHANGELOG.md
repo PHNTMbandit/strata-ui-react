@@ -1,3 +1,10 @@
+# [1.0.0-beta.14](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.13...v1.0.0-beta.14) (2026-02-02)
+
+
+### Features
+
+* add alert and form errors ([41df109](https://github.com/PHNTMbandit/suwa-ui/commit/41df10936f374562e844b9fb74ccc217216e45c9))
+
 # [1.0.0-beta.13](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.12...v1.0.0-beta.13) (2026-01-31)
 
 
