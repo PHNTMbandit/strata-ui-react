@@ -63,7 +63,7 @@ export const FieldInput: Story = {
 		})
 
 		return (
-			<Form form={form as any}>
+			<Form action={form.handleSubmit}>
 				<form.AppField
 					children={(field) => (
 						<Field>
@@ -177,7 +177,7 @@ export const SubmitError: Story = {
 		})
 
 		return (
-			<Form form={form as any}>
+			<Form action={form.handleSubmit}>
 				<form.FormErrors />
 				<form.AppField name="username">
 					{(field) => (
