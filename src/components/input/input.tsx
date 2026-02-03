@@ -13,7 +13,7 @@ export const Input = ({
 		<div
 			aria-disabled={props.disabled}
 			className={cn(
-				"group style-text-default-0 inset-shadow-sm flex h-xl w-full items-center gap-xs rounded-xl bg-surface-dim py-sm pr-xs pl-md outline-2 outline-transparent transition-all focus-within:caret-primary focus-within:outline-primary hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent",
+				"group style-text-prose-0 flex h-xl w-full items-center gap-xs rounded-full bg-surface-container-mid py-sm pr-xs pl-md outline-2 outline-transparent transition-all focus-within:caret-primary focus-within:outline-primary hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent",
 				className,
 			)}
 			data-disabled={props.disabled}

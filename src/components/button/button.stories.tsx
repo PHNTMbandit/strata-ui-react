@@ -27,7 +27,6 @@ export default {
 			options: [
 				"primary",
 				"secondary",
-				"accent",
 				"neutral",
 				"error",
 				"success",
@@ -57,12 +56,6 @@ export const Primary: Story = {
 export const Secondary: Story = {
 	args: {
 		tone: "secondary",
-	},
-}
-
-export const Accent: Story = {
-	args: {
-		tone: "accent",
 	},
 }
 

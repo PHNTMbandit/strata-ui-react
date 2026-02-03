@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority"
 import type { ComponentProps } from "react"
 
 export const buttonVariants = cva(
-	"inline-flex items-center justify-center whitespace-nowrap rounded-full select-none transition-all disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
 	{
 		variants: {
 			tone: {
@@ -22,12 +22,15 @@ export const buttonVariants = cva(
 				ghost: "",
 			},
 			size: {
-				large: "h-2xl px-lg style-text-default-1 gap-xs [&>svg]:size-md",
-				medium: "h-xl px-md style-text-default-0 gap-2xs [&>svg]:size-sm",
-				small: "h-lg px-sm style-text-default--1 gap-3xs [&>svg]:size-xs",
-				iconLarge: "size-2xl p-0 [&>svg]:size-md",
-				iconMedium: "size-xl p-0 [&>svg]:size-sm",
-				iconSmall: "size-lg p-0 [&>svg]:size-xs",
+				large:
+					"h-2xl px-lg style-text-default-1 gap-xs [&>svg]:size-md rounded-2xl",
+				medium:
+					"h-xl px-md style-text-default-0 gap-2xs [&>svg]:size-sm rounded-xl",
+				small:
+					"h-lg px-sm style-text-default--1 gap-3xs [&>svg]:size-xs rounded-lg",
+				iconLarge: "size-2xl p-0 [&>svg]:size-md rounded-2xl",
+				iconMedium: "size-xl p-0 [&>svg]:size-sm rounded-xl",
+				iconSmall: "size-lg p-0 [&>svg]:size-xs rounded-lg",
 			},
 		},
 		defaultVariants: {
@@ -90,7 +93,8 @@ export const buttonVariants = cva(
 			{
 				tone: "primary",
 				style: "solid",
-				className: "bg-primary text-on-primary active:text-on-primary/70",
+				className:
+					"bg-primary text-on-primary active:text-on-primary/70 active:bg-primary-variant",
 			},
 			{
 				tone: "primary",
@@ -106,7 +110,8 @@ export const buttonVariants = cva(
 			{
 				tone: "secondary",
 				style: "solid",
-				className: "bg-secondary text-on-secondary active:text-on-secondary/70",
+				className:
+					"bg-secondary text-on-secondary active:text-on-secondary/70 active:bg-secondary-variant",
 			},
 			{
 				tone: "secondary",
@@ -122,7 +127,8 @@ export const buttonVariants = cva(
 			{
 				tone: "accent",
 				style: "solid",
-				className: "bg-accent text-on-accent active:text-on-accent/70",
+				className:
+					"bg-accent text-on-accent active:text-on-accent/70 active:bg-accent-variant",
 			},
 			{
 				tone: "accent",
@@ -139,7 +145,7 @@ export const buttonVariants = cva(
 				tone: "neutral",
 				style: "solid",
 				className:
-					"bg-surface-container text-on-surface active:text-on-surface/70",
+					"bg-surface-bright text-on-surface active:text-on-surface/70 active:bg-surface-dim",
 			},
 			{
 				tone: "neutral",
@@ -155,7 +161,8 @@ export const buttonVariants = cva(
 			{
 				tone: "error",
 				style: "solid",
-				className: "bg-error text-on-error active:text-on-error/70",
+				className:
+					"bg-error text-on-error active:text-on-error/70 active:bg-error-variant",
 			},
 			{
 				tone: "error",
@@ -171,7 +178,8 @@ export const buttonVariants = cva(
 			{
 				tone: "success",
 				style: "solid",
-				className: "bg-success text-on-success active:text-on-success/70",
+				className:
+					"bg-success text-on-success active:text-on-success/70 active:bg-success-variant",
 			},
 			{
 				tone: "success",
@@ -187,7 +195,8 @@ export const buttonVariants = cva(
 			{
 				tone: "warning",
 				style: "solid",
-				className: "bg-warning text-on-warning active:text-on-warning/70",
+				className:
+					"bg-warning text-on-warning active:text-on-warning/70 active:bg-warning-variant",
 			},
 			{
 				tone: "warning",

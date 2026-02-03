@@ -6,7 +6,7 @@ export const TabsTab = ({ className, ...props }: TabsTabProps) => {
 	return (
 		<SwitchTabs.Tab
 			className={cn(
-				"inline-flex select-none items-center justify-center whitespace-nowrap break-keep rounded-full text-center text-on-surface outline-none transition-colors duration-300 hover:cursor-pointer hover:text-secondary focus-visible:relative focus-visible:before:absolute focus-visible:before:outline data-active:text-on-secondary",
+				"inline-flex select-none items-center justify-center whitespace-nowrap break-keep rounded-full text-center text-on-surface outline-none transition-colors duration-300 hover:cursor-pointer hover:text-primary focus-visible:relative focus-visible:before:absolute focus-visible:before:outline data-active:text-on-primary",
 				className,
 			)}
 			{...props}

@@ -58,22 +58,7 @@ export const Secondary: Story = {
 		</Accordion>
 	),
 }
-export const Accent: Story = {
-	render: (args) => (
-		<Accordion {...args} className={"w-[500px]"}>
-			<AccordionItem tone="accent">
-				<AccordionTrigger
-					icon={InfoIcon}
-					subtitle={"This is the subtitle"}
-					title={"Accent Accordion"}
-				/>
-				<AccordionPanel heading={"Accordion Panel Heading"}>
-					<p>This is the content for the accent accordion panel.</p>
-				</AccordionPanel>
-			</AccordionItem>
-		</Accordion>
-	),
-}
+
 export const Neutral: Story = {
 	render: (args) => (
 		<Accordion {...args} className={"w-[500px]"}>

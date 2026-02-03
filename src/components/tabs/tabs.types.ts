@@ -8,21 +8,20 @@ export type TabsIndicatorProps = ComponentProps<typeof BaseTabs.Indicator>
 export type TabsListProps = ComponentProps<typeof BaseTabs.List>
 
 export const tabsVariants = cva(
-	"space-y-2xs gap-2xs rounded-md bg-surface-container-mid p-2xs inset-shadow-raised-sm shadow-sm",
+	"space-y-2xs gap-2xs rounded-md bg-surface-container-mid p-2xs shadow-sm overflow-hidden",
 	{
 		variants: {
 			style: {
-				default: "[&_[role=tablist]]:overflow-hidden",
-				minimal: "",
+				default: "",
 				underline: "",
 			},
 			size: {
 				small:
-					"[&_[role=tab]]:style-text-default--1 [&_[role=tab]]:h-lg [&_[role=presentation]]:h-lg [&_[role=presentation]]:inset-shadow-raised-sm [&_[role=presentation]]:shadow-sm [&_[role=tab]]:px-sm [&_[role=tab]]:gap-2xs [&_[role=tablist]]:gap-2xs",
+					"[&_[role=tab]]:style-text-default--1 [&_[role=tab]]:h-lg [&_[role=presentation]]:h-lg [&_ [&_[role=tab]]:px-sm [&_[role=tab]]:gap-2xs [&_[role=tablist]]:gap-2xs",
 				medium:
-					"[&_[role=tab]]:style-text-default-0 [&_[role=tab]]:h-xl [&_[role=presentation]]:h-xl [&_[role=presentation]]:inset-shadow-raised-md [&_[role=presentation]]:shadow-md [&_[role=tab]]:px-md [&_[role=tab]]:gap-xs [&_[role=tablist]]:gap-xs",
+					"[&_[role=tab]]:style-text-default-0 [&_[role=tab]]:h-xl [&_[role=presentation]]:h-xl [&_ [&_[role=tab]]:px-md [&_[role=tab]]:gap-xs [&_[role=tablist]]:gap-xs",
 				large:
-					"[&_[role=tab]]:style-text-default-1 [&_[role=tab]]:h-2xl [&_[role=presentation]]:h-2xl [&_[role=presentation]]:inset-shadow-raised-lg [&_[role=presentation]]:shadow-lg [&_[role=tab]]:px-lg [&_[role=tab]]:gap-sm [&_[role=tablist]]:gap-sm",
+					"[&_[role=tab]]:style-text-default-1 [&_[role=tab]]:h-2xl [&_[role=presentation]]:h-2xl [&_ [&_[role=tab]]:px-lg [&_[role=tab]]:gap-sm [&_[role=tablist]]:gap-sm",
 			},
 			orientation: {
 				horizontal: "",
@@ -39,31 +38,13 @@ export const tabsVariants = cva(
 			},
 		},
 		defaultVariants: {
-			style: "minimal",
+			style: "default",
 			size: "small",
 			orientation: "horizontal",
 			shape: "rounded",
 			fill: false,
 		},
 		compoundVariants: [
-			{
-				size: "small",
-				style: "default",
-				className:
-					"[&_[role=tab]]:m-xs [&_[role=tablist]]:inset-shadow-sm [&_[role=tablist]]:gap-xs",
-			},
-			{
-				size: "medium",
-				style: "default",
-				className:
-					"[&_[role=tab]]:m-sm [&_[role=tablist]]:inset-shadow-md [&_[role=tablist]]:gap-sm",
-			},
-			{
-				size: "large",
-				style: "default",
-				className:
-					"[&_[role=tab]]:m-md [&_[role=tablist]]:inset-shadow-lg [&_[role=tablist]]:gap-md",
-			},
 			{
 				size: "small",
 				shape: "rounded",
@@ -89,6 +70,6 @@ export const tabsVariants = cva(
 export interface TabsProps
 	extends Omit<ComponentProps<typeof BaseTabs.Root>, "style" | "orientation">,
 		VariantProps<typeof tabsVariants> {
-	style?: "default" | "minimal" | "underline"
+	style?: "default" | "underline"
 	orientation?: "horizontal" | "vertical"
 }

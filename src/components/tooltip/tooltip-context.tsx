@@ -11,13 +11,16 @@ export const TooltipContent = ({
 }: TooltipContentProps) => {
 	return (
 		<BaseTooltip.Portal>
-			<BaseTooltip.Positioner alignOffset={alignOffset} sideOffset={sideOffset}>
+			<BaseTooltip.Positioner
+				alignOffset={alignOffset}
+				className={cn("", className)}
+				sideOffset={sideOffset}
+				{...props}
+			>
 				<BaseTooltip.Popup
-					className={cn(
-						"fade-in-0 zoom-in-95 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 style-text-default--1 inset-shadow-raised-xs z-50 w-fit origin-(--transform-origin) animate-in text-balance rounded-md bg-surface-container-high px-xs py-3xs shadow-xs data-[state=closed]:animate-out",
-						className,
-					)}
-					{...props}
+					className={
+						"fade-in-0 zoom-in-95 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 style-text-default--1 inset-shadow-raised-xs z-50 w-fit origin-(--transform-origin) animate-in text-balance rounded-md bg-surface-container-high px-xs py-3xs shadow-xs data-[state=closed]:animate-out"
+					}
 				>
 					{/* <BaseTooltip.Arrow className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=top]:bottom-[-8px] data-[side=right]:left-[-13px] data-[side=left]:rotate-90 data-[side=right]:-rotate-90 data-[side=top]:rotate-180">
 						<CaretUpIcon
