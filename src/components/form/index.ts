@@ -8,8 +8,12 @@ export type {
 export {
 	fieldContext,
 	formContext,
+	useAppForm,
 	useFieldContext,
 	useFormContext,
+	useTypedAppFormContext,
+	withFieldGroup,
+	withForm,
 } from "./form-context"
 export { FormErrors } from "./form-errors"
 export { FormReset } from "./form-reset"
