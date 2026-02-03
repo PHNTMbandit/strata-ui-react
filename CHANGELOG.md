@@ -1,3 +1,10 @@
+# [1.0.0-beta.16](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2026-02-03)
+
+
+### Bug Fixes
+
+* missing form exports ([e5783b7](https://github.com/PHNTMbandit/suwa-ui/commit/e5783b7205892aa7cc56ef03c0c9f64cdde8a6a3))
+
 # [1.0.0-beta.15](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2026-02-03)
 
 
