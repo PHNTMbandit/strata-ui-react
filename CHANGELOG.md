@@ -1,3 +1,10 @@
+# [1.0.0-beta.15](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.14...v1.0.0-beta.15) (2026-02-03)
+
+
+### Features
+
+* import new colours ([29b7f0a](https://github.com/PHNTMbandit/suwa-ui/commit/29b7f0a57db7e242119c85a8e30d22f69e90c6ce))
+
 # [1.0.0-beta.14](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.13...v1.0.0-beta.14) (2026-02-02)
 
 
