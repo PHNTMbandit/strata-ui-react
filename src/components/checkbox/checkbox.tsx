@@ -16,7 +16,7 @@ export const Checkbox = ({
 			<BaseCheckbox.Root
 				aria-label={label || props["aria-label"]}
 				className={cn(
-					"group inset-shadow-xs flex size-md items-center justify-center rounded-sm bg-surface-dim text-on-accent outline-2 outline-accent/0 outline-offset-1 transition-colors hover:cursor-pointer not-disabled:hover:outline-accent hover:disabled:cursor-not-allowed data-checked:inset-shadow-raised-xs data-checked:bg-accent",
+					"group inset-shadow-xs flex size-md items-center justify-center rounded-sm bg-surface-dim text-on-primary outline-2 outline-primary/0 outline-offset-1 transition-colors hover:cursor-pointer not-disabled:hover:outline-primary hover:disabled:cursor-not-allowed data-checked:inset-shadow-raised-xs data-checked:bg-primary",
 					className,
 				)}
 				disabled={disabled}

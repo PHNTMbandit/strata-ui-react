@@ -1,3 +1,4 @@
+import { PlusIcon } from "@phosphor-icons/react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Badge } from "./badge"
 
@@ -15,8 +16,7 @@ export default {
 	},
 	args: {
 		children: "Badge",
-		radius: "rounded",
-		style: "solid",
+		style: "light",
 		tone: "primary",
 	},
 	argTypes: {
@@ -25,9 +25,7 @@ export default {
 			options: [
 				"primary",
 				"secondary",
-				"accent",
 				"neutral",
-				"neutralVariant",
 				"error",
 				"success",
 				"warning",
@@ -35,13 +33,15 @@ export default {
 		},
 		style: {
 			control: "radio",
-			options: ["solid", "outline"],
-		},
-		radius: {
-			control: "radio",
-			options: ["rounded", "circle"],
+			options: ["light", "solid", "outline"],
 		},
 	},
+	render: (args) => (
+		<Badge {...args}>
+			<PlusIcon weight="bold" />
+			Badge
+		</Badge>
+	),
 } satisfies Meta<typeof Badge>
 
 type Story = StoryObj<typeof Badge>
@@ -58,21 +58,9 @@ export const Secondary: Story = {
 	},
 }
 
-export const Accent: Story = {
-	args: {
-		tone: "accent",
-	},
-}
-
 export const Neutral: Story = {
 	args: {
 		tone: "neutral",
-	},
-}
-
-export const NeutralVariant: Story = {
-	args: {
-		tone: "neutralVariant",
 	},
 }
 
@@ -95,6 +83,12 @@ export const Warning: Story = {
 	},
 }
 
+export const Light: Story = {
+	args: {
+		style: "light",
+	},
+}
+
 export const Solid: Story = {
 	args: {
 		style: "solid",
@@ -104,17 +98,5 @@ export const Solid: Story = {
 export const Outline: Story = {
 	args: {
 		style: "outline",
-	},
-}
-
-export const Rounded: Story = {
-	args: {
-		radius: "rounded",
-	},
-}
-
-export const Circle: Story = {
-	args: {
-		radius: "circle",
 	},
 }

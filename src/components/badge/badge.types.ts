@@ -3,35 +3,34 @@ import { cva } from "class-variance-authority"
 import type { ComponentProps } from "react"
 
 export const badgeVariants = cva(
-	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all px-2xs h-md gap-3xs style-text-default--2",
+	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all px-2xs h-md gap-3xs style-text-default--2 rounded-full",
 	{
 		variants: {
 			tone: {
 				primary: "",
 				secondary: "",
-				accent: "",
 				neutral: "",
-				neutralVariant: "",
-				inverse: "",
 				error: "",
 				success: "",
 				warning: "",
 			},
 			style: {
-				solid: "inset-shadow-raised-xs shadow-xs",
+				light: "",
+				solid: "",
 				outline: "bg-transparent outline",
-			},
-			radius: {
-				rounded: "rounded-md",
-				circle: "rounded-full",
 			},
 		},
 		defaultVariants: {
 			tone: "neutral",
-			style: "solid",
-			radius: "rounded",
+			style: "light",
 		},
 		compoundVariants: [
+			{
+				tone: "primary",
+				style: "light",
+				className:
+					"bg-primary-container text-on-primary-container border border-primary-outline",
+			},
 			{
 				tone: "primary",
 				style: "solid",
@@ -44,6 +43,12 @@ export const badgeVariants = cva(
 			},
 			{
 				tone: "secondary",
+				style: "light",
+				className:
+					"bg-secondary-container text-on-secondary-container border border-secondary-outline",
+			},
+			{
+				tone: "secondary",
 				style: "solid",
 				className: "bg-secondary text-on-secondary",
 			},
@@ -53,39 +58,25 @@ export const badgeVariants = cva(
 				className: "outline-secondary text-secondary",
 			},
 			{
-				tone: "accent",
-				style: "solid",
-				className: "bg-accent text-on-accent",
-			},
-			{
-				tone: "accent",
-				style: "outline",
-				className: "outline-accent text-accent",
+				tone: "neutral",
+				style: "light",
+				className: "bg-surface-bright border border-outline text-on-surface",
 			},
 			{
 				tone: "neutral",
 				style: "solid",
-				className: "bg-surface-container",
+				className: "bg-surface-dim text-on-surface",
 			},
 			{
 				tone: "neutral",
 				style: "outline",
-				className: "outline-on-surface text-on-surface",
+				className: "border border-outline text-on-surface",
 			},
 			{
-				tone: "neutralVariant",
-				style: "solid",
-				className: "bg-on-surface-variant text-surface",
-			},
-			{
-				tone: "neutralVariant",
-				style: "outline",
-				className: "outline-on-surface-variant text-on-surface-variant",
-			},
-			{
-				tone: "inverse",
-				style: "outline",
-				className: "outline-on-surface-variant text-on-surface-variant",
+				tone: "error",
+				style: "light",
+				className:
+					"bg-error-container text-on-error-container border border-error-outline",
 			},
 			{
 				tone: "error",
@@ -99,6 +90,12 @@ export const badgeVariants = cva(
 			},
 			{
 				tone: "success",
+				style: "light",
+				className:
+					"bg-success-container text-on-success-container border border-success-outline",
+			},
+			{
+				tone: "success",
 				style: "solid",
 				className: "bg-success text-on-success",
 			},
@@ -106,6 +103,12 @@ export const badgeVariants = cva(
 				tone: "success",
 				style: "outline",
 				className: "outline-success text-success",
+			},
+			{
+				tone: "warning",
+				style: "light",
+				className:
+					"bg-warning-container text-on-warning-container border border-warning-outline",
 			},
 			{
 				tone: "warning",
@@ -126,6 +129,5 @@ type BadgeProps = ComponentProps<"div">
 export interface BadgeExtendedProps
 	extends Omit<BadgeProps, "style">,
 		VariantProps<typeof badgeVariants> {
-	style?: "solid" | "outline"
-	radius?: "rounded" | "circle"
+	style?: "light" | "solid" | "outline"
 }

@@ -20,7 +20,7 @@ export default {
 		},
 	},
 	args: {
-		style: "minimal",
+		style: "default",
 		size: "small",
 		orientation: "vertical",
 		shape: "rounded",
@@ -29,9 +29,9 @@ export default {
 	argTypes: {
 		style: {
 			control: { type: "radio" },
-			options: ["default", "minimal", "underline"],
+			options: ["default", "underline"],
 			description:
-				"Defines the visual style of the Tabs component, such as default, minimal, or underline.",
+				"Defines the visual style of the Tabs component, such as default or underline.",
 		},
 		size: {
 			control: { type: "radio" },
@@ -103,12 +103,6 @@ export const Large: Story = {
 	},
 }
 
-export const MinimalStyle: Story = {
-	args: {
-		style: "minimal",
-	},
-}
-
 export const UnderlineStyle: Story = {
 	args: {
 		style: "underline",
@@ -135,7 +129,7 @@ export const FillTrue: Story = {
 
 export const CodeBlock: Story = {
 	args: {
-		style: "minimal",
+		style: "default",
 		size: "small",
 		orientation: "horizontal",
 		shape: "rounded",
