@@ -19,10 +19,7 @@ export const SidebarSubMenuTrigger = ({
 }: SidebarSubMenuTriggerProps) => {
 	const { open, collapsible } = useSidebar()
 
-	// Determine if we should show text based on collapsible type and open state
 	const showText = collapsible === "none" || open
-
-	// Determine size based on collapsible type and open state
 	const triggerSize = showText ? size : "compact"
 
 	if (!showText) {
