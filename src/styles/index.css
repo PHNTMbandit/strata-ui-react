@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import url("https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12");
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -319,10 +319,10 @@
   --suwa-surface: light-dark(var(--white-200), var(--black-800));
   --suwa-surface-bright: light-dark(var(--white-100), var(--black-700));
   --suwa-surface-container-lowest: light-dark(var(--white-100), var(--black-700));
-  --suwa-surface-container-low: light-dark(var(--white-100), var(--black-600));
-  --suwa-surface-container-mid: light-dark(var(--white-100), var(--black-500));
-  --suwa-surface-container-high: light-dark(var(--white-100), var(--black-400));
-  --suwa-surface-container-highest: light-dark(var(--white-100), var(--black-300));
+  --suwa-surface-container-low: light-dark(var(--white-200), var(--black-600));
+  --suwa-surface-container-mid: light-dark(var(--white-300), var(--black-500));
+  --suwa-surface-container-high: light-dark(var(--white-400), var(--black-400));
+  --suwa-surface-container-highest: light-dark(var(--white-500), var(--black-300));
   --suwa-on-surface: light-dark(var(--black-700), var(--white-200));
   --suwa-on-surface-variant: light-dark(var(--black-400), var(--white-600));
   --suwa-outline: light-dark(var(--white-500), var(--black-400));

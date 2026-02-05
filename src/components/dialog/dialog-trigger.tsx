@@ -14,6 +14,6 @@ export const DialogTrigger = ({
 			ref={ref}
 			{...props}
 			render={children as React.ReactElement}
-		></BaseDialog.Trigger>
+		/>
 	)
 }
