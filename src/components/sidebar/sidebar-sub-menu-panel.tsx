@@ -19,13 +19,13 @@ export const SidebarSubMenuPanel = ({
 	return (
 		<BaseCollapsible.Panel
 			className={cn(
-				"ml-md flex h-(--collapsible-panel-height) flex-col justify-end overflow-hidden border-outline border-l-2 pr-3xs text-sm transition-all duration-150 ease-out data-ending-style:h-[0px] data-starting-style:h-[0px] [&[hidden]:not([hidden='until-found'])]:hidden",
+				"ml-md flex h-(--collapsible-panel-height) flex-col justify-end overflow-hidden border-outline border-l-2 transition-all duration-150 ease-out data-ending-style:h-[0px] data-starting-style:h-[0px] [&[hidden]:not([hidden='until-found'])]:hidden",
 				className,
 			)}
 			ref={ref}
 			{...props}
 		>
-			<div className="flex h-full flex-col gap-3xs border-outline py-3xs pl-2xs">
+			<div className="flex h-full flex-col gap-3xs border-outline pl-3xs">
 				{children}
 			</div>
 		</BaseCollapsible.Panel>

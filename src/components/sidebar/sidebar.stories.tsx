@@ -74,7 +74,7 @@ export const CollapsibleIcon: Story = {
 			<SidebarProvider collapsible="icon">
 				<Sidebar {...args}>
 					<SidebarHeader>My Application</SidebarHeader>
-					<SidebarContent hideScrollbar>
+					<SidebarContent>
 						<SidebarGroup>
 							<SidebarGroupLabel>Main Menu</SidebarGroupLabel>
 							<SidebarGroupContent>

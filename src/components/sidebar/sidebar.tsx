@@ -11,7 +11,7 @@ export const Sidebar = ({
 	ref,
 	...props
 }: SidebarProps) => {
-	const { open, setOpen, isMobile, collapsible } = useSidebar()
+	const { open, setOpen, isMobile, collapsible, side } = useSidebar()
 	const sidebarRef = React.useRef<HTMLDivElement>(null)
 
 	React.useEffect(() => {
@@ -60,18 +60,18 @@ export const Sidebar = ({
 
 	const getGapClasses = () => {
 		if (collapsible === "none") {
-			return "gap-sm"
+			return "gap-lg"
 		}
 
 		if (collapsible === "offcanvas") {
-			return open ? "gap-sm" : "gap-sm"
+			return open ? "gap-lg" : "gap-sm"
 		}
 
 		if (collapsible === "icon") {
-			return open ? "gap-sm" : "gap-sm"
+			return open ? "gap-lg" : "gap-sm"
 		}
 
-		return "gap-sm"
+		return "gap-lg"
 	}
 
 	const getPositionClasses = () => {
@@ -97,13 +97,17 @@ export const Sidebar = ({
 	return (
 		<div
 			className={cn(
-				"sticky left-[0px] flex h-full flex-col justify-between overflow-hidden border-outline-variant border-r bg-surface-bright py-md transition-[width,transform] duration-200 ease-out",
+				"sticky left-[0px] flex h-full flex-col justify-between overflow-hidden border-outline-variant bg-surface-bright transition-[width,transform] duration-300 ease-in-out",
 				className,
 				tone === "ghost" && !isMobile && "border-none bg-transparent",
 				getGapClasses(),
 				getPositionClasses(),
 				collapsible === "offcanvas" && !open && isMobile && "border-none",
 				collapsible === "offcanvas" && !open && "border-none",
+				collapsible !== "offcanvas" && open && "px-md pt-lg pb-md",
+				collapsible !== "offcanvas" && !open && "p-xs",
+				isMobile && "border-none",
+				side === "left" ? "border-r" : "border-l",
 			)}
 			ref={sidebarRef}
 			style={getWidthStyle()}

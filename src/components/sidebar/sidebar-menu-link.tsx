@@ -23,23 +23,16 @@ export const SidebarMenuLink = ({
 	return (
 		<div
 			className={cn(sidebarMenuLinkVariants({ size: linkSize, className }))}
-			data-active={isActive ? true : undefined}
 			ref={ref}
 			{...props}
 		>
-			<div className="flex h-fit w-full items-center gap-xs">
-				{Icon && (
-					<Icon
-						className="block size-sm shrink-0 group-data-active:hidden"
-						weight="bold"
-					/>
+			<div
+				className={cn(
+					"flex h-fit w-full items-center gap-xs",
+					isActive && "text-primary",
 				)}
-				{Icon && (
-					<Icon
-						className="hidden size-sm shrink-0 group-data-active:block"
-						weight="fill"
-					/>
-				)}
+			>
+				{Icon && <Icon className="shrink-0" weight="bold" />}
 				{showText && (
 					<span
 						className={cn(

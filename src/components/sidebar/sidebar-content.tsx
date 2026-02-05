@@ -14,20 +14,11 @@ export const SidebarContent = ({
 	return (
 		<div
 			className={cn(
-				"flex grow flex-col overflow-y-auto overflow-x-hidden pt-md pb-md transition-all duration-300 ease-in-out",
-				open
-					? "gap-lg pr-xs pl-sm"
-					: "gap-xs divide-y divide-outline-variant pr-0 pl-sm",
-				hideScrollbar && "[scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+				"flex grow flex-col items-center overflow-y-auto transition-all duration-300 ease-in-out [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+				open ? "gap-lg" : "gap-xs divide-y divide-outline-variant",
 				className,
 			)}
 			ref={ref}
-			style={{
-				scrollbarGutter: "stable",
-				msOverflowStyle: hideScrollbar ? "none" : "auto",
-				maskImage:
-					"linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)",
-			}}
 			{...props}
 		>
 			{children}
