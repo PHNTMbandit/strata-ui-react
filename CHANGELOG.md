@@ -1,3 +1,11 @@
+# [1.0.0-beta.17](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2026-02-05)
+
+
+### Features
+
+* add form component ([73e3f6e](https://github.com/PHNTMbandit/suwa-ui/commit/73e3f6ea58c5997cd9bfec028b1bab6aa8f4edbd))
+* refactor sidebar padding and spacing ([0bd782c](https://github.com/PHNTMbandit/suwa-ui/commit/0bd782c22b1e86f50bdf37fa0e02c12f8562cebf))
+
 # [1.0.0-beta.16](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.15...v1.0.0-beta.16) (2026-02-03)
 
 
