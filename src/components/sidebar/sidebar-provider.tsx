@@ -17,7 +17,7 @@ const SidebarContext = React.createContext<SidebarContextProps | null>(null)
 export const SidebarProvider = ({
 	defaultOpen = true,
 	side = "left",
-	collapsible = "offcanvas",
+	collapsible = "icon",
 	className,
 	children,
 	ref,
@@ -30,7 +30,7 @@ export const SidebarProvider = ({
 
 	React.useEffect(() => {
 		const checkIsMobile = () => {
-			const mobile = window.innerWidth < 1024
+			const mobile = window.innerWidth < 328
 			setIsMobile(mobile)
 			if (mobile && defaultOpen && collapsible !== "none") {
 				setOpen(false)

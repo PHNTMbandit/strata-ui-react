@@ -1,14 +1,14 @@
-import { withForm } from "./form-context"
+import { cn } from "@/utils/cn"
+import type { FormProps } from "./form.types"
 
-export const Form = withForm({
-	render: function Render({ form, children }) {
-		return (
-			<form
-				action={form.handleSubmit}
-				className="space-y-sm transition-transform"
-			>
-				<form.AppForm>{children}</form.AppForm>
-			</form>
-		)
-	},
-})
+export const Form = ({ className, children, ref, ...props }: FormProps) => {
+	return (
+		<form
+			className={cn("space-y-sm transition-transform", className)}
+			ref={ref}
+			{...props}
+		>
+			{children}
+		</form>
+	)
+}

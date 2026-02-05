@@ -1,10 +1,10 @@
+import { CircleNotchIcon } from "@phosphor-icons/react"
 import { cn } from "@/utils/cn"
 import { Button } from "../button"
 import type { FormSubmitProps } from "./form.types"
 import { useFormContext } from "./form-context"
 
 export const FormSubmit = ({
-	submittingText = "Submitting...",
 	className,
 	children,
 	ref,
@@ -17,14 +17,16 @@ export const FormSubmit = ({
 			{(state) => (
 				<Button
 					className={cn("w-full", className)}
-					disabled={
-						state.isSubmitting || !state.canSubmit || form.state.isPristine
-					}
+					disabled={state.isSubmitting || !state.canSubmit}
 					ref={ref}
 					type="submit"
 					{...props}
 				>
-					{state.isSubmitting ? submittingText : children}
+					{state.isSubmitting ? (
+						<CircleNotchIcon className="animate-spin" weight="bold" />
+					) : (
+						children
+					)}
 				</Button>
 			)}
 		</form.Subscribe>
