@@ -6,7 +6,7 @@ export const TabsPanel = ({ className, ...props }: TabsPanelProps) => {
 	return (
 		<SwitchTabs.Panel
 			className={cn(
-				"relative flex grow items-center justify-start overflow-auto rounded-md bg-surface-dim p-4 p-md",
+				"relative flex grow items-center justify-start overflow-auto border-outline border-t p-4 p-md",
 				className,
 			)}
 			{...props}

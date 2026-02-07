@@ -8,7 +8,11 @@ export const DialogHeader = ({
 	...props
 }: DialogHeaderProps) => {
 	return (
-		<div className={cn("space-y-2xs", className)} ref={ref} {...props}>
+		<div
+			className={cn("flex flex-col gap-2xs px-md", className)}
+			ref={ref}
+			{...props}
+		>
 			{children}
 		</div>
 	)

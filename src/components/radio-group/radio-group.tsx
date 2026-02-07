@@ -1,0 +1,24 @@
+import { RadioGroup as BaseRadioGroup } from "@base-ui/react"
+import * as React from "react"
+import { cn } from "@/utils/cn"
+import type { RadioGroupProps } from "./radio-group.types"
+
+export const RadioGroup = ({
+	className,
+	children,
+	ref,
+	...props
+}: RadioGroupProps) => {
+	const id = React.useId()
+
+	return (
+		<BaseRadioGroup
+			aria-labelledby={id}
+			className={cn("flex flex-col items-start gap-2xs", className)}
+			ref={ref}
+			{...props}
+		>
+			{children}
+		</BaseRadioGroup>
+	)
+}

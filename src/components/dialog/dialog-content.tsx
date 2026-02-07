@@ -8,7 +8,14 @@ export const DialogContent = ({
 	...props
 }: DialogContentProps) => {
 	return (
-		<div className={cn("space-y-xs", className)} ref={ref} {...props}>
+		<div
+			className={cn(
+				"flex flex-col items-center gap-2xs px-sm pb-lg",
+				className,
+			)}
+			ref={ref}
+			{...props}
+		>
 			{children}
 		</div>
 	)

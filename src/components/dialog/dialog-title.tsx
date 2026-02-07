@@ -11,7 +11,7 @@ export const DialogTitle = ({
 	return (
 		<BaseDialog.Title
 			className={cn(
-				"style-text-strong-2 flex items-center gap-2xs [&>svg]:size-md",
+				"style-text-strong-1 flex items-center gap-2xs [&>svg]:size-md",
 				className,
 			)}
 			ref={ref}
