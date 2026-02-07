@@ -1,3 +1,11 @@
+# [1.0.0-beta.18](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.17...v1.0.0-beta.18) (2026-02-07)
+
+
+### Features
+
+* add alert dialog component ([be84adf](https://github.com/PHNTMbandit/suwa-ui/commit/be84adfc948aa3b029413c82c39c939dfc97b857))
+* add new components and restyle colour palette ([92d7090](https://github.com/PHNTMbandit/suwa-ui/commit/92d7090bd41e28e1d5141f51bec0b1149f1f2c81))
+
 # [1.0.0-beta.17](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.16...v1.0.0-beta.17) (2026-02-05)
 
 
