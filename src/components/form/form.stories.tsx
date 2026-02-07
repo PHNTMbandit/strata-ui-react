@@ -1,5 +1,6 @@
 import { PasswordIcon, UserIcon } from "@phosphor-icons/react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Suspense } from "react"
 import { z } from "zod"
 import { Field } from "../field"
 import { Form } from "./form"
@@ -63,90 +64,92 @@ export const FieldInput: Story = {
 		})
 
 		return (
-			<Form action={form.handleSubmit}>
-				<form.AppForm>
-					<form.FormErrors />
-					<form.AppField
-						children={(field) => (
-							<Field>
-								<field.FieldLabel />
-								<field.FieldInput
-									leadingIcon={UserIcon}
-									placeholder="First Name"
-								/>
-								<field.FieldErrors />
-								<field.FieldDescription>
-									Please enter your first name.
-								</field.FieldDescription>
-							</Field>
-						)}
-						name="firstName"
-					/>
-					<form.AppField
-						children={(field) => (
-							<Field>
-								<field.FieldLabel />
-								<field.FieldInput
-									leadingIcon={UserIcon}
-									placeholder="Last Name"
-								/>
-								<field.FieldErrors />
-								<field.FieldDescription>
-									Please enter your last name.
-								</field.FieldDescription>
-							</Field>
-						)}
-						name="lastName"
-					/>
-					<form.AppField name="password">
-						{(field) => (
-							<Field>
-								<field.FieldLabel />
-								<field.FieldInput
-									leadingIcon={PasswordIcon}
-									placeholder="Password"
-									type="password"
-								/>
-								<field.FieldErrors />
-								<field.FieldDescription>
-									Your password must be at least 6 characters.
-								</field.FieldDescription>
-							</Field>
-						)}
-					</form.AppField>
-					<form.AppField
-						name="confirmPassword"
-						validators={{
-							onChangeListenTo: ["password"],
-							onChange: ({ value, fieldApi }) => {
-								const password = fieldApi.form.getFieldValue("password")
-								if (value && value !== password) {
-									return new Error("Passwords do not match")
-								}
-							},
-						}}
-					>
-						{(field) => (
-							<Field>
-								<field.FieldLabel />
-								<field.FieldInput
-									leadingIcon={PasswordIcon}
-									placeholder="Confirm Password"
-									type="password"
-								/>
-								<field.FieldErrors />
-								<field.FieldDescription>
-									Please confirm your password.
-								</field.FieldDescription>
-							</Field>
-						)}
-					</form.AppField>
-					<form.FormReset style="ghost" tone="error">
-						Reset
-					</form.FormReset>
-					<form.FormSubmit>Submit</form.FormSubmit>
-				</form.AppForm>
-			</Form>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Form action={form.handleSubmit}>
+					<form.AppForm>
+						<form.FormErrors />
+						<form.AppField
+							children={(field) => (
+								<Field>
+									<field.FieldLabel />
+									<field.FieldInput
+										leadingIcon={UserIcon}
+										placeholder="First Name"
+									/>
+									<field.FieldErrors />
+									<field.FieldDescription>
+										Please enter your first name.
+									</field.FieldDescription>
+								</Field>
+							)}
+							name="firstName"
+						/>
+						<form.AppField
+							children={(field) => (
+								<Field>
+									<field.FieldLabel />
+									<field.FieldInput
+										leadingIcon={UserIcon}
+										placeholder="Last Name"
+									/>
+									<field.FieldErrors />
+									<field.FieldDescription>
+										Please enter your last name.
+									</field.FieldDescription>
+								</Field>
+							)}
+							name="lastName"
+						/>
+						<form.AppField name="password">
+							{(field) => (
+								<Field>
+									<field.FieldLabel />
+									<field.FieldInput
+										leadingIcon={PasswordIcon}
+										placeholder="Password"
+										type="password"
+									/>
+									<field.FieldErrors />
+									<field.FieldDescription>
+										Your password must be at least 6 characters.
+									</field.FieldDescription>
+								</Field>
+							)}
+						</form.AppField>
+						<form.AppField
+							name="confirmPassword"
+							validators={{
+								onChangeListenTo: ["password"],
+								onChange: ({ value, fieldApi }) => {
+									const password = fieldApi.form.getFieldValue("password")
+									if (value && value !== password) {
+										return new Error("Passwords do not match")
+									}
+								},
+							}}
+						>
+							{(field) => (
+								<Field>
+									<field.FieldLabel />
+									<field.FieldInput
+										leadingIcon={PasswordIcon}
+										placeholder="Confirm Password"
+										type="password"
+									/>
+									<field.FieldErrors />
+									<field.FieldDescription>
+										Please confirm your password.
+									</field.FieldDescription>
+								</Field>
+							)}
+						</form.AppField>
+						<form.FormReset style="ghost" tone="error">
+							Reset
+						</form.FormReset>
+						<form.FormSubmit>Submit</form.FormSubmit>
+					</form.AppForm>
+				</Form>
+			</Suspense>
 		)
 	},
 }
