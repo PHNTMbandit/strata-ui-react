@@ -4,6 +4,7 @@ export type {
 	AlertDialogConfirmProps,
 	AlertDialogContentProps,
 	AlertDialogDescriptionProps,
+	AlertDialogFooterProps,
 	AlertDialogHeaderProps,
 	AlertDialogPopupProps,
 	AlertDialogProps,
@@ -14,6 +15,7 @@ export { AlertDialogClose } from "./alert-dialog-close"
 export { AlertDialogConfirm } from "./alert-dialog-confirm"
 export { AlertDialogContent } from "./alert-dialog-content"
 export { AlertDialogDescription } from "./alert-dialog-description"
+export { AlertDialogFooter } from "./alert-dialog-footer"
 export { AlertDialogHeader } from "./alert-dialog-header"
 export { AlertDialogPopup } from "./alert-dialog-popup"
 export { AlertDialogTitle } from "./alert-dialog-title"

@@ -53,9 +53,7 @@ export const Slider = ({
 							"relative inset-shadow-xs h-2xs rounded-full bg-surface-dim"
 						}
 					>
-						<BaseSlider.Indicator
-							className={"inset-shadow-xs rounded-full bg-secondary"}
-						/>
+						<BaseSlider.Indicator className={"rounded-full bg-primary"} />
 						{Array.from({ length: _values.length }, (_, index) => (
 							// biome-ignore lint/suspicious/noArrayIndexKey: For simplicity in this case
 							<SliderThumb index={index} key={index} />

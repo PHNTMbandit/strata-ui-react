@@ -155,25 +155,25 @@
   --dark-blue-700: #011D2BFF;
   --dark-blue-800: #01131CFF;
   --dark-blue-900: #000A0EFF;
-  --green-100: #DAECDAFF;
-  --green-200: #B4D8B6FF;
-  --green-300: #8FC591FF;
-  --green-400: #69B16DFF;
-  --green-500: #449E48FF;
-  --green-600: #367E3AFF;
-  --green-700: #295F2BFF;
-  --green-800: #1B3F1DFF;
-  --green-900: #0E200EFF;
+  --green-100: #D0E6D8FF;
+  --green-200: #A1CCB1FF;
+  --green-300: #73B38BFF;
+  --green-400: #449964FF;
+  --green-500: #15803DFF;
+  --green-600: #116631FF;
+  --green-700: #0D4D25FF;
+  --green-800: #083318FF;
+  --green-900: #041A0CFF;
   --lime-100: #E7E9D3FF;
-  --orange-100: #FEE7CCFF;
-  --orange-200: #FDCE99FF;
-  --orange-300: #FCB666FF;
-  --orange-400: #FB9D33FF;
-  --orange-500: #FA8500FF;
-  --orange-600: #C86A00FF;
-  --orange-700: #965000FF;
-  --orange-800: #643500FF;
-  --orange-900: #321B00FF;
+  --orange-100: #FBDECEFF;
+  --orange-200: #F7BC9EFF;
+  --orange-300: #F29B6DFF;
+  --orange-400: #EE793DFF;
+  --orange-500: #EA580CFF;
+  --orange-600: #BB460AFF;
+  --orange-700: #8C3507FF;
+  --orange-800: #5E2305FF;
+  --orange-900: #2F1202FF;
   --lime-200: #CFD4A7FF;
   --lime-300: #B7BE7AFF;
   --lime-400: #9FA94EFF;
@@ -192,15 +192,15 @@
   --pink-800: #64193BFF;
   --pink-900: #320D1DFF;
   --purple-100: #EBD4EFFF;
-  --red-100: #FDD9D7FF;
-  --red-200: #FBB4AFFF;
-  --red-300: #F88E86FF;
-  --red-400: #F6695EFF;
-  --red-500: #F44336FF;
-  --red-600: #C3362BFF;
-  --red-700: #922820FF;
-  --red-800: #621B16FF;
-  --red-900: #310D0BFF;
+  --red-100: #F8D4D4FF;
+  --red-200: #F1A8A8FF;
+  --red-300: #EA7D7DFF;
+  --red-400: #E35151FF;
+  --red-500: #DC2626FF;
+  --red-600: #B01E1EFF;
+  --red-700: #841717FF;
+  --red-800: #580F0FFF;
+  --red-900: #2C0808FF;
   --purple-200: #D7A9DFFF;
   --purple-300: #C47DD0FF;
   --purple-400: #B052C0FF;
@@ -265,54 +265,54 @@
   --yellow-900: #332701FF;
 
   /* Primary colors */
-  --suwa-primary: light-dark(var(--blue-500), var(--blue-400));
-  --suwa-primary-variant: light-dark(var(--blue-600), var(--blue-500));
-  --suwa-primary-outline: light-dark(var(--blue-600), var(--blue-300));
-  --suwa-on-primary: light-dark(var(--white-200), var(--black-700));
+  --suwa-primary: light-dark(var(--blue-600), var(--blue-400));
+  --suwa-primary-variant: light-dark(var(--blue-700), var(--blue-500));
+  --suwa-primary-outline: light-dark(var(--blue-600), var(--blue-400));
+  --suwa-on-primary: light-dark(var(--white-100), var(--black-800));
   --suwa-on-primary-variant: light-dark(var(--black-700), var(--white-200));
-  --suwa-primary-container: light-dark(var(--blue-100), var(--blue-800));
+  --suwa-primary-container: light-dark(var(--blue-200), var(--blue-800));
   --suwa-on-primary-container: light-dark(var(--blue-700), var(--blue-300));
-  --suwa-on-primary-container-variant: light-dark(var(--blue-900), var(--blue-100));
+  --suwa-on-primary-container-variant: light-dark(var(--blue-800), var(--blue-200));
   
   /* Secondary colors */
   --suwa-secondary: light-dark(var(--dark-blue-500), var(--dark-blue-200));
-  --suwa-secondary-variant: light-dark(var(--dark-blue-700), var(--dark-blue-300));
-  --suwa-secondary-outline: light-dark(var(--dark-blue-800), var(--dark-blue-200));
-  --suwa-on-secondary: light-dark(var(--white-200), var(--black-700));
+  --suwa-secondary-variant: light-dark(var(--dark-blue-600), var(--dark-blue-300));
+  --suwa-secondary-outline: light-dark(var(--dark-blue-500), var(--dark-blue-200));
+  --suwa-on-secondary: light-dark(var(--white-100), var(--black-800));
   --suwa-on-secondary-variant: light-dark(var(--black-700), var(--white-200));
   --suwa-secondary-container: light-dark(var(--dark-blue-100), var(--dark-blue-800));
   --suwa-on-secondary-container: light-dark(var(--dark-blue-700), var(--dark-blue-200));
   --suwa-on-secondary-container-variant: light-dark(var(--dark-blue-900), var(--dark-blue-100));
   
   /* Error colors */
-  --suwa-error: var(--red-500);
-  --suwa-error-variant: var(--red-600);
-  --suwa-error-outline: var(--red-600);
-  --suwa-on-error: light-dark(var(--black-800), var(--black-800));
+  --suwa-error: light-dark(var(--red-500), var(--red-400));
+  --suwa-error-variant: light-dark(var(--red-600), var(--red-500));
+  --suwa-error-outline: light-dark(var(--red-500), var(--red-400));
+  --suwa-on-error: light-dark(var(--white-100), var(--black-800));
   --suwa-on-error-variant: light-dark(var(--black-700), var(--white-200));
-  --suwa-error-container: light-dark(var(--red-100), var(--red-800));
-  --suwa-on-error-container: light-dark(var(--red-700), var(--red-200));
-  --suwa-on-error-container-variant: light-dark(var(--red-800), var(--red-100));
+  --suwa-error-container: light-dark(var(--red-200), var(--red-800));
+  --suwa-on-error-container: light-dark(var(--red-700), var(--red-300));
+  --suwa-on-error-container-variant: light-dark(var(--red-800), var(--red-200));
   
   /* Success colors */
-  --suwa-success: var(--green-500);
-  --suwa-success-variant: var(--green-600);
-  --suwa-success-outline: var(--green-600);
-  --suwa-on-success: light-dark(var(--black-800), var(--black-800));
+  --suwa-success: light-dark(var(--green-500), var(--green-400));
+  --suwa-success-variant: light-dark(var(--green-600), var(--green-500));
+  --suwa-success-outline: light-dark(var(--green-500), var(--green-400));
+  --suwa-on-success: light-dark(var(--white-100), var(--black-800));
   --suwa-on-success-variant: light-dark(var(--black-700), var(--white-200));
-  --suwa-success-container: light-dark(var(--green-100), var(--green-800));
-  --suwa-on-success-container: light-dark(var(--green-700), var(--green-200));
-  --suwa-on-success-container-variant: light-dark(var(--green-800), var(--green-100));
+  --suwa-success-container: light-dark(var(--green-200), var(--green-800));
+  --suwa-on-success-container: light-dark(var(--green-700), var(--green-300));
+  --suwa-on-success-container-variant: light-dark(var(--green-800), var(--green-200));
   
   /* Warning colors */
-  --suwa-warning: var(--amber-500);
-  --suwa-warning-variant: var(--amber-600);
-  --suwa-warning-outline: var(--amber-600);
-  --suwa-on-warning: light-dark(var(--black-800), var(--black-800));
+  --suwa-warning: light-dark(var(--orange-600), var(--orange-500));
+  --suwa-warning-variant: light-dark(var(--orange-700), var(--orange-600));
+  --suwa-warning-outline: light-dark(var(--orange-600), var(--orange-500));
+  --suwa-on-warning: light-dark(var(--white-100), var(--black-800));
   --suwa-on-warning-variant: light-dark(var(--black-700), var(--white-200));
-  --suwa-warning-container: light-dark(var(--amber-100), var(--amber-800));
-  --suwa-on-warning-container: light-dark(var(--amber-700), var(--amber-200));
-  --suwa-on-warning-container-variant: light-dark(var(--amber-800), var(--amber-100));
+  --suwa-warning-container: light-dark(var(--orange-200), var(--orange-800));
+  --suwa-on-warning-container: light-dark(var(--orange-700), var(--orange-300));
+  --suwa-on-warning-container-variant: light-dark(var(--orange-800), var(--orange-200));
   
   /* Surface colors */
   --suwa-surface-dim: light-dark(var(--white-300), var(--black-900));
@@ -323,7 +323,7 @@
   --suwa-surface-container-mid: light-dark(var(--white-300), var(--black-500));
   --suwa-surface-container-high: light-dark(var(--white-400), var(--black-400));
   --suwa-surface-container-highest: light-dark(var(--white-500), var(--black-300));
-  --suwa-on-surface: light-dark(var(--black-700), var(--white-200));
+  --suwa-on-surface: light-dark(var(--black-800), var(--white-100));
   --suwa-on-surface-variant: light-dark(var(--black-400), var(--white-600));
   --suwa-outline: light-dark(var(--white-500), var(--black-400));
   --suwa-outline-variant: light-dark(var(--black-100), var(--black-600));

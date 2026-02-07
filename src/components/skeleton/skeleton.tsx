@@ -1,16 +1,16 @@
 import { cn } from "@/utils/cn"
-import type { DialogContentProps } from "./dialog.types"
+import type { SkeletonProps } from "./skeleton.types"
 
-export const DialogContent = ({
+export const Skeleton = ({
 	className,
 	children,
 	ref,
 	...props
-}: DialogContentProps) => {
+}: SkeletonProps) => {
 	return (
 		<div
 			className={cn(
-				"flex flex-col items-center gap-2xs px-sm pb-lg",
+				"animate-pulse rounded-lg bg-surface-container-mid shadow-sm",
 				className,
 			)}
 			ref={ref}

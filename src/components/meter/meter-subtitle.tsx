@@ -1,16 +1,16 @@
 import { cn } from "@/utils/cn"
-import type { DialogContentProps } from "./dialog.types"
+import type { MeterSubtitleProps } from "./meter.types"
 
-export const DialogContent = ({
+export const MeterSubtitle = ({
 	className,
 	children,
 	ref,
 	...props
-}: DialogContentProps) => {
+}: MeterSubtitleProps) => {
 	return (
 		<div
 			className={cn(
-				"flex flex-col items-center gap-2xs px-sm pb-lg",
+				"style-text-prose--1 col-span-2 text-on-surface-variant",
 				className,
 			)}
 			ref={ref}

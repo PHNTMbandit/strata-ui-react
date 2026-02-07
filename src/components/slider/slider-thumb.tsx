@@ -27,7 +27,7 @@ export const SliderThumb = ({
 				render={
 					<BaseSlider.Thumb
 						className={cn(
-							"absolute inset-shadow-raised-xs aspect-square size-sm rounded-full border border-secondary bg-surface-bright shadow-xs outline-none transition-[width,height] hover:cursor-pointer data-dragging:inset-shadow-raised-sm data-dragging:size-md data-dragging:cursor-grabbing data-dragging:border-2 data-dragging:shadow-sm",
+							"absolute inset-shadow-raised-xs aspect-square size-sm rounded-full border border-primary bg-surface-bright shadow-xs outline-none transition-[width,height] hover:cursor-pointer data-dragging:inset-shadow-raised-sm data-dragging:size-md data-dragging:cursor-grabbing data-dragging:border-2 data-dragging:shadow-sm",
 							className,
 						)}
 						onPointerDown={() => setIsDragging(true)}

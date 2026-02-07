@@ -8,7 +8,7 @@ export type TabsIndicatorProps = ComponentProps<typeof BaseTabs.Indicator>
 export type TabsListProps = ComponentProps<typeof BaseTabs.List>
 
 export const tabsVariants = cva(
-	"space-y-2xs gap-2xs rounded-md bg-surface-container-mid p-2xs shadow-sm overflow-hidden",
+	"space-y-2xs gap-2xs rounded-md p-2xs overflow-hidden bg-surface-container-mid border border-outline-variant",
 	{
 		variants: {
 			style: {
@@ -29,8 +29,8 @@ export const tabsVariants = cva(
 			},
 			shape: {
 				circle:
-					"[&_[role=tablist]]:rounded-full [&_[role=presentation]]:rounded-full",
-				rounded: "",
+					"[&_[role=tablist]]:rounded-full [&_[role=presentation]]:rounded-full [&_[role=tab]]:rounded-full",
+				rounded: "[&_[role=tab]]:rounded-md",
 			},
 			fill: {
 				true: "[&_[role=tablist]]:w-full [&_[role=tab]]:grow",
