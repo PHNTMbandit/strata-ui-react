@@ -1,3 +1,12 @@
+# [1.0.0-beta.20](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2026-02-07)
+
+
+### Bug Fixes
+
+* add suspense to form ([c43a91a](https://github.com/PHNTMbandit/suwa-ui/commit/c43a91a1c33e27149923ea95589c8f31695ba5d7))
+* fix field initialisation order ([4242095](https://github.com/PHNTMbandit/suwa-ui/commit/42420954b0809f59ac35f967eff10fd5c64ca3de))
+* remove lazy field imports ([8e0a73b](https://github.com/PHNTMbandit/suwa-ui/commit/8e0a73b265a356d64e21694a3bd62b3d089cf64c))
+
 # [1.0.0-beta.19](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.18...v1.0.0-beta.19) (2026-02-07)
 
 
