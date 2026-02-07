@@ -1,3 +1,10 @@
+# [1.0.0-beta.21](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.20...v1.0.0-beta.21) (2026-02-07)
+
+
+### Bug Fixes
+
+* add server and submit form errors ([5a63800](https://github.com/PHNTMbandit/suwa-ui/commit/5a63800bffc628a74a0347ea4dab3bc976535332))
+
 # [1.0.0-beta.20](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.19...v1.0.0-beta.20) (2026-02-07)
 
 
