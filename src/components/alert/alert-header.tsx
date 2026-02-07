@@ -10,7 +10,7 @@ export const AlertHeader = ({
 	return (
 		<div
 			className={cn(
-				"style-text-strong--1 flex items-center gap-3xs [&_svg]:size-sm",
+				"style-text-strong--1 flex items-center gap-2xs [&_svg]:size-sm",
 				className,
 			)}
 			ref={ref}

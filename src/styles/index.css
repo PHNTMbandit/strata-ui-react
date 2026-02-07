@@ -405,6 +405,9 @@
     font-size: var(--text-base);
     scrollbar-color: theme(--color-primary) theme(--color-surface-dim);
   }
+  ul, ol {
+    list-style: revert;
+  }
 }
 
 @utility gradient-border-* {

@@ -1,7 +1,8 @@
-import { PasswordIcon, UserIcon } from "@phosphor-icons/react"
+import { PasswordIcon, UserIcon, XCircleIcon } from "@phosphor-icons/react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Suspense } from "react"
 import { z } from "zod"
+import { AlertHeader } from "../alert/alert-header"
 import { Field } from "../field"
 import { Form } from "./form"
 import { useAppForm } from "./form-context"
@@ -175,9 +176,7 @@ export const SubmitError: Story = {
 						}, 1000)
 					})
 
-					return {
-						form: "Invalid username or password",
-					}
+					return "Invalid username or password"
 				},
 			},
 		})
@@ -185,7 +184,12 @@ export const SubmitError: Story = {
 		return (
 			<Form action={form.handleSubmit}>
 				<form.AppForm>
-					<form.FormErrors />
+					<form.FormErrors>
+						<AlertHeader>
+							<XCircleIcon weight="fill" />
+							There were some problems with your submission
+						</AlertHeader>
+					</form.FormErrors>
 					<form.AppField name="username">
 						{(field) => (
 							<Field>

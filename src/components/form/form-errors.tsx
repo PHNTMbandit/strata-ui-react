@@ -1,12 +1,9 @@
-import { XCircleIcon } from "@phosphor-icons/react"
 import { cn } from "@/utils/cn"
 import { Alert, AlertDescription } from "../alert"
-import { AlertHeader } from "../alert/alert-header"
 import type { FormErrorsProps } from "./form.types"
 import { useFormContext } from "./form-context"
 
 export const FormErrors = ({
-	headerLabel,
 	className,
 	children,
 	ref,
@@ -15,39 +12,38 @@ export const FormErrors = ({
 	const form = useFormContext()
 
 	return (
-		<form.Subscribe selector={(state) => [state.errorMap]}>
-			{([errorMap]) => {
-				const submitError = errorMap.onSubmit
-				const serverError = errorMap.onServer
-				const submitErrorMessage =
-					typeof submitError === "object" && "form" in submitError
-						? submitError.form
-						: null
-				const serverErrorMessage =
-					typeof serverError === "object" && "form" in serverError
-						? serverError.form
-						: null
-
-				if (
-					(!submitError && !serverError) ||
-					(!submitErrorMessage && !serverErrorMessage)
-				)
+		<form.Subscribe selector={(state) => [state.errors]}>
+			{([errors]) => {
+				if (!errors || errors.length === 0) {
 					return null
+				}
+
+				const allMessages: string[] = []
+
+				errors.forEach((errorObj) => {
+					Object.values(errorObj).forEach((fieldErrors) => {
+						if (Array.isArray(fieldErrors)) {
+							fieldErrors.forEach((err) => {
+								if (err?.message) {
+									allMessages.push(err.message)
+								}
+							})
+						}
+					})
+				})
 
 				return (
 					<Alert className={cn("", className)} ref={ref} {...props}>
-						{headerLabel && (
-							<AlertHeader>
-								<XCircleIcon weight="fill" />
-								Error
-							</AlertHeader>
-						)}
-						<AlertDescription>
-							{submitErrorMessage}
-							<br />
-							{serverErrorMessage}
-						</AlertDescription>
 						{children}
+						<AlertDescription>
+							<ul className="pl-lg">
+								{allMessages.length > 0 ? (
+									allMessages.map((message) => <li key={message}>{message}</li>)
+								) : (
+									<li>{errors.toString()}</li>
+								)}
+							</ul>
+						</AlertDescription>
 					</Alert>
 				)
 			}}

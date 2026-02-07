@@ -1093,11 +1093,17 @@
   .pl-3xs {
     padding-left: var(--spacing-3xs);
   }
+  .pl-lg {
+    padding-left: var(--spacing-lg);
+  }
   .pl-md {
     padding-left: var(--spacing-md);
   }
   .pl-sm {
     padding-left: var(--spacing-sm);
+  }
+  .pl-xl {
+    padding-left: var(--spacing-xl);
   }
   .text-center {
     text-align: center;
@@ -1137,6 +1143,13 @@
     letter-spacing: normal;
   }
   .style-text-prose--1 {
+    font-family: var(--text-font);
+    font-size: var(--text-size);
+    font-weight: var(--text-weight);
+    line-height: var(--text-leading, normal);
+    letter-spacing: normal;
+  }
+  .style-text-prose--2 {
     font-family: var(--text-font);
     font-size: var(--text-size);
     font-weight: var(--text-weight);
@@ -1470,6 +1483,12 @@
     --text-font: var(--font-body);
     --text-weight: 400;
     --text-size: var(--text-sm);
+    --text-leading: 160%;
+  }
+  .style-text-prose--2 {
+    --text-font: var(--font-body);
+    --text-weight: 400;
+    --text-size: var(--text-xs);
     --text-leading: 160%;
   }
   .style-text-prose-0 {
@@ -3098,6 +3117,12 @@
       color: var(--color-on-warning-container);
     }
   }
+  .\[\&_svg\]\:size-md {
+    & svg {
+      width: var(--spacing-md);
+      height: var(--spacing-md);
+    }
+  }
   .\[\&_svg\]\:size-sm {
     & svg {
       width: var(--spacing-sm);
@@ -3593,6 +3618,9 @@
     font-family: var(--font-body);
     font-size: var(--text-base);
     scrollbar-color: var(--suwa-primary) var(--suwa-surface-dim);
+  }
+  ul, ol {
+    list-style: revert;
   }
 }
 @property --tw-translate-x {

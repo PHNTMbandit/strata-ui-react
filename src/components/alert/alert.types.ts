@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority"
 
 export const alertVariants = cva(
-	"group transition-all rounded-lg p-sm border space-y-3xs shadow-sm inset-shadow-raised-sm",
+	"group transition-all rounded-lg p-sm border space-y-xs shadow-sm inset-shadow-raised-sm",
 	{
 		variants: {
 			tone: {
