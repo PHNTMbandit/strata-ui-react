@@ -1,11 +1,9 @@
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form"
-import {
-	FieldDescription,
-	FieldErrors,
-	FieldInput,
-	FieldLabel,
-	FieldSlider,
-} from "../field"
+import { FieldDescription } from "../field/field-description"
+import { FieldErrors } from "../field/field-errors"
+import { FieldInput } from "../field/field-input"
+import { FieldLabel } from "../field/field-label"
+import { FieldSlider } from "../field/field-slider"
 import { FormErrors } from "./form-errors"
 import { FormReset } from "./form-reset"
 import { FormSubmit } from "./form-submit"
