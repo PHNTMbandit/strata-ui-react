@@ -17,11 +17,22 @@ export const FormErrors = ({
 	return (
 		<form.Subscribe selector={(state) => [state.errorMap]}>
 			{([errorMap]) => {
-				const error = errorMap.onSubmit
-				const errorMessage =
-					typeof error === "object" && "form" in error ? error.form : null
+				const submitError = errorMap.onSubmit
+				const serverError = errorMap.onServer
+				const submitErrorMessage =
+					typeof submitError === "object" && "form" in submitError
+						? submitError.form
+						: null
+				const serverErrorMessage =
+					typeof serverError === "object" && "form" in serverError
+						? serverError.form
+						: null
 
-				if (!error || !errorMessage) return null
+				if (
+					(!submitError && !serverError) ||
+					(!submitErrorMessage && !serverErrorMessage)
+				)
+					return null
 
 				return (
 					<Alert className={cn("", className)} ref={ref} {...props}>
@@ -31,7 +42,11 @@ export const FormErrors = ({
 								Error
 							</AlertHeader>
 						)}
-						<AlertDescription>{errorMessage}</AlertDescription>
+						<AlertDescription>
+							{submitErrorMessage}
+							<br />
+							{serverErrorMessage}
+						</AlertDescription>
 						{children}
 					</Alert>
 				)
