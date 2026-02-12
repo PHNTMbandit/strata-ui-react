@@ -1,3 +1,10 @@
+# [1.0.0-beta.22](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.21...v1.0.0-beta.22) (2026-02-12)
+
+
+### Features
+
+* add breadcrumb component ([b33ce42](https://github.com/PHNTMbandit/suwa-ui/commit/b33ce4292c1d329d55038b86762cd88151eb7f13))
+
 # [1.0.0-beta.21](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.20...v1.0.0-beta.21) (2026-02-07)
 
 
