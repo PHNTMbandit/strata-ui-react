@@ -14,6 +14,7 @@ export default {
 		},
 	},
 	args: {
+		label: "",
 		tone: "default",
 		orientation: "horizontal",
 		thickness: "medium",

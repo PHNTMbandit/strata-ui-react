@@ -61,4 +61,6 @@ export type SeparatorProps = Omit<
 	ComponentProps<typeof BaseSeparator>,
 	"style"
 > &
-	VariantProps<typeof separatorVariants>
+	VariantProps<typeof separatorVariants> & {
+		label?: string
+	}
