@@ -11,7 +11,7 @@ export type AccordionPanelProps = React.ComponentProps<
 }
 
 export const accordionItemVariants = cva(
-	"group transition-all [&:not([data-open])]:hover:shadow-xs hover:bg-surface-container-lowest data-open:bg-surface-container-lowest data-open:shadow-md data-open:hover:bg-surface-container-low data-open:hover:shadow-lg hover:rounded-lg data-open:rounded-lg",
+	"group transition-all [&:not([data-open])]:hover:shadow-xs hover:bg-surface-container-low data-open:bg-surface-container-bright outline outline-transparent hover:outline-outline-variant data-open:outline-outline-variant data-open:shadow-md data-open:hover:bg-surface-container-low data-open:hover:shadow-lg rounded-lg",
 	{
 		variants: {
 			tone: {

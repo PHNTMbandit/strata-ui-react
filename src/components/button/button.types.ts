@@ -7,14 +7,14 @@ export const buttonVariants = cva(
 	{
 		variants: {
 			tone: {
+				accent: "",
+				error: "",
+				glass: "",
+				neutral: "",
 				primary: "",
 				secondary: "",
-				accent: "",
-				neutral: "",
-				error: "",
 				success: "",
 				warning: "",
-				glass: "",
 			},
 			style: {
 				solid: "not-active:hover:-translate-y-3xs active:text-opacity-50",
