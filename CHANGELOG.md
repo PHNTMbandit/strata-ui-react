@@ -1,3 +1,10 @@
+# [1.0.0-beta.23](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.22...v1.0.0-beta.23) (2026-02-12)
+
+
+### Features
+
+* **separator.tsx:** add center label ([9dc3788](https://github.com/PHNTMbandit/suwa-ui/commit/9dc3788a7985a968e74671f6dd67906111e13ff8))
+
 # [1.0.0-beta.22](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.21...v1.0.0-beta.22) (2026-02-12)
 
 
