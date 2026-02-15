@@ -45,8 +45,6 @@ export const Toast = ({
 					"border-primary bg-primary-container text-on-primary-container",
 				toast.data.variant === "secondary" &&
 					"border-secondary bg-secondary-container text-on-secondary-container",
-				toast.data.variant === "accent" &&
-					"border-accent bg-accent-container text-on-accent-container",
 				toast.data.variant === "neutral" &&
 					"border-outline-variant bg-surface-bright text-on-surface",
 				toast.data.variant === "success" &&

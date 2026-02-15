@@ -7,7 +7,6 @@ type ToastAddOptions = ToastManagerAddOptions<object> & {
 	variant?:
 		| "primary"
 		| "secondary"
-		| "accent"
 		| "neutral"
 		| "success"
 		| "error"

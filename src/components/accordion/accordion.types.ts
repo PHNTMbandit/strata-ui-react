@@ -19,8 +19,6 @@ export const accordionItemVariants = cva(
 					"[&_[data-icon]]:text-primary [&_[data-panel]]:bg-primary-container [&_h1,h2,h3,h4,h5,h6]:text-on-primary-container-variant [&_p]:text-on-primary-container",
 				secondary:
 					"[&_[data-icon]]:text-secondary [&_[data-panel]]:bg-secondary-container [&_h1,h2,h3,h4,h5,h6]:text-on-secondary-container-variant [&_p]:text-on-secondary-container",
-				accent:
-					"[&_[data-icon]]:text-accent [&_[data-panel]]:bg-accent-container [&_h1,h2,h3,h4,h5,h6]:text-on-accent-container-variant [&_p]:text-on-accent-container",
 				neutral:
 					"[&_[data-icon]]:text-on-surface [&_[data-panel]]:bg-surface-dim [&_h1,h2,h3,h4,h5,h6]:text-on-surface-variant [&_p]:text-on-surface",
 				error:

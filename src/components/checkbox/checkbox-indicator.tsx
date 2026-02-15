@@ -13,7 +13,7 @@ export const CheckboxIndicator = ({
 			{...props}
 			render={(props, state) => {
 				return state.indeterminate ? (
-					<MinusIcon weight="bold" {...props} className="text-accent" />
+					<MinusIcon weight="bold" {...props} className="text-secondary" />
 				) : (
 					<CheckIcon weight="bold" {...props} />
 				)
