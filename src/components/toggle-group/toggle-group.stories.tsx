@@ -1,3 +1,4 @@
+import { HeartIcon } from "@phosphor-icons/react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Toggle } from "../toggle/toggle"
 import { ToggleGroup } from "./toggle-group"
@@ -18,9 +19,40 @@ export default {
 	},
 	render: (args) => (
 		<ToggleGroup {...args}>
-			<Toggle>Option 1</Toggle>
-			<Toggle>Option 2</Toggle>
-			<Toggle>Option 3</Toggle>
+			<Toggle>
+				{({ pressed }) => (
+					<>
+						{pressed ? (
+							<>
+								<HeartIcon weight="fill" />
+								Option 1
+							</>
+						) : (
+							<>
+								<HeartIcon weight="bold" />
+								Option 1
+							</>
+						)}
+					</>
+				)}
+			</Toggle>
+			<Toggle>
+				{({ pressed }) => (
+					<>
+						{pressed ? (
+							<>
+								<HeartIcon weight="fill" />
+								Option 2
+							</>
+						) : (
+							<>
+								<HeartIcon weight="bold" />
+								Option 2
+							</>
+						)}
+					</>
+				)}
+			</Toggle>
 		</ToggleGroup>
 	),
 } satisfies Meta<typeof ToggleGroup>

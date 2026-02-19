@@ -14,29 +14,140 @@ export default {
 			},
 		},
 	},
+	args: {
+		size: "medium",
+		tone: "primary",
+	},
+	argTypes: {
+		size: {
+			options: ["medium", "iconMedium"],
+			control: { type: "select" },
+		},
+		tone: {
+			options: [
+				"primary",
+				"secondary",
+				"neutral",
+				"error",
+				"success",
+				"warning",
+			],
+			control: { type: "select" },
+			description: "The tone of the toggle, which determines its color scheme.",
+			table: {
+				type: { summary: "string" },
+				defaultValue: { summary: "primary" },
+			},
+		},
+	},
 	render: (args) => (
-		<Toggle
-			{...args}
-			className={"text-error"}
-			pressedChildren={
+		<Toggle {...args}>
+			{({ pressed }) => (
 				<>
-					<HeartIcon weight="fill" />
-					Liked
+					{pressed ? (
+						<>
+							<HeartIcon weight="fill" />
+							Liked
+						</>
+					) : (
+						<>
+							<HeartIcon weight="bold" />
+							Like
+						</>
+					)}
 				</>
-			}
-		>
-			<HeartIcon weight="bold" />
-			Like
+			)}
 		</Toggle>
 	),
 } satisfies Meta<typeof Toggle>
 
 type Story = StoryObj<typeof Toggle>
 
-export const Default: Story = {}
-export const Icon: Story = {
+export const Primary: Story = {}
+export const Secondary: Story = {
 	args: {
-		children: <HeartIcon weight="bold" />,
-		pressedChildren: <HeartIcon weight="fill" />,
+		tone: "secondary",
 	},
+}
+export const Neutral: Story = {
+	args: {
+		tone: "neutral",
+	},
+}
+export const ErrorTone: Story = {
+	args: {
+		tone: "error",
+	},
+}
+export const Success: Story = {
+	args: {
+		tone: "success",
+	},
+}
+export const Warning: Story = {
+	args: {
+		tone: "warning",
+	},
+}
+export const Disabled: Story = {
+	args: {
+		disabled: true,
+	},
+}
+export const Small: Story = {
+	args: {
+		size: "small",
+	},
+}
+export const Medium: Story = {
+	args: {
+		size: "medium",
+	},
+}
+export const Large: Story = {
+	args: {
+		size: "large",
+	},
+}
+export const IconSmall: Story = {
+	args: {
+		size: "iconSmall",
+	},
+	render: (args) => (
+		<Toggle {...args}>
+			{({ pressed }) => (
+				<>
+					{pressed ? <HeartIcon weight="fill" /> : <HeartIcon weight="bold" />}
+				</>
+			)}
+		</Toggle>
+	),
+}
+export const IconMedium: Story = {
+	args: {
+		size: "iconMedium",
+	},
+	render: (args) => (
+		<Toggle {...args}>
+			{({ pressed }) => (
+				<>
+					{pressed ? <HeartIcon weight="fill" /> : <HeartIcon weight="bold" />}
+				</>
+			)}
+		</Toggle>
+	),
+}
+export const IconLarge: Story = {
+	args: {
+		size: "iconLarge",
+	},
+	render: (args) => (
+		<Toggle {...args}>
+			{({ pressed }) => (
+				<>
+					{pressed ? <HeartIcon weight="fill" /> : <HeartIcon weight="bold" />}
+				</>
+			)}
+		</Toggle>
+	),
 }
