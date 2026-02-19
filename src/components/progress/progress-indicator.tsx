@@ -13,7 +13,7 @@ export const ProgressIndicator = ({
 		<div className="relative">
 			<div
 				className={cn(
-					"style-text-default--2 inset-shadow-xs flex size-md shrink-0 flex-col items-center justify-center rounded-full bg-surface-dim text-center text-on-surface/30 [&>svg]:size-xs",
+					"style-text-default--2 flex size-md shrink-0 flex-col items-center justify-center rounded-full bg-surface-container-low text-center text-success transition-colors ease-in-out [&>svg]:size-xs",
 					className,
 				)}
 				ref={ref}
@@ -21,7 +21,7 @@ export const ProgressIndicator = ({
 			>
 				{children}
 			</div>
-			<div className="absolute top-full left-1/2 w-3xl -translate-x-1/2 translate-y-3xs">
+			<div className="absolute top-full left-1/2 w-3xl -translate-x-1/2 translate-y-2xs">
 				{title && (
 					<div className="style-text-strong--2 text-center text-on-surface">
 						{title}

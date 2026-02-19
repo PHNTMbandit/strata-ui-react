@@ -18,8 +18,9 @@ export const Progress = ({
 			<style>
 				{`
 		  .${scope} > :nth-child(${current}) > :first-child {
+			background-color: var(--color-success-container);
 			border: 1px solid var(--color-success-outline);
-			color: var(--color-success);
+			color: var(--color-on-success-container);
 		  }
 		  .${scope} > :nth-child(-n+${current - 1}) > :first-child {
 			background-color: var(--color-success);

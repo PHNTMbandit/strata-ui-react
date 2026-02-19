@@ -711,6 +711,10 @@
     --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+  .translate-y-2xs {
+    --tw-translate-y: var(--spacing-2xs);
+    translate: var(--tw-translate-x) var(--tw-translate-y);
+  }
   .translate-y-3xs {
     --tw-translate-y: var(--spacing-3xs);
     translate: var(--tw-translate-x) var(--tw-translate-y);
@@ -1019,11 +1023,23 @@
   .bg-secondary-container {
     background-color: var(--color-secondary-container);
   }
+  .bg-secondary\/20 {
+    background-color: var(--color-secondary);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-secondary) 20%, transparent);
+    }
+  }
   .bg-success {
     background-color: var(--color-success);
   }
   .bg-success-container {
     background-color: var(--color-success-container);
+  }
+  .bg-success\/20 {
+    background-color: var(--color-success);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-success) 20%, transparent);
+    }
   }
   .bg-surface {
     background-color: var(--color-surface);

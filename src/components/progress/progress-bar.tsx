@@ -11,7 +11,7 @@ export const ProgressBar = ({
 		<div className="w-full">
 			<div
 				className={cn(
-					"inset-shadow-xs h-3xs w-full grow rounded-full bg-surface-dim",
+					"h-3xs w-full grow rounded-full bg-success/20 transition-colors ease-in-out",
 					className,
 				)}
 				ref={ref}
