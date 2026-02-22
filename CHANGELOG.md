@@ -1,3 +1,13 @@
+# [1.0.0-beta.24](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.23...v1.0.0-beta.24) (2026-02-22)
+
+
+### Features
+
+* add progress component ([b23f1d9](https://github.com/PHNTMbandit/suwa-ui/commit/b23f1d9e1dea7b44065e6bd991059a6a42689469))
+* add table component ([17be11d](https://github.com/PHNTMbandit/suwa-ui/commit/17be11d3d6d6f0414dd4996f5c1db6dda22f412b))
+* add table storybook ([77b62bf](https://github.com/PHNTMbandit/suwa-ui/commit/77b62bf23491d3c8c2fdfd8418dbea262e63512b))
+* add toggle ([19ae7d6](https://github.com/PHNTMbandit/suwa-ui/commit/19ae7d619309924bf07d380fe132bc91c52b48e5))
+
 # [1.0.0-beta.23](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.22...v1.0.0-beta.23) (2026-02-12)
 
 
