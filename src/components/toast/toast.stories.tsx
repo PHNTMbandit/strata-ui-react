@@ -13,14 +13,7 @@ const TestButton = ({
 	ref,
 	...props
 }: React.ComponentProps<typeof Button> & {
-	tone?:
-		| "primary"
-		| "secondary"
-		| "accent"
-		| "neutral"
-		| "success"
-		| "error"
-		| "warning"
+	tone?: "primary" | "secondary" | "neutral" | "success" | "error" | "warning"
 }) => {
 	const toast = useToastManager()
 
@@ -129,35 +122,6 @@ export const Secondary: Story = {
 			expect(toast).toHaveClass(
 				"bg-secondary-container",
 				"text-on-secondary-container",
-			)
-		})
-	},
-}
-
-export const Accent: Story = {
-	args: {
-		position: "top-right",
-	},
-	render: (args) => {
-		return (
-			<ToastProvider position={args.position}>
-				<TestButton tone={"accent"}>Click here</TestButton>
-			</ToastProvider>
-		)
-	},
-	play: async ({ userEvent, canvasElement, step }) => {
-		const canvas = within(canvasElement)
-		const body = within(document.body)
-
-		await step("Check if toast uses variant tone", async () => {
-			const button = canvas.getByRole("button", { name: "Click here" })
-			await userEvent.click(button)
-
-			const toast = await body.findByRole("dialog")
-			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass(
-				"bg-accent-container",
-				"text-on-accent-container",
 			)
 		})
 	},

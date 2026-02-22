@@ -149,16 +149,6 @@ export const MultipleItems: Story = {
 					<p>This is the content for section 2.</p>
 				</AccordionPanel>
 			</AccordionItem>
-			<AccordionItem tone="accent">
-				<AccordionTrigger
-					icon={InfoIcon}
-					subtitle={"This is the subtitle"}
-					title={`Accordion 3`}
-				/>
-				<AccordionPanel heading={"Accordion Panel Heading"}>
-					<p>This is the content for section 3.</p>
-				</AccordionPanel>
-			</AccordionItem>
 		</Accordion>
 	),
 }

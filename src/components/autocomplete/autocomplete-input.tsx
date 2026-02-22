@@ -11,7 +11,12 @@ export const AutocompleteInput = ({
 	...props
 }: AutocompleteInputProps) => {
 	return (
-		<div className="group style-text-default-0 inset-shadow-sm flex h-xl w-full items-center gap-xs rounded-lg bg-surface-dim px-md py-sm outline-2 outline-transparent transition-all focus-within:caret-primary focus-within:outline-primary hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent">
+		<div
+			className={cn(
+				"group style-text-prose-0 flex h-xl w-full items-center gap-xs rounded-full bg-surface-bright px-md py-sm shadow-xs outline-2 outline-transparent transition-all focus-within:caret-secondary focus-within:outline-secondary hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent",
+				className,
+			)}
+		>
 			{leadingIcon && (
 				<div
 					className={cn(
@@ -28,7 +33,6 @@ export const AutocompleteInput = ({
 				{...props}
 				className={cn(
 					"w-full overflow-ellipsis outline-none placeholder:opacity-60 disabled:cursor-not-allowed disabled:text-text-neutral-primary-disabled",
-					className,
 				)}
 				ref={ref}
 			/>

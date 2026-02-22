@@ -7,9 +7,7 @@ export const buttonVariants = cva(
 	{
 		variants: {
 			tone: {
-				accent: "",
 				error: "",
-				glass: "",
 				neutral: "",
 				primary: "",
 				secondary: "",
@@ -123,23 +121,6 @@ export const buttonVariants = cva(
 				tone: "secondary",
 				style: "ghost",
 				className: "text-secondary hover:surface-bright active:bg-surface-dim",
-			},
-			{
-				tone: "accent",
-				style: "solid",
-				className:
-					"bg-accent text-on-accent active:text-on-accent/70 active:bg-accent-variant",
-			},
-			{
-				tone: "accent",
-				style: "outline",
-				className:
-					"border-accent text-accent hover:text-on-accent-container hover:bg-accent-container active:bg-transparent",
-			},
-			{
-				tone: "accent",
-				style: "ghost",
-				className: "text-accent hover:surface-bright active:bg-surface-dim",
 			},
 			{
 				tone: "neutral",

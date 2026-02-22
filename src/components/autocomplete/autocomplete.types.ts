@@ -43,3 +43,6 @@ export type AutocompleteRowProps = React.ComponentProps<
 export type AutocompleteTriggerProps = React.ComponentProps<
 	typeof BaseAutocomplete.Trigger
 >
+export type AutocompleteStatusProps = React.ComponentProps<
+	typeof BaseAutocomplete.Status
+>

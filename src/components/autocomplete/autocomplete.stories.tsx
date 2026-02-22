@@ -11,6 +11,7 @@ import { AutocompleteGroupLabel } from "./autocomplete-group-label"
 import { AutocompleteInput } from "./autocomplete-input"
 import { AutocompleteItem } from "./autocomplete-item"
 import { AutocompleteRow } from "./autocomplete-row"
+import { AutocompleteStatus } from "./autocomplete-status"
 import { AutocompleteTrigger } from "./autocomplete-trigger"
 
 function chunkArray<T>(array: T[], size: number): T[][] {
@@ -294,11 +295,13 @@ export default {
 		<Autocomplete {...args}>
 			<AutocompleteInput placeholder="Search..." />
 			<AutocompleteContent emptyText="No results found">
-				{tagsData.map((tag) => (
-					<AutocompleteItem key={tag.id} value={tag.label}>
-						{tag.label}
-					</AutocompleteItem>
-				))}
+				<AutocompleteCollection>
+					{(tag: Tag2) => (
+						<AutocompleteItem key={tag.id} value={tag}>
+							{tag.label}
+						</AutocompleteItem>
+					)}
+				</AutocompleteCollection>
 			</AutocompleteContent>
 		</Autocomplete>
 	),
@@ -386,5 +389,16 @@ export const GridLayout: Story = {
 				</Autocomplete>
 			</div>
 		</div>
+	),
+}
+
+export const LoadingState: Story = {
+	render: (args) => (
+		<Autocomplete {...args}>
+			<AutocompleteInput placeholder="Search..." />
+			<AutocompleteContent emptyText="No results found">
+				<AutocompleteStatus>Loading...</AutocompleteStatus>
+			</AutocompleteContent>
+		</Autocomplete>
 	),
 }
