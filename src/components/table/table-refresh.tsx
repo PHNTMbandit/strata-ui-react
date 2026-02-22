@@ -2,8 +2,7 @@ import { ArrowsClockwiseIcon } from "@phosphor-icons/react"
 import * as React from "react"
 import { cn } from "@/utils/cn"
 import { Button } from "../button"
-
-type TableRefreshProps = React.ComponentProps<typeof Button>
+import type { TableRefreshProps } from "./table.types"
 
 export const TableRefresh = ({
 	className,

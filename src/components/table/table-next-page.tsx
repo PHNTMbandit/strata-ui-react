@@ -1,10 +1,8 @@
 import { CaretRightIcon } from "@phosphor-icons/react"
-import type * as React from "react"
 import { cn } from "@/utils/cn"
 import { Button } from "../button"
 import { useTable } from "./table"
-
-type TableNextPageProps = React.ComponentProps<typeof Button>
+import type { TableNextPageProps } from "./table.types"
 
 export const TableNextPage = ({
 	className,

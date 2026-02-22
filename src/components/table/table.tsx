@@ -1,27 +1,30 @@
-import type { Table as TanstackTable } from "@tanstack/react-table"
 import * as React from "react"
-import { cn } from "@/utils/cn"
+import type { TableProps } from "./table.types"
 
-type TableProps = React.ComponentProps<"table"> & {
-	table: TanstackTable<any>
+type TableContextType = TableProps & {
+	view: TableView
+	setView: React.Dispatch<React.SetStateAction<TableView>>
 }
 
-const TableContext = React.createContext<TableProps | null>(null)
+const TableContext = React.createContext<TableContextType | null>(null)
+
+export type TableView = "grid" | "list"
 
 export const Table = ({
+	defaultView = "list",
 	table,
 	className,
 	children,
 	ref,
 	...props
 }: TableProps) => {
+	const [view, setView] = React.useState<TableView>(defaultView)
+
 	return (
 		<TableContext.Provider
-			value={{ table, className, children, ref, ...props }}
+			value={{ view, setView, table, className, children, ref, ...props }}
 		>
-			<table className={cn("", className)} ref={ref} {...props}>
-				{children}
-			</table>
+			<div className="flex flex-col gap-sm">{children}</div>
 		</TableContext.Provider>
 	)
 }

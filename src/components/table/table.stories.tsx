@@ -4,7 +4,6 @@ import {
 	type ColumnDef,
 	type ColumnFiltersState,
 	createColumnHelper,
-	flexRender,
 	getCoreRowModel,
 	getFilteredRowModel,
 	getPaginationRowModel,
@@ -16,6 +15,9 @@ import React from "react"
 import { Checkbox } from "../checkbox"
 import { Table } from "./table"
 import { TableBody } from "./table-body"
+import { TableChangeView } from "./table-change-view"
+import { TableContent } from "./table-content"
+import { TableFilter } from "./table-filter"
 import { TableFirstPage } from "./table-first-page"
 import { TableFooter } from "./table-footer"
 import { TableHeader } from "./table-header"
@@ -24,20 +26,30 @@ import { TableNav } from "./table-nav"
 import { TableNextPage } from "./table-next-page"
 import { TablePagination } from "./table-pagination"
 import { TablePreviousPage } from "./table-previous-page"
+import { TableResults } from "./table-results"
+import { TableRowGrid } from "./table-row-grid"
+import { TableRowList } from "./table-row-list"
 import { TableSearch } from "./table-search"
+import { TableSort } from "./table-sort"
 
 export default {
 	title: "Components/Table",
 	component: Table,
 	subcomponents: {
-		TableHeader,
 		TableBody,
-		TableFooter,
-		TableNav,
+		TableFilter,
 		TableFirstPage,
-		TablePreviousPage,
-		TableNextPage,
+		TableFooter,
+		TableHeader,
 		TableLastPage,
+		TableNav: TablePagination,
+		TableNextPage,
+		TablePagination: TableResults,
+		TablePreviousPage,
+		TableRowGrid,
+		TableRowList,
+		TableSearch,
+		TableSort,
 	},
 	parameters: {
 		docs: {
@@ -47,6 +59,9 @@ export default {
 					"The Table component is used to display data in a structured format with rows and columns. It can be customized with various props to fit different use cases.",
 			},
 		},
+	},
+	args: {
+		defaultView: "list",
 	},
 } as Meta<typeof Table>
 
@@ -101,7 +116,7 @@ function makeData(...lens: number[]) {
 
 export const Basic: Story = {
 	render: (args) => {
-		const data: Person[] = [
+		const initialData: Person[] = [
 			{
 				firstName: "tanner",
 				lastName: "linsley",
@@ -129,12 +144,14 @@ export const Basic: Story = {
 		]
 
 		const columnHelper = createColumnHelper<Person>()
+		const [data, _setData] = React.useState<Person[]>(initialData)
 
 		const columns = [
 			columnHelper.accessor("firstName", {
 				header: () => "First Name",
 				cell: (info) => info.getValue(),
 				footer: (info) => info.column.id,
+				sortingFn: "alphanumeric",
 			}),
 			columnHelper.accessor((row) => row.lastName, {
 				id: "lastName",
@@ -158,6 +175,7 @@ export const Basic: Story = {
 			columnHelper.accessor("progress", {
 				header: "Profile Progress",
 				footer: (info) => info.column.id,
+				enableSorting: false,
 			}),
 		]
 
@@ -277,6 +295,7 @@ export const ColumnFilters: Story = {
 		const columns: ColumnDef<Person, any>[] = [
 			{
 				accessorKey: "firstName",
+				header: () => "First Name",
 				cell: (info) => info.getValue(),
 			},
 			{
@@ -288,7 +307,7 @@ export const ColumnFilters: Story = {
 			{
 				accessorFn: (row) => `${row.firstName} ${row.lastName}`,
 				id: "fullName",
-				header: "Full Name",
+				header: () => <span>Full Name</span>,
 				cell: (info) => info.getValue(),
 			},
 			{
@@ -307,14 +326,14 @@ export const ColumnFilters: Story = {
 			},
 			{
 				accessorKey: "status",
-				header: "Status",
+				header: () => "Status",
 				meta: {
 					filterVariant: "select",
 				},
 			},
 			{
 				accessorKey: "progress",
-				header: "Profile Progress",
+				header: () => "Profile Progress",
 				meta: {
 					filterVariant: "range",
 				},
@@ -345,12 +364,12 @@ export const ColumnFilters: Story = {
 				<TableHeader />
 				<TableBody />
 				<TableFooter />
-				<TableNav>
+				<TablePagination>
 					<TableFirstPage />
 					<TablePreviousPage />
 					<TableNextPage />
 					<TableLastPage />
-				</TableNav>
+				</TablePagination>
 			</Table>
 		)
 	},
@@ -411,13 +430,13 @@ export const Search: Story = {
 				<TableHeader />
 				<TableBody />
 				<TableFooter />
-				<TableNav>
+				<TablePagination>
 					<TableSearch />
 					<TableFirstPage />
 					<TablePreviousPage />
 					<TableNextPage />
 					<TableLastPage />
-				</TableNav>
+				</TablePagination>
 			</Table>
 		)
 	},
@@ -430,6 +449,7 @@ export const Select: Story = {
 				id: "select",
 				enableSorting: false,
 				enableGlobalFilter: false,
+				size: 10,
 				header: ({ table }) => (
 					<Checkbox
 						aria-label="Select all"
@@ -505,6 +525,362 @@ export const Pagination: Story = {
 		const columns: ColumnDef<Person, any>[] = [
 			{
 				id: "select",
+				size: 10,
+				enableSorting: false,
+				enableGlobalFilter: false,
+				header: ({ table }) => (
+					<Checkbox
+						aria-label="Select all"
+						checked={table.getIsAllRowsSelected()}
+						indeterminate={table.getIsSomeRowsSelected()}
+						onCheckedChange={(value) => table.toggleAllRowsSelected(!!value)}
+					/>
+				),
+				cell: ({ row }) => (
+					<Checkbox
+						aria-label="Select row"
+						checked={row.getIsSelected()}
+						onCheckedChange={(value) => row.toggleSelected(!!value)}
+					/>
+				),
+			},
+			{
+				accessorKey: "firstName",
+				cell: (info) => info.getValue(),
+				header: () => "First Name",
+				filterFn: "includesStringSensitive",
+			},
+			{
+				accessorFn: (row) => row.lastName,
+				id: "lastName",
+				cell: (info) => info.getValue(),
+				header: () => <span>Last Name</span>,
+				filterFn: "includesString",
+			},
+			{
+				accessorFn: (row) => `${row.firstName} ${row.lastName}`,
+				id: "fullName",
+				header: "Full Name",
+				cell: (info) => info.getValue(),
+			},
+		]
+
+		const [data, _setData] = React.useState<Person[]>(() => makeData(5_000))
+		const [columnFilters, setColumnFilters] =
+			React.useState<ColumnFiltersState>([])
+		const [globalFilter, setGlobalFilter] = React.useState("")
+		const [pagination, setPagination] = React.useState<PaginationState>({
+			pageIndex: 0,
+			pageSize: 15,
+		})
+
+		const table = useReactTable({
+			data,
+			columns,
+			state: {
+				columnFilters,
+				globalFilter,
+				pagination,
+			},
+			onColumnFiltersChange: setColumnFilters,
+			onGlobalFilterChange: setGlobalFilter,
+			getCoreRowModel: getCoreRowModel(),
+			getFilteredRowModel: getFilteredRowModel(),
+			getSortedRowModel: getSortedRowModel(),
+			getPaginationRowModel: getPaginationRowModel(),
+			onPaginationChange: setPagination,
+			debugTable: true,
+			debugHeaders: true,
+			debugColumns: false,
+		})
+
+		return (
+			<Table {...args} table={table}>
+				<TableSearch />
+				<TableContent>
+					<TableHeader />
+					<TableBody />
+					<TableFooter />
+				</TableContent>
+				<TableNav>
+					<TableResults>
+						{(start, end, total) => (
+							<span className="grow">
+								Showing {start} to {end} of {total} results
+							</span>
+						)}
+					</TableResults>
+					<TablePagination />
+				</TableNav>
+			</Table>
+		)
+	},
+}
+
+export const Grid: Story = {
+	args: {
+		defaultView: "grid",
+	},
+	render: (args) => {
+		type Project = {
+			id: string
+			name: string
+			status: "not started" | "in progress" | "completed"
+		}
+
+		const columns: ColumnDef<Project, any>[] = [
+			{
+				accessorKey: "name",
+				cell: (info) => info.getValue(),
+				filterFn: "includesStringSensitive",
+			},
+		]
+
+		const testData: Project[] = Array.from({ length: 1000 }, (_, i) => ({
+			id: `project-${i + 1}`,
+			name: `Project ${i + 1}`,
+			status: faker.helpers.shuffle<Project["status"]>([
+				"not started",
+				"in progress",
+				"completed",
+			])[0]!,
+		}))
+
+		const [data, _setData] = React.useState<Project[]>(testData)
+		const [columnFilters, setColumnFilters] =
+			React.useState<ColumnFiltersState>([])
+		const [globalFilter, setGlobalFilter] = React.useState("")
+		const [pagination, setPagination] = React.useState<PaginationState>({
+			pageIndex: 0,
+			pageSize: 15,
+		})
+
+		const table = useReactTable({
+			data,
+			columns,
+			state: {
+				columnFilters,
+				globalFilter,
+				pagination,
+			},
+			onColumnFiltersChange: setColumnFilters,
+			onGlobalFilterChange: setGlobalFilter,
+			getCoreRowModel: getCoreRowModel(),
+			getFilteredRowModel: getFilteredRowModel(),
+			getSortedRowModel: getSortedRowModel(),
+			getPaginationRowModel: getPaginationRowModel(),
+			onPaginationChange: setPagination,
+			debugTable: true,
+			debugHeaders: true,
+			debugColumns: false,
+		})
+
+		return (
+			<Table {...args} table={table}>
+				<TableSearch />
+				<TableBody />
+				<TablePagination>
+					<TableFirstPage />
+					<TablePreviousPage />
+					<TableNextPage />
+					<TableLastPage />
+					<TableResults>
+						{(start, end, total) => (
+							<span>
+								Showing {start} to {end} of {total} results
+							</span>
+						)}
+					</TableResults>
+				</TablePagination>
+			</Table>
+		)
+	},
+}
+
+export const ChangeView: Story = {
+	render: (args) => {
+		type Project = {
+			id: string
+			name: string
+			status: "not started" | "in progress" | "completed"
+		}
+
+		const columns: ColumnDef<Project, any>[] = [
+			{
+				accessorKey: "name",
+				cell: (info) => info.getValue(),
+				filterFn: "includesStringSensitive",
+			},
+		]
+
+		const testData: Project[] = Array.from({ length: 1000 }, (_, i) => ({
+			id: `project-${i + 1}`,
+			name: `Project ${i + 1}`,
+			status: faker.helpers.shuffle<Project["status"]>([
+				"not started",
+				"in progress",
+				"completed",
+			])[0]!,
+		}))
+
+		const [data, _setData] = React.useState<Project[]>(testData)
+		const [columnFilters, setColumnFilters] =
+			React.useState<ColumnFiltersState>([])
+		const [globalFilter, setGlobalFilter] = React.useState("")
+		const [pagination, setPagination] = React.useState<PaginationState>({
+			pageIndex: 0,
+			pageSize: 15,
+		})
+
+		const table = useReactTable({
+			data,
+			columns,
+			state: {
+				columnFilters,
+				globalFilter,
+				pagination,
+			},
+			onColumnFiltersChange: setColumnFilters,
+			onGlobalFilterChange: setGlobalFilter,
+			getCoreRowModel: getCoreRowModel(),
+			getFilteredRowModel: getFilteredRowModel(),
+			getSortedRowModel: getSortedRowModel(),
+			getPaginationRowModel: getPaginationRowModel(),
+			onPaginationChange: setPagination,
+			debugTable: true,
+			debugHeaders: true,
+			debugColumns: false,
+		})
+
+		return (
+			<Table {...args} table={table}>
+				<TableSearch />
+				<TableBody />
+				<TablePagination>
+					<TableChangeView />
+					<TableResults>
+						{(start, end, total) => (
+							<span>
+								Showing {start} to {end} of {total} results
+							</span>
+						)}
+					</TableResults>
+				</TablePagination>
+			</Table>
+		)
+	},
+}
+
+export const OverrideDefaultRowUI: Story = {
+	render: (args) => {
+		type Project = {
+			id: string
+			name: string
+			status: "not started" | "in progress" | "completed"
+		}
+
+		const columns: ColumnDef<Project, any>[] = [
+			{
+				accessorKey: "name",
+				cell: (info) => info.getValue(),
+				filterFn: "includesStringSensitive",
+			},
+		]
+
+		const testData: Project[] = Array.from({ length: 1000 }, (_, i) => ({
+			id: `project-${i + 1}`,
+			name: `Project ${i + 1}`,
+			status: faker.helpers.shuffle<Project["status"]>([
+				"not started",
+				"in progress",
+				"completed",
+			])[0]!,
+		}))
+
+		const [data, _setData] = React.useState<Project[]>(testData)
+		const [columnFilters, setColumnFilters] =
+			React.useState<ColumnFiltersState>([])
+		const [globalFilter, setGlobalFilter] = React.useState("")
+		const [pagination, setPagination] = React.useState<PaginationState>({
+			pageIndex: 0,
+			pageSize: 15,
+		})
+
+		const table = useReactTable({
+			data,
+			columns,
+			state: {
+				columnFilters,
+				globalFilter,
+				pagination,
+			},
+			onColumnFiltersChange: setColumnFilters,
+			onGlobalFilterChange: setGlobalFilter,
+			getCoreRowModel: getCoreRowModel(),
+			getFilteredRowModel: getFilteredRowModel(),
+			getSortedRowModel: getSortedRowModel(),
+			getPaginationRowModel: getPaginationRowModel(),
+			onPaginationChange: setPagination,
+			debugTable: true,
+			debugHeaders: true,
+			debugColumns: false,
+		})
+
+		const CustomRowList: React.FC<{ row: any }> = ({ row }) => {
+			return (
+				<tr style={{ backgroundColor: "darkgreen" }}>
+					<td colSpan={columns.length}>
+						{row.original.name} - Custom List Row
+					</td>
+				</tr>
+			)
+		}
+
+		const CustomRowGrid: React.FC<{ row: any }> = ({ row }) => {
+			return (
+				<div
+					style={{
+						border: "1px solid black",
+						padding: "8px",
+						backgroundColor: "darkgreen",
+					}}
+				>
+					{row.original.name} - Custom Grid Row
+				</div>
+			)
+		}
+
+		return (
+			<Table {...args} table={table}>
+				<TableSearch />
+				<TableBody
+					rowGridOverride={CustomRowGrid}
+					rowListOverride={CustomRowList}
+				/>
+				<TablePagination>
+					<TableChangeView />
+					<TableFirstPage />
+					<TablePreviousPage />
+					<TableNextPage />
+					<TableLastPage />
+					<TableResults>
+						{(start, end, total) => (
+							<span>
+								Showing {start} to {end} of {total} results
+							</span>
+						)}
+					</TableResults>
+				</TablePagination>
+			</Table>
+		)
+	},
+}
+
+export const HeaderSorting: Story = {
+	render: (args) => {
+		const columns: ColumnDef<Person, any>[] = [
+			{
+				id: "select",
 				enableSorting: false,
 				enableGlobalFilter: false,
 				header: ({ table }) => (
@@ -574,118 +950,19 @@ export const Pagination: Story = {
 
 		return (
 			<Table {...args} table={table}>
+				<TableSearch />
 				<TableHeader />
 				<TableBody />
-				<TableFooter />
 				<TableNav>
-					<TableFirstPage />
-					<TablePreviousPage />
-					<TableNextPage />
-					<TableLastPage />
-					<TablePagination>
+					<TableChangeView />
+					<TablePagination />
+					<TableResults>
 						{(start, end, total) => (
 							<span>
 								Showing {start} to {end} of {total} results
 							</span>
 						)}
-					</TablePagination>
-				</TableNav>
-			</Table>
-		)
-	},
-}
-
-export const Grid: Story = {
-	render: (args) => {
-		type Project = {
-			id: string
-			name: string
-			status: "not started" | "in progress" | "completed"
-		}
-
-		const columns: ColumnDef<Project, any>[] = [
-			{
-				accessorKey: "name",
-				cell: (info) => info.getValue(),
-				filterFn: "includesStringSensitive",
-			},
-		]
-
-		const testData: Project[] = Array.from({ length: 1000 }, (_, i) => ({
-			id: `project-${i + 1}`,
-			name: `Project ${i + 1}`,
-			status: faker.helpers.shuffle<Project["status"]>([
-				"not started",
-				"in progress",
-				"completed",
-			])[0]!,
-		}))
-
-		const [data, _setData] = React.useState<Project[]>(testData)
-		const [columnFilters, setColumnFilters] =
-			React.useState<ColumnFiltersState>([])
-		const [globalFilter, setGlobalFilter] = React.useState("")
-		const [pagination, setPagination] = React.useState<PaginationState>({
-			pageIndex: 0,
-			pageSize: 15,
-		})
-
-		const table = useReactTable({
-			data,
-			columns,
-			state: {
-				columnFilters,
-				globalFilter,
-				pagination,
-			},
-			onColumnFiltersChange: setColumnFilters,
-			onGlobalFilterChange: setGlobalFilter,
-			getCoreRowModel: getCoreRowModel(),
-			getFilteredRowModel: getFilteredRowModel(),
-			getSortedRowModel: getSortedRowModel(),
-			getPaginationRowModel: getPaginationRowModel(),
-			onPaginationChange: setPagination,
-			debugTable: true,
-			debugHeaders: true,
-			debugColumns: false,
-		})
-
-		return (
-			<Table {...args} table={table}>
-				<TableSearch />
-				<tbody className="grid grid-cols-5 gap-xs">
-					{table.getRowModel().rows.map((row) => {
-						return (
-							<tr
-								className="aspect-video min-h-2xl rounded-md bg-surface-container-mid p-xs"
-								key={row.id}
-							>
-								{row.getVisibleCells().map((cell) => {
-									return (
-										<td key={cell.id}>
-											{flexRender(
-												cell.column.columnDef.cell,
-												cell.getContext(),
-											)}
-										</td>
-									)
-								})}
-							</tr>
-						)
-					})}
-				</tbody>
-				<TableNav>
-					<TableFirstPage />
-					<TablePreviousPage />
-					<TableNextPage />
-					<TableLastPage />
-					<TablePagination>
-						{(start, end, total) => (
-							<span>
-								Showing {start} to {end} of {total} results
-							</span>
-						)}
-					</TablePagination>
+					</TableResults>
 				</TableNav>
 			</Table>
 		)

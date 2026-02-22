@@ -3,8 +3,7 @@ import type * as React from "react"
 import { cn } from "@/utils/cn"
 import { Input } from "../input"
 import { useTable } from "./table"
-
-type TableSearchProps = React.ComponentProps<"input">
+import type { TableSearchProps } from "./table.types"
 
 export const TableSearch = ({
 	className,

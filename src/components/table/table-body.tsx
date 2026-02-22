@@ -1,32 +1,51 @@
-import { flexRender } from "@tanstack/react-table"
+import { TableRowGrid, TableRowList } from "@/index"
 import { cn } from "@/utils/cn"
 import { useTable } from "./table"
-
-type TableBodyProps = React.ComponentProps<"tbody">
+import type { TableBodyProps } from "./table.types"
 
 export const TableBody = ({
+	rowGridOverride: RowGridOverride,
+	rowListOverride: RowListOverride,
 	className,
 	children,
 	ref,
 	...props
 }: TableBodyProps) => {
-	const { table } = useTable()
+	const { view, table } = useTable()
+	const rows = table.getRowModel().rows
 
 	return (
-		<tbody className={cn("", className)} ref={ref} {...props}>
-			{children}
-			{table.getRowModel().rows.map((row) => {
-				return (
-					<tr key={row.id}>
-						{row.getVisibleCells().map((cell) => {
-							return (
-								<td key={cell.id}>
-									{flexRender(cell.column.columnDef.cell, cell.getContext())}
-								</td>
-							)
-						})}
-					</tr>
-				)
+		<tbody
+			className={cn(
+				"divide-y divide-outline-variant",
+				view === "grid" && "grid grid-cols-5 gap-sm",
+				className,
+			)}
+			ref={ref}
+			{...props}
+		>
+			{rows.map((row) => {
+				if (children) {
+					return children(row)
+				}
+
+				if (view === "grid") {
+					return RowGridOverride ? (
+						<RowGridOverride key={row.id} row={row} />
+					) : (
+						<TableRowGrid key={row.id} row={row} />
+					)
+				}
+
+				if (view === "list") {
+					return RowListOverride ? (
+						<RowListOverride key={row.id} row={row} />
+					) : (
+						<TableRowList key={row.id} row={row} />
+					)
+				}
+
+				return null
 			})}
 		</tbody>
 	)

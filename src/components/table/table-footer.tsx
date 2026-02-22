@@ -1,8 +1,7 @@
 import { flexRender } from "@tanstack/react-table"
 import { cn } from "@/utils/cn"
 import { useTable } from "./table"
-
-type TableFooterProps = React.ComponentProps<"tfoot">
+import type { TableFooterProps } from "./table.types"
 
 export const TableFooter = ({
 	className,
