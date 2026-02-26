@@ -1,3 +1,15 @@
+# [1.0.0-beta.25](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2026-02-26)
+
+
+### Bug Fixes
+
+* fix storybook failed tests ([3a6abcd](https://github.com/PHNTMbandit/suwa-ui/commit/3a6abcdbce87000a9eb45468aa53a827140f4310))
+
+
+### Features
+
+* add select component ([25cf2ab](https://github.com/PHNTMbandit/suwa-ui/commit/25cf2ab608af13b23571a1a10dce1f23052ba446))
+
 # [1.0.0-beta.24](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.23...v1.0.0-beta.24) (2026-02-22)
 
 
