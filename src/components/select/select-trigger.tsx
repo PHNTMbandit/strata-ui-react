@@ -1,5 +1,5 @@
 import { Select as BaseSelect } from "@base-ui/react/select"
-import { cn } from "suwa-ui"
+import { cn } from "@/utils/cn"
 import type { SelectTriggerProps } from "./select.types"
 
 export const SelectTrigger = ({
