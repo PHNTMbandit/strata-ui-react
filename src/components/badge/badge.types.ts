@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority"
 import type { ComponentProps } from "react"
 
 export const badgeVariants = cva(
-	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all px-2xs h-md gap-3xs style-text-default--2 rounded-full",
+	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all rounded-full",
 	{
 		variants: {
 			tone: {
@@ -14,6 +14,11 @@ export const badgeVariants = cva(
 				success: "",
 				warning: "",
 			},
+			size: {
+				small: "[&>svg]:size-xs style-text-default--2 px-2xs h-md gap-3xs",
+				medium: "[&>svg]:size-sm style-text-default--1 px-xs h-lg gap-2xs",
+				large: "[&>svg]:size-md style-text-default-2 px-sm h-xl gap-xs",
+			},
 			style: {
 				light: "",
 				solid: "",
@@ -21,8 +26,9 @@ export const badgeVariants = cva(
 			},
 		},
 		defaultVariants: {
-			tone: "neutral",
+			size: "medium",
 			style: "light",
+			tone: "neutral",
 		},
 		compoundVariants: [
 			{

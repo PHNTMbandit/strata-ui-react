@@ -16,10 +16,16 @@ export default {
 	},
 	args: {
 		children: "Badge",
+		size: "medium",
 		style: "light",
 		tone: "primary",
 	},
 	argTypes: {
+		size: {
+			control: "radio",
+			options: ["small", "medium", "large"],
+			description: "Defines the size of the badge.",
+		},
 		tone: {
 			control: "select",
 			options: [
