@@ -1,3 +1,10 @@
+# [1.0.0-beta.27](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2026-02-28)
+
+
+### Bug Fixes
+
+* add <a> compatibility with progress bar indicator ([8d74b37](https://github.com/PHNTMbandit/suwa-ui/commit/8d74b37ea14a8c18757de557e9b45b86ae22ac4f))
+
 # [1.0.0-beta.26](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2026-02-28)
 
 
