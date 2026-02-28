@@ -22,7 +22,10 @@ export const SidebarMenuLink = ({
 
 	return (
 		<div
-			className={cn(sidebarMenuLinkVariants({ size: linkSize, className }))}
+			className={cn(
+				sidebarMenuLinkVariants({ size: linkSize, className }),
+				!showText && "mx-auto",
+			)}
 			ref={ref}
 			{...props}
 		>

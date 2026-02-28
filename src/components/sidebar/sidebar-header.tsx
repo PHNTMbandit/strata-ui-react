@@ -1,6 +1,7 @@
 import { cn } from "@/utils/cn"
 import type { SidebarHeaderProps } from "./sidebar.types"
 import { useSidebar } from "./sidebar-provider"
+import { SidebarToggle } from "./sidebar-toggle"
 
 export const SidebarHeader = ({
 	className,
@@ -14,8 +15,10 @@ export const SidebarHeader = ({
 	return (
 		<div
 			className={cn(
-				"style-text-strong-2 shrink-0 overflow-hidden truncate transition-all duration-300 ease-in-out",
+				"style-text-strong-1 flex shrink-0 items-center justify-between overflow-hidden truncate transition-all duration-300 ease-in-out",
 				isExpanded && "pl-sm",
+				open && "p-3xs py-xs pr-2xs",
+				!open && "self-center",
 				className,
 			)}
 			ref={ref}
@@ -23,13 +26,15 @@ export const SidebarHeader = ({
 		>
 			<div
 				className={cn(
-					"transition-all duration-200 ease-out",
+					"flex items-center justify-center gap-xs transition-all duration-200 ease-out",
+					open && "justify-start",
 					collapsible !== "none" && "animate-in",
 					isExpanded ? "fade-in-0" : "fade-out-0",
 				)}
 			>
 				{children}
 			</div>
+			{open && <SidebarToggle />}
 		</div>
 	)
 }

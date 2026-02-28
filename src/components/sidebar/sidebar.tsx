@@ -5,7 +5,7 @@ import { useSidebar } from "./sidebar-provider"
 
 export const Sidebar = ({
 	tone = "default",
-	width = 250,
+	width = 400,
 	className,
 	children,
 	ref,

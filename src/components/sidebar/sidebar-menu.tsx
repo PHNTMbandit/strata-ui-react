@@ -9,7 +9,7 @@ export const SidebarMenu = ({
 }: SidebarMenuProps) => {
 	return (
 		<div
-			className={cn("flex flex-col gap-3xs", className)}
+			className={cn("flex flex-col items-start gap-3xs", className)}
 			ref={ref}
 			{...props}
 		>
