@@ -1,19 +1,44 @@
-import React, { useId } from "react"
+import React from "react"
 import { cn } from "@/utils/cn"
 import type { ProgressProps } from "./progress.types"
 
 export const Progress = ({
-	currentIndex,
 	className,
 	children,
 	ref,
 	...props
 }: ProgressProps) => {
-	const uid = useId().replace(/:/g, "")
-	const scope = `progress-${uid}`
+	// Find the index of the active indicator
+	let activeIndex = -1
+	let currentIndex = -1
 
-	let indicatorIndex = 0
-	let barIndex = 0
+	const findActiveIndex = (child: React.ReactNode): void => {
+		if (!React.isValidElement(child)) return
+
+		const childType = child.type as
+			| string
+			| React.ComponentType<unknown>
+			| undefined
+		const displayName =
+			typeof childType === "function"
+				? (childType as { displayName?: string }).displayName
+				: ""
+
+		if (displayName === "ProgressIndicator") {
+			currentIndex++
+			const childProps = child.props as { isActive?: boolean }
+			if (childProps.isActive && activeIndex === -1) {
+				activeIndex = currentIndex
+			}
+		}
+	}
+
+	React.Children.forEach(children, findActiveIndex)
+
+	// Process children to add isCompleted prop
+	let indicatorIndex = -1
+	let barIndex = -1
+
 	const processChildren = (child: React.ReactNode): React.ReactNode => {
 		if (!React.isValidElement(child)) return child
 
@@ -23,41 +48,23 @@ export const Progress = ({
 			| undefined
 		const displayName =
 			typeof childType === "function"
-				? (childType as { displayName?: string; name?: string }).displayName ||
-					(childType as { displayName?: string; name?: string }).name
+				? (childType as { displayName?: string }).displayName
 				: ""
 
-		const childProps = child.props as {
-			className?: string
-			children?: React.ReactNode
-		}
-
-		if (
-			displayName === "ProgressIndicator" ||
-			(typeof childProps.className === "string" &&
-				childProps.className.includes("size-md"))
-		) {
+		if (displayName === "ProgressIndicator") {
 			indicatorIndex++
+			const shouldBeCompleted =
+				activeIndex !== -1 && indicatorIndex < activeIndex
 			return React.cloneElement(child, {
-				"data-progress-index": indicatorIndex,
+				isCompleted: shouldBeCompleted,
 			} as Record<string, unknown>)
 		}
 
-		if (
-			displayName === "ProgressBar" ||
-			(typeof childProps.className === "string" &&
-				childProps.className.includes("h-3xs"))
-		) {
+		if (displayName === "ProgressBar") {
 			barIndex++
-			return React.cloneElement(child, { "data-bar-index": barIndex } as Record<
-				string,
-				unknown
-			>)
-		}
-
-		if (childProps.children) {
+			const shouldBeCompleted = activeIndex !== -1 && barIndex < activeIndex
 			return React.cloneElement(child, {
-				children: React.Children.map(childProps.children, processChildren),
+				isCompleted: shouldBeCompleted,
 			} as Record<string, unknown>)
 		}
 
@@ -67,49 +74,15 @@ export const Progress = ({
 	const processedChildren = React.Children.map(children, processChildren)
 
 	return (
-		<>
-			<style>
-				{`
-		  .${scope} [data-progress-index="${currentIndex}"] {
-			background-color: var(--color-success-container);
-			border: 1px solid var(--color-success-outline);
-			color: var(--color-on-success-container);
-		  }
-		  ${Array.from({ length: currentIndex - 1 }, (_, i) => i + 1)
-				.map(
-					(i) => `
-		  .${scope} [data-progress-index="${i}"] {
-			background-color: var(--color-success);
-			color: var(--color-on-success);
-			box-shadow: none;
-		  }
-		  `,
-				)
-				.join("")}
-		  ${Array.from({ length: currentIndex - 1 }, (_, i) => i + 1)
-				.map(
-					(i) => `
-		  .${scope} [data-bar-index="${i}"] {
-			background-color: var(--color-success);
-			opacity: 1;
-		  }
-		  `,
-				)
-				.join("")}
-		`}
-			</style>
-
-			<div
-				className={cn(
-					"flex w-full items-center justify-center gap-2xs",
-					scope,
-					className,
-				)}
-				ref={ref}
-				{...props}
-			>
-				{processedChildren}
-			</div>
-		</>
+		<div
+			className={cn(
+				"flex w-full items-center justify-center gap-2xs",
+				className,
+			)}
+			ref={ref}
+			{...props}
+		>
+			{processedChildren}
+		</div>
 	)
 }

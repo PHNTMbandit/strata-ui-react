@@ -18,9 +18,6 @@ export default {
 			},
 		},
 	},
-	args: {
-		currentIndex: 1,
-	},
 	render: (args) => (
 		<Progress {...args} className="w-[300px]">
 			<ProgressIndicator
@@ -32,6 +29,7 @@ export default {
 			<ProgressBar />
 			<ProgressIndicator
 				description="This is the second step"
+				isActive
 				title="Second Step"
 			>
 				2
@@ -71,6 +69,7 @@ export const DefaultWithIcon: Story = {
 			<ProgressBar />
 			<ProgressIndicator
 				description="This is the third step"
+				isActive
 				title="Third Step"
 			>
 				<CheckIcon weight="bold" />

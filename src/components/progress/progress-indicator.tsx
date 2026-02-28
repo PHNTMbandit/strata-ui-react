@@ -6,18 +6,25 @@ export const ProgressIndicator = ({
 	description,
 	className,
 	children,
+	isActive = false,
 	ref,
 	...props
-}: ProgressIndicatorProps) => {
+}: ProgressIndicatorProps & { isCompleted?: boolean }) => {
+	const { isCompleted = false, ...restProps } = props as {
+		isCompleted?: boolean
+	}
 	return (
 		<div className="relative">
 			<div
 				className={cn(
 					"style-text-default--2 flex size-md shrink-0 flex-col items-center justify-center rounded-full bg-surface-container-low text-center text-success transition-colors ease-in-out [&>svg]:size-xs",
+					isActive &&
+						"border border-success-outline bg-success-container text-on-success-container",
+					isCompleted && "bg-success text-on-success shadow-none",
 					className,
 				)}
 				ref={ref}
-				{...props}
+				{...restProps}
 			>
 				{children}
 			</div>
