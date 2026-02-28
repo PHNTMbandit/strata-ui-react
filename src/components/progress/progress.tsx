@@ -11,17 +11,20 @@ export const Progress = ({
 	let activeIndex = -1
 	let currentIndex = -1
 
-	const findActiveIndex = (child: React.ReactNode): void => {
-		if (!React.isValidElement(child)) return
-
+	const getDisplayName = (child: React.ReactElement): string | undefined => {
 		const childType = child.type as
 			| string
 			| React.ComponentType<unknown>
 			| undefined
-		const displayName =
-			typeof childType === "function"
-				? (childType as { displayName?: string }).displayName
-				: ""
+		return typeof childType === "function"
+			? (childType as { displayName?: string }).displayName
+			: ""
+	}
+
+	const findActiveIndex = (child: React.ReactNode): void => {
+		if (!React.isValidElement(child)) return
+
+		const displayName = getDisplayName(child)
 
 		if (displayName === "ProgressIndicator") {
 			currentIndex++
@@ -29,11 +32,11 @@ export const Progress = ({
 			if (childProps.isActive && activeIndex === -1) {
 				activeIndex = currentIndex
 			}
-		} else {
-			const childProps = child.props as { children?: React.ReactNode }
-			if (childProps.children) {
-				React.Children.forEach(childProps.children, findActiveIndex)
-			}
+		}
+
+		const childProps = child.props as { children?: React.ReactNode }
+		if (childProps.children) {
+			React.Children.forEach(childProps.children, findActiveIndex)
 		}
 	}
 
@@ -45,14 +48,7 @@ export const Progress = ({
 	const processChildren = (child: React.ReactNode): React.ReactNode => {
 		if (!React.isValidElement(child)) return child
 
-		const childType = child.type as
-			| string
-			| React.ComponentType<unknown>
-			| undefined
-		const displayName =
-			typeof childType === "function"
-				? (childType as { displayName?: string }).displayName
-				: ""
+		const displayName = getDisplayName(child)
 
 		if (displayName === "ProgressIndicator") {
 			indicatorIndex++
