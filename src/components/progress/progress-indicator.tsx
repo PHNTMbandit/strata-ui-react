@@ -36,3 +36,5 @@ export const ProgressIndicator = ({
 		</div>
 	)
 }
+
+ProgressIndicator.displayName = "ProgressIndicator"

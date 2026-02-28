@@ -98,3 +98,36 @@ export const Bar: BarStory = {
 		</div>
 	),
 }
+
+export const Link: Story = {
+	render: (args) => (
+		<Progress {...args} className="w-[300px]">
+			<a className="cursor-pointer" href="https://example.com/step1">
+				<ProgressIndicator
+					description="This is the first step"
+					title="First Step"
+				>
+					1
+				</ProgressIndicator>
+			</a>
+			<ProgressBar />
+			<a className="cursor-pointer" href="https://example.com/step2">
+				<ProgressIndicator
+					description="This is the second step"
+					title="Second Step"
+				>
+					2
+				</ProgressIndicator>
+			</a>
+			<ProgressBar />
+			<a className="cursor-pointer" href="https://example.com/step3">
+				<ProgressIndicator
+					description="This is the third step"
+					title="Third Step"
+				>
+					3
+				</ProgressIndicator>
+			</a>
+		</Progress>
+	),
+}

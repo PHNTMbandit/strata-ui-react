@@ -18,6 +18,7 @@
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-spin: spin 1s linear infinite;
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --aspect-video: 16 / 9;
     --default-transition-duration: 150ms;
@@ -409,8 +410,26 @@
   .my-xs {
     margin-block: var(--spacing-xs);
   }
+  .-mt-2xs {
+    margin-top: calc(var(--spacing-2xs) * -1);
+  }
+  .-mt-3xs {
+    margin-top: calc(var(--spacing-3xs) * -1);
+  }
+  .-mt-xs {
+    margin-top: calc(var(--spacing-xs) * -1);
+  }
   .mt-\[0px\] {
     margin-top: 0px;
+  }
+  .-mr-2xs {
+    margin-right: calc(var(--spacing-2xs) * -1);
+  }
+  .-mr-3xs {
+    margin-right: calc(var(--spacing-3xs) * -1);
+  }
+  .-mr-xs {
+    margin-right: calc(var(--spacing-xs) * -1);
   }
   .mr-2xs {
     margin-right: var(--spacing-2xs);
@@ -420,6 +439,9 @@
   }
   .mb-\[0px\] {
     margin-bottom: 0px;
+  }
+  .mb-auto {
+    margin-bottom: auto;
   }
   .mb-xs {
     margin-bottom: var(--spacing-xs);
@@ -733,6 +755,9 @@
   }
   .animate-in {
     animation: enter var(--tw-animation-duration,var(--tw-duration,.15s))var(--tw-ease,ease)var(--tw-animation-delay,0s)var(--tw-animation-iteration-count,1)var(--tw-animation-direction,normal)var(--tw-animation-fill-mode,none);
+  }
+  .animate-ping {
+    animation: var(--animate-ping);
   }
   .animate-pulse {
     animation: var(--animate-pulse);
@@ -1134,6 +1159,9 @@
   .pt-sm {
     padding-top: var(--spacing-sm);
   }
+  .pr-2xs {
+    padding-right: var(--spacing-2xs);
+  }
   .pr-md {
     padding-right: var(--spacing-md);
   }
@@ -1142,6 +1170,9 @@
   }
   .pr-xs {
     padding-right: var(--spacing-xs);
+  }
+  .pb-2xs {
+    padding-bottom: var(--spacing-2xs);
   }
   .pb-3xs {
     padding-bottom: var(--spacing-3xs);
@@ -1377,6 +1408,9 @@
   .opacity-50 {
     opacity: 50%;
   }
+  .opacity-75 {
+    opacity: 75%;
+  }
   .shadow-lg {
     --tw-shadow: var(--suwa-shadow-lg);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1445,6 +1479,11 @@
   }
   .transition-\[left\] {
     transition-property: left;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .transition-\[margin\] {
+    transition-property: margin;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
@@ -1946,6 +1985,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-surface-container-mid);
+      }
+    }
+  }
+  .hover\:bg-surface-container-mid\! {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-surface-container-mid) !important;
       }
     }
   }
@@ -3175,6 +3221,54 @@
       padding-block: var(--spacing-xs);
     }
   }
+  .\[\&_\[data-dot\]\]\:size-lg {
+    & [data-dot] {
+      width: var(--spacing-lg);
+      height: var(--spacing-lg);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:size-md {
+    & [data-dot] {
+      width: var(--spacing-md);
+      height: var(--spacing-md);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:size-sm {
+    & [data-dot] {
+      width: var(--spacing-sm);
+      height: var(--spacing-sm);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:bg-error {
+    & [data-dot] {
+      background-color: var(--color-error);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:bg-on-surface-variant {
+    & [data-dot] {
+      background-color: var(--color-on-surface-variant);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:bg-primary {
+    & [data-dot] {
+      background-color: var(--color-primary);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:bg-secondary {
+    & [data-dot] {
+      background-color: var(--color-secondary);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:bg-success {
+    & [data-dot] {
+      background-color: var(--color-success);
+    }
+  }
+  .\[\&_\[data-dot\]\]\:bg-warning {
+    & [data-dot] {
+      background-color: var(--color-warning);
+    }
+  }
   .\[\&_\[data-icon\]\]\:text-error {
     & [data-icon] {
       color: var(--color-error);
@@ -3233,6 +3327,36 @@
   .\[\&_\[data-panel\]\]\:bg-warning-container {
     & [data-panel] {
       background-color: var(--color-warning-container);
+    }
+  }
+  .\[\&_\[data-radar-ping\]\]\:bg-error {
+    & [data-radar-ping] {
+      background-color: var(--color-error);
+    }
+  }
+  .\[\&_\[data-radar-ping\]\]\:bg-on-surface-variant {
+    & [data-radar-ping] {
+      background-color: var(--color-on-surface-variant);
+    }
+  }
+  .\[\&_\[data-radar-ping\]\]\:bg-primary {
+    & [data-radar-ping] {
+      background-color: var(--color-primary);
+    }
+  }
+  .\[\&_\[data-radar-ping\]\]\:bg-secondary {
+    & [data-radar-ping] {
+      background-color: var(--color-secondary);
+    }
+  }
+  .\[\&_\[data-radar-ping\]\]\:bg-success {
+    & [data-radar-ping] {
+      background-color: var(--color-success);
+    }
+  }
+  .\[\&_\[data-radar-ping\]\]\:bg-warning {
+    & [data-radar-ping] {
+      background-color: var(--color-warning);
     }
   }
   .\[\&_\[data-track\]\]\:w-full {
@@ -4251,6 +4375,12 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
   }
 }
 @keyframes pulse {
