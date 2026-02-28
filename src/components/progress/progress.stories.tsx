@@ -113,6 +113,7 @@ export const Link: Story = {
 			<a className="cursor-pointer" href="https://example.com/step2">
 				<ProgressIndicator
 					description="This is the second step"
+					isActive
 					title="Second Step"
 				>
 					2

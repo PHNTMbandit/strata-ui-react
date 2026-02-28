@@ -8,7 +8,6 @@ export const Progress = ({
 	ref,
 	...props
 }: ProgressProps) => {
-	// Find the index of the active indicator
 	let activeIndex = -1
 	let currentIndex = -1
 
@@ -30,12 +29,16 @@ export const Progress = ({
 			if (childProps.isActive && activeIndex === -1) {
 				activeIndex = currentIndex
 			}
+		} else {
+			const childProps = child.props as { children?: React.ReactNode }
+			if (childProps.children) {
+				React.Children.forEach(childProps.children, findActiveIndex)
+			}
 		}
 	}
 
 	React.Children.forEach(children, findActiveIndex)
 
-	// Process children to add isCompleted prop
 	let indicatorIndex = -1
 	let barIndex = -1
 
@@ -65,6 +68,13 @@ export const Progress = ({
 			const shouldBeCompleted = activeIndex !== -1 && barIndex < activeIndex
 			return React.cloneElement(child, {
 				isCompleted: shouldBeCompleted,
+			} as Record<string, unknown>)
+		}
+
+		const childProps = child.props as { children?: React.ReactNode }
+		if (childProps.children) {
+			return React.cloneElement(child, {
+				children: React.Children.map(childProps.children, processChildren),
 			} as Record<string, unknown>)
 		}
 
