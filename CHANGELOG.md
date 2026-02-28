@@ -1,3 +1,10 @@
+# [1.0.0-beta.28](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.27...v1.0.0-beta.28) (2026-02-28)
+
+
+### Bug Fixes
+
+* add isActive prop to progress indicator ([994ebf8](https://github.com/PHNTMbandit/suwa-ui/commit/994ebf89875007206411677b157676b94789bcac))
+
 # [1.0.0-beta.27](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.26...v1.0.0-beta.27) (2026-02-28)
 
 
