@@ -1,3 +1,10 @@
+# [1.0.0-beta.30](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2026-02-28)
+
+
+### Bug Fixes
+
+* fix wrapping indicator in a component hides it ([429a968](https://github.com/PHNTMbandit/suwa-ui/commit/429a968d134fd223678d5ece3a39ca8ac2a6e339))
+
 # [1.0.0-beta.29](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2026-02-28)
 
 
