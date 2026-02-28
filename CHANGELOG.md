@@ -1,3 +1,10 @@
+# [1.0.0-beta.26](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.25...v1.0.0-beta.26) (2026-02-28)
+
+
+### Features
+
+* add radar ping and restyle sidebar components ([a14c6e3](https://github.com/PHNTMbandit/suwa-ui/commit/a14c6e3cc3a1c47576bbc123c657353e72f1b592))
+
 # [1.0.0-beta.25](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.24...v1.0.0-beta.25) (2026-02-26)
 
 
