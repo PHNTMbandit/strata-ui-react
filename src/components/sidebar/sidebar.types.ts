@@ -42,7 +42,7 @@ export type SidebarSubMenuPanelProps = React.ComponentProps<
 >
 
 export const sidebarMenuLinkVariants = cva(
-	"group inline-flex items-center justify-between rounded-xl px-sm text-on-surface transition-all hover:bg-surface-container-mid not-active:hover:shadow-sm hover:cursor-pointer not-active:hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-active:pointer-events-none data-active:text-primary shrink-0",
+	"group inline-flex items-center justify-between rounded-full px-sm text-on-surface transition-[margin] transition-colors b hover:bg-surface-container-mid not-active:hover:shadow-sm hover:cursor-pointer not-active:hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-active:pointer-events-none data-active:text-primary shrink-0",
 	{
 		variants: {
 			size: {
@@ -57,7 +57,7 @@ export const sidebarMenuLinkVariants = cva(
 )
 
 export const sidebarSubMenuTriggerVariants = cva(
-	"group inline-flex items-center justify-between rounded-xl px-sm text-on-surface transition-all hover:bg-surface-container-mid [&:not([data-panel-open])]:not-active:hover:shadow-sm hover:cursor-pointer not-active:hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-panel-open:bg-surface-dim data-panel-open:text-on-surface data-panel-open:inset-shadow-sm shrink-0",
+	"group inline-flex items-center justify-between rounded-full px-sm text-on-surface transition-all hover:bg-surface-container-mid [&:not([data-panel-open])]:not-active:hover:shadow-sm hover:cursor-pointer not-active:hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-panel-open:bg-surface-dim data-panel-open:text-on-surface data-panel-open:inset-shadow-sm shrink-0",
 	{
 		variants: {
 			size: {

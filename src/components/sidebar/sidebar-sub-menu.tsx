@@ -17,7 +17,7 @@ export const SidebarSubMenu = ({
 	}
 	return (
 		<BaseCollapsible.Root
-			className={cn("flex flex-col justify-center gap-xs", className)}
+			className={cn("flex w-full flex-col gap-xs", className)}
 			ref={ref}
 			{...props}
 		>
