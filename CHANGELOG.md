@@ -1,3 +1,10 @@
+# [1.0.0-beta.29](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.28...v1.0.0-beta.29) (2026-02-28)
+
+
+### Bug Fixes
+
+* enable isActive with <a> tags ([40ae2e8](https://github.com/PHNTMbandit/suwa-ui/commit/40ae2e8a386f38c96fe5bdeb793cc2e0ac4a85fe))
+
 # [1.0.0-beta.28](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.27...v1.0.0-beta.28) (2026-02-28)
 
 
