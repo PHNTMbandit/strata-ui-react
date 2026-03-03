@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority"
 
 export const alertVariants = cva(
-	"group transition-all rounded-lg p-sm border space-y-xs shadow-sm inset-shadow-raised-sm",
+	"group transition-all rounded-lg p-sm border space-y-2xs shadow-sm inset-shadow-raised-sm",
 	{
 		variants: {
 			tone: {
@@ -10,7 +10,7 @@ export const alertVariants = cva(
 				secondary:
 					"bg-secondary-container [&_svg]:text-on-secondary-container text-on-secondary-container border-secondary",
 				neutral:
-					"bg-surface-container-mid [&_svg]:text-on-surface text-on-surface border-outline",
+					"bg-surface-container-low [&_svg]:text-on-surface text-on-surface border-outline",
 				error:
 					"bg-error-container [&_svg]:text-on-error-container text-on-error-container border-error",
 				success:

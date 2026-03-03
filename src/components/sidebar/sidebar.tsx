@@ -97,7 +97,7 @@ export const Sidebar = ({
 	return (
 		<div
 			className={cn(
-				"sticky left-[0px] flex h-full shrink-0 flex-col justify-between overflow-hidden border-outline-variant bg-surface-bright transition-[width,transform] duration-300 ease-in-out",
+				"sticky left-[0px] flex h-full shrink-0 flex-col justify-between overflow-hidden border-outline-variant bg-surface-container-lowest transition-[width,transform] duration-300 ease-in-out",
 				className,
 				tone === "ghost" && !isMobile && "border-none bg-transparent",
 				getGapClasses(),

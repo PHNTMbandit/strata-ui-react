@@ -1,3 +1,4 @@
+import { CaretUpDownIcon } from "@phosphor-icons/react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Profile } from "./profile"
 
@@ -28,5 +29,11 @@ export const Default: Story = {}
 export const Compact: Story = {
 	args: {
 		compact: true,
+	},
+}
+
+export const WithChildren: Story = {
+	args: {
+		children: <CaretUpDownIcon />,
 	},
 }

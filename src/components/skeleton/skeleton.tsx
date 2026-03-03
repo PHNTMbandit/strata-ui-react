@@ -10,7 +10,7 @@ export const Skeleton = ({
 	return (
 		<div
 			className={cn(
-				"animate-pulse rounded-lg bg-surface-container-mid shadow-sm",
+				"animate-pulse rounded-lg bg-surface-container-low shadow-sm",
 				className,
 			)}
 			ref={ref}

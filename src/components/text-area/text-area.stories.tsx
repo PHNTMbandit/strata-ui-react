@@ -15,10 +15,20 @@ export default {
 	},
 	args: {
 		placeholder: "Enter your text here...",
-		maxLength: 50,
 	},
+	render: (args) => (
+		<div className="w-[300px]">
+			<TextArea {...args} />
+		</div>
+	),
 } satisfies Meta<typeof TextArea>
 
 type Story = StoryObj<typeof TextArea>
 
 export const Default: Story = {}
+
+export const WithMaxLength: Story = {
+	args: {
+		maxLength: 100,
+	},
+}

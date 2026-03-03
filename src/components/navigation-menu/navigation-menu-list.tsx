@@ -10,7 +10,7 @@ export const NavigationMenuList = ({
 }: NavigationMenuListProps) => {
 	return (
 		<BaseNavigationMenu.List
-			className={cn("relative flex items-center gap-3xs", className)}
+			className={cn("relative flex list-none items-center gap-3xs", className)}
 			ref={ref}
 			{...props}
 		>

@@ -30,7 +30,7 @@ export const SidebarSubMenuTrigger = ({
 						size: triggerSize,
 						className,
 					}),
-					"relative mx-auto transition-[margin] duration-300 ease-in-out",
+					"relative mx-auto",
 				)}
 			>
 				{children}
@@ -55,7 +55,6 @@ export const SidebarSubMenuTrigger = ({
 					size: triggerSize,
 					className,
 				}),
-				"transition-[margin] duration-300 ease-in-out",
 			)}
 			ref={ref}
 			{...props}

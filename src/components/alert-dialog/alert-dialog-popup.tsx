@@ -17,7 +17,7 @@ export const AlertDialogPopup = ({
 			/>
 			<BaseAlertDialog.Popup
 				className={cn(
-					"fixed top-1/2 left-1/2 min-w-1/3 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 space-y-sm overflow-hidden rounded-xl bg-surface-container-mid pt-md shadow-md transition-all duration-150 data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0",
+					"fixed top-1/2 left-1/2 min-w-1/3 max-w-[calc(100vw-3rem)] -translate-x-1/2 -translate-y-1/2 space-y-sm overflow-hidden rounded-xl bg-surface-container-low pt-md shadow-md transition-all duration-150 data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0",
 					className,
 				)}
 				ref={ref}
