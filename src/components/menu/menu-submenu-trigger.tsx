@@ -1,6 +1,6 @@
 import { Menu as BaseMenu } from "@base-ui/react/menu"
 import { CaretRightIcon } from "@phosphor-icons/react"
-import { cn } from "suwa-ui"
+import { cn } from "@/utils/cn"
 import type { MenuSubmenuTriggerProps } from "./menu.types"
 
 export const MenuSubmenuTrigger = ({

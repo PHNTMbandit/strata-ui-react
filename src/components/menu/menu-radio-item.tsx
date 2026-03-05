@@ -1,6 +1,6 @@
 import { Menu as BaseMenu } from "@base-ui/react/menu"
 import { CheckIcon } from "@phosphor-icons/react"
-import { cn } from "suwa-ui"
+import { cn } from "@/utils/cn"
 import type { MenuRadioItemProps } from "./menu.types"
 
 export const MenuRadioItem = ({
