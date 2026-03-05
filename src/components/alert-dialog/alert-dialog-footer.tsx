@@ -9,7 +9,7 @@ export const AlertDialogFooter = ({
 }: AlertDialogFooterProps) => {
 	return (
 		<div
-			className={cn("w-full bg-surface-container-low", className)}
+			className={cn("w-full bg-surface-container-lowest", className)}
 			ref={ref}
 			{...props}
 		>

@@ -27,7 +27,7 @@ export const NavigationMenuViewport = ({
 			>
 				<BaseNavigationMenu.Popup
 					className={cn(
-						"data-[ending-style]:easing-[ease] relative inset-shadow-raised-lg w-fit origin-(--transform-origin) rounded-3xl bg-surface-bright shadow-lg transition-[opacity,transform,scale] duration-(--duration) ease-(--easing) data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:duration-150",
+						"data-[ending-style]:easing-[ease] relative inset-shadow-raised-lg w-fit origin-(--transform-origin) rounded-xl bg-surface-container-low shadow-lg transition-[opacity,transform,scale] duration-(--duration) ease-(--easing) data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:duration-150",
 					)}
 				>
 					<BaseNavigationMenu.Arrow className="flex transition-[left] duration-(--duration) ease-(--easing) data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=top]:bottom-[-8px] data-[side=right]:left-[-13px] data-[side=left]:rotate-90 data-[side=right]:-rotate-90 data-[side=top]:rotate-180" />

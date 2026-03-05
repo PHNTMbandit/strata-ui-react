@@ -13,7 +13,7 @@ export const AutocompleteInput = ({
 	return (
 		<div
 			className={cn(
-				"group style-text-prose-0 flex h-xl w-full items-center gap-xs rounded-full bg-surface-bright px-md py-sm shadow-xs outline-2 outline-transparent transition-all focus-within:caret-secondary focus-within:outline-secondary hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent",
+				"group style-text-prose-0 flex h-xl w-full items-center gap-xs rounded-full bg-surface-container-low px-md py-sm shadow-xs outline-2 outline-transparent transition-all focus-within:caret-secondary focus-within:outline-secondary hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent",
 				className,
 			)}
 		>

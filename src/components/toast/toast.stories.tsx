@@ -148,7 +148,7 @@ export const Neutral: Story = {
 
 			const toast = await body.findByRole("dialog")
 			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass("bg-surface-bright", "text-on-surface")
+			expect(toast).toHaveClass("bg-surface-container-low", "text-on-surface")
 		})
 	},
 }

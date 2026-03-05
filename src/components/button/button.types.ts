@@ -126,7 +126,7 @@ export const buttonVariants = cva(
 				tone: "neutral",
 				style: "solid",
 				className:
-					"bg-surface-bright text-on-surface active:text-on-surface/70 active:bg-surface-dim",
+					"bg-surface-container-low text-on-surface active:text-on-surface/70 active:bg-surface-dim",
 			},
 			{
 				tone: "neutral",

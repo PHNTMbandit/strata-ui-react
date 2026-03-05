@@ -12,7 +12,7 @@ export const NavigationMenuTrigger = ({
 	return (
 		<BaseNavigationMenu.Trigger
 			className={cn(
-				"style-text-default-0 flex items-center gap-2xs rounded-full px-sm py-xs transition-all hover:cursor-pointer data-popup-open:inset-shadow-raised-sm data-popup-open:bg-surface-bright data-popup-open:shadow-sm",
+				"style-text-default-0 flex items-center gap-2xs rounded-full px-sm py-xs transition-all hover:cursor-pointer data-popup-open:inset-shadow-raised-sm data-popup-open:bg-surface-container-low data-popup-open:shadow-sm",
 				className,
 			)}
 			ref={ref}

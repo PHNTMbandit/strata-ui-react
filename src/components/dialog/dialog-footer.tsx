@@ -9,7 +9,7 @@ export const DialogFooter = ({
 }: DialogFooterProps) => {
 	return (
 		<div
-			className={cn("w-full bg-surface-container-low", className)}
+			className={cn("w-full bg-surface-container-lowest", className)}
 			ref={ref}
 			{...props}
 		>

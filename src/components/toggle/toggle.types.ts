@@ -23,7 +23,7 @@ export const toggleVariants = cva(
 				secondary:
 					"not-disabled:hover:bg-secondary-container not-disabled:hover:text-on-secondary-container data-pressed:text-secondary",
 				neutral:
-					"not-disabled:hover:not-active:bg-surface-bright active:bg-surface-dim not-disabled:hover:text-on-surface-container data-pressed:text-on-surface",
+					"not-disabled:hover:not-active:bg-surface-container-low active:bg-surface-dim not-disabled:hover:text-on-surface-container data-pressed:text-on-surface",
 				error:
 					"not-disabled:hover:bg-error-container not-disabled:hover:text-on-error-container data-pressed:text-error",
 				success:

@@ -66,12 +66,13 @@ export const badgeVariants = cva(
 			{
 				tone: "neutral",
 				style: "light",
-				className: "bg-surface-bright border border-outline text-on-surface",
+				className:
+					"bg-surface-container-low border border-outline text-on-surface",
 			},
 			{
 				tone: "neutral",
 				style: "solid",
-				className: "bg-surface-dim text-on-surface",
+				className: "bg-surface-container-mid text-on-surface",
 			},
 			{
 				tone: "neutral",

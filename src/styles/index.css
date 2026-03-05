@@ -318,10 +318,10 @@
   --suwa-surface-dim: light-dark(var(--white-300), var(--black-900));
   --suwa-surface: light-dark(var(--white-200), var(--black-800));
   --suwa-surface-bright: light-dark(var(--white-100), var(--black-700));
-  --suwa-surface-container-lowest: light-dark(var(--white-500), var(--black-700));
-  --suwa-surface-container-low: light-dark(var(--white-400), var(--black-600));
-  --suwa-surface-container-mid: light-dark(var(--white-300), var(--black-500));
-  --suwa-surface-container-high: light-dark(var(--white-200), var(--black-400));
+  --suwa-surface-container-lowest: light-dark(var(--white-100), var(--black-700));
+  --suwa-surface-container-low: light-dark(var(--white-100), var(--black-600));
+  --suwa-surface-container-mid: light-dark(var(--white-100), var(--black-500));
+  --suwa-surface-container-high: light-dark(var(--white-100), var(--black-400));
   --suwa-surface-container-highest: light-dark(var(--white-100), var(--black-300));
   --suwa-on-surface: light-dark(var(--black-800), var(--white-100));
   --suwa-on-surface-variant: light-dark(var(--black-400), var(--white-600));

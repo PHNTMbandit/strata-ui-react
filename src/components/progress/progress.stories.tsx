@@ -5,7 +5,7 @@ import { ProgressBar } from "./progress-bar"
 import { ProgressIndicator } from "./progress-indicator"
 
 export default {
-	title: "Components/Progres",
+	title: "Components/Progress",
 	component: Progress,
 	subcomponents: { ProgressIndicator, ProgressBar },
 	parameters: {

@@ -28,7 +28,7 @@ export const NumberField = ({
 					<CursorGrowIcon />
 				</BaseNumberField.ScrubAreaCursor>
 			</BaseNumberField.ScrubArea>
-			<BaseNumberField.Group className="flex w-fit items-center rounded-full bg-surface-bright shadow-xs">
+			<BaseNumberField.Group className="flex w-fit items-center rounded-full bg-surface-container-low shadow-xs">
 				<BaseNumberField.Decrement className="peer inline-flex size-lg items-center justify-center rounded-full rounded-r-none text-error transition-colors hover:cursor-pointer hover:bg-error-container hover:text-on-error-container">
 					<MinusIcon className="size-sm" weight="bold" />
 				</BaseNumberField.Decrement>
