@@ -6,7 +6,6 @@
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
-    --container-4xl: 56rem;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --radius-sm: 0.25rem;
@@ -14,7 +13,6 @@
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
-    --radius-3xl: 1.5rem;
     --ease-in: cubic-bezier(0.4, 0, 1, 1);
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
@@ -291,9 +289,6 @@
   .inset-\[0px\] {
     inset: 0px;
   }
-  .inset-y-2xl {
-    inset-block: var(--spacing-2xl);
-  }
   .top-1\/2 {
     top: calc(1 / 2 * 100%);
   }
@@ -411,9 +406,6 @@
   .mx-2xs {
     margin-inline: var(--spacing-2xs);
   }
-  .mx-3xs {
-    margin-inline: var(--spacing-3xs);
-  }
   .mx-auto {
     margin-inline: auto;
   }
@@ -455,9 +447,6 @@
   }
   .mr-\[0px\] {
     margin-right: 0px;
-  }
-  .mr-xl {
-    margin-right: var(--spacing-xl);
   }
   .mb-\[0px\] {
     margin-bottom: 0px;
@@ -738,20 +727,11 @@
   .min-w-max {
     min-width: max-content;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .shrink-0 {
     flex-shrink: 0;
   }
-  .flex-grow {
-    flex-grow: 1;
-  }
   .grow {
     flex-grow: 1;
-  }
-  .border-collapse {
-    border-collapse: collapse;
   }
   .origin-\(--transform-origin\) {
     transform-origin: var(--transform-origin);
@@ -783,9 +763,6 @@
   .translate-y-2xs {
     --tw-translate-y: var(--spacing-2xs);
     translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .transform {
-    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
   .transform-\[translateX\(var\(--toast-swipe-movement-x\)\)_translateY\(calc\(var\(--toast-swipe-movement-y\)\+calc\(min\(var\(--toast-index\)\,10\)\*-15px\)\)\)_scale\(calc\(max\(0\,1-\(var\(--toast-index\)\*0\.1\)\)\)\)\] {
     transform: translateX(var(--toast-swipe-movement-x)) translateY(calc(var(--toast-swipe-movement-y) + calc(min(var(--toast-index), 10) * -15px))) scale(calc(max(0, 1 - (var(--toast-index) * 0.1))));
@@ -841,26 +818,11 @@
   .grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
-  .grid-cols-\[0\.75rem_1fr\] {
-    grid-template-columns: 0.75rem 1fr;
-  }
   .grid-cols-\[1fr_0\.75rem\] {
     grid-template-columns: 1fr 0.75rem;
   }
-  .grid-cols-\[1fr_1fr\] {
-    grid-template-columns: 1fr 1fr;
-  }
-  .grid-cols-\[1fr_1rem\] {
-    grid-template-columns: 1fr 1rem;
-  }
-  .grid-cols-\[1fr_2fr\] {
-    grid-template-columns: 1fr 2fr;
-  }
   .grid-cols-\[1fr_2rem\] {
     grid-template-columns: 1fr 2rem;
-  }
-  .grid-cols-\[1fr_10rem\] {
-    grid-template-columns: 1fr 10rem;
   }
   .flex-col {
     flex-direction: column;
@@ -938,20 +900,6 @@
       margin-block-end: calc(var(--spacing-xs) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
-  .space-x-md {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(var(--spacing-md) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(var(--spacing-md) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
-  .space-x-xl {
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(var(--spacing-xl) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(var(--spacing-xl) * calc(1 - var(--tw-space-x-reverse)));
-    }
-  }
   .divide-x {
     :where(& > :not(:last-child)) {
       --tw-divide-x-reverse: 0;
@@ -979,9 +927,6 @@
   }
   .self-center {
     align-self: center;
-  }
-  .self-end {
-    align-self: flex-end;
   }
   .truncate {
     overflow: hidden;
@@ -1243,17 +1188,11 @@
   .pr-2xs {
     padding-right: var(--spacing-2xs);
   }
-  .pr-lg {
-    padding-right: var(--spacing-lg);
-  }
   .pr-md {
     padding-right: var(--spacing-md);
   }
   .pr-sm {
     padding-right: var(--spacing-sm);
-  }
-  .pr-xl {
-    padding-right: var(--spacing-xl);
   }
   .pr-xs {
     padding-right: var(--spacing-xs);
@@ -1284,9 +1223,6 @@
   }
   .pl-sm {
     padding-left: var(--spacing-sm);
-  }
-  .pl-xl {
-    padding-left: var(--spacing-xl);
   }
   .pl-xs {
     padding-left: var(--spacing-xs);
@@ -1397,9 +1333,6 @@
   .text-lg {
     font-size: var(--text-lg);
   }
-  .text-sm {
-    font-size: var(--text-sm);
-  }
   .text-xs {
     font-size: var(--text-xs);
   }
@@ -1415,10 +1348,6 @@
     --tw-leading: var(--spacing-sm);
     line-height: var(--spacing-sm);
   }
-  .leading-xs {
-    --tw-leading: var(--spacing-xs);
-    line-height: var(--spacing-xs);
-  }
   .font-medium {
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
@@ -1429,9 +1358,6 @@
   }
   .text-balance {
     text-wrap: balance;
-  }
-  .text-wrap {
-    text-wrap: wrap;
   }
   .break-keep {
     word-break: keep-all;
@@ -1814,16 +1740,6 @@
       padding-top: var(--spacing-2xs);
     }
   }
-  .not-first\:pt-md {
-    &:not(*:first-child) {
-      padding-top: var(--spacing-md);
-    }
-  }
-  .not-first\:pt-xs {
-    &:not(*:first-child) {
-      padding-top: var(--spacing-xs);
-    }
-  }
   .not-last\:pb-xs {
     &:not(*:last-child) {
       padding-bottom: var(--spacing-xs);
@@ -1925,12 +1841,6 @@
     &::before {
       content: var(--tw-content);
       height: 100%;
-    }
-  }
-  .before\:h-xl {
-    &::before {
-      content: var(--tw-content);
-      height: var(--spacing-xl);
     }
   }
   .before\:w-full {
@@ -2754,16 +2664,6 @@
       z-index: 0;
     }
   }
-  .data-highlighted\:z-\[0px\] {
-    &[data-highlighted] {
-      z-index: 0px;
-    }
-  }
-  .data-highlighted\:h-xl {
-    &[data-highlighted] {
-      height: var(--spacing-xl);
-    }
-  }
   .data-highlighted\:bg-primary-container {
     &[data-highlighted] {
       background-color: var(--color-primary-container);
@@ -2808,22 +2708,6 @@
       }
     }
   }
-  .data-highlighted\:before\:inset-x-\[1px\] {
-    &[data-highlighted] {
-      &::before {
-        content: var(--tw-content);
-        inset-inline: 1px;
-      }
-    }
-  }
-  .data-highlighted\:before\:inset-x-px {
-    &[data-highlighted] {
-      &::before {
-        content: var(--tw-content);
-        inset-inline: 1px;
-      }
-    }
-  }
   .data-highlighted\:before\:inset-x-sm {
     &[data-highlighted] {
       &::before {
@@ -2832,35 +2716,11 @@
       }
     }
   }
-  .data-highlighted\:before\:inset-x-xl {
-    &[data-highlighted] {
-      &::before {
-        content: var(--tw-content);
-        inset-inline: var(--spacing-xl);
-      }
-    }
-  }
-  .data-highlighted\:before\:inset-x-xs {
-    &[data-highlighted] {
-      &::before {
-        content: var(--tw-content);
-        inset-inline: var(--spacing-xs);
-      }
-    }
-  }
   .data-highlighted\:before\:inset-y-\[0px\] {
     &[data-highlighted] {
       &::before {
         content: var(--tw-content);
         inset-block: 0px;
-      }
-    }
-  }
-  .data-highlighted\:before\:inset-y-\[10px\] {
-    &[data-highlighted] {
-      &::before {
-        content: var(--tw-content);
-        inset-block: 10px;
       }
     }
   }
@@ -3044,14 +2904,6 @@
       }
     }
   }
-  .data-popup-open\:before\:inset-x-px {
-    &[data-popup-open] {
-      &::before {
-        content: var(--tw-content);
-        inset-inline: 1px;
-      }
-    }
-  }
   .data-popup-open\:before\:inset-y-\[0px\] {
     &[data-popup-open] {
       &::before {
@@ -3073,30 +2925,6 @@
       &::before {
         content: var(--tw-content);
         border-radius: var(--radius-sm);
-      }
-    }
-  }
-  .data-popup-open\:before\:bg-primary {
-    &[data-popup-open] {
-      &::before {
-        content: var(--tw-content);
-        background-color: var(--color-primary);
-      }
-    }
-  }
-  .data-popup-open\:before\:bg-primary-container {
-    &[data-popup-open] {
-      &::before {
-        content: var(--tw-content);
-        background-color: var(--color-primary-container);
-      }
-    }
-  }
-  .data-popup-open\:before\:bg-surface-container-low {
-    &[data-popup-open] {
-      &::before {
-        content: var(--tw-content);
-        background-color: var(--color-surface-container-low);
       }
     }
   }
@@ -3267,16 +3095,6 @@
       &:hover {
         @media (hover: hover) {
           outline-color: transparent;
-        }
-      }
-    }
-  }
-  .data-\[highlighted\]\:data-popup-open\:before\:bg-primary-container {
-    &[data-highlighted] {
-      &[data-popup-open] {
-        &::before {
-          content: var(--tw-content);
-          background-color: var(--color-primary-container);
         }
       }
     }
@@ -4109,15 +3927,6 @@
       color: var(--color-error);
     }
   }
-  .before\:\[\&\>svg\]\:size-md {
-    &::before {
-      content: var(--tw-content);
-      &>svg {
-        width: var(--spacing-md);
-        height: var(--spacing-md);
-      }
-    }
-  }
   .\[\&\[data-ending-style\]\:not\(\[data-limited\]\)\:not\(\[data-swipe-direction\]\)\]\:transform-\[translateY\(-150\%\)\] {
     &[data-ending-style]:not([data-limited]):not([data-swipe-direction]) {
       transform: translateY(-150%);
@@ -4526,11 +4335,6 @@
   inherits: false;
   initial-value: 0;
 }
-@property --tw-space-x-reverse {
-  syntax: "*";
-  inherits: false;
-  initial-value: 0;
-}
 @property --tw-divide-x-reverse {
   syntax: "*";
   inherits: false;
@@ -4747,7 +4551,6 @@
       --tw-skew-x: initial;
       --tw-skew-y: initial;
       --tw-space-y-reverse: 0;
-      --tw-space-x-reverse: 0;
       --tw-divide-x-reverse: 0;
       --tw-border-style: solid;
       --tw-divide-y-reverse: 0;
