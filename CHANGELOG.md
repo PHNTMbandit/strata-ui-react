@@ -1,3 +1,17 @@
+# [1.0.0-beta.31](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2026-03-05)
+
+
+### Bug Fixes
+
+* use cn from utils folder ([c39ee4d](https://github.com/PHNTMbandit/suwa-ui/commit/c39ee4d416503a82f4aa02b21b8c74387da4028c))
+
+
+### Features
+
+* add index file for menu components ([eeda30a](https://github.com/PHNTMbandit/suwa-ui/commit/eeda30ad6baa5ca382bcacdaa476ca0749c50238))
+* add menu component ([cafc9c2](https://github.com/PHNTMbandit/suwa-ui/commit/cafc9c275c09c3ba4d4dfcbc89bfd721f7fa7ccb))
+* add menu radio and sub menu components ([b068264](https://github.com/PHNTMbandit/suwa-ui/commit/b06826425973071b59b8222b212e588e9ffbfc74))
+
 # [1.0.0-beta.30](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.29...v1.0.0-beta.30) (2026-02-28)
 
 
