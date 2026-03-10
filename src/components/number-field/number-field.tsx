@@ -17,7 +17,6 @@ export const NumberField = ({
 			className={cn("flex flex-col gap-3xs", className)}
 			ref={ref}
 			{...props}
-			defaultValue={100}
 			id={id}
 		>
 			<BaseNumberField.ScrubArea className={"cursor-ew-resize"}>

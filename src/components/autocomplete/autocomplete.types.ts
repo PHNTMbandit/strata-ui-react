@@ -1,4 +1,4 @@
-import type { Autocomplete as BaseAutocomplete } from "@base-ui/react/autocomplete"
+import { Autocomplete as BaseAutocomplete } from "@base-ui/react/autocomplete"
 import type { Icon } from "@phosphor-icons/react"
 
 export type AutocompleteProps = React.ComponentProps<
@@ -43,6 +43,8 @@ export type AutocompleteRowProps = React.ComponentProps<
 export type AutocompleteTriggerProps = React.ComponentProps<
 	typeof BaseAutocomplete.Trigger
 >
+
 export type AutocompleteStatusProps = React.ComponentProps<
 	typeof BaseAutocomplete.Status
 >
+export const useFilter = BaseAutocomplete.useFilter

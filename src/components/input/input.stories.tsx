@@ -43,3 +43,10 @@ export const WithIcon: Story = {
 		leadingIcon: MagnifyingGlassIcon,
 	},
 }
+
+export const Colour: Story = {
+	args: {
+		type: "color",
+		leadingIcon: undefined,
+	},
+}
