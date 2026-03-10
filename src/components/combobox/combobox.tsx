@@ -1,4 +1,4 @@
-import { Combobox as BaseCombobox } from "@base-ui/react/combobox"
+import { Combobox as BaseCombobox } from "@base-ui/react"
 import type { ComboboxProps } from "./combobox.types"
 
 export const Combobox = ({ children, ...props }: ComboboxProps) => {

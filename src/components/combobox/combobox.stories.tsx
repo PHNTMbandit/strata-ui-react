@@ -486,8 +486,8 @@ const countries: Country[] = [
 	{ code: "zw", value: "zimbabwe", label: "Zimbabwe", continent: "Africa" },
 ]
 
-export default {
-	title: "Components/Combobox",
+const meta: Meta<typeof Combobox> = {
+	title: "Components/Combo box",
 	component: Combobox,
 	subcomponents: {
 		ComboboxEmpty,
@@ -524,7 +524,9 @@ export default {
 			</ComboboxPopup>
 		</Combobox>
 	),
-} satisfies Meta<typeof Combobox>
+}
+
+export default meta
 
 type Story = StoryObj<typeof Combobox>
 
