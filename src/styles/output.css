@@ -617,6 +617,12 @@
   .h-\[200px\] {
     height: 200px;
   }
+  .h-\[300px\] {
+    height: 300px;
+  }
+  .h-\[500px\] {
+    height: 500px;
+  }
   .h-fit {
     height: fit-content;
   }
@@ -671,6 +677,12 @@
   .min-h-2xl {
     min-height: var(--spacing-2xl);
   }
+  .min-h-\[200px\] {
+    min-height: 200px;
+  }
+  .min-h-\[500px\] {
+    min-height: 500px;
+  }
   .min-h-dvh {
     min-height: 100dvh;
   }
@@ -691,6 +703,9 @@
   }
   .w-3xl {
     width: var(--spacing-3xl);
+  }
+  .w-3xs {
+    width: var(--spacing-3xs);
   }
   .w-\[1px\] {
     width: 1px;
@@ -715,6 +730,9 @@
   }
   .w-\[300px\] {
     width: 300px;
+  }
+  .w-\[350px\] {
+    width: 350px;
   }
   .w-\[450px\] {
     width: 450px;
@@ -752,6 +770,9 @@
   .w-md {
     width: var(--spacing-md);
   }
+  .w-px {
+    width: 1px;
+  }
   .w-xl {
     width: var(--spacing-xl);
   }
@@ -760,6 +781,12 @@
   }
   .max-w-2xl {
     max-width: var(--spacing-2xl);
+  }
+  .max-w-3xl {
+    max-width: var(--spacing-3xl);
+  }
+  .max-w-\[200px\] {
+    max-width: 200px;
   }
   .max-w-\[300px\] {
     max-width: 300px;
@@ -770,6 +797,9 @@
   .max-w-\[calc\(var\(--available-width\)\)\] {
     max-width: calc(var(--available-width));
   }
+  .max-w-sm {
+    max-width: var(--spacing-sm);
+  }
   .min-w-\(--anchor-width\) {
     min-width: var(--anchor-width);
   }
@@ -778,6 +808,12 @@
   }
   .min-w-3xl {
     min-width: var(--spacing-3xl);
+  }
+  .min-w-\[200px\] {
+    min-width: 200px;
+  }
+  .min-w-\[350px\] {
+    min-width: 350px;
   }
   .min-w-\[400px\] {
     min-width: 400px;
@@ -1590,6 +1626,9 @@
     --tw-inset-shadow: var(--suwa-inset-shadow-xs);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .ring-offset-secondary {
+    --tw-ring-offset-color: var(--color-secondary);
+  }
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
@@ -1603,6 +1642,9 @@
   }
   .outline-error {
     outline-color: var(--color-error);
+  }
+  .outline-outline {
+    outline-color: var(--color-outline);
   }
   .outline-outline-variant {
     outline-color: var(--color-outline-variant);
@@ -2046,6 +2088,12 @@
       position: absolute;
     }
   }
+  .after\:inset-y-\[0px\] {
+    &::after {
+      content: var(--tw-content);
+      inset-block: 0px;
+    }
+  }
   .after\:top-full {
     &::after {
       content: var(--tw-content);
@@ -2058,16 +2106,41 @@
       bottom: 100%;
     }
   }
+  .after\:left-1\/2 {
+    &::after {
+      content: var(--tw-content);
+      left: calc(1 / 2 * 100%);
+    }
+  }
   .after\:h-\[calc\(var\(--gap\)\+1px\)\] {
     &::after {
       content: var(--tw-content);
       height: calc(var(--gap) + 1px);
     }
   }
+  .after\:w-3xs {
+    &::after {
+      content: var(--tw-content);
+      width: var(--spacing-3xs);
+    }
+  }
   .after\:w-full {
     &::after {
       content: var(--tw-content);
       width: 100%;
+    }
+  }
+  .after\:w-px {
+    &::after {
+      content: var(--tw-content);
+      width: 1px;
+    }
+  }
+  .after\:-translate-x-1\/2 {
+    &::after {
+      content: var(--tw-content);
+      --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
   .after\:content-\[\"\"\] {
@@ -2578,6 +2651,27 @@
       position: relative;
     }
   }
+  .focus-visible\:ring-1 {
+    &:focus-visible {
+      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .focus-visible\:ring-secondary {
+    &:focus-visible {
+      --tw-ring-color: var(--color-secondary);
+    }
+  }
+  .focus-visible\:outline-hidden {
+    &:focus-visible {
+      --tw-outline-style: none;
+      outline-style: none;
+      @media (forced-colors: active) {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+    }
+  }
   .focus-visible\:before\:absolute {
     &:focus-visible {
       &::before {
@@ -2741,6 +2835,76 @@
   .has-\[input\:focus\]\:outline-primary {
     &:has(*:is(input:focus)) {
       outline-color: var(--color-primary);
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:h-3xs {
+    &[aria-orientation="horizontal"] {
+      height: var(--spacing-3xs);
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:h-px {
+    &[aria-orientation="horizontal"] {
+      height: 1px;
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:w-full {
+    &[aria-orientation="horizontal"] {
+      width: 100%;
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:after\:left-\[0px\] {
+    &[aria-orientation="horizontal"] {
+      &::after {
+        content: var(--tw-content);
+        left: 0px;
+      }
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:after\:h-3xs {
+    &[aria-orientation="horizontal"] {
+      &::after {
+        content: var(--tw-content);
+        height: var(--spacing-3xs);
+      }
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:after\:h-px {
+    &[aria-orientation="horizontal"] {
+      &::after {
+        content: var(--tw-content);
+        height: 1px;
+      }
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:after\:w-full {
+    &[aria-orientation="horizontal"] {
+      &::after {
+        content: var(--tw-content);
+        width: 100%;
+      }
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:after\:translate-x-\[0px\] {
+    &[aria-orientation="horizontal"] {
+      &::after {
+        content: var(--tw-content);
+        --tw-translate-x: 0px;
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .aria-\[orientation\=horizontal\]\:after\:-translate-y-1\/2 {
+    &[aria-orientation="horizontal"] {
+      &::after {
+        content: var(--tw-content);
+        --tw-translate-y: calc(calc(1 / 2 * 100%) * -1);
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+    }
+  }
+  .aria-\[orientation\=vertical\]\:flex-col {
+    &[aria-orientation="vertical"] {
+      flex-direction: column;
     }
   }
   .data-active\:pointer-events-none {
@@ -4156,6 +4320,11 @@
   .\[\&\>svg\]\:text-error {
     &>svg {
       color: var(--color-error);
+    }
+  }
+  .\[\&\[aria-orientation\=horizontal\]\>div\]\:rotate-90 {
+    &[aria-orientation=horizontal]>div {
+      rotate: 90deg;
     }
   }
   .\[\&\[data-ending-style\]\:not\(\[data-limited\]\)\:not\(\[data-swipe-direction\]\)\]\:transform-\[translateY\(-150\%\)\] {
