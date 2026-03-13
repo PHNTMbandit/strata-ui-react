@@ -1,5 +1,5 @@
 import * as BaseResizable from "react-resizable-panels"
-import { cn } from "suwa-ui"
+import { cn } from "@/utils/cn"
 import type { ResizeablePanelGroupProps } from "./resizeable.types"
 
 export const ResizeablePanelGroup = ({
