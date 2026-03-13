@@ -11,7 +11,7 @@ export const AutocompleteStatus = ({
 	return (
 		<BaseAutocomplete.Status
 			className={cn(
-				"style-text-default--1 p-sm text-on-surface-variant",
+				"style-text-prose--1 flex items-center gap-2 p-xs text-on-surface-variant empty:hidden",
 				className,
 			)}
 			ref={ref}
