@@ -25,7 +25,7 @@ export const Input = ({
 	}
 
 	if (props.type === "color") {
-		const defaultColor = (props.defaultValue as string) ?? "#000000"
+		const value = (props.value as string) ?? "#000000"
 
 		return (
 			<button
@@ -40,19 +40,19 @@ export const Input = ({
 					)}
 					ref={colorPreviewRef}
 					style={{
-						backgroundColor: defaultColor,
+						backgroundColor: value,
 					}}
 				/>
 				<BaseInput
 					className="peer pointer-events-none invisible absolute top-lg"
-					defaultValue={defaultColor}
 					onChange={handleColorChange}
 					ref={inputRef}
 					type="color"
+					value={value}
 					{...props}
 				/>
 				<p className="style-text-default-0 pl-xl text-left" ref={colorLabelRef}>
-					{defaultColor}
+					{value}
 				</p>
 			</button>
 		)
