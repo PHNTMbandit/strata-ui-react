@@ -19,7 +19,7 @@ export const AutocompleteContent = ({
 			>
 				<BaseAutocomplete.Popup
 					className={
-						"max-h-[22.5rem] w-[calc(var(--anchor-width)+var(--spacing-xl))] max-w-[calc(var(--available-width))] overflow-hidden rounded-lg bg-surface-bright shadow-lg"
+						"max-h-[22.5rem] w-[calc(var(--anchor-width)+var(--spacing-xl))] max-w-[calc(var(--available-width))] overflow-hidden rounded-lg bg-surface-bright shadow-lg outline outline-outline"
 					}
 				>
 					<BaseAutocomplete.Empty

@@ -18,7 +18,7 @@ export const ComboboxPopup = ({
 			>
 				<BaseCombobox.Popup
 					className={
-						"max-h-[23rem] w-[calc(var(--anchor-width)+var(--spacing-lg))] max-w-(--available-width) origin-(--transform-origin) rounded-md bg-surface-bright pl-2xs shadow-md outline outline-outline-variant transition-[transform,scale,opacity] duration-100 [--input-container-height:4rem] data-ending-style:scale-95 data-starting-style:scale-95 data-ending-style:opacity-0 data-starting-style:opacity-0"
+						"max-h-[23rem] w-[calc(var(--anchor-width)+var(--spacing-lg))] max-w-(--available-width) origin-(--transform-origin) rounded-md bg-surface-container-low pl-2xs shadow-md outline outline-outline transition-[transform,scale,opacity] duration-100 [--input-container-height:4rem] data-ending-style:scale-95 data-starting-style:scale-95 data-ending-style:opacity-0 data-starting-style:opacity-0"
 					}
 				>
 					{children}
