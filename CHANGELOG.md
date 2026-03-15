@@ -1,3 +1,17 @@
+# [1.0.0-beta.33](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2026-03-15)
+
+
+### Bug Fixes
+
+* **input:** make colour input variant work in forms ([67e4f1c](https://github.com/PHNTMbandit/suwa-ui/commit/67e4f1c24e1a796cdefa4443a5e8619bcf4f3c4b))
+* remove sidebar sub menu components for later implementation ([703a7ec](https://github.com/PHNTMbandit/suwa-ui/commit/703a7ec64179f03a23aee9204768d553617090a5))
+
+
+### Features
+
+* add compact variant to profile component ([f684349](https://github.com/PHNTMbandit/suwa-ui/commit/f684349b03a9d5b78ce098b1ad5fb33923ae89c7))
+* add kbd component ([5ab99b7](https://github.com/PHNTMbandit/suwa-ui/commit/5ab99b76e99c60e55dc5aa7617b272bf50755e21))
+
 # [1.0.0-beta.32](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2026-03-13)
 
 
