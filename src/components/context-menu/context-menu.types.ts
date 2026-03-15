@@ -16,3 +16,6 @@ export type ContextMenuSubmenuProps = React.ComponentProps<
 export type ContextMenuSubmenuTriggerProps = React.ComponentProps<
 	typeof BaseContextMenu.SubmenuTrigger
 >
+export type ContextMenuItemProps = React.ComponentProps<
+	typeof BaseContextMenu.Item
+>

@@ -1,7 +1,6 @@
 import { ContextMenu as BaseContextMenu } from "@base-ui/react/context-menu"
 import { cn } from "@/utils/cn"
-
-type ContextMenuItemProps = React.ComponentProps<"div">
+import type { ContextMenuItemProps } from "./context-menu.types"
 
 export const ContextMenuItem = ({
 	className,
