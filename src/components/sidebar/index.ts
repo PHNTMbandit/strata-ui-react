@@ -10,9 +10,6 @@ export type {
 	SidebarMenuLinkProps,
 	SidebarMenuProps,
 	SidebarProps,
-	SidebarSubMenuPanelProps,
-	SidebarSubMenuProps,
-	SidebarSubMenuTriggerProps,
 	SidebarToggleProps,
 } from "./sidebar.types"
 export { SidebarContent } from "./sidebar-content"
@@ -24,7 +21,4 @@ export { SidebarHeader } from "./sidebar-header"
 export { SidebarMenu } from "./sidebar-menu"
 export { SidebarMenuLink } from "./sidebar-menu-link"
 export { SidebarProvider, useSidebar } from "./sidebar-provider"
-export { SidebarSubMenu } from "./sidebar-sub-menu"
-export { SidebarSubMenuPanel } from "./sidebar-sub-menu-panel"
-export { SidebarSubMenuTrigger } from "./sidebar-sub-menu-trigger"
 export { SidebarToggle } from "./sidebar-toggle"
