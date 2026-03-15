@@ -1,3 +1,10 @@
+# [1.0.0-beta.34](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.33...v1.0.0-beta.34) (2026-03-15)
+
+
+### Features
+
+* add context menu component ([838ea65](https://github.com/PHNTMbandit/suwa-ui/commit/838ea65f1bcbc4238db7fbb5a52846225f208804))
+
 # [1.0.0-beta.33](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.32...v1.0.0-beta.33) (2026-03-15)
 
 
