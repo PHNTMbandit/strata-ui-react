@@ -1,3 +1,17 @@
+# [1.0.0-beta.32](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.31...v1.0.0-beta.32) (2026-03-13)
+
+
+### Bug Fixes
+
+* fix combobox storybook default conflict ([02c8af0](https://github.com/PHNTMbandit/suwa-ui/commit/02c8af0ac66a1843f7e2078707aed184175da7bd))
+* **resizeable-panel-group:** use cn function from utils not suwa ui ([89c02b5](https://github.com/PHNTMbandit/suwa-ui/commit/89c02b549fdb49b6ce734235231ac56c789bbdd9))
+
+
+### Features
+
+* add colour variant for input component ([88a262f](https://github.com/PHNTMbandit/suwa-ui/commit/88a262fc942f2424c69ebea9343fccaafc614ffd))
+* add resizeable component ([c8e6d9c](https://github.com/PHNTMbandit/suwa-ui/commit/c8e6d9c69cdce504205244746261092451bc0585))
+
 # [1.0.0-beta.31](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.30...v1.0.0-beta.31) (2026-03-05)
 
 
