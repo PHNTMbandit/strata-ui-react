@@ -1,4 +1,3 @@
-import type { Collapsible as BaseCollapsible } from "@base-ui/react/collapsible"
 import type { Icon } from "@phosphor-icons/react"
 import { cva, type VariantProps } from "class-variance-authority"
 import type { ButtonExtendedProps } from "@/components/button/button.types"
@@ -25,21 +24,6 @@ export type SidebarMenuLinkProps = React.ComponentProps<"div"> &
 		label: string
 		leadingIcon?: Icon
 	}
-
-export type SidebarSubMenuProps = React.ComponentProps<
-	typeof BaseCollapsible.Root
->
-export type SidebarSubMenuTriggerProps = React.ComponentProps<
-	typeof BaseCollapsible.Trigger
-> &
-	VariantProps<typeof sidebarSubMenuTriggerVariants> & {
-		label: string
-		leadingIcon?: Icon
-	}
-
-export type SidebarSubMenuPanelProps = React.ComponentProps<
-	typeof BaseCollapsible.Panel
->
 
 export const sidebarMenuLinkVariants = cva(
 	"group inline-flex items-center justify-between rounded-xl px-sm text-on-surface transition-[margin,box-shadow,background-color] hover:bg-surface-container-low not-active:hover:shadow-sm hover:cursor-pointer not-active:hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-active:pointer-events-none data-active:text-primary shrink-0",

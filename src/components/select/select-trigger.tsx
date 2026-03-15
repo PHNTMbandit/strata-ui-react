@@ -11,7 +11,7 @@ export const SelectTrigger = ({
 	return (
 		<BaseSelect.Trigger
 			className={cn(
-				"flex min-w-[calc(var(--suwa-spacing-3xl)+5rem)] items-center justify-between gap-xl rounded-md bg-surface-container-low py-sm pr-xs pl-md shadow-xs outline-2 outline-transparent transition-all hover:cursor-pointer hover:outline-outline data-popup-open:outline-transparent data-[disabled=true]:hover:outline-transparent",
+				"flex h-xl min-w-[calc(var(--suwa-spacing-3xl)+5rem)] items-center justify-between gap-xl rounded-md bg-surface-container-low pr-xs pl-md shadow-xs outline-2 outline-transparent transition-all hover:cursor-pointer hover:outline-outline data-popup-open:outline-transparent data-[disabled=true]:hover:outline-transparent",
 				className,
 			)}
 			ref={ref}
