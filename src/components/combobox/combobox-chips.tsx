@@ -11,7 +11,7 @@ export const ComboboxChips = ({
 	return (
 		<BaseCombobox.Chips
 			className={cn(
-				"not-empty:mb-2xs flex flex-wrap items-center gap-3xs",
+				"not-empty:mb-2xs flex flex-wrap items-center gap-2xs",
 				className,
 			)}
 			ref={ref}

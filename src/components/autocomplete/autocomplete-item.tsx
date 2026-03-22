@@ -11,7 +11,7 @@ export const AutocompleteItem = ({
 	return (
 		<BaseAutocomplete.Item
 			className={cn(
-				"style-text-prose--1 mx-sm flex cursor-default select-none items-center rounded-md px-2xs py-3xs first:mt-sm last:mb-sm hover:cursor-pointer hover:bg-secondary hover:text-surface data-highlighted:relative data-highlighted:z-0 data-highlighted:bg-secondary data-highlighted:text-surface data-highlighted:before:absolute data-highlighted:before:inset-x-sm data-highlighted:before:inset-y-[0px] data-highlighted:before:z-[-1] data-highlighted:before:rounded-sm",
+				"mx-2xs flex cursor-default select-none items-center rounded-md border border-transparent px-2xs py-3xs text-prose--1 transition-colors first:mt-2xs last:mb-2xs hover:cursor-pointer hover:border-brand-outline hover:bg-brand-container hover:text-on-brand-container data-highlighted:relative data-highlighted:z-0 data-highlighted:border-brand-outline data-highlighted:bg-brand-container data-highlighted:text-on-brand-container data-highlighted:before:absolute data-highlighted:before:inset-x-2xs data-highlighted:before:inset-y-[0px] data-highlighted:before:z-[-1] data-highlighted:before:rounded-2xs",
 				className,
 			)}
 			ref={ref}

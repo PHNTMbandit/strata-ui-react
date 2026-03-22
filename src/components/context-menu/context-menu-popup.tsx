@@ -13,7 +13,7 @@ export const ContextMenuPopup = ({
 			<BaseContextMenu.Positioner>
 				<BaseContextMenu.Popup
 					className={cn(
-						"origin-(--transform-origin) rounded-md bg-surface-container-low p-3xs py-2xs shadow-md outline outline-outline transition-opacity data-ending-style:opacity-0",
+						"origin-(--transform-origin) rounded-md border border-outline bg-surface-container p-3xs py-2xs shadow-md outline outline-outline-variant transition-opacity data-ending-style:opacity-0",
 						className,
 					)}
 					ref={ref}

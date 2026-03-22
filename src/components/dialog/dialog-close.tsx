@@ -15,11 +15,12 @@ export const DialogClose = ({
 			ref={ref}
 			{...props}
 			render={
-				<button aria-label="Close" className="" type="button">
-					<XIcon
-						className="size-sm text-on-surface transition-colors hover:cursor-pointer hover:text-error"
-						weight="bold"
-					/>
+				<button
+					aria-label="Close"
+					className="flex items-center justify-center rounded-lg border border-transparent p-3xs text-on-surface transition-colors hover:cursor-pointer hover:border-error-outline hover:bg-error-container hover:text-on-error-container"
+					type="button"
+				>
+					<XIcon className="size-sm" weight="bold" />
 				</button>
 			}
 		>

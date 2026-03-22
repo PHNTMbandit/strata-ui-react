@@ -15,12 +15,7 @@ export const AlertDialogClose = ({
 			ref={ref}
 			{...props}
 			render={
-				<Button
-					aria-label="Close"
-					className="w-full"
-					style="ghost"
-					tone="neutral"
-				>
+				<Button aria-label="Close" className="w-full" tone="neutral">
 					{children}
 				</Button>
 			}

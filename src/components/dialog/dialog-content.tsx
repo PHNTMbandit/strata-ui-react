@@ -10,7 +10,7 @@ export const DialogContent = ({
 	return (
 		<div
 			className={cn(
-				"flex flex-col items-center gap-2xs px-sm pb-lg",
+				"flex flex-col items-center gap-2xs border-outline-variant border-b px-sm pb-md",
 				className,
 			)}
 			ref={ref}

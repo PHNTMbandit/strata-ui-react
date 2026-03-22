@@ -3,8 +3,8 @@ import { type BadgeExtendedProps, badgeVariants } from "./badge.types"
 
 export const Badge = ({
 	size = "medium",
-	style = "solid",
-	tone = "primary",
+	variant = "solid",
+	tone = "brand",
 	className,
 	children,
 	ref,
@@ -12,7 +12,7 @@ export const Badge = ({
 }: BadgeExtendedProps) => {
 	return (
 		<div
-			className={cn(badgeVariants({ className, tone, style, size }))}
+			className={cn(badgeVariants({ className, tone, variant, size }))}
 			ref={ref}
 			{...props}
 		>

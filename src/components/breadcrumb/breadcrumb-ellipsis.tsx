@@ -11,7 +11,7 @@ export const BreadcrumbEllipsis = ({
 	return (
 		<div
 			className={cn(
-				"flex size-md items-center justify-center rounded-full text-on-primary-container outline-2 outline-transparent transition-all hover:cursor-pointer not-active:hover:outline-primary-outline [&>svg]:size-sm",
+				"flex size-md items-center justify-center rounded-full text-surface-on-surface-variant [&>svg]:size-sm",
 				className,
 			)}
 			ref={ref}

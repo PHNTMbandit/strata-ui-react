@@ -40,7 +40,7 @@ export default {
 			</AlertDialogTrigger>
 			<AlertDialogPopup>
 				<AlertDialogHeader>
-					<WarningCircleIcon weight="fill" />
+					<WarningCircleIcon weight="duotone" />
 				</AlertDialogHeader>
 				<AlertDialogContent>
 					<AlertDialogTitle>You are about to delete this item</AlertDialogTitle>

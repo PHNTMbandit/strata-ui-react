@@ -9,10 +9,10 @@ export const TextArea = ({ className, ref, ...props }: TextAreaProps) => {
 		: false
 
 	return (
-		<div className="flex w-full flex-col overflow-hidden rounded-lg bg-surface-container-low shadow-xs outline-2 outline-transparent transition-colors focus-within:outline-primary hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent">
+		<div className="flex w-full flex-col overflow-hidden rounded-lg bg-surface-container shadow-xs outline-2 outline-transparent transition-colors focus-within:outline-brand hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent">
 			<textarea
 				className={cn(
-					"style-text-prose-0 px-xs py-2xs outline-none focus-within:caret-primary",
+					"style-text-prose-0 px-xs py-2xs outline-none focus-within:caret-brand",
 					className,
 				)}
 				ref={ref}

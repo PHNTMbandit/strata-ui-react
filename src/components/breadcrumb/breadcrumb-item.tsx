@@ -10,7 +10,7 @@ export const BreadcrumbItem = ({
 	return (
 		<div
 			className={cn(
-				"style-text-default--1 inline-flex h-md items-center justify-center gap-3xs rounded-full text-on-primary-container-variant [&>svg]:size-xs",
+				"style-text-default--1 inline-flex h-md items-center justify-center gap-3xs text-surface-on-surface-variant [&>svg]:size-xs",
 				className,
 			)}
 			ref={ref}

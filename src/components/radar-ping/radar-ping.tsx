@@ -3,7 +3,7 @@ import { type RadarPingProps, radarPingVariants } from "./radar-ping.types"
 
 export const RadarPing = ({
 	hidePing = false,
-	tone = "primary",
+	tone = "brand",
 	size = "medium",
 	className,
 	children,

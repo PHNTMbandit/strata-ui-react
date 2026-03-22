@@ -8,13 +8,13 @@ export const Radio = ({ className, children, ref, ...props }: RadioProps) => {
 		<Label htmlFor={props.id}>
 			<BaseRadio.Root
 				className={cn(
-					"inset-shadow-xs inline-flex size-sm items-center justify-center rounded-full bg-surface-dim outline-2 outline-transparent outline-offset-1 transition-colors hover:outline-primary group-hover:outline-primary",
+					"inset-shadow-xs inline-flex size-sm items-center justify-center rounded-full bg-surface-dim outline-2 outline-transparent outline-offset-1 transition-colors hover:outline-brand group-hover:outline-brand",
 					className,
 				)}
 				ref={ref}
 				{...props}
 			>
-				<BaseRadio.Indicator className="flex before:size-xs before:rounded-full before:bg-primary before:shadow-xs data-unchecked:hidden" />
+				<BaseRadio.Indicator className="flex before:size-xs before:rounded-full before:bg-brand before:shadow-xs data-unchecked:hidden" />
 			</BaseRadio.Root>
 			{children}
 		</Label>

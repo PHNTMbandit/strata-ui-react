@@ -12,7 +12,7 @@ export const ComboboxChip = ({
 	return (
 		<BaseCombobox.Chip
 			className={cn(
-				"style-text-default-0 inline-flex h-lg items-center gap-xs rounded-full bg-primary-container pr-2xs pl-sm text-on-primary-container",
+				"style-text-default-0 inline-flex h-lg items-center gap-xs rounded-full bg-brand-container pr-2xs pl-sm text-on-brand-container outline outline-brand-outline",
 				className,
 			)}
 			ref={ref}

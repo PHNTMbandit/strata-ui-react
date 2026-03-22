@@ -6,11 +6,16 @@ export const badgeVariants = cva(
 	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all rounded-full",
 	{
 		variants: {
+			variant: {
+				light: "outline",
+				solid: "",
+			},
 			tone: {
-				primary: "",
-				secondary: "",
+				brand: "",
+				accent: "",
 				neutral: "",
 				error: "",
+				info: "",
 				success: "",
 				warning: "",
 			},
@@ -19,122 +24,92 @@ export const badgeVariants = cva(
 				medium: "[&>svg]:size-sm style-text-default--1 px-xs h-lg gap-2xs",
 				large: "[&>svg]:size-md style-text-default-2 px-sm h-xl gap-xs",
 			},
-			style: {
-				light: "",
-				solid: "",
-				outline: "bg-transparent outline",
-			},
 		},
 		defaultVariants: {
 			size: "medium",
-			style: "light",
+			variant: "light",
 			tone: "neutral",
 		},
 		compoundVariants: [
 			{
-				tone: "primary",
-				style: "light",
+				tone: "brand",
+				variant: "light",
 				className:
-					"bg-primary-container text-on-primary-container border border-primary-outline",
+					"bg-brand-container text-on-brand-container outline-brand-outline",
 			},
 			{
-				tone: "primary",
-				style: "solid",
-				className: "bg-primary text-on-primary",
+				tone: "brand",
+				variant: "solid",
+				className: "bg-brand text-on-brand",
 			},
 			{
-				tone: "primary",
-				style: "outline",
-				className: "outline-primary text-primary",
-			},
-			{
-				tone: "secondary",
-				style: "light",
+				tone: "accent",
+				variant: "light",
 				className:
-					"bg-secondary-container text-on-secondary-container border border-secondary-outline",
+					"bg-accent-container text-on-accent-container outline-accent-outline",
 			},
 			{
-				tone: "secondary",
-				style: "solid",
-				className: "bg-secondary text-on-secondary",
-			},
-			{
-				tone: "secondary",
-				style: "outline",
-				className: "outline-secondary text-secondary",
+				tone: "accent",
+				variant: "solid",
+				className: "bg-accent text-on-accent",
 			},
 			{
 				tone: "neutral",
-				style: "light",
-				className:
-					"bg-surface-container-low border border-outline text-on-surface",
+				variant: "light",
+				className: "bg-surface-container outline-outline text-on-surface",
 			},
 			{
 				tone: "neutral",
-				style: "solid",
-				className: "bg-surface-container-mid text-on-surface",
-			},
-			{
-				tone: "neutral",
-				style: "outline",
-				className: "border border-outline text-on-surface",
+				variant: "solid",
+				className: "bg-surface-container text-on-surface",
 			},
 			{
 				tone: "error",
-				style: "light",
+				variant: "light",
 				className:
-					"bg-error-container text-on-error-container border border-error-outline",
+					"bg-error-container text-on-error-container outline-error-outline",
 			},
 			{
 				tone: "error",
-				style: "solid",
+				variant: "solid",
 				className: "bg-error text-on-error",
 			},
 			{
-				tone: "error",
-				style: "outline",
-				className: "outline-error text-error",
-			},
-			{
-				tone: "success",
-				style: "light",
+				tone: "info",
+				variant: "light",
 				className:
-					"bg-success-container text-on-success-container border border-success-outline",
+					"bg-info-container text-on-info-container outline-info-outline",
+			},
+			{
+				tone: "info",
+				variant: "solid",
+				className: "bg-info text-on-info",
 			},
 			{
 				tone: "success",
-				style: "solid",
+				variant: "light",
+				className:
+					"bg-success-container text-on-success-container outline-success-outline",
+			},
+			{
+				tone: "success",
+				variant: "solid",
 				className: "bg-success text-on-success",
 			},
 			{
-				tone: "success",
-				style: "outline",
-				className: "outline-success text-success",
-			},
-			{
 				tone: "warning",
-				style: "light",
+				variant: "light",
 				className:
-					"bg-warning-container text-on-warning-container border border-warning-outline",
+					"bg-warning-container text-on-warning-container outline-warning-outline",
 			},
 			{
 				tone: "warning",
-				style: "solid",
+				variant: "solid",
 				className: "bg-warning text-on-warning",
-			},
-			{
-				tone: "warning",
-				style: "outline",
-				className: "outline-warning text-warning",
 			},
 		],
 	},
 )
 
-type BadgeProps = ComponentProps<"div">
-
-export interface BadgeExtendedProps
-	extends Omit<BadgeProps, "style">,
-		VariantProps<typeof badgeVariants> {
-	style?: "light" | "solid" | "outline"
-}
+export type BadgeExtendedProps = ComponentProps<"div"> &
+	VariantProps<typeof badgeVariants>

@@ -42,7 +42,7 @@ export const Default: Story = {
 			<BreadcrumbEllipsis />
 			<BreadcrumbSeparator />
 			<BreadcrumbItem>
-				<HouseIcon weight="bold" />
+				<HouseIcon weight="fill" />
 				Home
 			</BreadcrumbItem>
 		</Breadcrumb>

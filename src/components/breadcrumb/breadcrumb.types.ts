@@ -8,8 +8,8 @@ export const breadcrumbVariants = cva(
 		variants: {
 			style: {
 				ghost: "",
-				solid: "bg-primary-container rounded-lg",
-				outline: "bg-transparent outline",
+				solid: "",
+				outline: "",
 			},
 		},
 		defaultVariants: {

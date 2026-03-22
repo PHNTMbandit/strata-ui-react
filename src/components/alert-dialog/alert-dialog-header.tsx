@@ -10,7 +10,7 @@ export const AlertDialogHeader = ({
 	return (
 		<div
 			className={cn(
-				"flex w-full items-center justify-center [&>svg]:size-xl [&>svg]:text-error",
+				"flex w-full items-center justify-center pb-sm [&>svg]:size-xl [&>svg]:text-error",
 				className,
 			)}
 			ref={ref}

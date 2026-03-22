@@ -39,7 +39,7 @@ export const Profile = ({
 	}
 
 	return (
-		<div className="flex items-center justify-between gap-2xl rounded-xl p-2xs transition-all hover:cursor-pointer hover:bg-surface-container-low hover:shadow-sm">
+		<div className="hover:elevation-xs flex items-center justify-between gap-2xl rounded-xl border border-transparent p-2xs transition-all hover:cursor-pointer hover:border-outline-variant hover:bg-surface-container hover:shadow-sm">
 			<button
 				className={cn(
 					"flex items-center gap-xs transition-colors hover:cursor-pointer",

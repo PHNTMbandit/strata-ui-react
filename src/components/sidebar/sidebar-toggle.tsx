@@ -25,13 +25,10 @@ export const SidebarToggle = ({
 
 	return (
 		<Button
-			className={cn(
-				"shrink-0 border-none hover:bg-surface-container-mid!",
-				className,
-			)}
+			className={cn("shrink-0", className)}
 			ref={ref}
 			size={"iconMedium"}
-			style="ghost"
+			variant={"ghost"}
 			{...props}
 			onClick={handleClick}
 		>

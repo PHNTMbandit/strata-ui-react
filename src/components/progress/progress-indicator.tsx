@@ -17,10 +17,10 @@ export const ProgressIndicator = ({
 		<div className="relative">
 			<div
 				className={cn(
-					"style-text-default--2 flex size-md shrink-0 flex-col items-center justify-center rounded-full bg-surface-container-low text-center text-success transition-colors ease-in-out [&>svg]:size-xs",
+					"style-text-default--2 flex size-md shrink-0 flex-col items-center justify-center rounded-full border border-outline bg-surface-container text-center text-success transition-colors ease-in-out [&>svg]:size-xs",
 					isActive &&
-						"border border-success-outline bg-success-container text-on-success-container",
-					isCompleted && "bg-success text-on-success shadow-none",
+						"border-success-outline bg-success-container text-on-success-container",
+					isCompleted && "border-none bg-success text-on-success shadow-none",
 					className,
 				)}
 				ref={ref}

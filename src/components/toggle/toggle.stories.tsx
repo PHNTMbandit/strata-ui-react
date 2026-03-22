@@ -16,7 +16,7 @@ export default {
 	},
 	args: {
 		size: "medium",
-		tone: "primary",
+		tone: "brand",
 	},
 	argTypes: {
 		size: {
@@ -25,10 +25,11 @@ export default {
 		},
 		tone: {
 			options: [
-				"primary",
-				"secondary",
+				"brand",
+				"accent",
 				"neutral",
 				"error",
+				"info",
 				"success",
 				"warning",
 			],
@@ -36,7 +37,7 @@ export default {
 			description: "The tone of the toggle, which determines its color scheme.",
 			table: {
 				type: { summary: "string" },
-				defaultValue: { summary: "primary" },
+				defaultValue: { summary: "brand" },
 			},
 		},
 	},
@@ -63,10 +64,11 @@ export default {
 
 type Story = StoryObj<typeof Toggle>
 
-export const Primary: Story = {}
-export const Secondary: Story = {
+export const Brand: Story = {}
+
+export const Accent: Story = {
 	args: {
-		tone: "secondary",
+		tone: "accent",
 	},
 }
 export const Neutral: Story = {
@@ -79,6 +81,13 @@ export const ErrorTone: Story = {
 		tone: "error",
 	},
 }
+
+export const Info: Story = {
+	args: {
+		tone: "info",
+	},
+}
+
 export const Success: Story = {
 	args: {
 		tone: "success",

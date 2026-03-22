@@ -17,7 +17,7 @@ export default {
 	},
 	args: {
 		hidePing: false,
-		tone: "primary",
+		tone: "brand",
 		size: "medium",
 	},
 	argTypes: {
@@ -27,10 +27,11 @@ export default {
 			control: {
 				type: "select",
 				options: [
-					"primary",
-					"secondary",
+					"brand",
+					"accent",
 					"neutral",
 					"error",
+					"info",
 					"success",
 					"warning",
 				],
@@ -55,15 +56,15 @@ export default {
 
 type Story = StoryObj<typeof RadarPing>
 
-export const Primary: Story = {
+export const Brand: Story = {
 	args: {
-		tone: "primary",
+		tone: "brand",
 	},
 }
 
-export const Secondary: Story = {
+export const Accent: Story = {
 	args: {
-		tone: "secondary",
+		tone: "accent",
 	},
 }
 
@@ -76,6 +77,12 @@ export const Neutral: Story = {
 export const ErrorTone: Story = {
 	args: {
 		tone: "error",
+	},
+}
+
+export const Info: Story = {
+	args: {
+		tone: "info",
 	},
 }
 

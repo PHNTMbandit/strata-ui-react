@@ -47,3 +47,4 @@ export type TableRowGridProps = React.ComponentProps<"tr"> & {
 }
 export type TableNavProps = React.ComponentProps<"div">
 export type TableContentProps = React.ComponentProps<"table">
+export type TableChangeViewProps = React.ComponentProps<typeof Button>

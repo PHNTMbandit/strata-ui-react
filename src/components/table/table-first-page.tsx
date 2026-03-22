@@ -23,8 +23,8 @@ export const TableFirstPage = ({
 			onClick={handleClick}
 			ref={ref}
 			size={"iconMedium"}
-			style="ghost"
 			tone="neutral"
+			variant="ghost"
 			{...props}
 		>
 			{children}

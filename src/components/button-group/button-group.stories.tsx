@@ -1,4 +1,4 @@
-import { MinusIcon, PlusIcon } from "@phosphor-icons/react"
+import { CaretDownIcon, MinusIcon, PlusIcon } from "@phosphor-icons/react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { Button } from "../button/button"
 import { Input } from "../input/index"
@@ -80,19 +80,9 @@ export const Separator: Story = {
 export const Solid: Story = {
 	render: (args) => (
 		<ButtonGroup {...args}>
-			<Button style="solid">Button 1</Button>
-			<Button style="solid">Button 2</Button>
-			<Button style="solid">Button 3</Button>
-		</ButtonGroup>
-	),
-}
-
-export const Outline: Story = {
-	render: (args) => (
-		<ButtonGroup {...args}>
-			<Button style="outline">Button 1</Button>
-			<Button style="outline">Button 2</Button>
-			<Button style="outline">Button 3</Button>
+			<Button variant="solid">Button 1</Button>
+			<Button variant="solid">Button 2</Button>
+			<Button variant="solid">Button 3</Button>
 		</ButtonGroup>
 	),
 }
@@ -111,11 +101,10 @@ export const InputWithButton: Story = {
 export const MixedTextIcon: Story = {
 	render: (args) => (
 		<ButtonGroup {...args}>
-			<Button>Button 1</Button>
-			<Button>
-				<PlusIcon weight="bold" />
+			<Button>Open</Button>
+			<Button size={"iconMedium"}>
+				<CaretDownIcon weight="bold" />
 			</Button>
-			<Button>Button 3</Button>
 		</ButtonGroup>
 	),
 }

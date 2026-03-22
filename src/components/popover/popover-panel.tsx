@@ -15,7 +15,7 @@ export const PopoverPanel = ({
 				sideOffset={8}
 				{...props}
 			>
-				<BasePopover.Popup className="inset-shadow-raised-md origin-(--transform-origin) space-y-3xs rounded-xl bg-surface-container-low px-md py-sm shadow-md outline outline-outline transition-[transform,scale,opacity] data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0">
+				<BasePopover.Popup className="inset-shadow-raised-md origin-(--transform-origin) space-y-3xs rounded-xl border border-outline bg-surface-container px-md py-sm shadow-md outline outline-outline-variant transition-[transform,scale,opacity] data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0">
 					<BasePopover.Arrow className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=top]:bottom-[-8px] data-[side=right]:left-[-13px] data-[side=left]:rotate-90 data-[side=right]:-rotate-90 data-[side=top]:rotate-180">
 						{/* <ArrowSvg /> */}
 					</BasePopover.Arrow>

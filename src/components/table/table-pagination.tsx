@@ -47,7 +47,6 @@ export const TablePagination = ({
 						}`}
 						onClick={() => handleClick(i)}
 						size={"iconMedium"}
-						style="outline"
 						tone="neutral"
 					>
 						{i + 1}

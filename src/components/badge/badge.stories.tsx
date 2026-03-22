@@ -17,8 +17,8 @@ export default {
 	args: {
 		children: "Badge",
 		size: "medium",
-		style: "light",
-		tone: "primary",
+		variant: "light",
+		tone: "brand",
 	},
 	argTypes: {
 		size: {
@@ -29,15 +29,16 @@ export default {
 		tone: {
 			control: "select",
 			options: [
-				"primary",
-				"secondary",
+				"brand",
+				"accent",
 				"neutral",
 				"error",
+				"info",
 				"success",
 				"warning",
 			],
 		},
-		style: {
+		variant: {
 			control: "radio",
 			options: ["light", "solid", "outline"],
 		},
@@ -52,15 +53,15 @@ export default {
 
 type Story = StoryObj<typeof Badge>
 
-export const Primary: Story = {
+export const Brand: Story = {
 	args: {
-		tone: "primary",
+		tone: "brand",
 	},
 }
 
-export const Secondary: Story = {
+export const Accent: Story = {
 	args: {
-		tone: "secondary",
+		tone: "accent",
 	},
 }
 
@@ -74,6 +75,12 @@ export const Neutral: Story = {
 export const Error: Story = {
 	args: {
 		tone: "error",
+	},
+}
+
+export const Info: Story = {
+	args: {
+		tone: "info",
 	},
 }
 
@@ -91,18 +98,12 @@ export const Warning: Story = {
 
 export const Light: Story = {
 	args: {
-		style: "light",
+		variant: "light",
 	},
 }
 
 export const Solid: Story = {
 	args: {
-		style: "solid",
-	},
-}
-
-export const Outline: Story = {
-	args: {
-		style: "outline",
+		variant: "solid",
 	},
 }

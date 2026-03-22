@@ -19,12 +19,12 @@ export const SelectPopup = ({
 			>
 				<BaseSelect.Popup
 					className={
-						"group min-w-(--anchor-width) origin-(--transform-origin) rounded-md bg-surface-container-mid bg-clip-padding p-sm shadow-md outline outline-outline-variant transition-[transform,scale,opacity] data-[side=none]:data-ending-style:scale-90 data-[side=none]:data-starting-style:scale-90 data-[side=none]:data-ending-style:opacity-0 data-[side=none]:data-starting-style:opacity-0 data-[side=none]:min-w-[calc(var(--anchor-width)+1rem)] data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0"
+						"group min-w-(--anchor-width) origin-(--transform-origin) rounded-md bg-surface-bright bg-clip-padding p-sm shadow-md outline outline-outline-variant transition-[transform,scale,opacity] data-[side=none]:data-ending-style:scale-90 data-[side=none]:data-starting-style:scale-90 data-[side=none]:data-ending-style:opacity-0 data-[side=none]:data-starting-style:opacity-0 data-[side=none]:min-w-[calc(var(--anchor-width)+1rem)] data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0"
 					}
 				>
 					<BaseSelect.ScrollUpArrow
 						className={
-							"top-[0px] right-[0px] z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-md bg-surface-container-mid before:absolute before:left-[0px] before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full"
+							"top-[0px] right-[0px] z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-md bg-surface-bright before:absolute before:left-[0px] before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full"
 						}
 					>
 						<CaretUpIcon className="size-sm" weight="fill" />
@@ -38,7 +38,7 @@ export const SelectPopup = ({
 					</BaseSelect.List>
 					<BaseSelect.ScrollDownArrow
 						className={
-							"right-[0px] bottom-[0px] z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-md bg-surface-container-mid before:absolute before:left-[0px] before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full"
+							"right-[0px] bottom-[0px] z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-md bg-surface-bright before:absolute before:left-[0px] before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full"
 						}
 					>
 						<CaretDownIcon className="size-sm" weight="fill" />

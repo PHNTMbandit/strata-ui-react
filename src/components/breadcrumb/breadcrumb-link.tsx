@@ -10,7 +10,7 @@ export const BreadcrumbLink = ({
 	return (
 		<div
 			className={cn(
-				"style-text-default--1 inline-flex h-md items-center justify-center gap-3xs rounded-full text-on-primary-container hover:cursor-pointer hover:underline hover:underline-offset-2 [&>svg]:size-xs",
+				"style-text-default--1 inline-flex h-md items-center justify-center gap-3xs text-surface-on-surface-variant hover:cursor-pointer hover:underline hover:underline-offset-2 [&>svg]:size-xs",
 				className,
 			)}
 			ref={ref}

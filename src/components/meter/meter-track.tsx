@@ -11,7 +11,7 @@ export const MeterTrack = ({
 	return (
 		<BaseMeter.Track
 			className={cn(
-				"inset-shadow-xs col-span-2 h-2xs rounded-full bg-surface-dim",
+				"inset-shadow-xs col-span-2 h-2xs overflow-hidden rounded-full bg-surface-dim",
 				className,
 			)}
 			data-track

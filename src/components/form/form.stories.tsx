@@ -68,7 +68,12 @@ export const FieldInput: Story = {
 			<Suspense fallback={<div>Loading...</div>}>
 				<Form action={form.handleSubmit}>
 					<form.AppForm>
-						<form.FormErrors />
+						<form.FormErrors>
+							<AlertHeader>
+								<XCircleIcon weight="fill" />
+								There were some problems with your submission
+							</AlertHeader>
+						</form.FormErrors>
 						<form.AppField
 							children={(field) => (
 								<Field>
@@ -144,9 +149,7 @@ export const FieldInput: Story = {
 								</Field>
 							)}
 						</form.AppField>
-						<form.FormReset style="ghost" tone="error">
-							Reset
-						</form.FormReset>
+						<form.FormReset tone="error">Reset</form.FormReset>
 						<form.FormSubmit>Submit</form.FormSubmit>
 					</form.AppForm>
 				</Form>
@@ -216,9 +219,7 @@ export const SubmitError: Story = {
 							</Field>
 						)}
 					</form.AppField>
-					<form.FormReset style="ghost" tone="error">
-						Reset
-					</form.FormReset>
+					<form.FormReset tone="error">Reset</form.FormReset>
 					<form.FormSubmit>Submit</form.FormSubmit>
 				</form.AppForm>
 			</Form>

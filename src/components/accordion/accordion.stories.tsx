@@ -26,33 +26,33 @@ export default {
 
 type Story = StoryObj<typeof Accordion>
 
-export const Primary: Story = {
+export const Brand: Story = {
 	render: (args) => (
 		<Accordion {...args} className={"w-[500px]"}>
-			<AccordionItem tone="primary">
+			<AccordionItem tone="brand">
 				<AccordionTrigger
 					icon={InfoIcon}
 					subtitle={"This is the subtitle"}
-					title={"Primary Accordion"}
+					title={"Brand Accordion"}
 				/>
 				<AccordionPanel heading={"Accordion Panel Heading"}>
-					<p>This is the content for the primary accordion panel.</p>
+					<p>This is the content for the brand accordion panel.</p>
 				</AccordionPanel>
 			</AccordionItem>
 		</Accordion>
 	),
 }
-export const Secondary: Story = {
+export const Accent: Story = {
 	render: (args) => (
 		<Accordion {...args} className={"w-[500px]"}>
-			<AccordionItem tone="secondary">
+			<AccordionItem tone="accent">
 				<AccordionTrigger
 					icon={InfoIcon}
 					subtitle={"This is the subtitle"}
-					title={"Secondary Accordion"}
+					title={"Accent Accordion"}
 				/>
 				<AccordionPanel heading={"Accordion Panel Heading"}>
-					<p>This is the content for the secondary accordion panel.</p>
+					<p>This is the content for the accent accordion panel.</p>
 				</AccordionPanel>
 			</AccordionItem>
 		</Accordion>
@@ -92,6 +92,24 @@ export const Error: Story = {
 		</Accordion>
 	),
 }
+
+export const Info: Story = {
+	render: (args) => (
+		<Accordion {...args} className={"w-[500px]"}>
+			<AccordionItem tone="info">
+				<AccordionTrigger
+					icon={InfoIcon}
+					subtitle={"This is the subtitle"}
+					title={"Info Accordion"}
+				/>
+				<AccordionPanel heading={"Accordion Panel Heading"}>
+					<p>This is the content for the info accordion panel.</p>
+				</AccordionPanel>
+			</AccordionItem>
+		</Accordion>
+	),
+}
+
 export const Success: Story = {
 	render: (args) => (
 		<Accordion {...args} className={"w-[500px]"}>
@@ -129,7 +147,7 @@ export const MultipleItems: Story = {
 	args: {},
 	render: (args) => (
 		<Accordion {...args} className={"w-[500px]"}>
-			<AccordionItem tone="primary">
+			<AccordionItem tone="brand">
 				<AccordionTrigger
 					icon={InfoIcon}
 					subtitle={"This is the subtitle"}
@@ -139,7 +157,7 @@ export const MultipleItems: Story = {
 					<p>This is the content for section 1.</p>
 				</AccordionPanel>
 			</AccordionItem>
-			<AccordionItem tone="secondary">
+			<AccordionItem tone="accent">
 				<AccordionTrigger
 					icon={InfoIcon}
 					subtitle={"This is the subtitle"}

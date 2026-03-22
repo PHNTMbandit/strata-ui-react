@@ -29,6 +29,7 @@ export default {
 	},
 	args: {
 		value: 25,
+		max: 100,
 		orientation: "vertical",
 	},
 	render: (args) => (
@@ -76,7 +77,7 @@ export const Horizontal: Story = {
 				<MeterIndicator />
 			</MeterTrack>
 			<MeterValue />
-			<Button size={"iconSmall"} style="ghost" tone="error">
+			<Button size={"iconSmall"} tone="error">
 				<XIcon weight="bold" />
 			</Button>
 		</Meter>

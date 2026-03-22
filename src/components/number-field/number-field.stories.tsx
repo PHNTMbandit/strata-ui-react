@@ -4,6 +4,9 @@ import { NumberField } from "./number-field"
 export default {
 	title: "Components/Number Field",
 	component: NumberField,
+	args: {
+		defaultValue: 99,
+	},
 	parameters: {
 		docs: {
 			subtitle:

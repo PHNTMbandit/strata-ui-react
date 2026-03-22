@@ -15,97 +15,64 @@ export const Sidebar = ({
 	const sidebarRef = React.useRef<HTMLDivElement>(null)
 
 	React.useEffect(() => {
+		if (!isMobile || !open) return
+
 		const handleOutsideClick = (event: MouseEvent) => {
 			if (
 				sidebarRef.current &&
-				!sidebarRef.current.contains(event.target as Node) &&
-				isMobile
+				!sidebarRef.current.contains(event.target as Node)
 			) {
-				if (open && setOpen) {
-					setOpen(false)
-				}
+				setOpen?.(false)
 			}
 		}
 
 		document.addEventListener("click", handleOutsideClick)
-
-		return () => {
-			document.removeEventListener("click", handleOutsideClick)
-		}
+		return () => document.removeEventListener("click", handleOutsideClick)
 	}, [open, setOpen, isMobile])
+
+	const isCollapsible = collapsible === "offcanvas" || collapsible === "icon"
 
 	const getWidthStyle = (): React.CSSProperties => {
 		if (collapsible === "none") {
 			return { width: `${width}px` }
 		}
 
-		if (collapsible === "offcanvas") {
-			if (open) {
-				return isMobile ? { width: "33.333333%" } : { width: `${width}px` }
-			} else {
-				return isMobile ? { width: "0px" } : { width: "0px" }
-			}
+		if (!open) {
+			if (collapsible === "icon" && !isMobile) return { width: "80px" }
+			return { width: "0px" }
 		}
 
-		if (collapsible === "icon") {
-			if (open) {
-				return isMobile ? { width: `${width}px` } : { width: `${width}px` }
-			} else {
-				return isMobile ? { width: "0px" } : { width: "80px" }
-			}
+		if (collapsible === "offcanvas" && isMobile) {
+			return { width: "33.333333%" }
 		}
 
 		return { width: `${width}px` }
 	}
 
 	const getGapClasses = () => {
-		if (collapsible === "none") {
-			return "gap-lg"
-		}
-
-		if (collapsible === "offcanvas") {
-			return open ? "gap-lg" : "gap-sm"
-		}
-
-		if (collapsible === "icon") {
-			return open ? "gap-lg" : "gap-sm"
-		}
-
-		return "gap-lg"
+		return isCollapsible && !open ? "gap-sm" : "gap-lg"
 	}
 
 	const getPositionClasses = () => {
-		if (
-			(collapsible === "offcanvas" || collapsible === "icon") &&
-			!open &&
-			isMobile
-		) {
-			return "absolute z-50 -translate-x-full"
+		if (isCollapsible && isMobile) {
+			return open ? "absolute z-50" : "absolute z-50 -translate-x-full"
 		}
-
-		if (
-			(collapsible === "offcanvas" || collapsible === "icon") &&
-			open &&
-			isMobile
-		) {
-			return "absolute z-50"
-		}
-
 		return ""
 	}
 
 	return (
 		<div
 			className={cn(
-				"sticky left-[0px] flex h-full shrink-0 flex-col justify-between overflow-hidden border-outline-variant bg-surface-container-lowest transition-[width,transform] duration-300 ease-in-out",
+				"sticky left-[0px] flex h-full shrink-0 flex-col justify-between overflow-hidden border-outline bg-surface-container outline outline-outline-variant transition-[width,transform] duration-300 ease-in-out",
 				className,
-				tone === "ghost" && !isMobile && "border-none bg-transparent",
+				tone === "ghost" &&
+					!isMobile &&
+					"border-none bg-transparent outline-none",
 				getGapClasses(),
 				getPositionClasses(),
-				collapsible === "offcanvas" && !open && isMobile && "border-none",
-				collapsible === "offcanvas" && !open && "border-none",
-				collapsible !== "offcanvas" && open && "px-md pt-lg pb-md",
-				collapsible !== "offcanvas" && !open && "p-xs",
+				open && "px-md pt-lg pb-md",
+				!open && collapsible === "offcanvas" && "border-none",
+				!open && collapsible !== "offcanvas" && "p-xs",
 				isMobile && "border-none",
 				side === "left" ? "border-r" : "border-l",
 			)}

@@ -2,8 +2,7 @@ import { GridFourIcon, ListIcon } from "@phosphor-icons/react"
 import { cn } from "@/utils/cn"
 import { Button } from "../button"
 import { useTable } from "./table"
-
-type TableChangeViewProps = React.ComponentProps<typeof Button>
+import type { TableChangeViewProps } from "./table.types"
 
 export const TableChangeView = ({
 	className,

@@ -10,7 +10,7 @@ export const SidebarGroup = ({
 	return (
 		<div
 			className={cn(
-				"flex w-full flex-col items-start gap-3xs p-3xs not-last:pb-xs",
+				"flex w-full flex-col items-start gap-3xs not-last:pb-xs",
 				className,
 			)}
 			ref={ref}

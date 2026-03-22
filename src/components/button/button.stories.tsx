@@ -17,45 +17,46 @@ export default {
 	args: {
 		children: "Click Me",
 		size: "medium",
-		style: "solid",
-		tone: "primary",
+		variant: "solid",
+		tone: "brand",
 		disabled: false,
 	},
 	argTypes: {
 		tone: {
 			control: "select",
 			options: [
-				"primary",
-				"secondary",
+				"brand",
+				"accent",
 				"neutral",
 				"error",
+				"info",
 				"success",
 				"warning",
 				"glass",
 			],
 		},
-		style: {
+		variant: {
 			control: "radio",
-			options: ["solid", "outline", "ghost"],
+			options: ["solid", "ghost"],
 		},
 		size: {
 			control: "radio",
-			options: ["small", "medium", "large"],
+			options: ["xsmall", "small", "medium", "large", "xlarge"],
 		},
 	},
 } satisfies Meta<typeof Button>
 
 type Story = StoryObj<typeof Button>
 
-export const Primary: Story = {
+export const Brand: Story = {
 	args: {
-		tone: "primary",
+		tone: "brand",
 	},
 }
 
-export const Secondary: Story = {
+export const Accent: Story = {
 	args: {
-		tone: "secondary",
+		tone: "accent",
 	},
 }
 
@@ -69,6 +70,12 @@ export const Neutral: Story = {
 export const Error: Story = {
 	args: {
 		tone: "error",
+	},
+}
+
+export const Info: Story = {
+	args: {
+		tone: "info",
 	},
 }
 
@@ -86,19 +93,19 @@ export const Warning: Story = {
 
 export const Solid: Story = {
 	args: {
-		style: "solid",
-	},
-}
-
-export const Outline: Story = {
-	args: {
-		style: "outline",
+		variant: "solid",
 	},
 }
 
 export const Ghost: Story = {
 	args: {
-		style: "ghost",
+		variant: "ghost",
+	},
+}
+
+export const ExtraSmall: Story = {
+	args: {
+		size: "xsmall",
 	},
 }
 
@@ -120,6 +127,19 @@ export const Large: Story = {
 	},
 }
 
+export const ExtraLarge: Story = {
+	args: {
+		size: "xlarge",
+	},
+}
+
+export const IconExtraSmall: Story = {
+	args: {
+		children: <PlusIcon weight="bold" />,
+		size: "iconXSmall",
+	},
+}
+
 export const IconSmall: Story = {
 	args: {
 		children: <PlusIcon weight="bold" />,
@@ -138,5 +158,12 @@ export const IconLarge: Story = {
 	args: {
 		children: <PlusIcon weight="bold" />,
 		size: "iconLarge",
+	},
+}
+
+export const IconExtraLarge: Story = {
+	args: {
+		children: <PlusIcon weight="bold" />,
+		size: "iconXLarge",
 	},
 }

@@ -12,7 +12,7 @@ export const TableRowGrid = ({
 	return (
 		<tr
 			className={cn(
-				"aspect-video min-h-2xl rounded-md bg-surface-container-mid p-xs",
+				"aspect-video min-h-2xl rounded-md bg-surface-container p-xs",
 				className,
 			)}
 			ref={ref}

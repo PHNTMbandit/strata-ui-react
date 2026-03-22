@@ -8,7 +8,7 @@ export type TabsIndicatorProps = ComponentProps<typeof BaseTabs.Indicator>
 export type TabsListProps = ComponentProps<typeof BaseTabs.List>
 
 export const tabsVariants = cva(
-	"space-y-2xs gap-2xs rounded-md p-2xs shadow-xs overflow-hidden bg-surface-container-low border border-outline-variant",
+	"space-y-2xs gap-2xs rounded-md p-2xs shadow-xs overflow-hidden bg-surface-container border border-outline-variant",
 	{
 		variants: {
 			style: {

@@ -28,10 +28,11 @@ export default {
 				type: "select",
 			},
 			options: [
-				"primary",
-				"secondary",
+				"brand",
+				"accent",
 				"neutral",
 				"error",
+				"info",
 				"success",
 				"warning",
 			],
@@ -41,35 +42,35 @@ export default {
 
 type Story = StoryObj<typeof Alert>
 
-export const PrimaryVariant: Story = {
+export const BrandVariant: Story = {
 	args: {
-		tone: "primary",
+		tone: "brand",
 	},
 	render: (args) => (
 		<Alert {...args}>
 			<AlertHeader>
 				<XCircleIcon weight="fill" />
-				Primary Alert
+				Brand Alert
 			</AlertHeader>
 			<AlertDescription>
-				This is a primary alert. It indicates important information.
+				This is a brand alert. It indicates important information.
 			</AlertDescription>
 		</Alert>
 	),
 }
 
-export const SecondaryVariant: Story = {
+export const AccentVariant: Story = {
 	args: {
-		tone: "secondary",
+		tone: "accent",
 	},
 	render: (args) => (
 		<Alert {...args}>
 			<AlertHeader>
 				<XCircleIcon weight="fill" />
-				Secondary Alert
+				Accent Alert
 			</AlertHeader>
 			<AlertDescription>
-				This is a secondary alert. It provides additional context.
+				This is an accent alert. It provides additional context.
 			</AlertDescription>
 		</Alert>
 	),
@@ -104,6 +105,23 @@ export const ErrorVariant: Story = {
 			</AlertHeader>
 			<AlertDescription>
 				This is an error alert. Please take necessary actions.
+			</AlertDescription>
+		</Alert>
+	),
+}
+
+export const InfoVariant: Story = {
+	args: {
+		tone: "info",
+	},
+	render: (args) => (
+		<Alert {...args}>
+			<AlertHeader>
+				<XCircleIcon weight="fill" />
+				Info Alert
+			</AlertHeader>
+			<AlertDescription>
+				This is an info alert. It provides useful information.
 			</AlertDescription>
 		</Alert>
 	),

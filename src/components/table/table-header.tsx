@@ -25,9 +25,8 @@ export const TableHeader = ({
 						return (
 							<th
 								className={cn(
-									"style-text-default-0 h-xl bg-surface-container-low px-sm text-left transition-colors first:rounded-l-xl last:rounded-r-xl",
-									header.column.getCanSort() &&
-										"hover:cursor-pointer hover:bg-surface-container-mid",
+									"style-text-default-0 h-xl bg-surface-container px-sm text-left transition-colors first:rounded-l-xl last:rounded-r-xl",
+									header.column.getCanSort() && "hover:cursor-pointer",
 									header.isPlaceholder && "cursor-default",
 									className,
 								)}

@@ -11,22 +11,23 @@ export type AccordionPanelProps = React.ComponentProps<
 }
 
 export const accordionItemVariants = cva(
-	"group transition-all [&:not([data-open])]:hover:shadow-xs hover:bg-surface-container-mid data-open:bg-surface-container-low outline outline-transparent hover:outline-outline-variant data-open:outline-outline-variant data-open:shadow-md data-open:hover:bg-surface-container-mid data-open:hover:shadow-lg rounded-lg",
+	"group transition-all hover:bg-surface-base-bright data-open:bg-surface-base-bright not-hover:data-open:elevated-md rounded-lg",
 	{
 		variants: {
 			tone: {
-				primary:
-					"[&_[data-icon]]:text-primary [&_[data-panel]]:bg-primary-container [&_h1,h2,h3,h4,h5,h6]:text-on-primary-container-variant [&_p]:text-on-primary-container",
-				secondary:
-					"[&_[data-icon]]:text-secondary [&_[data-panel]]:bg-secondary-container [&_h1,h2,h3,h4,h5,h6]:text-on-secondary-container-variant [&_p]:text-on-secondary-container",
+				brand:
+					"[&_[data-icon]]:text-brand-on-surface [&_[data-panel]]:bg-brand-container [&_h1,h2,h3,h4,h5,h6]:text-brand-on-container-variant [&_p]:text-brand-on-container hover:elevated-shadow-brand-md ",
+				accent:
+					"[&_[data-icon]]:text-accent-on-surface [&_[data-panel]]:bg-accent-container [&_h1,h2,h3,h4,h5,h6]:text-accent-on-container-variant [&_p]:text-accent-on-container hover:elevated-shadow-accent-md ",
 				neutral:
-					"[&_[data-icon]]:text-on-surface [&_[data-panel]]:bg-surface-dim [&_h1,h2,h3,h4,h5,h6]:text-on-surface-variant [&_p]:text-on-surface",
+					"[&_[data-icon]]:text-on-surface [&_[data-panel]]:bg-surface-base-dim [&_h1,h2,h3,h4,h5,h6]:text-on-surface-variant [&_p]:text-on-surface hover:elevated-shadow-neutral-md ",
 				error:
-					"[&_[data-icon]]:text-error [&_[data-panel]]:bg-error-container [&_h1,h2,h3,h4,h5,h6]:text-on-error-container-variant [&_p]:text-on-error-container",
+					"[&_[data-icon]]:text-error-on-surface [&_[data-panel]]:bg-error-container [&_h1,h2,h3,h4,h5,h6]:text-error-on-container-variant [&_p]:text-error-on-container hover:elevated-shadow-error-md ",
+				info: "[&_[data-icon]]:text-info-on-surface [&_[data-panel]]:bg-info-container [&_h1,h2,h3,h4,h5,h6]:text-info-on-container-variant [&_p]:text-info-on-container hover:elevated-shadow-info-md ",
 				success:
-					"[&_[data-icon]]:text-success [&_[data-panel]]:bg-success-container [&_h1,h2,h3,h4,h5,h6]:text-on-success-container-variant [&_p]:text-on-success-container",
+					"[&_[data-icon]]:text-success-on-surface [&_[data-panel]]:bg-success-container [&_h1,h2,h3,h4,h5,h6]:text-success-on-container-variant [&_p]:text-success-on-container hover:elevated-shadow-success-md ",
 				warning:
-					"[&_[data-icon]]:text-warning [&_[data-panel]]:bg-warning-container [&_h1,h2,h3,h4,h5,h6]:text-on-warning-container-variant [&_p]:text-on-warning-container",
+					"[&_[data-icon]]:text-warning-on-surface [&_[data-panel]]:bg-warning-container [&_h1,h2,h3,h4,h5,h6]:text-warning-on-container-variant [&_p]:text-warning-on-container hover:elevated-shadow-warning-md ",
 			},
 		},
 		defaultVariants: {
