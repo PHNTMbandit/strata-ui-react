@@ -1,5 +1,6 @@
-import { cn } from "@/utils/cn";
-import type { SidebarMenuButtonProps } from "./sidebar.types";
+import { cn } from '@/utils/cn'
+
+import type { SidebarMenuButtonProps } from './sidebar.types'
 
 export const SidebarMenuButton = ({
   className,
@@ -9,11 +10,11 @@ export const SidebarMenuButton = ({
 }: SidebarMenuButtonProps) => {
   return (
     <button
-      className={cn("style-text-default-0 text-on-surface-variant", className)}
+      className={cn('style-text-default-0 text-on-surface-variant', className)}
       ref={ref}
       {...props}
     >
       {children}
     </button>
-  );
-};
+  )
+}

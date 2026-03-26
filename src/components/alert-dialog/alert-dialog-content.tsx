@@ -1,5 +1,6 @@
-import { cn } from "@/utils/cn";
-import type { AlertDialogContentProps } from "./alert-dialog.types";
+import { cn } from '@/utils/cn'
+
+import type { AlertDialogContentProps } from './alert-dialog.types'
 
 export const AlertDialogContent = ({
   className,
@@ -10,7 +11,7 @@ export const AlertDialogContent = ({
   return (
     <div
       className={cn(
-        "flex flex-col items-center gap-2xs border-outline-variant border-b px-sm pb-lg text-center",
+        'flex flex-col items-center gap-2xs border-b border-outline-variant px-sm pb-lg text-center',
         className,
       )}
       ref={ref}
@@ -18,5 +19,5 @@ export const AlertDialogContent = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}

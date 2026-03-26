@@ -1,49 +1,49 @@
 module.exports = {
   branches: [
-    "main",
+    'main',
     {
-      name: "alpha",
+      name: 'alpha',
       prerelease: true,
     },
     {
-      name: "beta",
+      name: 'beta',
       prerelease: true,
     },
     {
-      name: "rc",
+      name: 'rc',
       prerelease: true,
     },
   ],
   plugins: [
-    "@semantic-release/commit-analyzer",
-    "@semantic-release/release-notes-generator",
+    '@semantic-release/commit-analyzer',
+    '@semantic-release/release-notes-generator',
     [
-      "@semantic-release/changelog",
+      '@semantic-release/changelog',
       {
-        changelogFile: "CHANGELOG.md",
+        changelogFile: 'CHANGELOG.md',
       },
     ],
     [
-      "@semantic-release/npm",
+      '@semantic-release/npm',
       {
-        pkgRoot: ".",
+        pkgRoot: '.',
         npmPublish: true,
       },
     ],
     [
-      "@semantic-release/git",
+      '@semantic-release/git',
       {
-        assets: ["CHANGELOG.md", "package.json"],
+        assets: ['CHANGELOG.md', 'package.json'],
         message:
           // biome-ignore lint/suspicious/noTemplateCurlyInString: Semantic release placeholder
-          "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
+          'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
       },
     ],
     [
-      "@semantic-release/github",
+      '@semantic-release/github',
       {
-        assets: ["dist/**"],
+        assets: ['dist/**'],
       },
     ],
   ],
-};
+}

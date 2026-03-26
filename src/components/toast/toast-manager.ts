@@ -1,12 +1,13 @@
-import { Toast as BaseToast, type ToastManagerAddOptions } from "@base-ui/react/toast";
-import type { ToastVariant } from "./toast.types";
+import { Toast as BaseToast, type ToastManagerAddOptions } from '@base-ui/react/toast'
+
+import type { ToastVariant } from './toast.types'
 
 type ToastAddOptions = ToastManagerAddOptions<object> & {
-  variant?: ToastVariant;
-};
+  variant?: ToastVariant
+}
 
 export const createToastManager = () => {
-  const manager = BaseToast.createToastManager();
+  const manager = BaseToast.createToastManager()
 
   const add = (options: ToastAddOptions) => {
     return manager.add({
@@ -15,17 +16,17 @@ export const createToastManager = () => {
         ...options.data,
         variant: options.variant,
       },
-    });
-  };
+    })
+  }
 
   return {
     ...manager,
     add,
-  };
-};
+  }
+}
 
 export const useToastManager = () => {
-  const toast = BaseToast.useToastManager();
+  const toast = BaseToast.useToastManager()
 
   const add = (options: ToastAddOptions) => {
     return toast.add({
@@ -34,8 +35,8 @@ export const useToastManager = () => {
         ...options.data,
         variant: options.variant,
       },
-    });
-  };
+    })
+  }
 
-  return { add, toasts: toast.toasts };
-};
+  return { add, toasts: toast.toasts }
+}

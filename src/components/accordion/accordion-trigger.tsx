@@ -1,12 +1,13 @@
-import { Accordion as BaseAccordion } from "@base-ui/react/accordion";
-import { CaretDownIcon } from "@phosphor-icons/react";
-import { cn } from "@/utils/cn";
-import type { AccordionTriggerProps } from "./accordion.types";
+import { Accordion as BaseAccordion } from '@base-ui/react/accordion'
+import { CaretDownIcon } from '@phosphor-icons/react'
+import { cn } from '@/utils/cn'
+
+import type { AccordionTriggerProps } from './accordion.types'
 
 export const AccordionTrigger = ({
   title,
-  subtitle,
   icon: Icon,
+  subtitle,
   className,
   children,
   ref,
@@ -15,7 +16,7 @@ export const AccordionTrigger = ({
   return (
     <BaseAccordion.Trigger
       className={cn(
-        "peer flex w-full items-center gap-sm rounded-lg py-xs pr-sm pl-md transition-all group-hover:cursor-pointer data-panel-open:rounded-b-none",
+        'peer w-999 flex w-full items-center gap-sm rounded-lg py-xs pr-sm pl-md transition-all group-hover:cursor-pointer data-panel-open:rounded-b-none',
         className,
       )}
       ref={ref}
@@ -34,5 +35,5 @@ export const AccordionTrigger = ({
         weight="bold"
       />
     </BaseAccordion.Trigger>
-  );
-};
+  )
+}

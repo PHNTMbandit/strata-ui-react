@@ -1,20 +1,21 @@
-import { CheckIcon } from "@phosphor-icons/react/dist/ssr";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Progress } from "./progress";
-import { ProgressBar } from "./progress-bar";
-import { ProgressIndicator } from "./progress-indicator";
+import { CheckIcon } from '@phosphor-icons/react/dist/ssr'
+import { Progress } from './progress'
+import { ProgressBar } from './progress-bar'
+import { ProgressIndicator } from './progress-indicator'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Progress",
+  title: 'Components/Progress',
   component: Progress,
   subcomponents: { ProgressIndicator, ProgressBar },
   parameters: {
     docs: {
       subtitle:
-        "A simple progress component that can be used to display progress in a variety of ways.",
+        'A simple progress component that can be used to display progress in a variety of ways.',
       description: {
         component:
-          "The Progres component is a simple wrapper around a div element that can be used to display progress in a variety of ways. It accepts all the props of a div element and can be styled using CSS.",
+          'The Progres component is a simple wrapper around a div element that can be used to display progress in a variety of ways. It accepts all the props of a div element and can be styled using CSS.',
       },
     },
   },
@@ -33,13 +34,13 @@ export default {
       </ProgressIndicator>
     </Progress>
   ),
-} satisfies Meta<typeof Progress>;
+} satisfies Meta<typeof Progress>
 
-type Story = StoryObj<typeof Progress>;
-type IndicatorStory = StoryObj<typeof ProgressIndicator>;
-type BarStory = StoryObj<typeof ProgressBar>;
+type Story = StoryObj<typeof Progress>
+type IndicatorStory = StoryObj<typeof ProgressIndicator>
+type BarStory = StoryObj<typeof ProgressBar>
 
-export const Default: Story = {};
+export const Default: Story = {}
 export const DefaultWithIcon: Story = {
   render: (args) => (
     <Progress {...args} className="w-[300px]">
@@ -56,11 +57,11 @@ export const DefaultWithIcon: Story = {
       </ProgressIndicator>
     </Progress>
   ),
-};
+}
 
 export const IndicatorText: IndicatorStory = {
   render: (args) => <ProgressIndicator {...args}>1</ProgressIndicator>,
-};
+}
 
 export const IndicatorIcon: IndicatorStory = {
   render: (args) => (
@@ -68,7 +69,7 @@ export const IndicatorIcon: IndicatorStory = {
       <CheckIcon weight="bold" />
     </ProgressIndicator>
   ),
-};
+}
 
 export const Bar: BarStory = {
   render: (args) => (
@@ -76,7 +77,7 @@ export const Bar: BarStory = {
       <ProgressBar {...args} />
     </div>
   ),
-};
+}
 
 export const Link: Story = {
   render: (args) => (
@@ -100,4 +101,4 @@ export const Link: Story = {
       </a>
     </Progress>
   ),
-};
+}

@@ -1,47 +1,47 @@
-import React from "react";
-import { cn } from "@/utils/cn";
+import React from 'react'
+import { cn } from '@/utils/cn'
 
-type SidebarContextProps = React.ComponentProps<"div"> & {
-  defaultOpen?: boolean;
-  trigger?: () => void;
-  open?: boolean;
-  setOpen?: (open: boolean) => void;
-  isMobile?: boolean;
-  setIsMobile?: (isMobile: boolean) => void;
-  side?: "left" | "right";
-  collapsible?: "offcanvas" | "icon" | "none";
-};
+type SidebarContextProps = React.ComponentProps<'div'> & {
+  defaultOpen?: boolean
+  trigger?: () => void
+  open?: boolean
+  setOpen?: (open: boolean) => void
+  isMobile?: boolean
+  setIsMobile?: (isMobile: boolean) => void
+  side?: 'left' | 'right'
+  collapsible?: 'offcanvas' | 'icon' | 'none'
+}
 
-const SidebarContext = React.createContext<SidebarContextProps | null>(null);
+const SidebarContext = React.createContext<SidebarContextProps | null>(null)
 
 export const SidebarProvider = ({
   defaultOpen = true,
-  side = "left",
-  collapsible = "icon",
+  side = 'left',
+  collapsible = 'icon',
   className,
   children,
   ref,
   ...props
 }: SidebarContextProps) => {
-  const [open, setOpen] = React.useState<boolean>(defaultOpen);
-  const [isMobile, setIsMobile] = React.useState<boolean>(false);
+  const [open, setOpen] = React.useState<boolean>(defaultOpen)
+  const [isMobile, setIsMobile] = React.useState<boolean>(false)
 
-  const trigger = () => setOpen(!open);
+  const trigger = () => setOpen(!open)
 
   React.useEffect(() => {
     const checkIsMobile = () => {
-      const mobile = window.innerWidth < 328;
-      setIsMobile(mobile);
-      if (mobile && defaultOpen && collapsible !== "none") {
-        setOpen(false);
+      const mobile = window.innerWidth < 328
+      setIsMobile(mobile)
+      if (mobile && defaultOpen && collapsible !== 'none') {
+        setOpen(false)
       }
-    };
+    }
 
-    checkIsMobile();
-    window.addEventListener("resize", checkIsMobile);
+    checkIsMobile()
+    window.addEventListener('resize', checkIsMobile)
 
-    return () => window.removeEventListener("resize", checkIsMobile);
-  }, [defaultOpen, collapsible]);
+    return () => window.removeEventListener('resize', checkIsMobile)
+  }, [defaultOpen, collapsible])
 
   return (
     <SidebarContext.Provider
@@ -58,8 +58,8 @@ export const SidebarProvider = ({
     >
       <div
         className={cn(
-          "relative h-full w-full",
-          side === "left" ? "flex flex-row" : "flex flex-row-reverse",
+          'relative h-full w-full',
+          side === 'left' ? 'flex flex-row' : 'flex flex-row-reverse',
           className,
         )}
         ref={ref}
@@ -68,13 +68,13 @@ export const SidebarProvider = ({
         {children}
       </div>
     </SidebarContext.Provider>
-  );
-};
+  )
+}
 
 export const useSidebar = () => {
-  const context = React.useContext(SidebarContext);
+  const context = React.useContext(SidebarContext)
   if (!context) {
-    throw new Error("useSidebar must be used within a SidebarProvider");
+    throw new Error('useSidebar must be used within a SidebarProvider')
   }
-  return context;
-};
+  return context
+}

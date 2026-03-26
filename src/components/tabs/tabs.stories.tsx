@@ -1,53 +1,54 @@
-import { CodeIcon, EyeIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Tabs } from "./tabs";
-import { TabsIndicator } from "./tabs-indicator";
-import { TabsList } from "./tabs-list";
-import { TabsPanel } from "./tabs-panel";
-import { TabsTab } from "./tabs-tab";
+import { CodeIcon, EyeIcon } from '@phosphor-icons/react'
+import { Tabs } from './tabs'
+import { TabsIndicator } from './tabs-indicator'
+import { TabsList } from './tabs-list'
+import { TabsPanel } from './tabs-panel'
+import { TabsTab } from './tabs-tab'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Tabs",
+  title: 'Components/Tabs',
   component: Tabs,
   subcomponents: { TabsIndicator, TabsList, TabsPanel, TabsTab },
   parameters: {
     docs: {
-      subtitle: "A component for organizing content into separate views",
+      subtitle: 'A component for organizing content into separate views',
       description: {
         component:
-          "The Tabs component allows users to navigate between different sections of content within the same context. Each tab corresponds to a specific panel that displays relevant information when selected. This component is useful for organizing related content and improving user experience by reducing clutter on the page.",
+          'The Tabs component allows users to navigate between different sections of content within the same context. Each tab corresponds to a specific panel that displays relevant information when selected. This component is useful for organizing related content and improving user experience by reducing clutter on the page.',
       },
     },
   },
   args: {
-    style: "default",
-    size: "small",
-    orientation: "vertical",
-    shape: "rounded",
+    style: 'default',
+    size: 'small',
+    orientation: 'vertical',
+    shape: 'rounded',
     fill: false,
   },
   argTypes: {
     style: {
-      control: { type: "radio" },
-      options: ["default", "underline"],
-      description: "Defines the visual style of the Tabs component, such as default or underline.",
+      control: { type: 'radio' },
+      options: ['default', 'underline'],
+      description: 'Defines the visual style of the Tabs component, such as default or underline.',
     },
     size: {
-      control: { type: "radio" },
-      options: ["small", "medium", "large"],
+      control: { type: 'radio' },
+      options: ['small', 'medium', 'large'],
       description:
-        "Specifies the size of the Tabs component, affecting the overall dimensions of the tabs and panels.",
+        'Specifies the size of the Tabs component, affecting the overall dimensions of the tabs and panels.',
     },
     orientation: {
-      control: { type: "radio" },
-      options: ["horizontal", "vertical"],
-      description: "Defines the orientation of the Tabs component, either horizontal or vertical.",
+      control: { type: 'radio' },
+      options: ['horizontal', 'vertical'],
+      description: 'Defines the orientation of the Tabs component, either horizontal or vertical.',
     },
     shape: {
-      control: { type: "radio" },
-      options: ["circle", "rounded"],
+      control: { type: 'radio' },
+      options: ['circle', 'rounded'],
       description:
-        "Specifies the shape of the tabs within the Tabs component, such as circle or rounded.",
+        'Specifies the shape of the tabs within the Tabs component, such as circle or rounded.',
     },
   },
   render: (args) => {
@@ -65,72 +66,72 @@ export default {
           <TabsPanel value="tab3">Content for Tab 3</TabsPanel>
         </Tabs>
       </div>
-    );
+    )
   },
-} satisfies Meta<typeof Tabs>;
+} satisfies Meta<typeof Tabs>
 
-type Story = StoryObj<typeof Tabs>;
+type Story = StoryObj<typeof Tabs>
 
 export const Horizontal: Story = {
   args: {
-    orientation: "horizontal",
+    orientation: 'horizontal',
   },
-};
+}
 
 export const Vertical: Story = {
   args: {
-    orientation: "vertical",
+    orientation: 'vertical',
   },
-};
+}
 
 export const Small: Story = {
   args: {
-    size: "small",
+    size: 'small',
   },
-};
+}
 
 export const Medium: Story = {
   args: {
-    size: "medium",
+    size: 'medium',
   },
-};
+}
 
 export const Large: Story = {
   args: {
-    size: "large",
+    size: 'large',
   },
-};
+}
 
 export const UnderlineStyle: Story = {
   args: {
-    style: "underline",
+    style: 'underline',
   },
-};
+}
 
 export const CircleShape: Story = {
   args: {
-    shape: "circle",
+    shape: 'circle',
   },
-};
+}
 
 export const RoundedShape: Story = {
   args: {
-    shape: "rounded",
+    shape: 'rounded',
   },
-};
+}
 
 export const FillTrue: Story = {
   args: {
     fill: true,
   },
-};
+}
 
 export const CodeBlock: Story = {
   args: {
-    style: "default",
-    size: "small",
-    orientation: "horizontal",
-    shape: "rounded",
+    style: 'default',
+    size: 'small',
+    orientation: 'horizontal',
+    shape: 'rounded',
     fill: false,
   },
   render: (args) => {
@@ -152,6 +153,6 @@ export const CodeBlock: Story = {
           <TabsPanel value="code">Content for Tab 2</TabsPanel>
         </Tabs>
       </div>
-    );
+    )
   },
-};
+}

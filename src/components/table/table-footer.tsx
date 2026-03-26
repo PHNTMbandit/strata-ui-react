@@ -1,13 +1,14 @@
-import { flexRender } from "@tanstack/react-table";
-import { cn } from "@/utils/cn";
-import { useTable } from "./table";
-import type { TableFooterProps } from "./table.types";
+import { flexRender } from '@tanstack/react-table'
+import { useTable } from './table'
+import { cn } from '@/utils/cn'
+
+import type { TableFooterProps } from './table.types'
 
 export const TableFooter = ({ className, children, ref, ...props }: TableFooterProps) => {
-  const { table } = useTable();
+  const { table } = useTable()
 
   return (
-    <tfoot className={cn("", className)} ref={ref} {...props}>
+    <tfoot className={cn('', className)} ref={ref} {...props}>
       {children}
       {table.getFooterGroups().map((footerGroup) => (
         <tr key={footerGroup.id}>
@@ -21,5 +22,5 @@ export const TableFooter = ({ className, children, ref, ...props }: TableFooterP
         </tr>
       ))}
     </tfoot>
-  );
-};
+  )
+}

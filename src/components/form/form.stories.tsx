@@ -1,52 +1,53 @@
-import { PasswordIcon, UserIcon, XCircleIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Suspense } from "react";
-import { z } from "zod";
-import { AlertHeader } from "../alert/alert-header";
-import { Field } from "../field";
-import { Form } from "./form";
-import { useAppForm } from "./form-context";
+import { PasswordIcon, UserIcon, XCircleIcon } from '@phosphor-icons/react'
+import { Suspense } from 'react'
+import { z } from 'zod'
+import { AlertHeader } from '../alert/alert-header'
+import { Field } from '../field'
+import { Form } from './form'
+import { useAppForm } from './form-context'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Form",
+  title: 'Components/Form',
   parameters: {
     docs: {
-      subtitle: "Provides context and state management for form fields.",
+      subtitle: 'Provides context and state management for form fields.',
       description: {
         component:
-          "The Form component is a container that manages the state and behavior of form fields. It provides context to its child components, allowing them to access and update form data seamlessly. The Form component handles validation, submission, and other form-related functionalities, making it easier to build complex forms with consistent behavior.",
+          'The Form component is a container that manages the state and behavior of form fields. It provides context to its child components, allowing them to access and update form data seamlessly. The Form component handles validation, submission, and other form-related functionalities, making it easier to build complex forms with consistent behavior.',
       },
     },
   },
-} satisfies Meta<typeof Form>;
+} satisfies Meta<typeof Form>
 
-type Story = StoryObj<typeof Form>;
+type Story = StoryObj<typeof Form>
 
 export const FieldInput: Story = {
   render: () => {
     const schema = z
       .object({
-        firstName: z.string().min(2, "First name must be at least 2 characters"),
-        lastName: z.string().min(2, "Last name must be at least 2 characters"),
-        password: z.string().min(6, "Password must be at least 6 characters"),
-        confirmPassword: z.string().min(6, "Confirm Password must be at least 6 characters"),
+        firstName: z.string().min(2, 'First name must be at least 2 characters'),
+        lastName: z.string().min(2, 'Last name must be at least 2 characters'),
+        password: z.string().min(6, 'Password must be at least 6 characters'),
+        confirmPassword: z.string().min(6, 'Confirm Password must be at least 6 characters'),
       })
       .superRefine(({ password, confirmPassword }, ctx) => {
         if (confirmPassword !== password) {
           ctx.addIssue({
-            code: "custom",
-            message: "Passwords do not match",
-            path: ["confirmPassword"],
-          });
+            code: 'custom',
+            message: 'Passwords do not match',
+            path: ['confirmPassword'],
+          })
         }
-      });
+      })
 
     const form = useAppForm({
       defaultValues: {
-        firstName: "",
-        lastName: "",
-        password: "",
-        confirmPassword: "",
+        firstName: '',
+        lastName: '',
+        password: '',
+        confirmPassword: '',
       },
       validators: {
         onSubmit: schema,
@@ -54,11 +55,11 @@ export const FieldInput: Story = {
       onSubmit: async () => {
         await new Promise<void>((resolve) => {
           setTimeout(() => {
-            resolve();
-          }, 2000);
-        });
+            resolve()
+          }, 2000)
+        })
       },
-    });
+    })
 
     return (
       <Suspense fallback={<div>Loading...</div>}>
@@ -70,8 +71,8 @@ export const FieldInput: Story = {
                 There were some problems with your submission
               </AlertHeader>
             </form.FormErrors>
-            <form.AppField
-              children={(field) => (
+            <form.AppField name="firstName">
+              {(field) => (
                 <Field>
                   <field.FieldLabel />
                   <field.FieldInput leadingIcon={UserIcon} placeholder="First Name" />
@@ -79,10 +80,9 @@ export const FieldInput: Story = {
                   <field.FieldDescription>Please enter your first name.</field.FieldDescription>
                 </Field>
               )}
-              name="firstName"
-            />
-            <form.AppField
-              children={(field) => (
+            </form.AppField>
+            <form.AppField name="lastName">
+              {(field) => (
                 <Field>
                   <field.FieldLabel />
                   <field.FieldInput leadingIcon={UserIcon} placeholder="Last Name" />
@@ -90,8 +90,7 @@ export const FieldInput: Story = {
                   <field.FieldDescription>Please enter your last name.</field.FieldDescription>
                 </Field>
               )}
-              name="lastName"
-            />
+            </form.AppField>
             <form.AppField name="password">
               {(field) => (
                 <Field>
@@ -111,11 +110,11 @@ export const FieldInput: Story = {
             <form.AppField
               name="confirmPassword"
               validators={{
-                onChangeListenTo: ["password"],
+                onChangeListenTo: ['password'],
                 onChange: ({ value, fieldApi }) => {
-                  const password = fieldApi.form.getFieldValue("password");
+                  const password = fieldApi.form.getFieldValue('password')
                   if (value && value !== password) {
-                    return new Error("Passwords do not match");
+                    return new Error('Passwords do not match')
                   }
                 },
               }}
@@ -138,35 +137,35 @@ export const FieldInput: Story = {
           </form.AppForm>
         </Form>
       </Suspense>
-    );
+    )
   },
-};
+}
 
 export const SubmitError: Story = {
   render: () => {
     const schema = z.object({
-      username: z.string().min(2, "Username must be at least 2 characters"),
-      password: z.string().min(6, "Password must be at least 6 characters"),
-    });
+      username: z.string().min(2, 'Username must be at least 2 characters'),
+      password: z.string().min(6, 'Password must be at least 6 characters'),
+    })
 
     const form = useAppForm({
       defaultValues: {
-        username: "",
-        password: "",
+        username: '',
+        password: '',
       },
       validators: {
         onSubmit: schema,
         onSubmitAsync: async () => {
           await new Promise<void>((resolve) => {
             setTimeout(() => {
-              resolve();
-            }, 1000);
-          });
+              resolve()
+            }, 1000)
+          })
 
-          return "Invalid username or password";
+          return 'Invalid username or password'
         },
       },
-    });
+    })
 
     return (
       <Form action={() => form.handleSubmit()}>
@@ -204,6 +203,6 @@ export const SubmitError: Story = {
           <form.FormSubmit>Submit</form.FormSubmit>
         </form.AppForm>
       </Form>
-    );
+    )
   },
-};
+}

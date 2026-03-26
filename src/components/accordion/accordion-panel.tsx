@@ -1,6 +1,7 @@
-import { Accordion as BaseAccordion } from "@base-ui/react/accordion";
-import { cn } from "@/utils/cn";
-import type { AccordionPanelProps } from "./accordion.types";
+import { Accordion as BaseAccordion } from '@base-ui/react/accordion'
+import { cn } from '@/utils/cn'
+
+import type { AccordionPanelProps } from './accordion.types'
 
 export const AccordionPanel = ({
   heading,
@@ -12,10 +13,10 @@ export const AccordionPanel = ({
   return (
     <BaseAccordion.Panel
       className={cn(
-        "overflow-hidden rounded-b-lg",
-        "h-(--accordion-panel-height)",
-        "data-ending-style:h-[0px] data-starting-style:h-[0px]",
-        "transition-all duration-300 ease-out",
+        'overflow-hidden rounded-b-lg',
+        'h-(--accordion-panel-height)',
+        'data-ending-style:h-[0px] data-starting-style:h-[0px]',
+        'transition-all duration-300 ease-out',
         className,
       )}
       ref={ref}
@@ -28,5 +29,5 @@ export const AccordionPanel = ({
         </div>
       </div>
     </BaseAccordion.Panel>
-  );
-};
+  )
+}

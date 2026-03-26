@@ -1,13 +1,14 @@
-import { BookIcon, HouseIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Breadcrumb } from "./breadcrumb";
-import { BreadcrumbEllipsis } from "./breadcrumb-ellipsis";
-import { BreadcrumbItem } from "./breadcrumb-item";
-import { BreadcrumbLink } from "./breadcrumb-link";
-import { BreadcrumbSeparator } from "./breadcrumb-separator";
+import { BookIcon, HouseIcon } from '@phosphor-icons/react'
+import { Breadcrumb } from './breadcrumb'
+import { BreadcrumbEllipsis } from './breadcrumb-ellipsis'
+import { BreadcrumbItem } from './breadcrumb-item'
+import { BreadcrumbLink } from './breadcrumb-link'
+import { BreadcrumbSeparator } from './breadcrumb-separator'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Breadcrumb",
+  title: 'Components/Breadcrumb',
   component: Breadcrumb,
   subcomponents: {
     BreadcrumbItem,
@@ -17,19 +18,19 @@ export default {
   },
   parameters: {
     docs: {
-      subtitle: "Displays a breadcrumb navigation component.",
+      subtitle: 'Displays a breadcrumb navigation component.',
       description: {
         component:
-          "The Breadcrumb component provides a navigational aid that helps users understand their current location within a website or application hierarchy. It typically displays a series of links representing the path from the homepage to the current page, allowing users to easily navigate back to previous sections.",
+          'The Breadcrumb component provides a navigational aid that helps users understand their current location within a website or application hierarchy. It typically displays a series of links representing the path from the homepage to the current page, allowing users to easily navigate back to previous sections.',
       },
     },
   },
   args: {
-    style: "solid",
+    style: 'solid',
   },
-} satisfies Meta<typeof Breadcrumb>;
+} satisfies Meta<typeof Breadcrumb>
 
-type Story = StoryObj<typeof Breadcrumb>;
+type Story = StoryObj<typeof Breadcrumb>
 
 export const Default: Story = {
   render: (args) => (
@@ -47,7 +48,7 @@ export const Default: Story = {
       </BreadcrumbItem>
     </Breadcrumb>
   ),
-};
+}
 export const Item: Story = {
   render: () => (
     <BreadcrumbItem>
@@ -55,7 +56,7 @@ export const Item: Story = {
       Home
     </BreadcrumbItem>
   ),
-};
+}
 export const Link: Story = {
   render: () => (
     <BreadcrumbLink>
@@ -63,11 +64,11 @@ export const Link: Story = {
       Documentation
     </BreadcrumbLink>
   ),
-};
+}
 export const Ellipsis: Story = {
   render: () => <BreadcrumbEllipsis />,
-};
+}
 
 export const Separator: Story = {
   render: () => <BreadcrumbSeparator />,
-};
+}

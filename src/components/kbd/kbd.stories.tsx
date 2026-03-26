@@ -1,18 +1,19 @@
-import { CommandIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Button } from "../button";
-import { Input } from "../input";
-import { Kbd } from "./kbd";
+import { CommandIcon, MagnifyingGlassIcon } from '@phosphor-icons/react'
+import { Button } from '../button'
+import { Input } from '../input'
+import { Kbd } from './kbd'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Kbd",
+  title: 'Components/Kbd',
   component: Kbd,
   render: (args) => <Kbd {...args}>Space</Kbd>,
-} satisfies Meta<typeof Kbd>;
+} satisfies Meta<typeof Kbd>
 
-type Story = StoryObj<typeof Kbd>;
+type Story = StoryObj<typeof Kbd>
 
-export const Text: Story = {};
+export const Text: Story = {}
 
 export const Icon: Story = {
   render: (args) => (
@@ -20,7 +21,7 @@ export const Icon: Story = {
       <CommandIcon />
     </Kbd>
   ),
-};
+}
 export const WithButton: Story = {
   render: (args) => (
     <Button>
@@ -30,7 +31,7 @@ export const WithButton: Story = {
       </Kbd>
     </Button>
   ),
-};
+}
 
 export const WithInput: Story = {
   render: (args) => (
@@ -40,4 +41,4 @@ export const WithInput: Story = {
       </Kbd>
     </Input>
   ),
-};
+}

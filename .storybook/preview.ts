@@ -1,14 +1,14 @@
-import type { Preview } from "@storybook/react-vite";
-import "../src/styles/output.css";
-import { withThemeByDataAttribute } from "@storybook/addon-themes";
+import { withThemeByDataAttribute } from '@storybook/addon-themes'
+import '../src/styles/output.css'
+import type { Preview } from '@storybook/react-vite'
 
 const preview: Preview = {
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "centered",
+    layout: 'centered',
     options: {
       storySort: {
-        method: "alphabetical",
+        method: 'alphabetical',
       },
     },
     controls: {
@@ -18,7 +18,7 @@ const preview: Preview = {
       },
     },
     a11y: {
-      test: "todo",
+      test: 'todo',
     },
     docs: {
       toc: true,
@@ -26,11 +26,11 @@ const preview: Preview = {
   },
   decorators: [
     withThemeByDataAttribute({
-      defaultTheme: "dark",
-      themes: { dark: "dark", light: "light" },
-      attributeName: "data-theme",
+      defaultTheme: 'dark',
+      themes: { dark: 'dark', light: 'light' },
+      attributeName: 'data-theme',
     }),
   ],
-};
+}
 
-export default preview;
+export default preview

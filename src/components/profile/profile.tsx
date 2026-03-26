@@ -1,6 +1,7 @@
-import { cn } from "@/utils/cn";
-import { Avatar, AvatarFallback, AvatarImage } from "../avatar";
-import type { ProfileProps } from "./profile.types";
+import { Avatar, AvatarFallback, AvatarImage } from '../avatar'
+import { cn } from '@/utils/cn'
+
+import type { ProfileProps } from './profile.types'
 
 export const Profile = ({
   className,
@@ -18,14 +19,14 @@ export const Profile = ({
       <div className="group flex items-center justify-between gap-2xl rounded-full transition-all hover:cursor-pointer">
         <button
           className={cn(
-            "flex items-center gap-xs transition-colors hover:cursor-pointer",
+            'flex items-center gap-xs transition-colors hover:cursor-pointer',
             className,
           )}
           ref={ref}
           {...props}
         >
           <Avatar
-            className={"border border-transparent transition-colors group-hover:border-primary"}
+            className={'group-hover:border-primary border border-transparent transition-colors'}
           >
             <AvatarImage src={imageUrl} />
             <AvatarFallback>{fallbackText}</AvatarFallback>
@@ -33,13 +34,13 @@ export const Profile = ({
         </button>
         {children}
       </div>
-    );
+    )
   }
 
   return (
-    <div className="hover:elevation-xs flex items-center justify-between gap-2xl rounded-xl border border-transparent p-2xs transition-all hover:cursor-pointer hover:border-outline-variant hover:bg-surface-container hover:shadow-sm">
+    <div className="flex items-center justify-between gap-2xl rounded-xl border border-transparent p-2xs transition-all hover:cursor-pointer hover:border-outline-variant hover:bg-surface-container hover:shadow-sm hover:elevation-xs">
       <button
-        className={cn("flex items-center gap-xs transition-colors hover:cursor-pointer", className)}
+        className={cn('flex items-center gap-xs transition-colors hover:cursor-pointer', className)}
         ref={ref}
         {...props}
       >
@@ -47,12 +48,12 @@ export const Profile = ({
           <AvatarImage src={imageUrl} />
           <AvatarFallback>{fallbackText}</AvatarFallback>
         </Avatar>
-        <div className={cn("flex flex-col items-start justify-start")}>
+        <div className={cn('flex flex-col items-start justify-start')}>
           <span className="style-text-default-0">{profileName}</span>
           <span className="style-text-default--2 text-on-surface-variant">{profileEmail}</span>
         </div>
       </button>
       {children}
     </div>
-  );
-};
+  )
+}

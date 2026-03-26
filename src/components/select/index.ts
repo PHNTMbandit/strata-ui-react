@@ -1,4 +1,4 @@
-export { Select } from "./select";
+export { Select } from './select'
 export type {
   SelectIconProps,
   SelectItemProps,
@@ -6,9 +6,9 @@ export type {
   SelectProps,
   SelectTriggerProps,
   SelectValueProps,
-} from "./select.types";
-export { SelectIcon } from "./select-icon";
-export { SelectItem } from "./select-item";
-export { SelectPopup } from "./select-popup";
-export { SelectTrigger } from "./select-trigger";
-export { SelectValue } from "./select-value";
+} from './select.types'
+export { SelectIcon } from './select-icon'
+export { SelectItem } from './select-item'
+export { SelectPopup } from './select-popup'
+export { SelectTrigger } from './select-trigger'
+export { SelectValue } from './select-value'

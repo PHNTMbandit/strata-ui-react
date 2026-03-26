@@ -1,6 +1,7 @@
-import { Autocomplete as BaseAutocomplete } from "@base-ui/react/autocomplete";
-import { cn } from "@/utils/cn";
-import type { AutocompleteStatusProps } from "./autocomplete.types";
+import { Autocomplete as BaseAutocomplete } from '@base-ui/react/autocomplete'
+import { cn } from '@/utils/cn'
+
+import type { AutocompleteStatusProps } from './autocomplete.types'
 
 export const AutocompleteStatus = ({
   className,
@@ -11,7 +12,7 @@ export const AutocompleteStatus = ({
   return (
     <BaseAutocomplete.Status
       className={cn(
-        "style-text-prose--1 flex items-center gap-2 p-xs text-on-surface-variant empty:hidden",
+        'gap-2 flex items-center p-xs style-text-prose--1 text-on-surface-variant empty:hidden',
         className,
       )}
       ref={ref}
@@ -19,5 +20,5 @@ export const AutocompleteStatus = ({
     >
       {children}
     </BaseAutocomplete.Status>
-  );
-};
+  )
+}

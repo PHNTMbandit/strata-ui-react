@@ -1,6 +1,7 @@
-import { AlertDialog as BaseAlertDialog } from "@base-ui/react";
-import { cn } from "@/utils/cn";
-import type { AlertDialogTriggerProps } from "./alert-dialog.types";
+import { AlertDialog as BaseAlertDialog } from '@base-ui/react'
+import { cn } from '@/utils/cn'
+
+import type { AlertDialogTriggerProps } from './alert-dialog.types'
 
 export const AlertDialogTrigger = ({
   className,
@@ -10,10 +11,10 @@ export const AlertDialogTrigger = ({
 }: AlertDialogTriggerProps) => {
   return (
     <BaseAlertDialog.Trigger
-      className={cn("", className)}
+      className={cn('', className)}
       ref={ref}
       {...props}
       render={children as React.ReactElement}
     />
-  );
-};
+  )
+}

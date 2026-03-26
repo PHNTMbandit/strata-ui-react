@@ -1,5 +1,6 @@
-import { cn } from "@/utils/cn";
-import type { CollapsiblePanelProps } from "./collapsible.types";
+import { cn } from '@/utils/cn'
+
+import type { CollapsiblePanelProps } from './collapsible.types'
 
 export const CollapsiblePanel = ({ className, children, ref, ...props }: CollapsiblePanelProps) => {
   return (
@@ -13,5 +14,5 @@ export const CollapsiblePanel = ({ className, children, ref, ...props }: Collaps
     >
       {children}
     </div>
-  );
-};
+  )
+}

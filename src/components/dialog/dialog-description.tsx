@@ -1,6 +1,7 @@
-import { Dialog as BaseDialog } from "@base-ui/react/dialog";
-import { cn } from "@/utils/cn";
-import type { DialogDescriptionProps } from "./dialog.types";
+import { Dialog as BaseDialog } from '@base-ui/react/dialog'
+import { cn } from '@/utils/cn'
+
+import type { DialogDescriptionProps } from './dialog.types'
 
 export const DialogDescription = ({
   className,
@@ -10,11 +11,11 @@ export const DialogDescription = ({
 }: DialogDescriptionProps) => {
   return (
     <BaseDialog.Description
-      className={cn("style-text-prose-0 mb-0", className)}
+      className={cn('mb-0 style-text-prose-0', className)}
       ref={ref}
       {...props}
     >
       {children}
     </BaseDialog.Description>
-  );
-};
+  )
+}

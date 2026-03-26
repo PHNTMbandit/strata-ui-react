@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ResizeableHandle } from "./resizeable-handle";
-import { ResizeablePanel } from "./resizeable-panel";
-import { ResizeablePanelGroup } from "./resizeable-panel-group";
+import { ResizeableHandle } from './resizeable-handle'
+import { ResizeablePanel } from './resizeable-panel'
+import { ResizeablePanelGroup } from './resizeable-panel-group'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Resizeable",
+  title: 'Components/Resizeable',
   component: ResizeablePanelGroup,
   subcomponents: {
     ResizeableHandle,
@@ -12,96 +13,96 @@ export default {
   },
   parameters: {
     docs: {
-      subtitle: "A set of components for creating resizable panels.",
+      subtitle: 'A set of components for creating resizable panels.',
       description: {
         component:
-          "The Resizeable component provides a flexible way to create resizable panels in your application. It consists of three main components: ResizeablePanelGroup, ResizeablePanel, and ResizeableHandle. The ResizeablePanelGroup serves as a container for the panels, while the ResizeablePanel represents each individual panel that can be resized. The ResizeableHandle is used to allow users to adjust the size of the panels by dragging the handle. This component is ideal for creating layouts where users need to adjust the size of different sections dynamically.",
+          'The Resizeable component provides a flexible way to create resizable panels in your application. It consists of three main components: ResizeablePanelGroup, ResizeablePanel, and ResizeableHandle. The ResizeablePanelGroup serves as a container for the panels, while the ResizeablePanel represents each individual panel that can be resized. The ResizeableHandle is used to allow users to adjust the size of the panels by dragging the handle. This component is ideal for creating layouts where users need to adjust the size of different sections dynamically.',
       },
     },
   },
   args: {
-    orientation: "horizontal",
+    orientation: 'horizontal',
   },
-} satisfies Meta<typeof ResizeablePanelGroup>;
+} satisfies Meta<typeof ResizeablePanelGroup>
 
-type Story = StoryObj<typeof ResizeablePanelGroup>;
+type Story = StoryObj<typeof ResizeablePanelGroup>
 
 export const Horizontal: Story = {
   render: (args) => (
     <ResizeablePanelGroup {...args} className="min-h-[200px] rounded-xl border border-outline">
-      <ResizeablePanel defaultSize={"25%"}>
+      <ResizeablePanel defaultSize={'25%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Header</span>
         </div>
       </ResizeablePanel>
       <ResizeableHandle />
-      <ResizeablePanel className="bg-green-500" defaultSize={"50%"}>
+      <ResizeablePanel className="bg-green-500" defaultSize={'50%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Content</span>
         </div>
       </ResizeablePanel>
       <ResizeableHandle />
-      <ResizeablePanel className="bg-blue-500" defaultSize={"25%"}>
+      <ResizeablePanel className="bg-blue-500" defaultSize={'25%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Footer</span>
         </div>
       </ResizeablePanel>
     </ResizeablePanelGroup>
   ),
-};
+}
 export const Vertical: Story = {
   args: {
-    orientation: "vertical",
+    orientation: 'vertical',
   },
   render: (args) => (
     <ResizeablePanelGroup
       {...args}
       className="min-h-[500px] min-w-[350px] rounded-xl border border-outline"
     >
-      <ResizeablePanel defaultSize={"25%"}>
+      <ResizeablePanel defaultSize={'25%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Header</span>
         </div>
       </ResizeablePanel>
       <ResizeableHandle />
-      <ResizeablePanel className="bg-green-500" defaultSize={"50%"}>
+      <ResizeablePanel className="bg-green-500" defaultSize={'50%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Content</span>
         </div>
       </ResizeablePanel>
       <ResizeableHandle />
-      <ResizeablePanel className="bg-blue-500" defaultSize={"25%"}>
+      <ResizeablePanel className="bg-blue-500" defaultSize={'25%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Footer</span>
         </div>
       </ResizeablePanel>
     </ResizeablePanelGroup>
   ),
-};
+}
 
 export const WithHandle: Story = {
   render: (args) => (
     <ResizeablePanelGroup {...args} className="min-h-[200px] rounded-xl border border-outline">
-      <ResizeablePanel defaultSize={"25%"}>
+      <ResizeablePanel defaultSize={'25%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Header</span>
         </div>
       </ResizeablePanel>
       <ResizeableHandle withHandle />
-      <ResizeablePanel className="bg-green-500" defaultSize={"50%"}>
+      <ResizeablePanel className="bg-green-500" defaultSize={'50%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Content</span>
         </div>
       </ResizeablePanel>
       <ResizeableHandle withHandle />
-      <ResizeablePanel className="bg-blue-500" defaultSize={"25%"}>
+      <ResizeablePanel className="bg-blue-500" defaultSize={'25%'}>
         <div className="flex h-full items-center justify-center p-md">
           <span>Footer</span>
         </div>
       </ResizeablePanel>
     </ResizeablePanelGroup>
   ),
-};
+}
 
 export const Mixed: Story = {
   render: (args) => (
@@ -110,22 +111,22 @@ export const Mixed: Story = {
       className="min-h-[500px] min-w-[350px] rounded-xl border border-outline"
       orientation="vertical"
     >
-      <ResizeablePanel defaultSize={"30%"}>
-        <div className="flex h-full items-center justify-center bg-red-500 p-md">
+      <ResizeablePanel defaultSize={'30%'}>
+        <div className="bg-red-500 flex h-full items-center justify-center p-md">
           <span>Top Panel</span>
         </div>
       </ResizeablePanel>
       <ResizeableHandle />
-      <ResizeablePanel defaultSize={"70%"}>
+      <ResizeablePanel defaultSize={'70%'}>
         <ResizeablePanelGroup orientation="horizontal">
-          <ResizeablePanel defaultSize={"40%"}>
-            <div className="flex h-full items-center justify-center bg-green-500 p-md">
+          <ResizeablePanel defaultSize={'40%'}>
+            <div className="bg-green-500 flex h-full items-center justify-center p-md">
               <span>Left</span>
             </div>
           </ResizeablePanel>
           <ResizeableHandle />
-          <ResizeablePanel defaultSize={"60%"}>
-            <div className="flex h-full items-center justify-center bg-blue-500 p-md">
+          <ResizeablePanel defaultSize={'60%'}>
+            <div className="bg-blue-500 flex h-full items-center justify-center p-md">
               <span>Right</span>
             </div>
           </ResizeablePanel>
@@ -133,4 +134,4 @@ export const Mixed: Story = {
       </ResizeablePanel>
     </ResizeablePanelGroup>
   ),
-};
+}

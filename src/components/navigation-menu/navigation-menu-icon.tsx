@@ -1,13 +1,14 @@
-import { NavigationMenu as BaseNavigationMenu } from "@base-ui/react/navigation-menu";
-import { CaretDownIcon } from "@phosphor-icons/react";
-import { cn } from "@/utils/cn";
-import type { NavigationMenuIconProps } from "./navigation-menu.types";
+import { NavigationMenu as BaseNavigationMenu } from '@base-ui/react/navigation-menu'
+import { CaretDownIcon } from '@phosphor-icons/react'
+import { cn } from '@/utils/cn'
+
+import type { NavigationMenuIconProps } from './navigation-menu.types'
 
 export const NavigationMenuIcon = ({ className, ref, ...props }: NavigationMenuIconProps) => {
   return (
     <BaseNavigationMenu.Icon
       className={cn(
-        "transition-transform duration-200 ease-in-out data-popup-open:rotate-180",
+        'transition-transform duration-200 ease-in-out data-popup-open:rotate-180',
         className,
       )}
       ref={ref}
@@ -15,5 +16,5 @@ export const NavigationMenuIcon = ({ className, ref, ...props }: NavigationMenuI
     >
       <CaretDownIcon weight="bold" />
     </BaseNavigationMenu.Icon>
-  );
-};
+  )
+}

@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-@import url("https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12");
-@import "tailwindcss";
-@import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://utopia.fyi/space/calculator?c=360,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12');
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @theme static {
   --color-*: initial;
@@ -399,9 +399,9 @@
   --suwa-spacing-xl-2xl: clamp(2.25rem, 1.5341rem + 3.1818vw, 4rem);
   --suwa-spacing-2xl-3xl: clamp(3rem, 1.7727rem + 5.4545vw, 6rem);
 
-  --suwa-font-display: "Nunito", sans-serif;
-  --suwa-font-heading: "Nunito", sans-serif;
-  --suwa-font-body: "Inter", sans-serif;
+  --suwa-font-display: 'Nunito', sans-serif;
+  --suwa-font-heading: 'Nunito', sans-serif;
+  --suwa-font-body: 'Inter', sans-serif;
 
   --suwa-text-xs: clamp(0.5926rem, 0.5509rem + 0.1852vw, 0.6944rem);
   --suwa-text-sm: clamp(0.6667rem, 0.5985rem + 0.303vw, 0.8333rem);
@@ -450,11 +450,11 @@
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-[data-theme="light"] {
+[data-theme='light'] {
   color-scheme: light;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   color-scheme: dark;
 }
 

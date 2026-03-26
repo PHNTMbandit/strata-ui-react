@@ -1,6 +1,7 @@
-import { ContextMenu as BaseContextMenu } from "@base-ui/react/context-menu";
-import { cn } from "@/index";
-import type { ContextMenuTriggerProps } from "./context-menu.types";
+import { ContextMenu as BaseContextMenu } from '@base-ui/react/context-menu'
+import { cn } from '@/index'
+
+import type { ContextMenuTriggerProps } from './context-menu.types'
 
 export const ContextMenuTrigger = ({
   className,
@@ -9,8 +10,8 @@ export const ContextMenuTrigger = ({
   ...props
 }: ContextMenuTriggerProps) => {
   return (
-    <BaseContextMenu.Trigger className={cn("", className)} ref={ref} {...props}>
+    <BaseContextMenu.Trigger className={cn('', className)} ref={ref} {...props}>
       {children}
     </BaseContextMenu.Trigger>
-  );
-};
+  )
+}

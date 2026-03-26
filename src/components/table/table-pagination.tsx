@@ -1,11 +1,12 @@
-import { cn } from "@/utils/cn";
-import { Button } from "../button";
-import { useTable } from "./table";
-import type { TablePaginationProps } from "./table.types";
-import { TableFirstPage } from "./table-first-page";
-import { TableLastPage } from "./table-last-page";
-import { TableNextPage } from "./table-next-page";
-import { TablePreviousPage } from "./table-previous-page";
+import { Button } from '../button'
+import { useTable } from './table'
+import { TableFirstPage } from './table-first-page'
+import { TableLastPage } from './table-last-page'
+import { TableNextPage } from './table-next-page'
+import { TablePreviousPage } from './table-previous-page'
+import { cn } from '@/utils/cn'
+
+import type { TablePaginationProps } from './table.types'
 
 export const TablePagination = ({
   truncateFrom,
@@ -15,15 +16,15 @@ export const TablePagination = ({
   ref,
   ...props
 }: TablePaginationProps) => {
-  const { table } = useTable();
+  const { table } = useTable()
 
   const handleClick = (pageIndex: number) => {
-    table.setPageIndex(pageIndex);
-  };
+    table.setPageIndex(pageIndex)
+  }
 
   return (
     <div
-      className={cn("inline-flex items-center justify-center gap-3xs", className)}
+      className={cn('inline-flex items-center justify-center gap-3xs', className)}
       ref={ref}
       {...props}
     >
@@ -31,9 +32,9 @@ export const TablePagination = ({
       <TableFirstPage />
       <TablePreviousPage />
       {Array.from({ length: table.getPageCount() }, (_, i) => {
-        const start = truncateFrom ?? 0;
-        const end = truncateTo ?? table.getPageCount();
-        if (i >= start && i < end) return null;
+        const start = truncateFrom ?? 0
+        const end = truncateTo ?? table.getPageCount()
+        if (i >= start && i < end) return null
 
         return (
           <Button
@@ -43,15 +44,15 @@ export const TablePagination = ({
               i
             }`}
             onClick={() => handleClick(i)}
-            size={"iconMedium"}
+            size={'iconMedium'}
             tone="neutral"
           >
             {i + 1}
           </Button>
-        );
+        )
       })}
       <TableNextPage />
       <TableLastPage />
     </div>
-  );
-};
+  )
+}

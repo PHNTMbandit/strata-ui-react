@@ -1,6 +1,7 @@
-import { ContextMenu as BaseContextMenu } from "@base-ui/react/context-menu";
-import { cn } from "@/utils/cn";
-import type { ContextMenuSeparatorProps } from "./context-menu.types";
+import { ContextMenu as BaseContextMenu } from '@base-ui/react/context-menu'
+import { cn } from '@/utils/cn'
+
+import type { ContextMenuSeparatorProps } from './context-menu.types'
 
 export const ContextMenuSeparator = ({
   className,
@@ -10,11 +11,11 @@ export const ContextMenuSeparator = ({
 }: ContextMenuSeparatorProps) => {
   return (
     <BaseContextMenu.Separator
-      className={cn("mx-2xs my-3xs h-px bg-outline", className)}
+      className={cn('mx-2xs my-3xs h-px bg-outline', className)}
       ref={ref}
       {...props}
     >
       {children}
     </BaseContextMenu.Separator>
-  );
-};
+  )
+}

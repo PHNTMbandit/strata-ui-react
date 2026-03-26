@@ -1,6 +1,7 @@
-import { Tooltip as BaseTooltip } from "@base-ui/react/tooltip";
-import { cn } from "@/utils/cn";
-import type { TooltipContentProps } from "./tooltip.types";
+import { Tooltip as BaseTooltip } from '@base-ui/react/tooltip'
+import { cn } from '@/utils/cn'
+
+import type { TooltipContentProps } from './tooltip.types'
 
 export const TooltipContent = ({
   alignOffset = 0,
@@ -13,13 +14,13 @@ export const TooltipContent = ({
     <BaseTooltip.Portal>
       <BaseTooltip.Positioner
         alignOffset={alignOffset}
-        className={cn("", className)}
+        className={cn('', className)}
         sideOffset={sideOffset}
         {...props}
       >
         <BaseTooltip.Popup
           className={
-            "fade-in-0 zoom-in-95 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 style-text-default--1 z-50 w-fit origin-(--transform-origin) animate-in text-balance rounded-md bg-surface-container px-xs py-2xs shadow-sm outline outline-outline data-[state=closed]:animate-out"
+            'z-50 w-fit origin-(--transform-origin) animate-in rounded-md bg-surface-container px-xs py-2xs style-text-default--1 text-balance shadow-sm outline outline-outline fade-in-0 zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95'
           }
         >
           {/* <BaseTooltip.Arrow className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=top]:bottom-[-8px] data-[side=right]:left-[-13px] data-[side=left]:rotate-90 data-[side=right]:-rotate-90 data-[side=top]:rotate-180">
@@ -32,5 +33,5 @@ export const TooltipContent = ({
         </BaseTooltip.Popup>
       </BaseTooltip.Positioner>
     </BaseTooltip.Portal>
-  );
-};
+  )
+}

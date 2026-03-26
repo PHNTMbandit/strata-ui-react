@@ -1,7 +1,8 @@
-import { Slider as BaseSlider } from "@base-ui/react";
-import { cn } from "@/utils/cn";
-import type { SliderProps } from "./slider.types";
-import { SliderThumb } from "./slider-thumb";
+import { Slider as BaseSlider } from '@base-ui/react'
+import { SliderThumb } from './slider-thumb'
+import { cn } from '@/utils/cn'
+
+import type { SliderProps } from './slider.types'
 
 export const Slider = ({
   defaultValue,
@@ -22,7 +23,7 @@ export const Slider = ({
     ? value
     : Array.isArray(defaultValue)
       ? defaultValue
-      : [min, max];
+      : [min, max]
 
   return (
     <div className="flex flex-col gap-xs">
@@ -32,7 +33,7 @@ export const Slider = ({
         aria-valuemax={max}
         aria-valuemin={min}
         aria-valuenow={Array.isArray(value) ? value[0] : (value ?? defaultValue ?? min)}
-        className={cn("flex h-xs items-center gap-sm", className)}
+        className={cn('flex h-xs items-center gap-sm', className)}
         defaultValue={defaultValue}
         max={max}
         min={min}
@@ -43,11 +44,11 @@ export const Slider = ({
       >
         {LeadingIcon && <LeadingIcon className="size-sm shrink-0" weight="fill" />}
         {showMin && <span className="style-text-default-0">{min}</span>}
-        <BaseSlider.Control className={"shrink-0 grow hover:cursor-pointer"}>
+        <BaseSlider.Control className={'shrink-0 grow hover:cursor-pointer'}>
           <BaseSlider.Track
-            className={"relative inset-shadow-xs h-2xs rounded-full bg-surface-dim"}
+            className={'relative h-2xs rounded-full bg-surface-dim inset-shadow-xs'}
           >
-            <BaseSlider.Indicator className={"rounded-full bg-brand"} />
+            <BaseSlider.Indicator className={'rounded-full bg-brand'} />
             {Array.from({ length: _values.length }, (_, index) => (
               // biome-ignore lint/suspicious/noArrayIndexKey: For simplicity in this case
               <SliderThumb index={index} key={index} />
@@ -61,5 +62,5 @@ export const Slider = ({
         <span className="style-text-prose--1 text-on-surface-variant">{description}</span>
       )}
     </div>
-  );
-};
+  )
+}

@@ -1,3 +1,3 @@
-import type { CheckboxGroup as BaseCheckboxGroup } from "@base-ui/react";
+import type { CheckboxGroup as BaseCheckboxGroup } from '@base-ui/react'
 
-export type CheckboxGroupProps = React.ComponentProps<typeof BaseCheckboxGroup>;
+export type CheckboxGroupProps = React.ComponentProps<typeof BaseCheckboxGroup>

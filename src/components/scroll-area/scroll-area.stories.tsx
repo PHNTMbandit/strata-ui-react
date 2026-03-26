@@ -1,27 +1,28 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ScrollArea } from "./scroll-area";
+import { ScrollArea } from './scroll-area'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Scroll Area",
+  title: 'Components/Scroll Area',
   component: ScrollArea,
   parameters: {
     docs: {
       subtitle:
-        "A component that provides a scrollable area for content that exceeds the visible bounds.",
+        'A component that provides a scrollable area for content that exceeds the visible bounds.',
       description: {
         component:
-          "The ScrollArea component is designed to contain content that may overflow its visible area, allowing users to scroll through the content vertically or horizontally. It is useful for displaying large amounts of data, images, or any other content that does not fit within a fixed-size container. The component can be customized with various styling options to match the overall design of the application.",
+          'The ScrollArea component is designed to contain content that may overflow its visible area, allowing users to scroll through the content vertically or horizontally. It is useful for displaying large amounts of data, images, or any other content that does not fit within a fixed-size container. The component can be customized with various styling options to match the overall design of the application.',
       },
     },
   },
   args: {
-    orientation: "vertical",
+    orientation: 'vertical',
     defaultHeight: 200,
   },
   argTypes: {
     orientation: {
-      control: { type: "radio" },
-      options: ["vertical", "horizontal"],
+      control: { type: 'radio' },
+      options: ['vertical', 'horizontal'],
     },
   },
   render: (args) => (
@@ -56,34 +57,34 @@ export default {
       </p>
     </ScrollArea>
   ),
-} satisfies Meta<typeof ScrollArea>;
+} satisfies Meta<typeof ScrollArea>
 
 interface Artwork {
-  artist: string;
-  art: string;
+  artist: string
+  art: string
 }
 
 const works: Artwork[] = [
   {
-    artist: "Ornella Binni",
-    art: "https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80",
+    artist: 'Ornella Binni',
+    art: 'https://images.unsplash.com/photo-1465869185982-5a1a7522cbcb?auto=format&fit=crop&w=300&q=80',
   },
   {
-    artist: "Tom Byrom",
-    art: "https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80",
+    artist: 'Tom Byrom',
+    art: 'https://images.unsplash.com/photo-1548516173-3cabfa4607e9?auto=format&fit=crop&w=300&q=80',
   },
   {
-    artist: "Vladimir Malyavko",
-    art: "https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80",
+    artist: 'Vladimir Malyavko',
+    art: 'https://images.unsplash.com/photo-1494337480532-3725c85fd2ab?auto=format&fit=crop&w=300&q=80',
   },
-];
+]
 
-type Story = StoryObj<typeof ScrollArea>;
+type Story = StoryObj<typeof ScrollArea>
 
-export const Vertical: Story = {};
+export const Vertical: Story = {}
 export const Horizontal: Story = {
   args: {
-    orientation: "horizontal",
+    orientation: 'horizontal',
     defaultHeight: 150,
   },
   render: (args) => (
@@ -100,10 +101,10 @@ export const Horizontal: Story = {
             />
           </div>
           <figcaption className="pt-2 text-muted-foreground text-xs">
-            Photo by <span className="font-semibold text-foreground">{artwork.artist}</span>
+            Photo by <span className="text-foreground font-semibold">{artwork.artist}</span>
           </figcaption>
         </figure>
       ))}
     </ScrollArea>
   ),
-};
+}

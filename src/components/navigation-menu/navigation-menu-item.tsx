@@ -1,6 +1,7 @@
-import { NavigationMenu as BaseNavigationMenu } from "@base-ui/react/navigation-menu";
-import { cn } from "@/utils/cn";
-import type { NavigationMenuItemProps } from "./navigation-menu.types";
+import { NavigationMenu as BaseNavigationMenu } from '@base-ui/react/navigation-menu'
+import { cn } from '@/utils/cn'
+
+import type { NavigationMenuItemProps } from './navigation-menu.types'
 
 export const NavigationMenuItem = ({
   className,
@@ -9,8 +10,8 @@ export const NavigationMenuItem = ({
   ...props
 }: NavigationMenuItemProps) => {
   return (
-    <BaseNavigationMenu.Item className={cn("", className)} ref={ref} {...props}>
+    <BaseNavigationMenu.Item className={cn('', className)} ref={ref} {...props}>
       {children}
     </BaseNavigationMenu.Item>
-  );
-};
+  )
+}

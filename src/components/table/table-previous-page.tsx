@@ -1,8 +1,9 @@
-import { CaretLeftIcon } from "@phosphor-icons/react";
-import { cn } from "@/utils/cn";
-import { Button } from "../button";
-import { useTable } from "./table";
-import type { TablePreviousPageProps } from "./table.types";
+import { CaretLeftIcon } from '@phosphor-icons/react'
+import { Button } from '../button'
+import { useTable } from './table'
+import { cn } from '@/utils/cn'
+
+import type { TablePreviousPageProps } from './table.types'
 
 export const TablePreviousPage = ({
   className,
@@ -10,19 +11,19 @@ export const TablePreviousPage = ({
   ref,
   ...props
 }: TablePreviousPageProps) => {
-  const { table } = useTable();
+  const { table } = useTable()
 
   const handleClick = () => {
-    table.previousPage();
-  };
+    table.previousPage()
+  }
 
   return (
     <Button
-      className={cn("shrink-0", className)}
+      className={cn('shrink-0', className)}
       disabled={!table.getCanPreviousPage()}
       onClick={handleClick}
       ref={ref}
-      size={"iconMedium"}
+      size={'iconMedium'}
       tone="neutral"
       variant="ghost"
       {...props}
@@ -30,5 +31,5 @@ export const TablePreviousPage = ({
       {children}
       <CaretLeftIcon weight="bold" />
     </Button>
-  );
-};
+  )
+}

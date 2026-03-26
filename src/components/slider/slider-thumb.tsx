@@ -1,19 +1,20 @@
-import { Slider as BaseSlider } from "@base-ui/react";
-import React from "react";
-import { cn } from "@/utils/cn";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../tooltip";
-import type { SliderThumbProps } from "./slider.types";
+import { Slider as BaseSlider } from '@base-ui/react'
+import React from 'react'
+import { Tooltip, TooltipContent, TooltipTrigger } from '../tooltip'
+import { cn } from '@/utils/cn'
+
+import type { SliderThumbProps } from './slider.types'
 
 export const SliderThumb = ({ className, children, ref, ...props }: SliderThumbProps) => {
-  const [isHovering, setIsHovering] = React.useState(false);
-  const [isDragging, setIsDragging] = React.useState(false);
+  const [isHovering, setIsHovering] = React.useState(false)
+  const [isDragging, setIsDragging] = React.useState(false)
 
   React.useEffect(() => {
-    if (!isDragging) return;
-    const handlePointerUp = () => setIsDragging(false);
-    window.addEventListener("pointerup", handlePointerUp);
-    return () => window.removeEventListener("pointerup", handlePointerUp);
-  }, [isDragging]);
+    if (!isDragging) return
+    const handlePointerUp = () => setIsDragging(false)
+    window.addEventListener('pointerup', handlePointerUp)
+    return () => window.removeEventListener('pointerup', handlePointerUp)
+  }, [isDragging])
 
   return (
     <Tooltip open={isHovering || isDragging} trackCursorAxis="x">
@@ -22,7 +23,7 @@ export const SliderThumb = ({ className, children, ref, ...props }: SliderThumbP
         render={
           <BaseSlider.Thumb
             className={cn(
-              "absolute aspect-square size-sm rounded-full border border-brand bg-surface-container shadow-xs outline-none transition-[width,height] hover:cursor-pointer data-dragging:size-md data-dragging:cursor-grabbing data-dragging:border-2 data-dragging:shadow-sm",
+              'absolute aspect-square size-sm rounded-full border border-brand bg-surface-container shadow-xs transition-[width,height] outline-none hover:cursor-pointer data-dragging:size-md data-dragging:cursor-grabbing data-dragging:border-2 data-dragging:shadow-sm',
               className,
             )}
             onPointerDown={() => setIsDragging(true)}
@@ -39,5 +40,5 @@ export const SliderThumb = ({ className, children, ref, ...props }: SliderThumbP
         <BaseSlider.Value />
       </TooltipContent>
     </Tooltip>
-  );
-};
+  )
+}

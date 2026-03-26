@@ -1,20 +1,21 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { NavigationMenu } from "./navigation-menu";
-import { NavigationMenuContent } from "./navigation-menu-content";
-import { NavigationMenuItem } from "./navigation-menu-item";
-import { NavigationMenuList } from "./navigation-menu-list";
-import { NavigationMenuTrigger } from "./navigation-menu-trigger";
-import { NavigationMenuViewport } from "./navigation-menu-viewport";
+import { NavigationMenu } from './navigation-menu'
+import { NavigationMenuContent } from './navigation-menu-content'
+import { NavigationMenuItem } from './navigation-menu-item'
+import { NavigationMenuList } from './navigation-menu-list'
+import { NavigationMenuTrigger } from './navigation-menu-trigger'
+import { NavigationMenuViewport } from './navigation-menu-viewport'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Navigation Menu",
+  title: 'Components/Navigation Menu',
   component: NavigationMenu,
   parameters: {
     docs: {
-      subtitle: "Displays a navigation menu for site navigation.",
+      subtitle: 'Displays a navigation menu for site navigation.',
       description: {
         component:
-          "The Navigation Menu component provides a structured way to navigate through different sections of a website or application. It supports various styles and configurations to enhance user experience and accessibility.",
+          'The Navigation Menu component provides a structured way to navigate through different sections of a website or application. It supports various styles and configurations to enhance user experience and accessibility.',
       },
     },
   },
@@ -52,8 +53,8 @@ export default {
       <NavigationMenuViewport />
     </NavigationMenu>
   ),
-} satisfies Meta<typeof NavigationMenu>;
+} satisfies Meta<typeof NavigationMenu>
 
-type Story = StoryObj<typeof NavigationMenu>;
+type Story = StoryObj<typeof NavigationMenu>
 
-export const Default: Story = {};
+export const Default: Story = {}

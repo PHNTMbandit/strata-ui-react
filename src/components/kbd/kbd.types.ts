@@ -1,1 +1,1 @@
-export type KbdProps = React.ComponentProps<"div">;
+export type KbdProps = React.ComponentProps<'div'>

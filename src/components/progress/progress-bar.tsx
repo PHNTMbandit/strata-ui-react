@@ -1,5 +1,6 @@
-import { cn } from "@/utils/cn";
-import type { ProgressBarProps } from "./progress.types";
+import { cn } from '@/utils/cn'
+
+import type { ProgressBarProps } from './progress.types'
 
 export const ProgressBar = ({
   className,
@@ -8,14 +9,14 @@ export const ProgressBar = ({
   ...props
 }: ProgressBarProps & { isCompleted?: boolean }) => {
   const { isCompleted = false, ...restProps } = props as {
-    isCompleted?: boolean;
-  };
+    isCompleted?: boolean
+  }
   return (
     <div className="w-full">
       <div
         className={cn(
-          "h-3xs w-full grow rounded-full bg-success/20 transition-colors ease-in-out",
-          isCompleted && "bg-success opacity-100",
+          'h-3xs w-full grow rounded-full bg-success/20 transition-colors ease-in-out',
+          isCompleted && 'bg-success opacity-100',
           className,
         )}
         ref={ref}
@@ -24,7 +25,7 @@ export const ProgressBar = ({
         {children}
       </div>
     </div>
-  );
-};
+  )
+}
 
-ProgressBar.displayName = "ProgressBar";
+ProgressBar.displayName = 'ProgressBar'

@@ -1,35 +1,36 @@
-import { HeartIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Toggle } from "./toggle";
+import { HeartIcon } from '@phosphor-icons/react'
+import { Toggle } from './toggle'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Toggle",
+  title: 'Components/Toggle',
   component: Toggle,
   parameters: {
     docs: {
-      subtitle: "A component for toggling between two states",
+      subtitle: 'A component for toggling between two states',
       description: {
         component:
-          "The Toggle component allows users to switch between two states, such as on and off. It is commonly used in settings and preferences to enable or disable features.",
+          'The Toggle component allows users to switch between two states, such as on and off. It is commonly used in settings and preferences to enable or disable features.',
       },
     },
   },
   args: {
-    size: "medium",
-    tone: "brand",
+    size: 'medium',
+    tone: 'brand',
   },
   argTypes: {
     size: {
-      options: ["medium", "iconMedium"],
-      control: { type: "select" },
+      options: ['medium', 'iconMedium'],
+      control: { type: 'select' },
     },
     tone: {
-      options: ["brand", "accent", "neutral", "error", "info", "success", "warning"],
-      control: { type: "select" },
-      description: "The tone of the toggle, which determines its color scheme.",
+      options: ['brand', 'accent', 'neutral', 'error', 'info', 'success', 'warning'],
+      control: { type: 'select' },
+      description: 'The tone of the toggle, which determines its color scheme.',
       table: {
-        type: { summary: "string" },
-        defaultValue: { summary: "brand" },
+        type: { summary: 'string' },
+        defaultValue: { summary: 'brand' },
       },
     },
   },
@@ -52,91 +53,91 @@ export default {
       )}
     </Toggle>
   ),
-} satisfies Meta<typeof Toggle>;
+} satisfies Meta<typeof Toggle>
 
-type Story = StoryObj<typeof Toggle>;
+type Story = StoryObj<typeof Toggle>
 
-export const Brand: Story = {};
+export const Brand: Story = {}
 
 export const Accent: Story = {
   args: {
-    tone: "accent",
+    tone: 'accent',
   },
-};
+}
 export const Neutral: Story = {
   args: {
-    tone: "neutral",
+    tone: 'neutral',
   },
-};
+}
 export const ErrorTone: Story = {
   args: {
-    tone: "error",
+    tone: 'error',
   },
-};
+}
 
 export const Info: Story = {
   args: {
-    tone: "info",
+    tone: 'info',
   },
-};
+}
 
 export const Success: Story = {
   args: {
-    tone: "success",
+    tone: 'success',
   },
-};
+}
 export const Warning: Story = {
   args: {
-    tone: "warning",
+    tone: 'warning',
   },
-};
+}
 export const Disabled: Story = {
   args: {
     disabled: true,
   },
-};
+}
 export const Small: Story = {
   args: {
-    size: "small",
+    size: 'small',
   },
-};
+}
 export const Medium: Story = {
   args: {
-    size: "medium",
+    size: 'medium',
   },
-};
+}
 export const Large: Story = {
   args: {
-    size: "large",
+    size: 'large',
   },
-};
+}
 export const IconSmall: Story = {
   args: {
-    size: "iconSmall",
+    size: 'iconSmall',
   },
   render: (args) => (
     <Toggle {...args}>
       {({ pressed }) => <>{pressed ? <HeartIcon weight="fill" /> : <HeartIcon weight="bold" />}</>}
     </Toggle>
   ),
-};
+}
 export const IconMedium: Story = {
   args: {
-    size: "iconMedium",
+    size: 'iconMedium',
   },
   render: (args) => (
     <Toggle {...args}>
       {({ pressed }) => <>{pressed ? <HeartIcon weight="fill" /> : <HeartIcon weight="bold" />}</>}
     </Toggle>
   ),
-};
+}
 export const IconLarge: Story = {
   args: {
-    size: "iconLarge",
+    size: 'iconLarge',
   },
   render: (args) => (
     <Toggle {...args}>
       {({ pressed }) => <>{pressed ? <HeartIcon weight="fill" /> : <HeartIcon weight="bold" />}</>}
     </Toggle>
   ),
-};
+}

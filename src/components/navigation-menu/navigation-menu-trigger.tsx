@@ -1,7 +1,8 @@
-import { NavigationMenu as BaseNavigationMenu } from "@base-ui/react/navigation-menu";
-import { cn } from "@/utils/cn";
-import type { NavigationMenuTriggerProps } from "./navigation-menu.types";
-import { NavigationMenuIcon } from "./navigation-menu-icon";
+import { NavigationMenu as BaseNavigationMenu } from '@base-ui/react/navigation-menu'
+import { NavigationMenuIcon } from './navigation-menu-icon'
+import { cn } from '@/utils/cn'
+
+import type { NavigationMenuTriggerProps } from './navigation-menu.types'
 
 export const NavigationMenuTrigger = ({
   className,
@@ -12,7 +13,7 @@ export const NavigationMenuTrigger = ({
   return (
     <BaseNavigationMenu.Trigger
       className={cn(
-        "style-text-default-0 flex items-center gap-2xs rounded-full px-sm py-xs transition-all hover:cursor-pointer data-popup-open:inset-shadow-raised-sm data-popup-open:bg-surface-container data-popup-open:shadow-sm",
+        'data-popup-open:inset-shadow-raised-sm flex items-center gap-2xs rounded-full px-sm py-xs style-text-default-0 transition-all hover:cursor-pointer data-popup-open:bg-surface-container data-popup-open:shadow-sm',
         className,
       )}
       ref={ref}
@@ -21,5 +22,5 @@ export const NavigationMenuTrigger = ({
       {children}
       <NavigationMenuIcon />
     </BaseNavigationMenu.Trigger>
-  );
-};
+  )
+}

@@ -1,14 +1,15 @@
-import { Radio as BaseRadio } from "@base-ui/react";
-import { cn } from "@/utils/cn";
-import { Label } from "../label";
-import type { RadioProps } from "./radio-group.types";
+import { Radio as BaseRadio } from '@base-ui/react'
+import { Label } from '../label'
+import { cn } from '@/utils/cn'
+
+import type { RadioProps } from './radio-group.types'
 
 export const Radio = ({ className, children, ref, ...props }: RadioProps) => {
   return (
     <Label htmlFor={props.id}>
       <BaseRadio.Root
         className={cn(
-          "inset-shadow-xs inline-flex size-sm items-center justify-center rounded-full bg-surface-dim outline-2 outline-transparent outline-offset-1 transition-colors hover:outline-brand group-hover:outline-brand",
+          'inline-flex size-sm items-center justify-center rounded-full bg-surface-dim inset-shadow-xs outline-2 outline-offset-1 outline-transparent transition-colors group-hover:outline-brand hover:outline-brand',
           className,
         )}
         ref={ref}
@@ -18,5 +19,5 @@ export const Radio = ({ className, children, ref, ...props }: RadioProps) => {
       </BaseRadio.Root>
       {children}
     </Label>
-  );
-};
+  )
+}

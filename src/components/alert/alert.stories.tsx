@@ -1,11 +1,12 @@
-import { XCircleIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Alert } from "./alert";
-import { AlertDescription } from "./alert-description";
-import { AlertHeader } from "./alert-header";
+import { XCircleIcon } from '@phosphor-icons/react'
+import { Alert } from './alert'
+import { AlertDescription } from './alert-description'
+import { AlertHeader } from './alert-header'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Alert",
+  title: 'Components/Alert',
   component: Alert,
   subcomponents: { AlertHeader, AlertDescription },
   parameters: {
@@ -13,29 +14,29 @@ export default {
       subtitle: "Alerts are used to capture the user's attention and convey important information.",
       description: {
         component:
-          "The Alert component is used to display important messages to users, such as warnings, errors, or informational messages. It typically includes a header and a description to provide context.",
+          'The Alert component is used to display important messages to users, such as warnings, errors, or informational messages. It typically includes a header and a description to provide context.',
       },
     },
   },
   args: {
-    tone: "error",
+    tone: 'error',
   },
   argTypes: {
     tone: {
-      description: "Defines the tone of the alert, affecting its styling.",
+      description: 'Defines the tone of the alert, affecting its styling.',
       control: {
-        type: "select",
+        type: 'select',
       },
-      options: ["brand", "accent", "neutral", "error", "info", "success", "warning"],
+      options: ['brand', 'accent', 'neutral', 'error', 'info', 'success', 'warning'],
     },
   },
-} satisfies Meta<typeof Alert>;
+} satisfies Meta<typeof Alert>
 
-type Story = StoryObj<typeof Alert>;
+type Story = StoryObj<typeof Alert>
 
 export const BrandVariant: Story = {
   args: {
-    tone: "brand",
+    tone: 'brand',
   },
   render: (args) => (
     <Alert {...args}>
@@ -48,11 +49,11 @@ export const BrandVariant: Story = {
       </AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const AccentVariant: Story = {
   args: {
-    tone: "accent",
+    tone: 'accent',
   },
   render: (args) => (
     <Alert {...args}>
@@ -63,11 +64,11 @@ export const AccentVariant: Story = {
       <AlertDescription>This is an accent alert. It provides additional context.</AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const NeutralVariant: Story = {
   args: {
-    tone: "neutral",
+    tone: 'neutral',
   },
   render: (args) => (
     <Alert {...args}>
@@ -78,11 +79,11 @@ export const NeutralVariant: Story = {
       <AlertDescription>This is a neutral alert. It conveys general information.</AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const ErrorVariant: Story = {
   args: {
-    tone: "error",
+    tone: 'error',
   },
   render: (args) => (
     <Alert {...args}>
@@ -93,11 +94,11 @@ export const ErrorVariant: Story = {
       <AlertDescription>This is an error alert. Please take necessary actions.</AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const InfoVariant: Story = {
   args: {
-    tone: "info",
+    tone: 'info',
   },
   render: (args) => (
     <Alert {...args}>
@@ -108,11 +109,11 @@ export const InfoVariant: Story = {
       <AlertDescription>This is an info alert. It provides useful information.</AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const SuccessVariant: Story = {
   args: {
-    tone: "success",
+    tone: 'success',
   },
   render: (args) => (
     <Alert {...args}>
@@ -123,11 +124,11 @@ export const SuccessVariant: Story = {
       <AlertDescription>This is a success alert. Your operation was successful.</AlertDescription>
     </Alert>
   ),
-};
+}
 
 export const WarningVariant: Story = {
   args: {
-    tone: "warning",
+    tone: 'warning',
   },
   render: (args) => (
     <Alert {...args}>
@@ -138,4 +139,4 @@ export const WarningVariant: Story = {
       <AlertDescription>This is a warning alert. Please be cautious.</AlertDescription>
     </Alert>
   ),
-};
+}

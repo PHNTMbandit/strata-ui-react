@@ -1,5 +1,6 @@
-import { cn } from "@/utils/cn";
-import type { SidebarGroupContentProps } from "./sidebar.types";
+import { cn } from '@/utils/cn'
+
+import type { SidebarGroupContentProps } from './sidebar.types'
 
 export const SidebarGroupContent = ({
   className,
@@ -8,8 +9,8 @@ export const SidebarGroupContent = ({
   ...props
 }: SidebarGroupContentProps) => {
   return (
-    <div className={cn("flex w-full flex-col gap-3xs", className)} ref={ref} {...props}>
+    <div className={cn('flex w-full flex-col gap-3xs', className)} ref={ref} {...props}>
       {children}
     </div>
-  );
-};
+  )
+}

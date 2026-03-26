@@ -1,6 +1,7 @@
-import { AlertDialog as BaseAlertDialog } from "@base-ui/react";
-import { cn } from "@/utils/cn";
-import type { AlertDialogDescriptionProps } from "./alert-dialog.types";
+import { AlertDialog as BaseAlertDialog } from '@base-ui/react'
+import { cn } from '@/utils/cn'
+
+import type { AlertDialogDescriptionProps } from './alert-dialog.types'
 
 export const AlertDialogDescription = ({
   className,
@@ -10,11 +11,11 @@ export const AlertDialogDescription = ({
 }: AlertDialogDescriptionProps) => {
   return (
     <BaseAlertDialog.Description
-      className={cn("style-text-prose-0 mb-0", className)}
+      className={cn('mb-0 style-text-prose-0', className)}
       ref={ref}
       {...props}
     >
       {children}
     </BaseAlertDialog.Description>
-  );
-};
+  )
+}

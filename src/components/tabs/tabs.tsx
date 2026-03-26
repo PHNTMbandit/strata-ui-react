@@ -1,6 +1,6 @@
-import { Tabs as SwitchTabs } from "@base-ui/react/tabs";
-import { cn } from "@/utils/cn";
-import { type TabsProps, tabsVariants } from "./tabs.types";
+import { Tabs as SwitchTabs } from '@base-ui/react/tabs'
+import { type TabsProps, tabsVariants } from './tabs.types'
+import { cn } from '@/utils/cn'
 
 export const Tabs = ({
   style,
@@ -18,5 +18,5 @@ export const Tabs = ({
       ref={ref}
       {...props}
     />
-  );
-};
+  )
+}

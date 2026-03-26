@@ -1,6 +1,7 @@
-import { Autocomplete as BaseAutocomplete } from "@base-ui/react/autocomplete";
-import { cn } from "@/utils/cn";
-import type { AutocompleteContentProps } from "./autocomplete.types";
+import { Autocomplete as BaseAutocomplete } from '@base-ui/react/autocomplete'
+import { cn } from '@/utils/cn'
+
+import type { AutocompleteContentProps } from './autocomplete.types'
 
 export const AutocompleteContent = ({
   emptyText,
@@ -12,26 +13,26 @@ export const AutocompleteContent = ({
   return (
     <BaseAutocomplete.Portal>
       <BaseAutocomplete.Positioner
-        className={cn("", className)}
+        className={cn('', className)}
         ref={ref}
         {...props}
         sideOffset={18}
       >
         <BaseAutocomplete.Popup
           className={
-            "max-h-[22.5rem] w-[calc(var(--anchor-width)+var(--spacing-xl))] max-w-[calc(var(--available-width))] overflow-hidden rounded-lg border border-outline bg-surface-container shadow-lg outline outline-outline-variant"
+            'max-h-[22.5rem] w-[calc(var(--anchor-width)+var(--spacing-xl))] max-w-[calc(var(--available-width))] overflow-hidden rounded-lg border border-outline bg-surface-container shadow-lg outline outline-outline-variant'
           }
         >
           <BaseAutocomplete.Empty
             className={
-              "style-text-prose--1 ml-3xs p-sm text-on-surface-variant empty:m-[0px] empty:p-[0px]"
+              'ml-3xs p-sm style-text-prose--1 text-on-surface-variant empty:m-[0px] empty:p-[0px]'
             }
           >
             {emptyText}
           </BaseAutocomplete.Empty>
           <BaseAutocomplete.List
             className={
-              "max-h-[min(22.5rem,var(--available-height))] scroll-pt-[2.25rem] scroll-pb-[0.5rem] overflow-y-auto overscroll-contain data-empty:p-[0px]"
+              'max-h-[min(22.5rem,var(--available-height))] scroll-pt-[2.25rem] scroll-pb-[0.5rem] overflow-y-auto overscroll-contain data-empty:p-[0px]'
             }
           >
             {children}
@@ -39,5 +40,5 @@ export const AutocompleteContent = ({
         </BaseAutocomplete.Popup>
       </BaseAutocomplete.Positioner>
     </BaseAutocomplete.Portal>
-  );
-};
+  )
+}

@@ -1,19 +1,20 @@
-import { WarningCircleIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Button } from "../button";
-import { AlertDialog } from "./alert-dialog";
-import { AlertDialogClose } from "./alert-dialog-close";
-import { AlertDialogConfirm } from "./alert-dialog-confirm";
-import { AlertDialogContent } from "./alert-dialog-content";
-import { AlertDialogDescription } from "./alert-dialog-description";
-import { AlertDialogFooter } from "./alert-dialog-footer";
-import { AlertDialogHeader } from "./alert-dialog-header";
-import { AlertDialogPopup } from "./alert-dialog-popup";
-import { AlertDialogTitle } from "./alert-dialog-title";
-import { AlertDialogTrigger } from "./alert-dialog-trigger";
+import { WarningCircleIcon } from '@phosphor-icons/react'
+import { Button } from '../button'
+import { AlertDialog } from './alert-dialog'
+import { AlertDialogClose } from './alert-dialog-close'
+import { AlertDialogConfirm } from './alert-dialog-confirm'
+import { AlertDialogContent } from './alert-dialog-content'
+import { AlertDialogDescription } from './alert-dialog-description'
+import { AlertDialogFooter } from './alert-dialog-footer'
+import { AlertDialogHeader } from './alert-dialog-header'
+import { AlertDialogPopup } from './alert-dialog-popup'
+import { AlertDialogTitle } from './alert-dialog-title'
+import { AlertDialogTrigger } from './alert-dialog-trigger'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Alert Dialog",
+  title: 'Components/Alert Dialog',
   component: AlertDialog,
   subcomponents: {
     AlertDialogClose,
@@ -26,10 +27,10 @@ export default {
   },
   parameters: {
     docs: {
-      subtitle: "A component for displaying modal dialogs.",
+      subtitle: 'A component for displaying modal dialogs.',
       description: {
         component:
-          "The Alert Dialog component is used to create modal dialogs that capture user attention and require interaction before proceeding. It is ideal for displaying important information, forms, or confirmations. The alert dialog can be customized with various styles and behaviors to fit the needs of the application.",
+          'The Alert Dialog component is used to create modal dialogs that capture user attention and require interaction before proceeding. It is ideal for displaying important information, forms, or confirmations. The alert dialog can be customized with various styles and behaviors to fit the needs of the application.',
       },
     },
   },
@@ -55,8 +56,8 @@ export default {
       </AlertDialogPopup>
     </AlertDialog>
   ),
-} satisfies Meta<typeof AlertDialog>;
+} satisfies Meta<typeof AlertDialog>
 
-type Story = StoryObj<typeof AlertDialog>;
+type Story = StoryObj<typeof AlertDialog>
 
-export const Default: Story = {};
+export const Default: Story = {}

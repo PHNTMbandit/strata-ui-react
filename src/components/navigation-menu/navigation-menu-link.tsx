@@ -1,6 +1,7 @@
-import { NavigationMenu as BaseNavigationMenu } from "@base-ui/react/navigation-menu";
-import { cn } from "@/utils/cn";
-import type { NavigationMenuLinkProps } from "./navigation-menu.types";
+import { NavigationMenu as BaseNavigationMenu } from '@base-ui/react/navigation-menu'
+import { cn } from '@/utils/cn'
+
+import type { NavigationMenuLinkProps } from './navigation-menu.types'
 
 export const NavigationMenuLink = ({
   className,
@@ -10,7 +11,7 @@ export const NavigationMenuLink = ({
 }: NavigationMenuLinkProps) => {
   return (
     <BaseNavigationMenu.Link
-      className={cn("", className)}
+      className={cn('', className)}
       ref={ref}
       {...props}
       render={
@@ -19,5 +20,5 @@ export const NavigationMenuLink = ({
         </div>
       }
     />
-  );
-};
+  )
+}

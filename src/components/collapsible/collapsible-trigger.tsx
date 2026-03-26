@@ -1,6 +1,7 @@
-import { Collapsible as BaseCollapsible } from "@base-ui/react";
-import { cn } from "@/utils/cn";
-import type { CollapsibleTriggerProps } from "./collapsible.types";
+import { Collapsible as BaseCollapsible } from '@base-ui/react'
+import { cn } from '@/utils/cn'
+
+import type { CollapsibleTriggerProps } from './collapsible.types'
 
 export const CollapsibleTrigger = ({
   className,
@@ -10,10 +11,10 @@ export const CollapsibleTrigger = ({
 }: CollapsibleTriggerProps) => {
   return (
     <BaseCollapsible.Trigger
-      className={cn("", className)}
+      className={cn('', className)}
       ref={ref}
       render={children as React.ReactElement}
       {...props}
     />
-  );
-};
+  )
+}

@@ -1,16 +1,17 @@
-import { HeartIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Toggle } from "../toggle/toggle";
-import { ToggleGroup } from "./toggle-group";
+import { HeartIcon } from '@phosphor-icons/react'
+import { Toggle } from '../toggle/toggle'
+import { ToggleGroup } from './toggle-group'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Toggle Group",
+  title: 'Components/Toggle Group',
   component: ToggleGroup,
   parameters: {
     docs: {
-      subtitle: "A group of toggle buttons for multiple selections.",
+      subtitle: 'A group of toggle buttons for multiple selections.',
       description: {
-        component: "A group of toggle buttons that allow multiple selections.",
+        component: 'A group of toggle buttons that allow multiple selections.',
       },
     },
   },
@@ -55,12 +56,12 @@ export default {
       </Toggle>
     </ToggleGroup>
   ),
-} satisfies Meta<typeof ToggleGroup>;
+} satisfies Meta<typeof ToggleGroup>
 
-type Story = StoryObj<typeof ToggleGroup>;
-export const Default: Story = {};
+type Story = StoryObj<typeof ToggleGroup>
+export const Default: Story = {}
 export const MultipleSelection: Story = {
   args: {
     multiple: true,
   },
-};
+}

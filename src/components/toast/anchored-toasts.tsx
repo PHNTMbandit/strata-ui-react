@@ -1,17 +1,18 @@
-import { Toast as BaseToast } from "@base-ui/react/toast";
-import { cn } from "@/utils/cn";
-import { AnchoredToastItem } from "./anchored-toast-item";
-import type { AnchoredToastProps } from "./toast.types";
-import { useToastManager } from "./toast-manager";
+import { Toast as BaseToast } from '@base-ui/react/toast'
+import { AnchoredToastItem } from './anchored-toast-item'
+import { useToastManager } from './toast-manager'
+import { cn } from '@/utils/cn'
+
+import type { AnchoredToastProps } from './toast.types'
 
 export const AnchoredToasts = ({ className, ref, ...props }: AnchoredToastProps) => {
-  const { toasts } = useToastManager();
+  const { toasts } = useToastManager()
 
   return (
     <BaseToast.Portal>
       <BaseToast.Viewport
         className={cn(
-          "fixed top-auto right-[1rem] bottom-[1rem] z-10 mx-auto flex w-[250px] sm:right-[2rem] sm:bottom-[2rem] sm:w-[300px]",
+          'fixed top-auto right-[1rem] bottom-[1rem] z-10 mx-auto flex w-[250px] sm:right-[2rem] sm:bottom-[2rem] sm:w-[300px]',
           className,
         )}
         ref={ref}
@@ -19,7 +20,7 @@ export const AnchoredToasts = ({ className, ref, ...props }: AnchoredToastProps)
       >
         {toasts.map((toast) => (
           <BaseToast.Positioner
-            className={"z-[calc(1000-var(--toast-index))]"}
+            className={'z-[calc(1000-var(--toast-index))]'}
             key={toast.id}
             toast={toast}
           >
@@ -28,5 +29,5 @@ export const AnchoredToasts = ({ className, ref, ...props }: AnchoredToastProps)
         ))}
       </BaseToast.Viewport>
     </BaseToast.Portal>
-  );
-};
+  )
+}

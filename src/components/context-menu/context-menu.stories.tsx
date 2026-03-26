@@ -1,14 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { ContextMenu } from "./context-menu";
-import { ContextMenuItem } from "./context-menu-item";
-import { ContextMenuPopup } from "./context-menu-popup";
-import { ContextMenuSeparator } from "./context-menu-separator";
-import { ContextMenuSubmenu } from "./context-menu-submenu";
-import { ContextMenuSubmenuTrigger } from "./context-menu-submenu-trigger";
-import { ContextMenuTrigger } from "./context-menu-trigger";
+import { ContextMenu } from './context-menu'
+import { ContextMenuItem } from './context-menu-item'
+import { ContextMenuPopup } from './context-menu-popup'
+import { ContextMenuSeparator } from './context-menu-separator'
+import { ContextMenuSubmenu } from './context-menu-submenu'
+import { ContextMenuSubmenuTrigger } from './context-menu-submenu-trigger'
+import { ContextMenuTrigger } from './context-menu-trigger'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Context Menu",
+  title: 'Components/Context Menu',
   component: ContextMenu,
   subcomponents: {
     ContextMenuTrigger,
@@ -36,8 +37,8 @@ export default {
       </ContextMenuPopup>
     </ContextMenu>
   ),
-} satisfies Meta<typeof ContextMenu>;
+} satisfies Meta<typeof ContextMenu>
 
-type Story = StoryObj<typeof ContextMenu>;
+type Story = StoryObj<typeof ContextMenu>
 
-export const Default: Story = {};
+export const Default: Story = {}

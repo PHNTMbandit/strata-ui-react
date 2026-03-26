@@ -1,22 +1,23 @@
-import { CaretUpDownIcon, GridFourIcon, UserIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { INITIAL_VIEWPORTS } from "storybook/viewport";
-import { Profile } from "../profile";
-import { Sidebar } from "./sidebar";
-import { SidebarContent } from "./sidebar-content";
-import { SidebarFooter } from "./sidebar-footer";
-import { SidebarGroup } from "./sidebar-group";
-import { SidebarGroupContent } from "./sidebar-group-content";
-import { SidebarGroupLabel } from "./sidebar-group-label";
-import { SidebarHeader } from "./sidebar-header";
-import { SidebarMenu } from "./sidebar-menu";
-import { SidebarMenuButton } from "./sidebar-menu-button";
-import { SidebarMenuLink } from "./sidebar-menu-link";
-import { SidebarProvider } from "./sidebar-provider";
-import { SidebarToggle } from "./sidebar-toggle";
+import { CaretUpDownIcon, GridFourIcon, UserIcon } from '@phosphor-icons/react'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
+import { Profile } from '../profile'
+import { Sidebar } from './sidebar'
+import { SidebarContent } from './sidebar-content'
+import { SidebarFooter } from './sidebar-footer'
+import { SidebarGroup } from './sidebar-group'
+import { SidebarGroupContent } from './sidebar-group-content'
+import { SidebarGroupLabel } from './sidebar-group-label'
+import { SidebarHeader } from './sidebar-header'
+import { SidebarMenu } from './sidebar-menu'
+import { SidebarMenuButton } from './sidebar-menu-button'
+import { SidebarMenuLink } from './sidebar-menu-link'
+import { SidebarProvider } from './sidebar-provider'
+import { SidebarToggle } from './sidebar-toggle'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Sidebar",
+  title: 'Components/Sidebar',
   component: Sidebar,
   subcomponents: {
     SidebarContent,
@@ -36,25 +37,25 @@ export default {
   },
   argTypes: {
     width: {
-      control: "number",
-      description: "Sets the width of the sidebar when expanded.",
+      control: 'number',
+      description: 'Sets the width of the sidebar when expanded.',
     },
   },
   parameters: {
     docs: {
-      subtitle: "Displays a sidebar for navigation and additional content.",
+      subtitle: 'Displays a sidebar for navigation and additional content.',
       description: {
         component:
-          "The Sidebar component provides a collapsible navigation panel that can contain various interactive elements such as menus, links, and toggles. It is designed to enhance user experience by offering easy access to different sections of an application while maintaining a clean and organized layout.",
+          'The Sidebar component provides a collapsible navigation panel that can contain various interactive elements such as menus, links, and toggles. It is designed to enhance user experience by offering easy access to different sections of an application while maintaining a clean and organized layout.',
       },
     },
     viewport: {
       options: INITIAL_VIEWPORTS,
     },
   },
-} satisfies Meta<typeof Sidebar>;
+} satisfies Meta<typeof Sidebar>
 
-type Story = StoryObj<typeof Sidebar>;
+type Story = StoryObj<typeof Sidebar>
 
 export const CollapsibleIcon: Story = {
   render: (args) => (
@@ -95,7 +96,7 @@ export const CollapsibleIcon: Story = {
             </SidebarGroup>
           </SidebarContent>
           <SidebarFooter>
-            <Profile fallbackText={"DP"} imageUrl={""} profileName={"Domenic Pittari"}>
+            <Profile fallbackText={'DP'} imageUrl={''} profileName={'Domenic Pittari'}>
               <CaretUpDownIcon />
             </Profile>
           </SidebarFooter>
@@ -103,7 +104,7 @@ export const CollapsibleIcon: Story = {
       </SidebarProvider>
     </div>
   ),
-};
+}
 
 export const Ghost: Story = {
   render: (args) => (
@@ -115,8 +116,8 @@ export const Ghost: Story = {
               <SidebarGroupLabel>Components</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
-                  <SidebarMenuLink isActive={true} label={"Alerts"} />
-                  <SidebarMenuLink isActive={false} label={"Domenic"} />
+                  <SidebarMenuLink isActive={true} label={'Alerts'} />
+                  <SidebarMenuLink isActive={false} label={'Domenic'} />
                 </SidebarMenu>
               </SidebarGroupContent>
             </SidebarGroup>
@@ -125,7 +126,7 @@ export const Ghost: Story = {
       </SidebarProvider>
     </div>
   ),
-};
+}
 
 export const CollapsibleOffcanvas: Story = {
   render: (args) => (
@@ -149,7 +150,7 @@ export const CollapsibleOffcanvas: Story = {
       </SidebarProvider>
     </div>
   ),
-};
+}
 
 export const NonCollapsible: Story = {
   render: (args) => (
@@ -173,7 +174,7 @@ export const NonCollapsible: Story = {
       </SidebarProvider>
     </div>
   ),
-};
+}
 
 export const Right: Story = {
   render: (args) => (
@@ -197,4 +198,4 @@ export const Right: Story = {
       </SidebarProvider>
     </div>
   ),
-};
+}

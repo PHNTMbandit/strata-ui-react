@@ -1,10 +1,11 @@
-import { flexRender } from "@tanstack/react-table";
-import { cn } from "@/utils/cn";
-import type { TableRowListProps } from "./table.types";
+import { flexRender } from '@tanstack/react-table'
+import { cn } from '@/utils/cn'
+
+import type { TableRowListProps } from './table.types'
 
 export const TableRowList = ({ row, className, children, ref, ...props }: TableRowListProps) => {
   return (
-    <tr className={cn("", className)} ref={ref} {...props}>
+    <tr className={cn('', className)} ref={ref} {...props}>
       {row.getVisibleCells().map((cell) => {
         return (
           <td
@@ -19,8 +20,8 @@ export const TableRowList = ({ row, className, children, ref, ...props }: TableR
             {children}
             {flexRender(cell.column.columnDef.cell, cell.getContext())}
           </td>
-        );
+        )
       })}
     </tr>
-  );
-};
+  )
+}

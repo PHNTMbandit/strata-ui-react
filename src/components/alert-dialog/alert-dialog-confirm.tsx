@@ -1,7 +1,8 @@
-import { AlertDialog as BaseAlertDialog } from "@base-ui/react";
-import { cn } from "@/utils/cn";
-import { Button } from "../button";
-import type { AlertDialogConfirmProps } from "./alert-dialog.types";
+import { AlertDialog as BaseAlertDialog } from '@base-ui/react'
+import { Button } from '../button'
+import { cn } from '@/utils/cn'
+
+import type { AlertDialogConfirmProps } from './alert-dialog.types'
 
 export const AlertDialogConfirm = ({
   className,
@@ -11,7 +12,7 @@ export const AlertDialogConfirm = ({
 }: AlertDialogConfirmProps) => {
   return (
     <BaseAlertDialog.Close
-      className={cn("", className)}
+      className={cn('', className)}
       ref={ref}
       {...props}
       render={
@@ -20,5 +21,5 @@ export const AlertDialogConfirm = ({
         </Button>
       }
     />
-  );
-};
+  )
+}

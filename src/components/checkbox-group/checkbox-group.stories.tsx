@@ -1,18 +1,19 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import React from "react";
-import { Checkbox } from "../checkbox/checkbox";
-import { CheckboxGroup } from "./checkbox-group";
+import React from 'react'
+import { Checkbox } from '../checkbox/checkbox'
+import { CheckboxGroup } from './checkbox-group'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Checkbox Group",
+  title: 'Components/Checkbox Group',
   component: CheckboxGroup,
   parameters: {
     docs: {
       subtitle:
-        "A group of checkbox components that allows users to select multiple options from a set.",
+        'A group of checkbox components that allows users to select multiple options from a set.',
       description: {
         component:
-          "The CheckboxGroup component is used to group multiple checkbox inputs, enabling users to select one or more options from a list.",
+          'The CheckboxGroup component is used to group multiple checkbox inputs, enabling users to select one or more options from a list.',
       },
     },
   },
@@ -26,18 +27,18 @@ export default {
       <Checkbox id="option3" label="Option 3" value="option3" />
     </CheckboxGroup>
   ),
-} satisfies Meta<typeof CheckboxGroup>;
+} satisfies Meta<typeof CheckboxGroup>
 
-type Story = StoryObj<typeof CheckboxGroup>;
+type Story = StoryObj<typeof CheckboxGroup>
 
-export const Default: Story = {};
+export const Default: Story = {}
 export const Nested: Story = {
   render: (args) => {
-    const id = React.useId();
-    const [mainValue, setMainValue] = React.useState<string[]>([]);
-    const [managementValue, setManagementValue] = React.useState<string[]>([]);
-    const mainPermissions = ["view-dashboard", "manage-users", "access-reports"];
-    const userManagementPermissions = ["create-user", "edit-user", "delete-user", "assign-roles"];
+    const id = React.useId()
+    const [mainValue, setMainValue] = React.useState<string[]>([])
+    const [managementValue, setManagementValue] = React.useState<string[]>([])
+    const mainPermissions = ['view-dashboard', 'manage-users', 'access-reports']
+    const userManagementPermissions = ['create-user', 'edit-user', 'delete-user', 'assign-roles']
 
     return (
       <CheckboxGroup
@@ -45,14 +46,14 @@ export const Nested: Story = {
         allValues={mainPermissions}
         aria-labelledby={id}
         onValueChange={(value) => {
-          if (value.includes("manage-users")) {
-            setManagementValue(userManagementPermissions);
+          if (value.includes('manage-users')) {
+            setManagementValue(userManagementPermissions)
           } else if (managementValue.length === userManagementPermissions.length) {
-            setManagementValue([]);
+            setManagementValue([])
           }
-          setMainValue(value);
+          setMainValue(value)
         }}
-        style={{ marginLeft: "1rem" }}
+        style={{ marginLeft: '1rem' }}
         value={mainValue}
       >
         <Checkbox
@@ -63,7 +64,7 @@ export const Nested: Story = {
           }
           label="User Permissions"
           parent
-          style={{ marginLeft: "-1rem" }}
+          style={{ marginLeft: '-1rem' }}
         />
         <Checkbox label="View Dashboard" value="view-dashboard" />
         <Checkbox label="Access Reports" value="access-reports" />
@@ -71,20 +72,20 @@ export const Nested: Story = {
           allValues={userManagementPermissions}
           onValueChange={(value) => {
             if (value.length === userManagementPermissions.length) {
-              setMainValue((prev) => Array.from(new Set([...prev, "manage-users"])));
+              setMainValue((prev) => Array.from(new Set([...prev, 'manage-users'])))
             } else {
-              setMainValue((prev) => prev.filter((v) => v !== "manage-users"));
+              setMainValue((prev) => prev.filter((v) => v !== 'manage-users'))
             }
-            setManagementValue(value);
+            setManagementValue(value)
           }}
-          style={{ marginLeft: "1rem" }}
+          style={{ marginLeft: '1rem' }}
           value={managementValue}
         >
           <Checkbox
             id="manage-users-caption"
             label="Manage Users"
             parent
-            style={{ marginLeft: "-1rem" }}
+            style={{ marginLeft: '-1rem' }}
           />
           <Checkbox label="Create User" value="create-user" />
           <Checkbox label="Edit User" value="edit-user" />
@@ -92,6 +93,6 @@ export const Nested: Story = {
           <Checkbox label="Assign Roles" value="assign-roles" />
         </CheckboxGroup>
       </CheckboxGroup>
-    );
+    )
   },
-};
+}

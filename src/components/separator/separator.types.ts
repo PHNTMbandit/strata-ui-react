@@ -1,63 +1,64 @@
-import type { Separator as BaseSeparator } from "@base-ui/react/separator";
-import { cva, type VariantProps } from "class-variance-authority";
-import type { ComponentProps } from "react";
+import { cva, type VariantProps } from 'class-variance-authority'
 
-export const separatorVariants = cva("relative shrink-0 rounded-full transition-all", {
+import type { Separator as BaseSeparator } from '@base-ui/react/separator'
+import type { ComponentProps } from 'react'
+
+export const separatorVariants = cva('relative shrink-0 rounded-full transition-all', {
   variants: {
     tone: {
-      default: "bg-outline",
-      variant: "bg-outline-variant",
+      default: 'bg-outline',
+      variant: 'bg-outline-variant',
     },
     orientation: {
-      horizontal: "w-full",
-      vertical: "h-full",
+      horizontal: 'w-full',
+      vertical: 'h-full',
     },
     thickness: {
-      thin: "",
-      medium: "",
-      thick: "",
+      thin: '',
+      medium: '',
+      thick: '',
     },
   },
   defaultVariants: {
-    tone: "default",
-    orientation: "horizontal",
-    thickness: "medium",
+    tone: 'default',
+    orientation: 'horizontal',
+    thickness: 'medium',
   },
   compoundVariants: [
     {
-      orientation: "horizontal",
-      thickness: "thick",
-      className: "h-[4px]",
+      orientation: 'horizontal',
+      thickness: 'thick',
+      className: 'h-[4px]',
     },
     {
-      orientation: "horizontal",
-      thickness: "medium",
-      className: "h-[2px]",
+      orientation: 'horizontal',
+      thickness: 'medium',
+      className: 'h-[2px]',
     },
     {
-      orientation: "horizontal",
-      thickness: "thin",
-      className: "h-[1px]",
+      orientation: 'horizontal',
+      thickness: 'thin',
+      className: 'h-[1px]',
     },
     {
-      orientation: "vertical",
-      thickness: "thick",
-      className: "w-[4px]",
+      orientation: 'vertical',
+      thickness: 'thick',
+      className: 'w-[4px]',
     },
     {
-      orientation: "vertical",
-      thickness: "medium",
-      className: "w-[2px]",
+      orientation: 'vertical',
+      thickness: 'medium',
+      className: 'w-[2px]',
     },
     {
-      orientation: "vertical",
-      thickness: "thin",
-      className: "w-[1px]",
+      orientation: 'vertical',
+      thickness: 'thin',
+      className: 'w-[1px]',
     },
   ],
-});
+})
 
-export type SeparatorProps = Omit<ComponentProps<typeof BaseSeparator>, "style"> &
+export type SeparatorProps = Omit<ComponentProps<typeof BaseSeparator>, 'style'> &
   VariantProps<typeof separatorVariants> & {
-    label?: string;
-  };
+    label?: string
+  }

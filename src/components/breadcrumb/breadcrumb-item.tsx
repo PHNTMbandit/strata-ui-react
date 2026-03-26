@@ -1,11 +1,12 @@
-import { cn } from "@/utils/cn";
-import type { BreadcrumbItemProps } from "./breadcrumb.types";
+import { cn } from '@/utils/cn'
+
+import type { BreadcrumbItemProps } from './breadcrumb.types'
 
 export const BreadcrumbItem = ({ className, children, ref, ...props }: BreadcrumbItemProps) => {
   return (
     <div
       className={cn(
-        "style-text-default--1 inline-flex h-md items-center justify-center gap-3xs text-surface-on-surface-variant [&>svg]:size-xs",
+        'text-surface-on-surface-variant inline-flex h-md items-center justify-center gap-3xs style-text-default--1 [&>svg]:size-xs',
         className,
       )}
       ref={ref}
@@ -13,5 +14,5 @@ export const BreadcrumbItem = ({ className, children, ref, ...props }: Breadcrum
     >
       {children}
     </div>
-  );
-};
+  )
+}

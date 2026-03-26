@@ -1,6 +1,7 @@
-import { cn } from "@/utils/cn";
-import type { SidebarGroupLabelProps } from "./sidebar.types";
-import { useSidebar } from "./sidebar-provider";
+import { useSidebar } from './sidebar-provider'
+import { cn } from '@/utils/cn'
+
+import type { SidebarGroupLabelProps } from './sidebar.types'
 
 export const SidebarGroupLabel = ({
   className,
@@ -8,18 +9,18 @@ export const SidebarGroupLabel = ({
   ref,
   ...props
 }: SidebarGroupLabelProps) => {
-  const { open, collapsible } = useSidebar();
-  const showLabel = collapsible === "none" || open;
+  const { open, collapsible } = useSidebar()
+  const showLabel = collapsible === 'none' || open
 
   if (!showLabel) {
-    return null;
+    return null
   }
 
   return (
     <span
       className={cn(
-        "style-text-default--2 w-full truncate pl-sm text-on-surface-variant uppercase transition-all duration-200 ease-out",
-        collapsible !== "none" && open && "slide-in-from-left-2 fade-in-0 animate-in",
+        'w-full truncate pl-sm style-text-default--2 text-on-surface-variant uppercase transition-all duration-200 ease-out',
+        collapsible !== 'none' && open && 'animate-in fade-in-0 slide-in-from-left-2',
         className,
       )}
       ref={ref}
@@ -27,5 +28,5 @@ export const SidebarGroupLabel = ({
     >
       {children}
     </span>
-  );
-};
+  )
+}

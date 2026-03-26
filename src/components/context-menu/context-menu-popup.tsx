@@ -1,6 +1,7 @@
-import { ContextMenu as BaseContextMenu } from "@base-ui/react/context-menu";
-import { cn } from "@/utils/cn";
-import type { ContextMenuPopupProps } from "./context-menu.types";
+import { ContextMenu as BaseContextMenu } from '@base-ui/react/context-menu'
+import { cn } from '@/utils/cn'
+
+import type { ContextMenuPopupProps } from './context-menu.types'
 
 export const ContextMenuPopup = ({ className, children, ref, ...props }: ContextMenuPopupProps) => {
   return (
@@ -8,7 +9,7 @@ export const ContextMenuPopup = ({ className, children, ref, ...props }: Context
       <BaseContextMenu.Positioner>
         <BaseContextMenu.Popup
           className={cn(
-            "origin-(--transform-origin) rounded-md border border-outline bg-surface-container p-3xs py-2xs shadow-md outline outline-outline-variant transition-opacity data-ending-style:opacity-0",
+            'origin-(--transform-origin) rounded-md border border-outline bg-surface-container p-3xs py-2xs shadow-md outline outline-outline-variant transition-opacity data-ending-style:opacity-0',
             className,
           )}
           ref={ref}
@@ -18,5 +19,5 @@ export const ContextMenuPopup = ({ className, children, ref, ...props }: Context
         </BaseContextMenu.Popup>
       </BaseContextMenu.Positioner>
     </BaseContextMenu.Portal>
-  );
-};
+  )
+}

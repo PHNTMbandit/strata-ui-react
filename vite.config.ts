@@ -1,22 +1,22 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
-import tailwindCss from "@tailwindcss/vite";
-import react from "@vitejs/plugin-react";
-import { playwright } from "@vitest/browser-playwright";
-import dts from "vite-plugin-dts";
-import { defineConfig } from "vitest/config";
-import pkg from "./package.json" with { type: "json" };
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
+import tailwindCss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react'
+import { playwright } from '@vitest/browser-playwright'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+import dts from 'vite-plugin-dts'
+import { defineConfig } from 'vitest/config'
+import pkg from './package.json' with { type: 'json' }
 
 const dirname =
-  typeof __dirname !== "undefined" ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+  typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   plugins: [
     react(),
     dts({
-      tsconfigPath: "./tsconfig.app.json",
-      exclude: ["**/*.test.tsx", "**/*.stories.tsx"],
+      tsconfigPath: './tsconfig.app.json',
+      exclude: ['**/*.test.tsx', '**/*.stories.tsx'],
       insertTypesEntry: true,
       rollupTypes: true,
     }),
@@ -24,33 +24,33 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
+      entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
       fileName: (format) => `suwa-ui.${format}.js`,
-      formats: ["es"],
+      formats: ['es'],
     },
     rollupOptions: {
       external: (id) => {
         if (
           Object.keys(pkg.peerDependencies).some((dep) => id === dep || id.startsWith(`${dep}/`))
         ) {
-          return true;
+          return true
         }
 
-        if (id.startsWith("react") || id.startsWith("react-dom")) {
-          return true;
+        if (id.startsWith('react') || id.startsWith('react-dom')) {
+          return true
         }
 
-        if (id.startsWith("use-sync-external-store")) {
-          return true;
+        if (id.startsWith('use-sync-external-store')) {
+          return true
         }
 
-        return false;
+        return false
       },
     },
   },
   test: {
     globals: true,
-    environment: "jsdom",
+    environment: 'jsdom',
     css: true,
     passWithNoTests: true,
     projects: [
@@ -58,29 +58,29 @@ export default defineConfig({
         extends: true,
         plugins: [
           storybookTest({
-            configDir: path.join(dirname, ".storybook"),
+            configDir: path.join(dirname, '.storybook'),
           }),
         ],
         test: {
-          name: "storybook",
+          name: 'storybook',
           browser: {
             enabled: true,
             headless: true,
             provider: playwright({}),
             instances: [
               {
-                browser: "chromium",
+                browser: 'chromium',
               },
             ],
           },
-          setupFiles: [".storybook/vitest.setup.ts"],
+          setupFiles: ['.storybook/vitest.setup.ts'],
         },
       },
     ],
   },
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-});
+})

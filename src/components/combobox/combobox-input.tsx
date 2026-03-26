@@ -1,9 +1,10 @@
-import { Combobox as BaseCombobox } from "@base-ui/react/combobox";
-import { CaretDownIcon, XIcon } from "@phosphor-icons/react";
-import React, { createElement } from "react";
-import { cn } from "@/utils/cn";
-import { Separator } from "../separator";
-import type { ComboboxInputProps } from "./combobox.types";
+import { Combobox as BaseCombobox } from '@base-ui/react/combobox'
+import { CaretDownIcon, XIcon } from '@phosphor-icons/react'
+import React, { createElement } from 'react'
+import { Separator } from '../separator'
+import { cn } from '@/utils/cn'
+
+import type { ComboboxInputProps } from './combobox.types'
 
 export const ComboboxInput = ({
   leadingIcon,
@@ -14,17 +15,17 @@ export const ComboboxInput = ({
   ref,
   ...props
 }: ComboboxInputProps) => {
-  const id = React.useId();
+  const id = React.useId()
 
   if (inline) {
     return (
       <div className="h-(--input-container-height) py-2xs pr-2xs">
         <BaseCombobox.Input
           className={cn(
-            "h-xl w-full rounded-lg bg-surface-dim px-sm outline-2 outline-brand transition-all hover:outline-outline focus:caret-brand focus:outline-brand focus:-outline-offset-1 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50",
-            "placeholder:opacity-60",
-            "disabled:cursor-not-allowed",
-            "overflow-ellipsis",
+            'h-xl w-full rounded-lg bg-surface-dim px-sm outline-2 outline-brand transition-all hover:outline-outline focus:caret-brand focus:-outline-offset-1 focus:outline-brand data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
+            'placeholder:opacity-60',
+            'disabled:cursor-not-allowed',
+            'overflow-ellipsis',
             className,
           )}
           id={id}
@@ -32,14 +33,14 @@ export const ComboboxInput = ({
           {...props}
         />
       </div>
-    );
+    )
   }
 
   return (
     <div
       aria-disabled={props.disabled}
       className={cn(
-        "group elevation-sm relative flex min-h-xl flex-col items-center gap-xs rounded-[28px] bg-surface-container p-sm pl-md text-prose-0 outline-2 outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-brand focus-within:outline-offset-2 hover:not-focus-within:outline-outline hover:not-focus-within:outline-offset-2 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent",
+        'group text-prose-0 relative flex min-h-xl flex-col items-center gap-xs rounded-[28px] bg-surface-container p-sm pl-md elevation-sm outline-2 outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-offset-2 focus-within:outline-brand hover:not-focus-within:outline-offset-2 hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent',
         className,
       )}
       data-disabled={props.disabled}
@@ -50,28 +51,28 @@ export const ComboboxInput = ({
           <>
             <div
               className={cn(
-                "flex items-center justify-center text-on-surface-variant transition-all group-focus-within:text-brand [&>svg]:size-sm",
+                'flex items-center justify-center text-on-surface-variant transition-all group-focus-within:text-brand [&>svg]:size-sm',
               )}
             >
               {createElement(leadingIcon, {
-                weight: "bold",
+                weight: 'bold',
               })}
             </div>
             {showSeparator && (
               <Separator
-                className={"group-focus-within:bg-brand"}
+                className={'group-focus-within:bg-brand'}
                 orientation="vertical"
-                thickness={"thin"}
+                thickness={'thin'}
               />
             )}
           </>
         )}
         <BaseCombobox.Input
           className={cn(
-            "w-full outline-none",
-            "placeholder:opacity-60",
-            "disabled:cursor-not-allowed",
-            "overflow-ellipsis",
+            'w-full outline-none',
+            'placeholder:opacity-60',
+            'disabled:cursor-not-allowed',
+            'overflow-ellipsis',
             className,
           )}
           id={id}
@@ -82,7 +83,7 @@ export const ComboboxInput = ({
           <BaseCombobox.Clear
             aria-label="Clear selection"
             className={
-              "combobox-clear flex items-center justify-center rounded-full border border-transparent bg-transparent p-3xs text-error transition-colors hover:cursor-pointer hover:border-error-outline hover:bg-error-container hover:text-on-error-container disabled:opacity-50"
+              'combobox-clear flex items-center justify-center rounded-full border border-transparent bg-transparent p-3xs text-error transition-colors hover:cursor-pointer hover:border-error-outline hover:bg-error-container hover:text-on-error-container disabled:opacity-50'
             }
             keepMounted
           >
@@ -97,5 +98,5 @@ export const ComboboxInput = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

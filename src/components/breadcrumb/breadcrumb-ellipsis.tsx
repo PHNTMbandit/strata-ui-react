@@ -1,6 +1,7 @@
-import { DotsThreeIcon } from "@phosphor-icons/react";
-import { cn } from "@/utils/cn";
-import type { BreadcrumbEllipsisProps } from "./breadcrumb.types";
+import { DotsThreeIcon } from '@phosphor-icons/react'
+import { cn } from '@/utils/cn'
+
+import type { BreadcrumbEllipsisProps } from './breadcrumb.types'
 
 export const BreadcrumbEllipsis = ({
   className,
@@ -11,7 +12,7 @@ export const BreadcrumbEllipsis = ({
   return (
     <div
       className={cn(
-        "flex size-md items-center justify-center rounded-full text-surface-on-surface-variant [&>svg]:size-sm",
+        'text-surface-on-surface-variant flex size-md items-center justify-center rounded-full [&>svg]:size-sm',
         className,
       )}
       ref={ref}
@@ -20,5 +21,5 @@ export const BreadcrumbEllipsis = ({
       {children}
       <DotsThreeIcon weight="bold" />
     </div>
-  );
-};
+  )
+}

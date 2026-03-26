@@ -1,5 +1,6 @@
-import { cn } from "@/utils/cn";
-import type { AlertDialogHeaderProps } from "./alert-dialog.types";
+import { cn } from '@/utils/cn'
+
+import type { AlertDialogHeaderProps } from './alert-dialog.types'
 
 export const AlertDialogHeader = ({
   className,
@@ -10,7 +11,7 @@ export const AlertDialogHeader = ({
   return (
     <div
       className={cn(
-        "flex w-full items-center justify-center pb-sm [&>svg]:size-xl [&>svg]:text-error",
+        'flex w-full items-center justify-center pb-sm [&>svg]:size-xl [&>svg]:text-error',
         className,
       )}
       ref={ref}
@@ -18,5 +19,5 @@ export const AlertDialogHeader = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}

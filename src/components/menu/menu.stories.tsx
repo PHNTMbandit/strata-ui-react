@@ -1,28 +1,29 @@
-import { CardsIcon, ClipboardIcon, CopyIcon, ScissorsIcon, TrashIcon } from "@phosphor-icons/react";
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import React from "react";
-import { Button } from "../button";
-import { Menu } from "./menu";
-import { MenuCheckboxItem } from "./menu-checkbox-item";
-import { MenuGroup } from "./menu-group";
-import { MenuGroupLabel } from "./menu-group-label";
-import { MenuItem } from "./menu-item";
-import { MenuPopup } from "./menu-popup";
-import { MenuRadioGroup } from "./menu-radio-group";
-import { MenuRadioItem } from "./menu-radio-item";
-import { MenuSeperator } from "./menu-seperator";
-import { MenuSubmenu } from "./menu-submenu";
-import { MenuSubmenuTrigger } from "./menu-submenu-trigger";
-import { MenuTrigger } from "./menu-trigger";
+import { CardsIcon, ClipboardIcon, CopyIcon, ScissorsIcon, TrashIcon } from '@phosphor-icons/react'
+import React from 'react'
+import { Button } from '../button'
+import { Menu } from './menu'
+import { MenuCheckboxItem } from './menu-checkbox-item'
+import { MenuGroup } from './menu-group'
+import { MenuGroupLabel } from './menu-group-label'
+import { MenuItem } from './menu-item'
+import { MenuPopup } from './menu-popup'
+import { MenuRadioGroup } from './menu-radio-group'
+import { MenuRadioItem } from './menu-radio-item'
+import { MenuSeperator } from './menu-seperator'
+import { MenuSubmenu } from './menu-submenu'
+import { MenuSubmenuTrigger } from './menu-submenu-trigger'
+import { MenuTrigger } from './menu-trigger'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Menu",
+  title: 'Components/Menu',
   component: Menu,
   parameters: {
     docs: {
-      subtitle: "Provides a dropdown menu for navigation or actions.",
+      subtitle: 'Provides a dropdown menu for navigation or actions.',
       description: {
-        component: "A menu component that provides a dropdown menu for navigation or actions.",
+        component: 'A menu component that provides a dropdown menu for navigation or actions.',
       },
     },
   },
@@ -52,17 +53,17 @@ export default {
       </MenuPopup>
     </Menu>
   ),
-} satisfies Meta<typeof Menu>;
+} satisfies Meta<typeof Menu>
 
-type Story = StoryObj<typeof Menu>;
+type Story = StoryObj<typeof Menu>
 
-export const Default: Story = {};
+export const Default: Story = {}
 export const CheckboxItems: Story = {
   render: (args) => {
-    const [showCopy, setShowCopy] = React.useState(false);
-    const [showPaste, setShowPaste] = React.useState(false);
-    const [showCut, setShowCut] = React.useState(false);
-    const [showDelete, setShowDelete] = React.useState(false);
+    const [showCopy, setShowCopy] = React.useState(false)
+    const [showPaste, setShowPaste] = React.useState(false)
+    const [showCut, setShowCut] = React.useState(false)
+    const [showDelete, setShowDelete] = React.useState(false)
 
     return (
       <Menu {...args}>
@@ -90,13 +91,13 @@ export const CheckboxItems: Story = {
           </MenuCheckboxItem>
         </MenuPopup>
       </Menu>
-    );
+    )
   },
-};
+}
 
 export const RadioItems: Story = {
   render: (args) => {
-    const [value, setValue] = React.useState("date");
+    const [value, setValue] = React.useState('date')
 
     return (
       <Menu {...args}>
@@ -111,9 +112,9 @@ export const RadioItems: Story = {
           </MenuRadioGroup>
         </MenuPopup>
       </Menu>
-    );
+    )
   },
-};
+}
 
 export const GroupLabels: Story = {
   render: (args) => (
@@ -136,7 +137,7 @@ export const GroupLabels: Story = {
       </MenuPopup>
     </Menu>
   ),
-};
+}
 
 export const Submenus: Story = {
   render: (args) => (
@@ -156,4 +157,4 @@ export const Submenus: Story = {
       </MenuPopup>
     </Menu>
   ),
-};
+}

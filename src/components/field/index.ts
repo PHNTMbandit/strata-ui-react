@@ -1,4 +1,4 @@
-export { Field } from "./field";
+export { Field } from './field'
 export type {
   FieldDescriptionProps,
   FieldErrorsProps,
@@ -6,9 +6,9 @@ export type {
   FieldLabelProps,
   FieldProps,
   FieldSliderProps,
-} from "./field.types";
-export { FieldDescription } from "./field-description";
-export { FieldErrors } from "./field-errors";
-export { FieldInput } from "./field-input";
-export { FieldLabel } from "./field-label";
-export { FieldSlider } from "./field-slider";
+} from './field.types'
+export { FieldDescription } from './field-description'
+export { FieldErrors } from './field-errors'
+export { FieldInput } from './field-input'
+export { FieldLabel } from './field-label'
+export { FieldSlider } from './field-slider'

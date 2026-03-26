@@ -1,9 +1,9 @@
-import { Accordion as BaseAccordion } from "@base-ui/react/accordion";
-import { cn } from "@/utils/cn";
-import { type AccordionItemProps, accordionItemVariants } from "./accordion.types";
+import { Accordion as BaseAccordion } from '@base-ui/react/accordion'
+import { type AccordionItemProps, accordionItemVariants } from './accordion.types'
+import { cn } from '@/utils/cn'
 
 export const AccordionItem = ({
-  tone = "neutral",
+  tone = 'neutral',
   className,
   children,
   ref,
@@ -17,5 +17,5 @@ export const AccordionItem = ({
     >
       <BaseAccordion.Header>{children}</BaseAccordion.Header>
     </BaseAccordion.Item>
-  );
-};
+  )
+}

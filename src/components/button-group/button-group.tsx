@@ -1,5 +1,5 @@
-import { cn } from "@/utils/cn";
-import { type ButtonGroupProps, buttonGroupVariants } from "./button-group.types";
+import { type ButtonGroupProps, buttonGroupVariants } from './button-group.types'
+import { cn } from '@/utils/cn'
 
 export const ButtonGroup = ({
   split,
@@ -17,5 +17,5 @@ export const ButtonGroup = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}

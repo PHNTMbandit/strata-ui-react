@@ -1,5 +1,4 @@
-import { faker } from "@faker-js/faker";
-import type { Meta, StoryObj } from "@storybook/react-vite";
+import { faker } from '@faker-js/faker'
 import {
   type ColumnDef,
   type ColumnFiltersState,
@@ -10,30 +9,32 @@ import {
   getSortedRowModel,
   type PaginationState,
   useReactTable,
-} from "@tanstack/react-table";
-import React from "react";
-import { Checkbox } from "../checkbox";
-import { Table } from "./table";
-import { TableBody } from "./table-body";
-import { TableChangeView } from "./table-change-view";
-import { TableContent } from "./table-content";
-import { TableFilter } from "./table-filter";
-import { TableFirstPage } from "./table-first-page";
-import { TableFooter } from "./table-footer";
-import { TableHeader } from "./table-header";
-import { TableLastPage } from "./table-last-page";
-import { TableNav } from "./table-nav";
-import { TableNextPage } from "./table-next-page";
-import { TablePagination } from "./table-pagination";
-import { TablePreviousPage } from "./table-previous-page";
-import { TableResults } from "./table-results";
-import { TableRowGrid } from "./table-row-grid";
-import { TableRowList } from "./table-row-list";
-import { TableSearch } from "./table-search";
-import { TableSort } from "./table-sort";
+} from '@tanstack/react-table'
+import React from 'react'
+import { Checkbox } from '../checkbox'
+import { Table } from './table'
+import { TableBody } from './table-body'
+import { TableChangeView } from './table-change-view'
+import { TableContent } from './table-content'
+import { TableFilter } from './table-filter'
+import { TableFirstPage } from './table-first-page'
+import { TableFooter } from './table-footer'
+import { TableHeader } from './table-header'
+import { TableLastPage } from './table-last-page'
+import { TableNav } from './table-nav'
+import { TableNextPage } from './table-next-page'
+import { TablePagination } from './table-pagination'
+import { TablePreviousPage } from './table-previous-page'
+import { TableResults } from './table-results'
+import { TableRowGrid } from './table-row-grid'
+import { TableRowList } from './table-row-list'
+import { TableSearch } from './table-search'
+import { TableSort } from './table-sort'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
-  title: "Components/Table",
+  title: 'Components/Table',
   component: Table,
   subcomponents: {
     TableBody,
@@ -53,37 +54,37 @@ export default {
   },
   parameters: {
     docs: {
-      subtitle: "A table component for displaying tabular data.",
+      subtitle: 'A table component for displaying tabular data.',
       description: {
         component:
-          "The Table component is used to display data in a structured format with rows and columns. It can be customized with various props to fit different use cases.",
+          'The Table component is used to display data in a structured format with rows and columns. It can be customized with various props to fit different use cases.',
       },
     },
   },
   args: {
-    defaultView: "list",
+    defaultView: 'list',
   },
-} as Meta<typeof Table>;
+} as Meta<typeof Table>
 
-type Story = StoryObj<typeof Table>;
+type Story = StoryObj<typeof Table>
 
 type Person = {
-  firstName: string;
-  lastName: string;
-  age: number;
-  visits: number;
-  progress: number;
-  status: "relationship" | "complicated" | "single";
-  subRows?: Person[];
-};
+  firstName: string
+  lastName: string
+  age: number
+  visits: number
+  progress: number
+  status: 'relationship' | 'complicated' | 'single'
+  subRows?: Person[]
+}
 
 const range = (len: number) => {
-  const arr: number[] = [];
+  const arr: number[] = []
   for (let i = 0; i < len; i++) {
-    arr.push(i);
+    arr.push(i)
   }
-  return arr;
-};
+  return arr
+}
 
 const newPerson = (): Person => {
   return {
@@ -92,147 +93,147 @@ const newPerson = (): Person => {
     age: faker.number.int(40),
     visits: faker.number.int(1000),
     progress: faker.number.int(100),
-    status: faker.helpers.shuffle<Person["status"]>(["relationship", "complicated", "single"])[0]!,
-  };
-};
+    status: faker.helpers.shuffle<Person['status']>(['relationship', 'complicated', 'single'])[0]!,
+  }
+}
 
 function makeData(...lens: number[]) {
   const makeDataLevel = (depth = 0): Person[] => {
-    const len = lens[depth]!;
+    const len = lens[depth]!
     return range(len).map((_d): Person => {
       return {
         ...newPerson(),
         subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
-      };
-    });
-  };
+      }
+    })
+  }
 
-  return makeDataLevel();
+  return makeDataLevel()
 }
 
 export const Basic: Story = {
   render: (args) => {
     const initialData: Person[] = [
       {
-        firstName: "tanner",
-        lastName: "linsley",
+        firstName: 'tanner',
+        lastName: 'linsley',
         age: 24,
         visits: 100,
-        status: "relationship",
+        status: 'relationship',
         progress: 50,
       },
       {
-        firstName: "tandy",
-        lastName: "miller",
+        firstName: 'tandy',
+        lastName: 'miller',
         age: 40,
         visits: 40,
-        status: "single",
+        status: 'single',
         progress: 80,
       },
       {
-        firstName: "joe",
-        lastName: "dirte",
+        firstName: 'joe',
+        lastName: 'dirte',
         age: 45,
         visits: 20,
-        status: "complicated",
+        status: 'complicated',
         progress: 10,
       },
-    ];
+    ]
 
-    const columnHelper = createColumnHelper<Person>();
-    const [data, _setData] = React.useState<Person[]>(initialData);
+    const columnHelper = createColumnHelper<Person>()
+    const [data, _setData] = React.useState<Person[]>(initialData)
 
     const columns = [
-      columnHelper.accessor("firstName", {
-        header: () => "First Name",
+      columnHelper.accessor('firstName', {
+        header: () => 'First Name',
         cell: (info) => info.getValue(),
         footer: (info) => info.column.id,
-        sortingFn: "alphanumeric",
+        sortingFn: 'alphanumeric',
       }),
       columnHelper.accessor((row) => row.lastName, {
-        id: "lastName",
+        id: 'lastName',
         cell: (info) => <i>{info.getValue()}</i>,
         header: () => <span>Last Name</span>,
         footer: (info) => info.column.id,
       }),
-      columnHelper.accessor("age", {
-        header: () => "Age",
+      columnHelper.accessor('age', {
+        header: () => 'Age',
         cell: (info) => info.renderValue(),
         footer: (info) => info.column.id,
       }),
-      columnHelper.accessor("visits", {
+      columnHelper.accessor('visits', {
         header: () => <span>Visits</span>,
         footer: (info) => info.column.id,
       }),
-      columnHelper.accessor("status", {
-        header: "Status",
+      columnHelper.accessor('status', {
+        header: 'Status',
         footer: (info) => info.column.id,
       }),
-      columnHelper.accessor("progress", {
-        header: "Profile Progress",
+      columnHelper.accessor('progress', {
+        header: 'Profile Progress',
         footer: (info) => info.column.id,
         enableSorting: false,
       }),
-    ];
+    ]
 
     const table = useReactTable({
       data,
       columns,
       getCoreRowModel: getCoreRowModel(),
-    });
+    })
     return (
       <Table {...args} table={table}>
         <TableHeader />
         <TableBody />
         <TableFooter />
       </Table>
-    );
+    )
   },
-};
+}
 
 export const HeaderGroups: Story = {
   render: (args) => {
     const data: Person[] = [
       {
-        firstName: "tanner",
-        lastName: "linsley",
+        firstName: 'tanner',
+        lastName: 'linsley',
         age: 24,
         visits: 100,
-        status: "relationship",
+        status: 'relationship',
         progress: 50,
       },
       {
-        firstName: "tandy",
-        lastName: "miller",
+        firstName: 'tandy',
+        lastName: 'miller',
         age: 40,
         visits: 40,
-        status: "single",
+        status: 'single',
         progress: 80,
       },
       {
-        firstName: "joe",
-        lastName: "dirte",
+        firstName: 'joe',
+        lastName: 'dirte',
         age: 45,
         visits: 20,
-        status: "complicated",
+        status: 'complicated',
         progress: 10,
       },
-    ];
+    ]
 
-    const columnHelper = createColumnHelper<Person>();
+    const columnHelper = createColumnHelper<Person>()
 
     const columns = [
       columnHelper.group({
-        id: "hello",
+        id: 'hello',
         header: () => <span>Hello</span>,
         // footer: props => props.column.id,
         columns: [
-          columnHelper.accessor("firstName", {
+          columnHelper.accessor('firstName', {
             cell: (info) => info.getValue(),
             footer: (props) => props.column.id,
           }),
           columnHelper.accessor((row) => row.lastName, {
-            id: "lastName",
+            id: 'lastName',
             cell: (info) => info.getValue(),
             header: () => <span>Last Name</span>,
             footer: (props) => props.column.id,
@@ -240,102 +241,102 @@ export const HeaderGroups: Story = {
         ],
       }),
       columnHelper.group({
-        header: "Info",
+        header: 'Info',
         footer: (props) => props.column.id,
         columns: [
-          columnHelper.accessor("age", {
-            header: () => "Age",
+          columnHelper.accessor('age', {
+            header: () => 'Age',
             footer: (props) => props.column.id,
           }),
           columnHelper.group({
-            header: "More Info",
+            header: 'More Info',
             columns: [
-              columnHelper.accessor("visits", {
+              columnHelper.accessor('visits', {
                 header: () => <span>Visits</span>,
                 footer: (props) => props.column.id,
               }),
-              columnHelper.accessor("status", {
-                header: "Status",
+              columnHelper.accessor('status', {
+                header: 'Status',
                 footer: (props) => props.column.id,
               }),
-              columnHelper.accessor("progress", {
-                header: "Profile Progress",
+              columnHelper.accessor('progress', {
+                header: 'Profile Progress',
                 footer: (props) => props.column.id,
               }),
             ],
           }),
         ],
       }),
-    ];
+    ]
 
     const table = useReactTable({
       data,
       columns,
       getCoreRowModel: getCoreRowModel(),
-    });
+    })
     return (
       <Table {...args} table={table}>
         <TableHeader />
         <TableBody />
         <TableFooter />
       </Table>
-    );
+    )
   },
-};
+}
 
 export const ColumnFilters: Story = {
   render: (_args) => {
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
 
     const columns: ColumnDef<Person, any>[] = [
       {
-        accessorKey: "firstName",
-        header: () => "First Name",
+        accessorKey: 'firstName',
+        header: () => 'First Name',
         cell: (info) => info.getValue(),
       },
       {
         accessorFn: (row) => row.lastName,
-        id: "lastName",
+        id: 'lastName',
         cell: (info) => info.getValue(),
         header: () => <span>Last Name</span>,
       },
       {
         accessorFn: (row) => `${row.firstName} ${row.lastName}`,
-        id: "fullName",
+        id: 'fullName',
         header: () => <span>Full Name</span>,
         cell: (info) => info.getValue(),
       },
       {
-        accessorKey: "age",
-        header: () => "Age",
+        accessorKey: 'age',
+        header: () => 'Age',
         meta: {
-          filterVariant: "range",
+          filterVariant: 'range',
         },
       },
       {
-        accessorKey: "visits",
+        accessorKey: 'visits',
         header: () => <span>Visits</span>,
         meta: {
-          filterVariant: "range",
+          filterVariant: 'range',
         },
       },
       {
-        accessorKey: "status",
-        header: () => "Status",
+        accessorKey: 'status',
+        header: () => 'Status',
         meta: {
-          filterVariant: "select",
+          filterVariant: 'select',
         },
       },
       {
-        accessorKey: "progress",
-        header: () => "Profile Progress",
+        accessorKey: 'progress',
+        header: () => 'Profile Progress',
         meta: {
-          filterVariant: "range",
+          filterVariant: 'range',
         },
       },
-    ];
+    ]
 
-    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000));
+    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000))
 
     const table = useReactTable({
       data,
@@ -352,7 +353,7 @@ export const ColumnFilters: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     return (
       <Table table={table}>
@@ -366,40 +367,40 @@ export const ColumnFilters: Story = {
           <TableLastPage />
         </TablePagination>
       </Table>
-    );
+    )
   },
-};
+}
 
 export const Search: Story = {
   render: (args) => {
     const columns: ColumnDef<Person, any>[] = [
       {
-        accessorKey: "id",
-        filterFn: "equalsString",
+        accessorKey: 'id',
+        filterFn: 'equalsString',
       },
       {
-        accessorKey: "firstName",
+        accessorKey: 'firstName',
         cell: (info) => info.getValue(),
-        filterFn: "includesStringSensitive",
+        filterFn: 'includesStringSensitive',
       },
       {
         accessorFn: (row) => row.lastName,
-        id: "lastName",
+        id: 'lastName',
         cell: (info) => info.getValue(),
         header: () => <span>Last Name</span>,
-        filterFn: "includesString",
+        filterFn: 'includesString',
       },
       {
         accessorFn: (row) => `${row.firstName} ${row.lastName}`,
-        id: "fullName",
-        header: "Full Name",
+        id: 'fullName',
+        header: 'Full Name',
         cell: (info) => info.getValue(),
       },
-    ];
+    ]
 
-    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000));
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000))
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [globalFilter, setGlobalFilter] = React.useState('')
 
     const table = useReactTable({
       data,
@@ -417,7 +418,7 @@ export const Search: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     return (
       <Table {...args} table={table}>
@@ -432,15 +433,15 @@ export const Search: Story = {
           <TableLastPage />
         </TablePagination>
       </Table>
-    );
+    )
   },
-};
+}
 
 export const Select: Story = {
   render: (args) => {
     const columns: ColumnDef<Person, any>[] = [
       {
-        id: "select",
+        id: 'select',
         enableSorting: false,
         enableGlobalFilter: false,
         size: 10,
@@ -461,28 +462,28 @@ export const Select: Story = {
         ),
       },
       {
-        accessorKey: "firstName",
+        accessorKey: 'firstName',
         cell: (info) => info.getValue(),
-        filterFn: "includesStringSensitive",
+        filterFn: 'includesStringSensitive',
       },
       {
         accessorFn: (row) => row.lastName,
-        id: "lastName",
+        id: 'lastName',
         cell: (info) => info.getValue(),
         header: () => <span>Last Name</span>,
-        filterFn: "includesString",
+        filterFn: 'includesString',
       },
       {
         accessorFn: (row) => `${row.firstName} ${row.lastName}`,
-        id: "fullName",
-        header: "Full Name",
+        id: 'fullName',
+        header: 'Full Name',
         cell: (info) => info.getValue(),
       },
-    ];
+    ]
 
-    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000));
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000))
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [globalFilter, setGlobalFilter] = React.useState('')
 
     const table = useReactTable({
       data,
@@ -500,7 +501,7 @@ export const Select: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     return (
       <Table {...args} table={table}>
@@ -509,15 +510,15 @@ export const Select: Story = {
         <TableFooter />
         <p>Selected Rows: {table.getSelectedRowModel().rows.length}</p>
       </Table>
-    );
+    )
   },
-};
+}
 
 export const Pagination: Story = {
   render: (args) => {
     const columns: ColumnDef<Person, any>[] = [
       {
-        id: "select",
+        id: 'select',
         size: 10,
         enableSorting: false,
         enableGlobalFilter: false,
@@ -538,33 +539,33 @@ export const Pagination: Story = {
         ),
       },
       {
-        accessorKey: "firstName",
+        accessorKey: 'firstName',
         cell: (info) => info.getValue(),
-        header: () => "First Name",
-        filterFn: "includesStringSensitive",
+        header: () => 'First Name',
+        filterFn: 'includesStringSensitive',
       },
       {
         accessorFn: (row) => row.lastName,
-        id: "lastName",
+        id: 'lastName',
         cell: (info) => info.getValue(),
         header: () => <span>Last Name</span>,
-        filterFn: "includesString",
+        filterFn: 'includesString',
       },
       {
         accessorFn: (row) => `${row.firstName} ${row.lastName}`,
-        id: "fullName",
-        header: "Full Name",
+        id: 'fullName',
+        header: 'Full Name',
         cell: (info) => info.getValue(),
       },
-    ];
+    ]
 
-    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000));
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000))
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [globalFilter, setGlobalFilter] = React.useState('')
     const [pagination, setPagination] = React.useState<PaginationState>({
       pageIndex: 0,
       pageSize: 15,
-    });
+    })
 
     const table = useReactTable({
       data,
@@ -584,7 +585,7 @@ export const Pagination: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     return (
       <Table {...args} table={table}>
@@ -605,46 +606,46 @@ export const Pagination: Story = {
           <TablePagination />
         </TableNav>
       </Table>
-    );
+    )
   },
-};
+}
 
 export const Grid: Story = {
   args: {
-    defaultView: "grid",
+    defaultView: 'grid',
   },
   render: (args) => {
     type Project = {
-      id: string;
-      name: string;
-      status: "not started" | "in progress" | "completed";
-    };
+      id: string
+      name: string
+      status: 'not started' | 'in progress' | 'completed'
+    }
 
     const columns: ColumnDef<Project, any>[] = [
       {
-        accessorKey: "name",
+        accessorKey: 'name',
         cell: (info) => info.getValue(),
-        filterFn: "includesStringSensitive",
+        filterFn: 'includesStringSensitive',
       },
-    ];
+    ]
 
     const testData: Project[] = Array.from({ length: 1000 }, (_, i) => ({
       id: `project-${i + 1}`,
       name: `Project ${i + 1}`,
-      status: faker.helpers.shuffle<Project["status"]>([
-        "not started",
-        "in progress",
-        "completed",
+      status: faker.helpers.shuffle<Project['status']>([
+        'not started',
+        'in progress',
+        'completed',
       ])[0]!,
-    }));
+    }))
 
-    const [data, _setData] = React.useState<Project[]>(testData);
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [data, _setData] = React.useState<Project[]>(testData)
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [globalFilter, setGlobalFilter] = React.useState('')
     const [pagination, setPagination] = React.useState<PaginationState>({
       pageIndex: 0,
       pageSize: 15,
-    });
+    })
 
     const table = useReactTable({
       data,
@@ -664,7 +665,7 @@ export const Grid: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     return (
       <Table {...args} table={table}>
@@ -684,43 +685,43 @@ export const Grid: Story = {
           </TableResults>
         </TablePagination>
       </Table>
-    );
+    )
   },
-};
+}
 
 export const ChangeView: Story = {
   render: (args) => {
     type Project = {
-      id: string;
-      name: string;
-      status: "not started" | "in progress" | "completed";
-    };
+      id: string
+      name: string
+      status: 'not started' | 'in progress' | 'completed'
+    }
 
     const columns: ColumnDef<Project, any>[] = [
       {
-        accessorKey: "name",
+        accessorKey: 'name',
         cell: (info) => info.getValue(),
-        filterFn: "includesStringSensitive",
+        filterFn: 'includesStringSensitive',
       },
-    ];
+    ]
 
     const testData: Project[] = Array.from({ length: 1000 }, (_, i) => ({
       id: `project-${i + 1}`,
       name: `Project ${i + 1}`,
-      status: faker.helpers.shuffle<Project["status"]>([
-        "not started",
-        "in progress",
-        "completed",
+      status: faker.helpers.shuffle<Project['status']>([
+        'not started',
+        'in progress',
+        'completed',
       ])[0]!,
-    }));
+    }))
 
-    const [data, _setData] = React.useState<Project[]>(testData);
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [data, _setData] = React.useState<Project[]>(testData)
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [globalFilter, setGlobalFilter] = React.useState('')
     const [pagination, setPagination] = React.useState<PaginationState>({
       pageIndex: 0,
       pageSize: 15,
-    });
+    })
 
     const table = useReactTable({
       data,
@@ -740,7 +741,7 @@ export const ChangeView: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     return (
       <Table {...args} table={table}>
@@ -757,43 +758,43 @@ export const ChangeView: Story = {
           </TableResults>
         </TablePagination>
       </Table>
-    );
+    )
   },
-};
+}
 
 export const OverrideDefaultRowUI: Story = {
   render: (args) => {
     type Project = {
-      id: string;
-      name: string;
-      status: "not started" | "in progress" | "completed";
-    };
+      id: string
+      name: string
+      status: 'not started' | 'in progress' | 'completed'
+    }
 
     const columns: ColumnDef<Project, any>[] = [
       {
-        accessorKey: "name",
+        accessorKey: 'name',
         cell: (info) => info.getValue(),
-        filterFn: "includesStringSensitive",
+        filterFn: 'includesStringSensitive',
       },
-    ];
+    ]
 
     const testData: Project[] = Array.from({ length: 1000 }, (_, i) => ({
       id: `project-${i + 1}`,
       name: `Project ${i + 1}`,
-      status: faker.helpers.shuffle<Project["status"]>([
-        "not started",
-        "in progress",
-        "completed",
+      status: faker.helpers.shuffle<Project['status']>([
+        'not started',
+        'in progress',
+        'completed',
       ])[0]!,
-    }));
+    }))
 
-    const [data, _setData] = React.useState<Project[]>(testData);
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [data, _setData] = React.useState<Project[]>(testData)
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [globalFilter, setGlobalFilter] = React.useState('')
     const [pagination, setPagination] = React.useState<PaginationState>({
       pageIndex: 0,
       pageSize: 15,
-    });
+    })
 
     const table = useReactTable({
       data,
@@ -813,29 +814,29 @@ export const OverrideDefaultRowUI: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     const CustomRowList: React.FC<{ row: any }> = ({ row }) => {
       return (
-        <tr style={{ backgroundColor: "darkgreen" }}>
+        <tr style={{ backgroundColor: 'darkgreen' }}>
           <td colSpan={columns.length}>{row.original.name} - Custom List Row</td>
         </tr>
-      );
-    };
+      )
+    }
 
     const CustomRowGrid: React.FC<{ row: any }> = ({ row }) => {
       return (
         <div
           style={{
-            border: "1px solid black",
-            padding: "8px",
-            backgroundColor: "darkgreen",
+            padding: '8px',
+            border: '1px solid black',
+            backgroundColor: 'darkgreen',
           }}
         >
           {row.original.name} - Custom Grid Row
         </div>
-      );
-    };
+      )
+    }
 
     return (
       <Table {...args} table={table}>
@@ -856,15 +857,15 @@ export const OverrideDefaultRowUI: Story = {
           </TableResults>
         </TablePagination>
       </Table>
-    );
+    )
   },
-};
+}
 
 export const HeaderSorting: Story = {
   render: (args) => {
     const columns: ColumnDef<Person, any>[] = [
       {
-        id: "select",
+        id: 'select',
         enableSorting: false,
         enableGlobalFilter: false,
         header: ({ table }) => (
@@ -884,32 +885,32 @@ export const HeaderSorting: Story = {
         ),
       },
       {
-        accessorKey: "firstName",
+        accessorKey: 'firstName',
         cell: (info) => info.getValue(),
-        filterFn: "includesStringSensitive",
+        filterFn: 'includesStringSensitive',
       },
       {
         accessorFn: (row) => row.lastName,
-        id: "lastName",
+        id: 'lastName',
         cell: (info) => info.getValue(),
         header: () => <span>Last Name</span>,
-        filterFn: "includesString",
+        filterFn: 'includesString',
       },
       {
         accessorFn: (row) => `${row.firstName} ${row.lastName}`,
-        id: "fullName",
-        header: "Full Name",
+        id: 'fullName',
+        header: 'Full Name',
         cell: (info) => info.getValue(),
       },
-    ];
+    ]
 
-    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000));
-    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([]);
-    const [globalFilter, setGlobalFilter] = React.useState("");
+    const [data, _setData] = React.useState<Person[]>(() => makeData(5_000))
+    const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+    const [globalFilter, setGlobalFilter] = React.useState('')
     const [pagination, setPagination] = React.useState<PaginationState>({
       pageIndex: 0,
       pageSize: 15,
-    });
+    })
 
     const table = useReactTable({
       data,
@@ -929,7 +930,7 @@ export const HeaderSorting: Story = {
       debugTable: true,
       debugHeaders: true,
       debugColumns: false,
-    });
+    })
 
     return (
       <Table {...args} table={table}>
@@ -948,6 +949,6 @@ export const HeaderSorting: Story = {
           </TableResults>
         </TableNav>
       </Table>
-    );
+    )
   },
-};
+}

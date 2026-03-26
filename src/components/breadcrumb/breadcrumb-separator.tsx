@@ -1,12 +1,13 @@
-import { CaretRightIcon } from "@phosphor-icons/react";
-import { cn } from "@/utils/cn";
-import type { BreadcrumbSeparatorProps } from "./breadcrumb.types";
+import { CaretRightIcon } from '@phosphor-icons/react'
+import { cn } from '@/utils/cn'
+
+import type { BreadcrumbSeparatorProps } from './breadcrumb.types'
 
 export const BreadcrumbSeparator = ({ className, ref, ...props }: BreadcrumbSeparatorProps) => {
   return (
     <div
       className={cn(
-        "flex size-md items-center justify-center text-surface-on-surface-variant [&>svg]:size-xs",
+        'text-surface-on-surface-variant flex size-md items-center justify-center [&>svg]:size-xs',
         className,
       )}
       ref={ref}
@@ -14,5 +15,5 @@ export const BreadcrumbSeparator = ({ className, ref, ...props }: BreadcrumbSepa
     >
       <CaretRightIcon weight="bold" />
     </div>
-  );
-};
+  )
+}

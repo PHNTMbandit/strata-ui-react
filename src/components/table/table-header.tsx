@@ -1,14 +1,15 @@
-import { FunnelSimpleIcon, SortAscendingIcon, SortDescendingIcon } from "@phosphor-icons/react";
-import { flexRender } from "@tanstack/react-table";
-import { cn } from "@/utils/cn";
-import { useTable } from "./table";
-import type { TableHeaderProps } from "./table.types";
+import { FunnelSimpleIcon, SortAscendingIcon, SortDescendingIcon } from '@phosphor-icons/react'
+import { flexRender } from '@tanstack/react-table'
+import { useTable } from './table'
+import { cn } from '@/utils/cn'
+
+import type { TableHeaderProps } from './table.types'
 
 export const TableHeader = ({ className, children, ref, ...props }: TableHeaderProps) => {
-  const { table } = useTable();
+  const { table } = useTable()
 
   return (
-    <thead className={cn("")} ref={ref} {...props}>
+    <thead className={cn('')} ref={ref} {...props}>
       {children}
       {table.getHeaderGroups().map((headerGroup) => (
         <tr className="rounded-xl shadow-xs" key={headerGroup.id}>
@@ -16,9 +17,9 @@ export const TableHeader = ({ className, children, ref, ...props }: TableHeaderP
             return (
               <th
                 className={cn(
-                  "style-text-default-0 h-xl bg-surface-container px-sm text-left transition-colors first:rounded-l-xl last:rounded-r-xl",
-                  header.column.getCanSort() && "hover:cursor-pointer",
-                  header.isPlaceholder && "cursor-default",
+                  'h-xl bg-surface-container px-sm text-left style-text-default-0 transition-colors first:rounded-l-xl last:rounded-r-xl',
+                  header.column.getCanSort() && 'hover:cursor-pointer',
+                  header.isPlaceholder && 'cursor-default',
                   className,
                 )}
                 colSpan={header.colSpan}
@@ -33,8 +34,8 @@ export const TableHeader = ({ className, children, ref, ...props }: TableHeaderP
                 {header.isPlaceholder ? null : (
                   <div
                     className={cn(
-                      "inline-flex items-center justify-center gap-2xs [&>svg]:size-sm",
-                      header.column.getCanSort() && "select-none hover:cursor-pointer",
+                      'inline-flex items-center justify-center gap-2xs [&>svg]:size-sm',
+                      header.column.getCanSort() && 'select-none hover:cursor-pointer',
                     )}
                   >
                     {flexRender(header.column.columnDef.header, header.getContext())}
@@ -46,10 +47,10 @@ export const TableHeader = ({ className, children, ref, ...props }: TableHeaderP
                   </div>
                 )}
               </th>
-            );
+            )
           })}
         </tr>
       ))}
     </thead>
-  );
-};
+  )
+}

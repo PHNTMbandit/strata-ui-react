@@ -1,10 +1,10 @@
-import { cn } from "@/utils/cn";
-import { type RadarPingProps, radarPingVariants } from "./radar-ping.types";
+import { type RadarPingProps, radarPingVariants } from './radar-ping.types'
+import { cn } from '@/utils/cn'
 
 export const RadarPing = ({
   hidePing = false,
-  tone = "brand",
-  size = "medium",
+  tone = 'brand',
+  size = 'medium',
   className,
   children,
   ref,
@@ -22,5 +22,5 @@ export const RadarPing = ({
         {children}
       </span>
     </div>
-  );
-};
+  )
+}

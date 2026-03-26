@@ -1,17 +1,18 @@
-import { Toast as BaseToast } from "@base-ui/react/toast";
-import { cn } from "@/utils/cn";
-import { StackToastItem } from "./stack-toast-item";
-import type { StackToastProps } from "./toast.types";
-import { useToastManager } from "./toast-manager";
+import { Toast as BaseToast } from '@base-ui/react/toast'
+import { StackToastItem } from './stack-toast-item'
+import { useToastManager } from './toast-manager'
+import { cn } from '@/utils/cn'
+
+import type { StackToastProps } from './toast.types'
 
 export const StackToasts = ({ className, ref, ...props }: StackToastProps) => {
-  const { toasts } = useToastManager();
+  const { toasts } = useToastManager()
 
   return (
     <BaseToast.Portal>
       <BaseToast.Viewport
         className={cn(
-          "fixed top-auto right-[1rem] bottom-[1rem] z-10 mx-auto flex w-[250px] sm:right-[2rem] sm:bottom-[2rem] sm:w-[300px]",
+          'fixed top-auto right-[1rem] bottom-[1rem] z-10 mx-auto flex w-[250px] sm:right-[2rem] sm:bottom-[2rem] sm:w-[300px]',
           className,
         )}
         ref={ref}
@@ -22,5 +23,5 @@ export const StackToasts = ({ className, ref, ...props }: StackToastProps) => {
         ))}
       </BaseToast.Viewport>
     </BaseToast.Portal>
-  );
-};
+  )
+}
