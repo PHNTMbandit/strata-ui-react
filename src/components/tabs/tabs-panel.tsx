@@ -1,15 +1,15 @@
-import { Tabs as SwitchTabs } from "@base-ui/react/tabs"
-import { cn } from "@/utils/cn"
-import type { TabsPanelProps } from "./tabs.types"
+import { Tabs as SwitchTabs } from "@base-ui/react/tabs";
+import { cn } from "@/utils/cn";
+import type { TabsPanelProps } from "./tabs.types";
 
 export const TabsPanel = ({ className, ...props }: TabsPanelProps) => {
-	return (
-		<SwitchTabs.Panel
-			className={cn(
-				"relative flex grow items-center justify-start overflow-auto border-outline border-t p-4 p-md",
-				className,
-			)}
-			{...props}
-		/>
-	)
-}
+  return (
+    <SwitchTabs.Panel
+      className={cn(
+        "relative flex grow items-center justify-start overflow-auto border-outline border-t p-4 p-md",
+        className,
+      )}
+      {...props}
+    />
+  );
+};

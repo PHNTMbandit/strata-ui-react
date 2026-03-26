@@ -1,3 +1,3 @@
-import type { ToggleGroup } from "@base-ui/react/toggle-group"
+import type { ToggleGroup } from "@base-ui/react/toggle-group";
 
-export type ToggleGroupProps = React.ComponentProps<typeof ToggleGroup>
+export type ToggleGroupProps = React.ComponentProps<typeof ToggleGroup>;

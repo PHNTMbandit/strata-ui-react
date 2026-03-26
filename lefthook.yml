@@ -8,17 +8,13 @@ prepare-commit-msg:
 
 pre-commit:
   commands:
-    check:
-      run: pnpm lint {staged_files}
-      glob: "*.{js,jsx,ts,tsx,json,jsonc}"
-      stage_fixed: true
+    lint-staged:
+      run: pnpx lint-staged
 
 pre-push:
   commands:
-    check:
-      run: pnpm lint {staged_files}
-      glob: "*.{js,jsx,ts,tsx,json,jsonc}"
-      stage_fixed: true
+    lint-staged:
+      run: pnpx lint-staged
     test:
       run: pnpm test
     build:

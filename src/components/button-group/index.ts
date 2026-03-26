@@ -1,2 +1,2 @@
-export { ButtonGroup } from "./button-group"
-export type { ButtonGroupProps } from "./button-group.types"
+export { ButtonGroup } from "./button-group";
+export type { ButtonGroupProps } from "./button-group.types";

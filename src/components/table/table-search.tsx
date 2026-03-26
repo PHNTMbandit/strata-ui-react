@@ -1,36 +1,31 @@
-import { MagnifyingGlassIcon } from "@phosphor-icons/react"
-import type * as React from "react"
-import { cn } from "@/utils/cn"
-import { Input } from "../input"
-import { useTable } from "./table"
-import type { TableSearchProps } from "./table.types"
+import { MagnifyingGlassIcon } from "@phosphor-icons/react";
+import type * as React from "react";
+import { cn } from "@/utils/cn";
+import { Input } from "../input";
+import { useTable } from "./table";
+import type { TableSearchProps } from "./table.types";
 
-export const TableSearch = ({
-	className,
-	children,
-	ref,
-	...props
-}: TableSearchProps) => {
-	const { table } = useTable()
+export const TableSearch = ({ className, children, ref, ...props }: TableSearchProps) => {
+  const { table } = useTable();
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-		table.setGlobalFilter(String(event.target.value))
-	}
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    table.setGlobalFilter(String(event.target.value));
+  };
 
-	return (
-		<Input
-			className={cn("", className)}
-			leadingIcon={MagnifyingGlassIcon}
-			onChange={handleChange}
-			placeholder={`Search by ${table
-				.getAllColumns()
-				.map((column) => column.id)
-				.join(", ")}`}
-			ref={ref}
-			value={table.getState().globalFilter ?? ""}
-			{...props}
-		>
-			{children}
-		</Input>
-	)
-}
+  return (
+    <Input
+      className={cn("", className)}
+      leadingIcon={MagnifyingGlassIcon}
+      onChange={handleChange}
+      placeholder={`Search by ${table
+        .getAllColumns()
+        .map((column) => column.id)
+        .join(", ")}`}
+      ref={ref}
+      value={table.getState().globalFilter ?? ""}
+      {...props}
+    >
+      {children}
+    </Input>
+  );
+};

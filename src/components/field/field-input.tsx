@@ -1,32 +1,25 @@
-import { cn } from "@/utils/cn"
-import { useFieldContext } from "../form/form-context"
-import { Input } from "../input"
-import type { FieldInputProps } from "./field.types"
+import { cn } from "@/utils/cn";
+import { useFieldContext } from "../form/form-context";
+import { Input } from "../input";
+import type { FieldInputProps } from "./field.types";
 
-export const FieldInput = ({
-	className,
-	children,
-	ref,
-	...props
-}: FieldInputProps) => {
-	const field = useFieldContext<string>()
-	const isInvalid =
-		field.state.meta.isTouched &&
-		field.state.meta.errors.length > 0 &&
-		!field.state.meta.isValid
+export const FieldInput = ({ className, children, ref, ...props }: FieldInputProps) => {
+  const field = useFieldContext<string>();
+  const isInvalid =
+    field.state.meta.isTouched && field.state.meta.errors.length > 0 && !field.state.meta.isValid;
 
-	return (
-		<Input
-			aria-invalid={isInvalid}
-			className={cn("", className, isInvalid && "outline-error")}
-			id={field.name}
-			name={field.name}
-			onChange={(e) => field.handleChange(e.target.value)}
-			ref={ref}
-			value={field.state.value}
-			{...props}
-		>
-			{children}
-		</Input>
-	)
-}
+  return (
+    <Input
+      aria-invalid={isInvalid}
+      className={cn("", className, isInvalid && "outline-error")}
+      id={field.name}
+      name={field.name}
+      onChange={(e) => field.handleChange(e.target.value)}
+      ref={ref}
+      value={field.state.value}
+      {...props}
+    >
+      {children}
+    </Input>
+  );
+};

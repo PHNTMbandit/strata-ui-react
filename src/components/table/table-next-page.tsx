@@ -1,34 +1,29 @@
-import { CaretRightIcon } from "@phosphor-icons/react"
-import { cn } from "@/utils/cn"
-import { Button } from "../button"
-import { useTable } from "./table"
-import type { TableNextPageProps } from "./table.types"
+import { CaretRightIcon } from "@phosphor-icons/react";
+import { cn } from "@/utils/cn";
+import { Button } from "../button";
+import { useTable } from "./table";
+import type { TableNextPageProps } from "./table.types";
 
-export const TableNextPage = ({
-	className,
-	children,
-	ref,
-	...props
-}: TableNextPageProps) => {
-	const { table } = useTable()
+export const TableNextPage = ({ className, children, ref, ...props }: TableNextPageProps) => {
+  const { table } = useTable();
 
-	const handleClick = () => {
-		table.nextPage()
-	}
+  const handleClick = () => {
+    table.nextPage();
+  };
 
-	return (
-		<Button
-			className={cn("shrink-0", className)}
-			disabled={!table.getCanNextPage()}
-			onClick={handleClick}
-			ref={ref}
-			size={"iconMedium"}
-			tone="neutral"
-			variant="ghost"
-			{...props}
-		>
-			{children}
-			<CaretRightIcon weight="bold" />
-		</Button>
-	)
-}
+  return (
+    <Button
+      className={cn("shrink-0", className)}
+      disabled={!table.getCanNextPage()}
+      onClick={handleClick}
+      ref={ref}
+      size={"iconMedium"}
+      tone="neutral"
+      variant="ghost"
+      {...props}
+    >
+      {children}
+      <CaretRightIcon weight="bold" />
+    </Button>
+  );
+};
