@@ -4,7 +4,7 @@ import { cn } from '@/utils/cn'
 
 import type { InputProps } from './input.types'
 
-export const Input = ({ leadingIcon: Icon, children, className, ref, ...props }: InputProps) => {
+export const Input = ({ className, ref, ...props }: InputProps) => {
   const inputRef = useRef<HTMLInputElement>(null)
   const colorPreviewRef = useRef<HTMLDivElement>(null)
   const colorLabelRef = useRef<HTMLParagraphElement>(null)
@@ -25,7 +25,7 @@ export const Input = ({ leadingIcon: Icon, children, className, ref, ...props }:
     return (
       <button
         aria-label="Open color picker"
-        className="elevated-sm text-prose-0 relative h-xl w-[calc(var(--spacing-3xl)+5rem)] items-center rounded-xl bg-surface-container pl-xs outline-2 outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-offset-2 focus-within:outline-brand hover:cursor-pointer hover:not-focus-within:outline-offset-2 hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent"
+        className="relative h-xl w-[calc(var(--spacing-3xl)+5rem)] items-center rounded-xl bg-surface-container pl-xs style-text-prose-0 elevation-xs outline outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-brand-outline hover:cursor-pointer hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 hover:data-[disabled=true]:outline-transparent"
         onClick={() => inputRef.current?.click()}
         type="button"
       >
@@ -46,7 +46,7 @@ export const Input = ({ leadingIcon: Icon, children, className, ref, ...props }:
           value={value}
           {...props}
         />
-        <p className="text-default-0 pl-xl text-left" ref={colorLabelRef}>
+        <p className="pl-xl text-left style-text-default-0" ref={colorLabelRef}>
           {value}
         </p>
       </button>
@@ -54,34 +54,13 @@ export const Input = ({ leadingIcon: Icon, children, className, ref, ...props }:
   }
 
   return (
-    <div
-      aria-disabled={props.disabled}
+    <BaseInput
       className={cn(
-        'group text-prose-0 flex h-xl w-full items-center gap-xs rounded-full bg-surface-container py-sm pr-xs pl-md elevation-sm outline-2 outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-offset-2 focus-within:outline-brand hover:not-focus-within:outline-offset-2 hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent',
+        'flex h-xl w-full items-center gap-xs rounded-xl bg-surface-container p-sm style-text-prose-0 text-ellipsis elevation-xs outline outline-outline-variant transition-all placeholder:opacity-85 focus-within:caret-brand focus-within:outline-brand-outline hover:not-focus-within:outline-outline disabled:cursor-not-allowed data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 hover:data-[disabled=true]:outline-transparent',
         className,
       )}
-      data-disabled={props.disabled}
-    >
-      {Icon && (
-        <div
-          className={cn(
-            'flex items-center justify-center text-on-surface/50 transition-all group-focus-within:text-brand [&>svg]:size-sm',
-          )}
-        >
-          <Icon weight="bold" />
-        </div>
-      )}
-      <BaseInput
-        className={cn(
-          'w-full outline-none',
-          'placeholder:opacity-60',
-          'disabled:cursor-not-allowed disabled:text-on-surface/50',
-          'overflow-ellipsis',
-        )}
-        ref={ref}
-        {...props}
-      />
-      {children}
-    </div>
+      ref={ref}
+      {...props}
+    />
   )
 }

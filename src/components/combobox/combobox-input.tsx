@@ -22,10 +22,10 @@ export const ComboboxInput = ({
       <div className="h-(--input-container-height) py-2xs pr-2xs">
         <BaseCombobox.Input
           className={cn(
-            'h-xl w-full rounded-lg bg-surface-dim px-sm outline-2 outline-brand transition-all hover:outline-outline focus:caret-brand focus:-outline-offset-1 focus:outline-brand data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
+            'h-xl w-full rounded-lg bg-surface-dim px-sm outline-2 outline-brand transition-all hover:outline-outline focus:caret-brand focus:-outline-offset-1 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
             'placeholder:opacity-60',
             'disabled:cursor-not-allowed',
-            'overflow-ellipsis',
+            'text-ellipsis',
             className,
           )}
           id={id}
@@ -40,7 +40,7 @@ export const ComboboxInput = ({
     <div
       aria-disabled={props.disabled}
       className={cn(
-        'group text-prose-0 relative flex min-h-xl flex-col items-center gap-xs rounded-[28px] bg-surface-container p-sm pl-md elevation-sm outline-2 outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-offset-2 focus-within:outline-brand hover:not-focus-within:outline-offset-2 hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent',
+        'group text-prose-0 relative flex min-h-xl flex-col items-center gap-xs rounded-[28px] bg-surface-container p-sm pl-md elevation-sm outline-2 outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-offset-2 focus-within:outline-brand hover:not-focus-within:outline-offset-2 hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 hover:data-[disabled=true]:outline-transparent',
         className,
       )}
       data-disabled={props.disabled}
@@ -72,7 +72,7 @@ export const ComboboxInput = ({
             'w-full outline-none',
             'placeholder:opacity-60',
             'disabled:cursor-not-allowed',
-            'overflow-ellipsis',
+            'text-ellipsis',
             className,
           )}
           id={id}

@@ -11,7 +11,7 @@ export const AlertDialogDescription = ({
 }: AlertDialogDescriptionProps) => {
   return (
     <BaseAlertDialog.Description
-      className={cn('mb-0 style-text-prose-0', className)}
+      className={cn('mb-[0px] style-text-prose-0', className)}
       ref={ref}
       {...props}
     >

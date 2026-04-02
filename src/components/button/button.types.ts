@@ -4,12 +4,12 @@ import type { VariantProps } from 'class-variance-authority'
 import type React from 'react'
 
 export const buttonVariants = cva(
-  'inline-flex items-center justify-center whitespace-nowrap select-none transition-all disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+  'inline-flex items-center justify-center whitespace-nowrap select-none transition-all disabled:pointer-events-none disabled:opacity-50 cursor-pointer active:translate-y-px',
   {
     variants: {
       variant: {
         solid:
-          'transition-colors transition-[border-color] transition-transform transition-opacity active:opacity-90 active:translate-y-px border border-outline-variant',
+          'transition-[border-color] active:opacity-90 border border-outline-variant dark:text-on-surface text-on-surface-inverse',
         ghost: 'active:bg-surface-dim border border-transparent',
       },
       tone: {
@@ -47,13 +47,17 @@ export const buttonVariants = cva(
       },
       {
         variant: 'solid',
-        size: ['large', 'medium', 'iconLarge', 'iconMedium'],
+        size: [
+          'small',
+          'xsmall',
+          'iconSmall',
+          'iconXSmall',
+          'large',
+          'medium',
+          'iconLarge',
+          'iconMedium',
+        ],
         class: 'border-1',
-      },
-      {
-        variant: 'solid',
-        size: ['small', 'xsmall', 'iconSmall', 'iconXSmall'],
-        class: 'border-[0.5px]',
       },
       {
         variant: 'solid',
@@ -83,55 +87,49 @@ export const buttonVariants = cva(
       {
         variant: 'solid',
         tone: 'brand',
-        class:
-          'bg-brand not-active:hover:border-brand-outline text-on-surface-inverse dark:text-on-surface transition-[border-color]',
+        class: 'bg-brand hover:not-active:border-brand-outline',
       },
       {
         variant: 'solid',
         tone: 'accent',
-        class:
-          'bg-accent not-active:hover:border-accent-outline text-on-surface-inverse dark:text-on-surface transition-[border-color]',
+        class: 'bg-accent hover:not-active:border-accent-outline',
       },
       {
         variant: 'solid',
         tone: 'neutral',
-        class: 'bg-surface-bright not-active:hover:border-outline transition-[border-color]',
+        class: 'bg-surface-bright hover:not-active:border-outline',
       },
       {
         variant: 'solid',
         tone: 'error',
-        class:
-          'bg-error not-active:hover:border-error-outline text-on-surface-inverse dark:text-on-surface transition-[border-color]',
+        class: 'bg-error hover:not-active:border-error-outline',
       },
       {
         variant: 'solid',
         tone: 'info',
-        class:
-          'bg-info not-active:hover:border-info-outline text-on-surface-inverse dark:text-on-surface transition-[border-color]',
+        class: 'bg-info hover:not-active:border-info-outline',
       },
       {
         variant: 'solid',
         tone: 'success',
-        class:
-          'bg-success not-active:hover:border-success-outline text-on-surface-inverse dark:text-on-surface transition-[border-color]',
+        class: 'bg-success hover:not-active:border-success-outline',
       },
       {
         variant: 'solid',
         tone: 'warning',
-        class:
-          'bg-warning not-active:hover:border-warning-outline text-on-surface-inverse dark:text-on-surface transition-[border-color]',
+        class: 'bg-warning hover:not-active:border-warning-outline',
       },
       {
         variant: 'ghost',
         tone: 'brand',
         className:
-          'hover:bg-brand-container hover:text-on-brand-container hover:border-brand-outline',
+          'text-brand-on-surface hover:bg-brand-container hover:text-on-brand-container hover:border-brand-outline',
       },
       {
         variant: 'ghost',
         tone: 'accent',
         className:
-          'hover:bg-accent-container hover:text-on-accent-container hover:border-accent-outline',
+          'text-accent-on-surface hover:bg-accent-container hover:text-on-accent-container hover:border-accent-outline',
       },
       {
         variant: 'ghost',
@@ -142,24 +140,25 @@ export const buttonVariants = cva(
         variant: 'ghost',
         tone: 'error',
         className:
-          'hover:bg-error-container hover:text-on-error-container hover:border-error-outline',
+          'text-error-on-surface hover:bg-error-container hover:text-on-error-container hover:border-error-outline',
       },
       {
         variant: 'ghost',
         tone: 'info',
-        className: 'hover:bg-info-container hover:text-on-info-container hover:border-info-outline',
+        className:
+          'text-info-on-surface hover:bg-info-container hover:text-on-info-container hover:border-info-outline',
       },
       {
         variant: 'ghost',
         tone: 'success',
         className:
-          'hover:bg-success-container hover:text-on-success-container hover:border-success-outline',
+          'text-success-on-surface hover:bg-success-container hover:text-on-success-container hover:border-success-outline',
       },
       {
         variant: 'ghost',
         tone: 'warning',
         className:
-          'hover:bg-warning-container hover:text-on-warning-container hover:border-warning-outline',
+          'text-warning-on-surface hover:bg-warning-container hover:text-on-warning-container hover:border-warning-outline',
       },
     ],
   },

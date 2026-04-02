@@ -21,7 +21,7 @@ export const Default: Story = {
 }
 
 export const Circle: Story = {
-  render: () => <Skeleton className="h-[50px] w-[50px] rounded-full" />,
+  render: () => <Skeleton className="size-[50px] rounded-full" />,
 }
 
 export const TextBlock: Story = {

@@ -7,7 +7,7 @@ export const TabsIndicator = ({ className, ...props }: TabsIndicatorProps) => {
   return (
     <SwitchTabs.Indicator
       className={cn(
-        'left-0 bg-primary absolute top-1/2 z-[-1] h-(--active-tab-height) w-(--active-tab-width) translate-x-(--active-tab-left) -translate-y-1/2 shadow-xs transition-all duration-300 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]',
+        'bg-primary absolute top-1/2 left-0 z-[-1] h-(--active-tab-height) w-(--active-tab-width) translate-x-(--active-tab-left) -translate-y-1/2 shadow-xs transition-all duration-300 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]',
         className,
       )}
       {...props}

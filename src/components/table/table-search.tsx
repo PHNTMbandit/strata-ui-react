@@ -1,4 +1,3 @@
-import { MagnifyingGlassIcon } from '@phosphor-icons/react'
 import { Input } from '../input'
 import { useTable } from './table'
 import { cn } from '@/utils/cn'
@@ -16,7 +15,6 @@ export const TableSearch = ({ className, children, ref, ...props }: TableSearchP
   return (
     <Input
       className={cn('', className)}
-      leadingIcon={MagnifyingGlassIcon}
       onChange={handleChange}
       placeholder={`Search by ${table
         .getAllColumns()

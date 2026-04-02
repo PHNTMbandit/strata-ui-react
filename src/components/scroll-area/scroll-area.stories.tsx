@@ -94,7 +94,7 @@ export const Horizontal: Story = {
           <div className="overflow-hidden rounded-md">
             <img
               alt={`${artwork.artist}`}
-              className="aspect-3/4 h-fit w-fit object-cover"
+              className="aspect-3/4 size-fit object-cover"
               height={400}
               src={artwork.art}
               width={300}

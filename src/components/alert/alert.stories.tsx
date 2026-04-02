@@ -41,7 +41,7 @@ export const BrandVariant: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertHeader>
-        <XCircleIcon weight="fill" />
+        <XCircleIcon weight="duotone" />
         Brand Alert
       </AlertHeader>
       <AlertDescription>
@@ -58,7 +58,7 @@ export const AccentVariant: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertHeader>
-        <XCircleIcon weight="fill" />
+        <XCircleIcon weight="duotone" />
         Accent Alert
       </AlertHeader>
       <AlertDescription>This is an accent alert. It provides additional context.</AlertDescription>
@@ -73,7 +73,7 @@ export const NeutralVariant: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertHeader>
-        <XCircleIcon weight="fill" />
+        <XCircleIcon weight="duotone" />
         Neutral Alert
       </AlertHeader>
       <AlertDescription>This is a neutral alert. It conveys general information.</AlertDescription>
@@ -88,7 +88,7 @@ export const ErrorVariant: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertHeader>
-        <XCircleIcon weight="fill" />
+        <XCircleIcon weight="duotone" />
         Error Alert
       </AlertHeader>
       <AlertDescription>This is an error alert. Please take necessary actions.</AlertDescription>
@@ -103,7 +103,7 @@ export const InfoVariant: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertHeader>
-        <XCircleIcon weight="fill" />
+        <XCircleIcon weight="duotone" />
         Info Alert
       </AlertHeader>
       <AlertDescription>This is an info alert. It provides useful information.</AlertDescription>
@@ -118,7 +118,7 @@ export const SuccessVariant: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertHeader>
-        <XCircleIcon weight="fill" />
+        <XCircleIcon weight="duotone" />
         Success Alert
       </AlertHeader>
       <AlertDescription>This is a success alert. Your operation was successful.</AlertDescription>
@@ -133,7 +133,7 @@ export const WarningVariant: Story = {
   render: (args) => (
     <Alert {...args}>
       <AlertHeader>
-        <XCircleIcon weight="fill" />
+        <XCircleIcon weight="duotone" />
         Warning Alert
       </AlertHeader>
       <AlertDescription>This is a warning alert. Please be cautious.</AlertDescription>

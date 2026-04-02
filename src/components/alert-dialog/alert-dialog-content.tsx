@@ -11,7 +11,7 @@ export const AlertDialogContent = ({
   return (
     <div
       className={cn(
-        'flex flex-col items-center gap-2xs border-b border-outline-variant px-sm pb-lg text-center',
+        'flex flex-col items-center gap-2xs border-b border-outline-variant px-md pb-lg text-center',
         className,
       )}
       ref={ref}

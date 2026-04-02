@@ -12,7 +12,7 @@ export const AutocompleteGroupLabel = ({
   return (
     <BaseAutocomplete.GroupLabel
       className={cn(
-        'sticky top-[0px] z-1 mt-[0px] mr-[0px] mb-[0px] ml-[0px] bg-surface-bright px-sm pt-sm pb-3xs style-text-strong--2 text-on-surface-variant uppercase',
+        'sticky top-[0px] z-1 m-[0px] bg-surface-bright px-sm pt-sm pb-3xs style-text-strong--2 text-on-surface-variant uppercase',
         className,
       )}
       ref={ref}

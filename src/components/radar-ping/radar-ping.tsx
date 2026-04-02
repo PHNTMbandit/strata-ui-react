@@ -14,7 +14,7 @@ export const RadarPing = ({
     <div className={cn(radarPingVariants({ tone, size, className }))} ref={ref} {...props}>
       {!hidePing && (
         <span
-          className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
+          className="absolute inline-flex size-full animate-ping rounded-full opacity-75"
           data-radar-ping
         />
       )}

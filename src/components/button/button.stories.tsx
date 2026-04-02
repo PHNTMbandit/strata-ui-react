@@ -25,7 +25,7 @@ export default {
   argTypes: {
     tone: {
       control: 'select',
-      options: ['brand', 'accent', 'neutral', 'error', 'info', 'success', 'warning', 'glass'],
+      options: ['brand', 'accent', 'neutral', 'error', 'info', 'success', 'warning'],
     },
     variant: {
       control: 'radio',
@@ -33,7 +33,18 @@ export default {
     },
     size: {
       control: 'radio',
-      options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+      options: [
+        'xsmall',
+        'small',
+        'medium',
+        'large',
+        'xlarge',
+        'iconXSmall',
+        'iconSmall',
+        'iconMedium',
+        'iconLarge',
+        'iconXLarge',
+      ],
     },
   },
 } satisfies Meta<typeof Button>

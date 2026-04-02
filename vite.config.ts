@@ -2,7 +2,7 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import tailwindCss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { playwright } from '@vitest/browser-playwright'
-import path from 'node:path'
+import path, { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import dts from 'vite-plugin-dts'
 import { defineConfig } from 'vitest/config'
@@ -24,9 +24,9 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-      fileName: (format) => `suwa-ui.${format}.js`,
-      formats: ['es'],
+      entry: resolve(import.meta.dirname, 'src/index.ts'),
+      name: 'SuwaUI',
+      fileName: 'suwa-ui',
     },
     rollupOptions: {
       external: (id) => {

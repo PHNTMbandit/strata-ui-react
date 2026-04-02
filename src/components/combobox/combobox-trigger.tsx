@@ -14,7 +14,7 @@ export const ComboboxTrigger = ({
   return (
     <BaseCombobox.Trigger
       className={cn(
-        'inline-flex h-xl items-center justify-between gap-xl rounded-md bg-surface-bright pr-sm pl-md style-text-default-0 shadow-xs outline-2 outline-transparent transition-all hover:cursor-pointer hover:outline-outline data-popup-open:outline-transparent data-[disabled=true]:hover:outline-transparent',
+        'inline-flex h-xl items-center justify-between gap-xl rounded-md bg-surface-bright pr-sm pl-md style-text-default-0 shadow-xs outline-2 outline-transparent transition-all hover:cursor-pointer hover:outline-outline',
         className,
       )}
       ref={ref}

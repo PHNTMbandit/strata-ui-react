@@ -16,11 +16,11 @@ export const AutocompleteContent = ({
         className={cn('', className)}
         ref={ref}
         {...props}
-        sideOffset={18}
+        sideOffset={6}
       >
         <BaseAutocomplete.Popup
           className={
-            'max-h-[22.5rem] w-[calc(var(--anchor-width)+var(--spacing-xl))] max-w-[calc(var(--available-width))] overflow-hidden rounded-lg border border-outline bg-surface-container shadow-lg outline outline-outline-variant'
+            'max-h-[22.5rem] w-(--anchor-width) max-w-[calc(var(--available-width))] overflow-hidden rounded-lg border border-outline bg-surface-container shadow-lg outline outline-outline-variant'
           }
         >
           <BaseAutocomplete.Empty

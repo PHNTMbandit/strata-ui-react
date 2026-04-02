@@ -3,31 +3,17 @@ import { cn } from '@/utils/cn'
 
 import type { AccordionPanelProps } from './accordion.types'
 
-export const AccordionPanel = ({
-  heading,
-  className,
-  children,
-  ref,
-  ...props
-}: AccordionPanelProps) => {
+export const AccordionPanel = ({ className, children, ref, ...props }: AccordionPanelProps) => {
   return (
     <BaseAccordion.Panel
       className={cn(
-        'overflow-hidden rounded-b-lg',
-        'h-(--accordion-panel-height)',
-        'data-ending-style:h-[0px] data-starting-style:h-[0px]',
-        'transition-all duration-300 ease-out',
+        `h-(--accordion-panel-height) overflow-hidden border-t border-outline transition-all duration-300 ease-out data-ending-style:h-[0px] data-starting-style:h-[0px]`,
         className,
       )}
       ref={ref}
       {...props}
     >
-      <div className="px-sm pb-sm">
-        <div className="space-y-3xs rounded-md px-sm py-sm" data-panel>
-          <h1 className="style-text-strong-0">{heading}</h1>
-          <p className="style-text-prose-0">{children}</p>
-        </div>
-      </div>
+      <div className="px-md py-sm">{children}</div>
     </BaseAccordion.Panel>
   )
 }

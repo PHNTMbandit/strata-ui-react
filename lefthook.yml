@@ -8,11 +8,18 @@ prepare-commit-msg:
 
 pre-commit:
   commands:
+    format:
+      run: pnpm run fmt
+      stage_fixed: true
     lint-staged:
       run: pnpx lint-staged
 
 pre-push:
   commands:
+    format:
+      run: pnpm run fmt
+      stage_fixed: true
+
     lint-staged:
       run: pnpx lint-staged
     test:

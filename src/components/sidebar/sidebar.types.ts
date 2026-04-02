@@ -26,7 +26,7 @@ export type SidebarMenuLinkProps = React.ComponentProps<typeof Button> & {
 }
 
 export const sidebarSubMenuTriggerVariants = cva(
-  'group inline-flex items-center justify-between rounded-xl px-sm text-on-surface transition-[margin,box-shadow,background-color] hover:bg-surface-container hover:shadow-sm hover:cursor-pointer hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-panel-open:bg-surface-dim data-panel-open:text-on-surface data-panel-open:inset-shadow-sm shrink-0',
+  'group inline-flex items-center justify-between rounded-xl px-sm text-on-surface transition-[margin,box-shadow,background-color] hover:bg-surface-container hover:shadow-sm hover:cursor-pointer active:inset-shadow-sm active:bg-surface-dim data-panel-open:bg-surface-dim data-panel-open:inset-shadow-sm shrink-0',
   {
     variants: {
       size: {

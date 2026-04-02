@@ -4,36 +4,24 @@ import { cn } from '@/utils/cn'
 
 import type { AccordionTriggerProps } from './accordion.types'
 
-export const AccordionTrigger = ({
-  title,
-  icon: Icon,
-  subtitle,
-  className,
-  children,
-  ref,
-  ...props
-}: AccordionTriggerProps) => {
+export const AccordionTrigger = ({ className, children, ref, ...props }: AccordionTriggerProps) => {
   return (
-    <BaseAccordion.Trigger
-      className={cn(
-        'peer w-999 flex w-full items-center gap-sm rounded-lg py-xs pr-sm pl-md transition-all group-hover:cursor-pointer data-panel-open:rounded-b-none',
-        className,
-      )}
-      ref={ref}
-      {...props}
-    >
-      {Icon && <Icon className="size-md" data-icon weight="bold" />}
-      <div className="flex flex-col items-start justify-center">
-        <span className="style-text-strong-1 text-on-surface">{title}</span>
-        {subtitle && (
-          <span className="style-text-prose--1 text-on-surface-variant">{subtitle}</span>
+    <BaseAccordion.Header>
+      <BaseAccordion.Trigger
+        data-accordion-trigger
+        className={cn(
+          'group flex h-2xl w-full items-center gap-sm border-b border-outline-variant pr-sm pl-md style-text-strong-1 hover:cursor-pointer [&>svg]:size-md',
+          className,
         )}
-      </div>
-      {children}
-      <CaretDownIcon
-        className="ml-auto size-sm text-on-surface-variant transition-transform group-data-panel-open:rotate-180"
-        weight="bold"
-      />
-    </BaseAccordion.Trigger>
+        ref={ref}
+        {...props}
+      >
+        {children}
+        <CaretDownIcon
+          className="ml-auto size-sm! text-on-surface-variant transition-transform duration-300 group-data-panel-open:rotate-180"
+          weight="bold"
+        />
+      </BaseAccordion.Trigger>
+    </BaseAccordion.Header>
   )
 }

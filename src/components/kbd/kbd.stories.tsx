@@ -1,4 +1,4 @@
-import { CommandIcon, MagnifyingGlassIcon } from '@phosphor-icons/react'
+import { CommandIcon } from '@phosphor-icons/react'
 import { Button } from '../button'
 import { Input } from '../input'
 import { Kbd } from './kbd'
@@ -35,7 +35,7 @@ export const WithButton: Story = {
 
 export const WithInput: Story = {
   render: (args) => (
-    <Input leadingIcon={MagnifyingGlassIcon} placeholder="Search...">
+    <Input placeholder="Search...">
       <Kbd {...args}>
         <p>Cltr + F</p>
       </Kbd>

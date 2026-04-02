@@ -13,7 +13,7 @@ export const NavigationMenuViewport = ({
     <BaseNavigationMenu.Portal>
       <BaseNavigationMenu.Positioner
         className={cn(
-          "data-[side=left]:before:top-0 data-[side=right]:before:top-0 data-[side=bottom]:before:right-0 data-[side=top]:before:right-0 data-[side=left]:before:bottom-0 data-[side=right]:before:bottom-0 data-[side=bottom]:before:left-0 data-[side=top]:before:left-0 h-(--positioner-height) w-fit max-w-(--available-width) transition-[top,left,right,bottom] duration-(--duration) ease-(--easing) before:absolute before:content-[''] data-instant:transition-none data-[side=bottom]:before:top-[-10px] data-[side=bottom]:before:h-2xs data-[side=left]:before:right-[-10px] data-[side=left]:before:w-2xs data-[side=right]:before:left-[-10px] data-[side=right]:before:w-2xs data-[side=top]:before:bottom-[-10px] data-[side=top]:before:h-2xs",
+          "h-(--positioner-height) w-fit max-w-(--available-width) transition-[top,left,right,bottom] duration-(--duration) ease-(--easing) before:absolute before:content-[''] data-instant:transition-none before:data-[side=bottom]:top-[-10px] before:data-[side=bottom]:right-0 before:data-[side=bottom]:left-0 before:data-[side=bottom]:h-2xs before:data-[side=left]:top-0 before:data-[side=left]:right-[-10px] before:data-[side=left]:bottom-0 before:data-[side=left]:w-2xs before:data-[side=right]:top-0 before:data-[side=right]:bottom-0 before:data-[side=right]:left-[-10px] before:data-[side=right]:w-2xs before:data-[side=top]:right-0 before:data-[side=top]:bottom-[-10px] before:data-[side=top]:left-0 before:data-[side=top]:h-2xs",
           className,
         )}
         collisionAvoidance={{ side: 'none' }}

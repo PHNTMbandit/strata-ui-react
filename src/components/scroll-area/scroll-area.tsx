@@ -41,7 +41,7 @@ export const ScrollArea = ({
         )}
         orientation={orientation}
       >
-        <BaseScrollArea.Thumb className={'h-full w-full rounded-full bg-accent shadow-xs'} />
+        <BaseScrollArea.Thumb className={'size-full rounded-full bg-accent shadow-xs'} />
       </BaseScrollArea.Scrollbar>
       <BaseScrollArea.Corner />
     </BaseScrollArea.Root>

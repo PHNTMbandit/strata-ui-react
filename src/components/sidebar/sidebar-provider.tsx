@@ -58,7 +58,7 @@ export const SidebarProvider = ({
     >
       <div
         className={cn(
-          'relative h-full w-full',
+          'relative size-full',
           side === 'left' ? 'flex flex-row' : 'flex flex-row-reverse',
           className,
         )}

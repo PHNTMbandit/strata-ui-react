@@ -11,7 +11,7 @@ export const ResizeableHandle = ({
   return (
     <BaseResizable.Separator
       className={cn(
-        'relative flex w-px items-center justify-center bg-outline after:absolute after:inset-y-[0px] after:left-1/2 after:w-px after:-translate-x-1/2 focus-visible:outline-hidden aria-[orientation=horizontal]:h-px aria-[orientation=horizontal]:w-full aria-[orientation=horizontal]:after:left-[0px] aria-[orientation=horizontal]:after:h-px aria-[orientation=horizontal]:after:w-full aria-[orientation=horizontal]:after:translate-x-[0px] aria-[orientation=horizontal]:after:-translate-y-1/2 [&[aria-orientation=horizontal]>div]:rotate-90',
+        'relative flex w-px items-center justify-center bg-outline after:absolute after:inset-y-[0px] after:left-1/2 after:w-px after:-translate-x-1/2 focus-visible:outline-hidden aria-[orientation=horizontal]:h-px aria-[orientation=horizontal]:w-full after:aria-[orientation=horizontal]:left-[0px] after:aria-[orientation=horizontal]:h-px after:aria-[orientation=horizontal]:w-full after:aria-[orientation=horizontal]:translate-x-[0px] after:aria-[orientation=horizontal]:-translate-y-1/2 [&[aria-orientation=horizontal]>div]:rotate-90',
         className,
       )}
       data-slot="resizable-handle"

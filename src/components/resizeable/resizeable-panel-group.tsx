@@ -6,7 +6,7 @@ import type { ResizeablePanelGroupProps } from './resizeable.types'
 export const ResizeablePanelGroup = ({ className, ...props }: ResizeablePanelGroupProps) => {
   return (
     <BaseResizable.Group
-      className={cn('flex h-full w-full aria-[orientation=vertical]:flex-col', className)}
+      className={cn('flex size-full aria-[orientation=vertical]:flex-col', className)}
       data-slot="resizable-panel-group"
       {...props}
     />

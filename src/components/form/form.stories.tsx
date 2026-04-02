@@ -1,4 +1,4 @@
-import { PasswordIcon, UserIcon, XCircleIcon } from '@phosphor-icons/react'
+import { XCircleIcon } from '@phosphor-icons/react'
 import { Suspense } from 'react'
 import { z } from 'zod'
 import { AlertHeader } from '../alert/alert-header'
@@ -75,7 +75,7 @@ export const FieldInput: Story = {
               {(field) => (
                 <Field>
                   <field.FieldLabel />
-                  <field.FieldInput leadingIcon={UserIcon} placeholder="First Name" />
+                  <field.FieldInput placeholder="First Name" />
                   <field.FieldErrors />
                   <field.FieldDescription>Please enter your first name.</field.FieldDescription>
                 </Field>
@@ -85,7 +85,7 @@ export const FieldInput: Story = {
               {(field) => (
                 <Field>
                   <field.FieldLabel />
-                  <field.FieldInput leadingIcon={UserIcon} placeholder="Last Name" />
+                  <field.FieldInput placeholder="Last Name" />
                   <field.FieldErrors />
                   <field.FieldDescription>Please enter your last name.</field.FieldDescription>
                 </Field>
@@ -95,11 +95,7 @@ export const FieldInput: Story = {
               {(field) => (
                 <Field>
                   <field.FieldLabel />
-                  <field.FieldInput
-                    leadingIcon={PasswordIcon}
-                    placeholder="Password"
-                    type="password"
-                  />
+                  <field.FieldInput placeholder="Password" type="password" />
                   <field.FieldErrors />
                   <field.FieldDescription>
                     Your password must be at least 6 characters.
@@ -122,11 +118,7 @@ export const FieldInput: Story = {
               {(field) => (
                 <Field>
                   <field.FieldLabel />
-                  <field.FieldInput
-                    leadingIcon={PasswordIcon}
-                    placeholder="Confirm Password"
-                    type="password"
-                  />
+                  <field.FieldInput placeholder="Confirm Password" type="password" />
                   <field.FieldErrors />
                   <field.FieldDescription>Please confirm your password.</field.FieldDescription>
                 </Field>
@@ -180,7 +172,7 @@ export const SubmitError: Story = {
             {(field) => (
               <Field>
                 <field.FieldLabel />
-                <field.FieldInput leadingIcon={UserIcon} placeholder="Username" />
+                <field.FieldInput placeholder="Username" />
                 <field.FieldErrors />
               </Field>
             )}
@@ -190,11 +182,7 @@ export const SubmitError: Story = {
             {(field) => (
               <Field>
                 <field.FieldLabel />
-                <field.FieldInput
-                  leadingIcon={PasswordIcon}
-                  placeholder="Password"
-                  type="password"
-                />
+                <field.FieldInput placeholder="Password" type="password" />
                 <field.FieldErrors />
               </Field>
             )}
