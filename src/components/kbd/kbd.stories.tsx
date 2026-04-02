@@ -1,6 +1,5 @@
 import { CommandIcon } from '@phosphor-icons/react'
 import { Button } from '../button'
-import { Input } from '../input'
 import { Kbd } from './kbd'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -30,15 +29,5 @@ export const WithButton: Story = {
         <p>Enter</p>
       </Kbd>
     </Button>
-  ),
-}
-
-export const WithInput: Story = {
-  render: (args) => (
-    <Input placeholder="Search...">
-      <Kbd {...args}>
-        <p>Cltr + F</p>
-      </Kbd>
-    </Input>
   ),
 }
