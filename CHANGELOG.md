@@ -1,3 +1,18 @@
+# [1.0.0-beta.35](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.34...v1.0.0-beta.35) (2026-04-11)
+
+
+### Bug Fixes
+
+* **kbd.stories.tsx:** remove input story ([119c715](https://github.com/PHNTMbandit/suwa-ui/commit/119c715a405770c2ee0e45aba9cd9fb7971a034e))
+* separator missing label ([046dc40](https://github.com/PHNTMbandit/suwa-ui/commit/046dc40ec68f4287e65897b4c676ab4a81e60299))
+
+
+### Features
+
+* redesign many components and change style tokens ([95b5096](https://github.com/PHNTMbandit/suwa-ui/commit/95b509674606fe7f704b95c0f93c5b3618a7138a))
+* redesign of all components ([8116172](https://github.com/PHNTMbandit/suwa-ui/commit/811617296c7dc803d0df63c4e5fe87f5424f07c6))
+* switch formatter and linter from biome to oxc ([f972962](https://github.com/PHNTMbandit/suwa-ui/commit/f9729621a776e6fb62494ea373b9edc98a9f24f9))
+
 # [1.0.0-beta.34](https://github.com/PHNTMbandit/suwa-ui/compare/v1.0.0-beta.33...v1.0.0-beta.34) (2026-03-15)
 
 ### Features
