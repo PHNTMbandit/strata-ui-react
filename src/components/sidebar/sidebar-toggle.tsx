@@ -1,42 +1,35 @@
-import { SidebarSimpleIcon } from "@phosphor-icons/react"
-import { cn } from "@/utils/cn"
-import { Button } from "../button"
-import type { SidebarToggleProps } from "./sidebar.types"
-import { useSidebar } from "./sidebar-provider"
+import { SidebarSimpleIcon } from '@phosphor-icons/react'
+import { Button } from '../button'
+import { useSidebar } from './sidebar-provider'
+import { cn } from '@/utils/cn'
 
-export const SidebarToggle = ({
-	className,
-	children,
-	ref,
-	...props
-}: SidebarToggleProps) => {
-	const { trigger, collapsible } = useSidebar()
+import type { SidebarToggleProps } from './sidebar.types'
 
-	if (collapsible === "none") {
-		return null
-	}
+export const SidebarToggle = ({ className, children, ref, ...props }: SidebarToggleProps) => {
+  const { trigger, collapsible } = useSidebar()
 
-	const handleClick = (e: React.MouseEvent) => {
-		e.stopPropagation()
-		if (trigger) {
-			trigger()
-		}
-	}
+  if (collapsible === 'none') {
+    return null
+  }
 
-	return (
-		<Button
-			className={cn(
-				"shrink-0 border-none hover:bg-surface-container-mid!",
-				className,
-			)}
-			ref={ref}
-			size={"iconMedium"}
-			style="ghost"
-			{...props}
-			onClick={handleClick}
-		>
-			{children}
-			<SidebarSimpleIcon weight="bold" />
-		</Button>
-	)
+  const handleClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (trigger) {
+      trigger()
+    }
+  }
+
+  return (
+    <Button
+      className={cn('shrink-0', className)}
+      ref={ref}
+      size={'iconMedium'}
+      variant="ghost"
+      onClick={handleClick}
+      {...props}
+    >
+      {children}
+      <SidebarSimpleIcon weight="bold" />
+    </Button>
+  )
 }

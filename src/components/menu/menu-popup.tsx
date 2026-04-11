@@ -1,29 +1,25 @@
-import { Menu as BaseMenu } from "@base-ui/react/menu"
-import { cn } from "@/utils/cn"
-import type { MenuPopupProps } from "./menu.types"
+import { Menu as BaseMenu } from '@base-ui/react/menu'
+import { cn } from '@/utils/cn'
 
-export const MenuPopup = ({
-	className,
-	children,
-	ref,
-	...props
-}: MenuPopupProps) => {
-	return (
-		<BaseMenu.Portal>
-			<BaseMenu.Positioner
-				className={cn("outline-none", className)}
-				ref={ref}
-				sideOffset={8}
-				{...props}
-			>
-				<BaseMenu.Popup
-					className={
-						"origin-(--transform-origin) rounded-md bg-surface-container-low p-3xs py-2xs shadow-md outline outline-outline transition-[transform,scale,opacity] data-ending-style:scale-90 data-starting-style:scale-90 data-ending-style:opacity-0 data-starting-style:opacity-0"
-					}
-				>
-					{children}
-				</BaseMenu.Popup>
-			</BaseMenu.Positioner>
-		</BaseMenu.Portal>
-	)
+import type { MenuPopupProps } from './menu.types'
+
+export const MenuPopup = ({ className, children, ref, ...props }: MenuPopupProps) => {
+  return (
+    <BaseMenu.Portal>
+      <BaseMenu.Positioner
+        className={cn('outline-none', className)}
+        ref={ref}
+        sideOffset={8}
+        {...props}
+      >
+        <BaseMenu.Popup
+          className={
+            'w-[calc(100%+var(--spacing-xl))] origin-(--transform-origin) -translate-x-[calc(var(--spacing-xl)/2)] rounded-md bg-surface-bright py-3xs shadow-md outline outline-outline transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0'
+          }
+        >
+          {children}
+        </BaseMenu.Popup>
+      </BaseMenu.Positioner>
+    </BaseMenu.Portal>
+  )
 }

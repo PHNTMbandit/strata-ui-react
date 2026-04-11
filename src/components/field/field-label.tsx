@@ -1,30 +1,20 @@
-import { cn } from "@/utils/cn"
-import { useFieldContext } from "../form/form-context"
-import type { FieldLabelProps } from "./field.types"
+import { useFieldContext } from '../form/form-context'
+import { cn } from '@/utils/cn'
 
-export const FieldLabel = ({
-	className,
-	children,
-	ref,
-	...props
-}: FieldLabelProps) => {
-	const field = useFieldContext()
-	const fieldName = field.name
-		.replace(/([A-Z])/g, " $1")
-		.replace(/^./, (str) => str.toUpperCase())
-	const isInvalid = field.state.meta.errors.length > 0
+import type { FieldLabelProps } from './field.types'
 
-	return (
-		<span
-			className={cn(
-				"style-text-default--1",
-				className,
-				isInvalid && "text-error",
-			)}
-			ref={ref}
-			{...props}
-		>
-			{children ? children : fieldName}
-		</span>
-	)
+export const FieldLabel = ({ className, children, ref, ...props }: FieldLabelProps) => {
+  const field = useFieldContext()
+  const fieldName = field.name.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase())
+  const isInvalid = field.state.meta.errors.length > 0
+
+  return (
+    <span
+      className={cn('style-text-default--1', className, isInvalid && 'text-error')}
+      ref={ref}
+      {...props}
+    >
+      {children ? children : fieldName}
+    </span>
+  )
 }

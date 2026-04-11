@@ -1,17 +1,18 @@
-import { cn } from "@/utils/cn"
-import type { KbdProps } from "./kbd.types"
+import { cn } from '@/utils/cn'
+
+import type { KbdProps } from './kbd.types'
 
 export const Kbd = ({ className, children, ref, ...props }: KbdProps) => {
-	return (
-		<div
-			className={cn(
-				"style-text-prose--2 inline-flex h-md select-none items-center justify-center whitespace-nowrap rounded-full bg-surface-container-lowest px-3xs text-on-surface-variant shadow-xs [&>p]:p-3xs [&>svg]:size-sm",
-				className,
-			)}
-			ref={ref}
-			{...props}
-		>
-			{children}
-		</div>
-	)
+  return (
+    <div
+      className={cn(
+        'inline-flex h-md items-center justify-center rounded-full border border-outline bg-surface-container-2 px-2xs align-middle style-text-default--1 whitespace-nowrap text-on-surface select-none [&:has(svg)]:size-md [&:has(svg)]:p-0 [&>svg]:size-sm',
+        className,
+      )}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </div>
+  )
 }

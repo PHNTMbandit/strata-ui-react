@@ -1,1 +1,1 @@
-export type TextAreaProps = React.ComponentProps<"textarea">
+export type TextAreaProps = React.ComponentProps<'textarea'>

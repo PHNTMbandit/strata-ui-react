@@ -1,47 +1,48 @@
-import { cn } from "@/utils/cn"
-import type { ProgressIndicatorProps } from "./progress.types"
+import { cn } from '@/utils/cn'
+
+import type { ProgressIndicatorProps } from './progress.types'
 
 export const ProgressIndicator = ({
-	title,
-	description,
-	className,
-	children,
-	isActive = false,
-	ref,
-	...props
+  title,
+  description,
+  className,
+  children,
+  isActive = false,
+  ref,
+  ...props
 }: ProgressIndicatorProps & { isCompleted?: boolean }) => {
-	const { isCompleted = false, ...restProps } = props as {
-		isCompleted?: boolean
-	}
-	return (
-		<div className="relative">
-			<div
-				className={cn(
-					"style-text-default--2 flex size-md shrink-0 flex-col items-center justify-center rounded-full bg-surface-container-low text-center text-success transition-colors ease-in-out [&>svg]:size-xs",
-					isActive &&
-						"border border-success-outline bg-success-container text-on-success-container",
-					isCompleted && "bg-success text-on-success shadow-none",
-					className,
-				)}
-				ref={ref}
-				{...restProps}
-			>
-				{children}
-			</div>
-			<div className="absolute top-full left-1/2 w-3xl -translate-x-1/2 translate-y-2xs">
-				{title && (
-					<div className="style-text-strong--2 text-center text-on-surface">
-						{title}
-					</div>
-				)}
-				{description && (
-					<div className="style-text-prose--2 text-center text-on-surface-variant leading-sm">
-						{description}
-					</div>
-				)}
-			</div>
-		</div>
-	)
+  const { isCompleted = false, ...restProps } = props as {
+    isCompleted?: boolean
+  }
+  const stateClassName = isCompleted
+    ? 'border-none bg-accent text-on-accent shadow-none'
+    : isActive
+      ? 'border-accent-outline bg-accent-container text-on-accent-container'
+      : 'bg-surface-container text-accent-on-surface'
+
+  return (
+    <div className="relative">
+      <div
+        className={cn(
+          'flex size-md shrink-0 flex-col items-center justify-center rounded-full border border-outline text-center style-text-default--2 transition-colors ease-in-out [&>svg]:size-xs',
+          stateClassName,
+          className,
+        )}
+        ref={ref}
+        {...restProps}
+      >
+        {children}
+      </div>
+      <div className="absolute top-full left-1/2 w-3xl -translate-x-1/2 translate-y-2xs">
+        {title && <div className="text-center style-text-strong--2 text-on-surface">{title}</div>}
+        {description && (
+          <div className="text-center style-text-prose--2 leading-sm text-on-surface-variant">
+            {description}
+          </div>
+        )}
+      </div>
+    </div>
+  )
 }
 
-ProgressIndicator.displayName = "ProgressIndicator"
+ProgressIndicator.displayName = 'ProgressIndicator'

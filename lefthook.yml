@@ -4,21 +4,24 @@ prepare-commit-msg:
       interactive: true
       run: pnpm run cz --hook
       env:
-        LEFTHOOK: "0"
+        LEFTHOOK: '0'
 
 pre-commit:
   commands:
-    check:
-      run: pnpm lint {staged_files}
-      glob: "*.{js,jsx,ts,tsx,json,jsonc}"
+    format:
+      run: pnpm run fmt
       stage_fixed: true
+    lint-staged:
+      run: pnpx lint-staged
 
 pre-push:
   commands:
-    check:
-      run: pnpm lint {staged_files}
-      glob: "*.{js,jsx,ts,tsx,json,jsonc}"
+    format:
+      run: pnpm run fmt
       stage_fixed: true
+
+    lint-staged:
+      run: pnpx lint-staged
     test:
       run: pnpm test
     build:

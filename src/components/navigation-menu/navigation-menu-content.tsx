@@ -1,23 +1,24 @@
-import { NavigationMenu as BaseNavigationMenu } from "@base-ui/react/navigation-menu"
-import { cn } from "@/utils/cn"
-import type { NavigationMenuContentProps } from "./navigation-menu.types"
+import { NavigationMenu as BaseNavigationMenu } from '@base-ui/react/navigation-menu'
+import { cn } from '@/utils/cn'
+
+import type { NavigationMenuContentProps } from './navigation-menu.types'
 
 export const NavigationMenuContent = ({
-	className,
-	children,
-	ref,
-	...props
+  className,
+  children,
+  ref,
+  ...props
 }: NavigationMenuContentProps) => {
-	return (
-		<BaseNavigationMenu.Content
-			className={cn(
-				"w-fit xs:w-max min-w-[400px] p-md transition-[opacity,transform,translate] duration-(--duration) ease-(--easing) data-ending-style:data-[activation-direction=left]:translate-x-[50%] data-ending-style:data-[activation-direction=right]:translate-x-[-50%] data-starting-style:data-[activation-direction=left]:translate-x-[-50%] data-starting-style:data-[activation-direction=right]:translate-x-[50%] data-ending-style:opacity-0 data-starting-style:opacity-0",
-				className,
-			)}
-			ref={ref}
-			{...props}
-		>
-			{children}
-		</BaseNavigationMenu.Content>
-	)
+  return (
+    <BaseNavigationMenu.Content
+      className={cn(
+        'w-fit min-w-[400px] p-md transition-[opacity,transform,translate] duration-(--duration) ease-(--easing) data-ending-style:opacity-0 data-starting-style:opacity-0 data-ending-style:data-[activation-direction=left]:translate-x-[50%] data-starting-style:data-[activation-direction=left]:translate-x-[-50%] data-ending-style:data-[activation-direction=right]:translate-x-[-50%] data-starting-style:data-[activation-direction=right]:translate-x-[50%]',
+        className,
+      )}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </BaseNavigationMenu.Content>
+  )
 }

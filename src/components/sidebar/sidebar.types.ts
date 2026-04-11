@@ -1,56 +1,21 @@
-import type { Icon } from "@phosphor-icons/react"
-import { cva, type VariantProps } from "class-variance-authority"
-import type { ButtonExtendedProps } from "@/components/button/button.types"
+import type { ButtonProps } from '@/components/button/button.types'
 
-export type SidebarToggleProps = ButtonExtendedProps
-export type SidebarContentProps = React.ComponentProps<"div"> & {
-	hideScrollbar?: boolean
+export type SidebarToggleProps = ButtonProps
+export type SidebarContentProps = React.ComponentProps<'div'>
+export type SidebarGroupContentProps = React.ComponentProps<'div'>
+export type SidebarGroupLabelProps = React.ComponentProps<'span'>
+export type SidebarGroupProps = React.ComponentProps<'div'>
+export type SidebarHeaderProps = Omit<React.ComponentProps<'div'>, 'children'> & {
+  children?: React.ReactNode | ((isExpanded: boolean) => React.ReactNode)
 }
-export type SidebarGroupContentProps = React.ComponentProps<"div">
-export type SidebarGroupLabelProps = React.ComponentProps<"span">
-export type SidebarGroupProps = React.ComponentProps<"div">
-export type SidebarHeaderProps = React.ComponentProps<"div">
-export type SidebarFooterProps = React.ComponentProps<"div">
-export type SidebarMenuProps = React.ComponentProps<"div">
-export type SidebarProps = React.ComponentProps<"div"> & {
-	tone?: "default" | "ghost"
-	width?: string | number
+export type SidebarFooterProps = React.ComponentProps<'div'>
+export type SidebarMenuProps = React.ComponentProps<'div'>
+export type SidebarProps = React.ComponentProps<'div'> & {
+  tone?: 'default' | 'ghost'
+  width?: string | number
 }
 
-export type SidebarMenuButtonProps = React.ComponentProps<"button">
-export type SidebarMenuLinkProps = React.ComponentProps<"div"> &
-	VariantProps<typeof sidebarMenuLinkVariants> & {
-		isActive?: boolean
-		label: string
-		leadingIcon?: Icon
-	}
-
-export const sidebarMenuLinkVariants = cva(
-	"group inline-flex items-center justify-between rounded-xl px-sm text-on-surface transition-[margin,box-shadow,background-color] hover:bg-surface-container-low not-active:hover:shadow-sm hover:cursor-pointer not-active:hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-active:pointer-events-none data-active:text-primary shrink-0",
-	{
-		variants: {
-			size: {
-				full: "w-full h-xl",
-				compact: "size-xl",
-			},
-		},
-		defaultVariants: {
-			size: "full",
-		},
-	},
-)
-
-export const sidebarSubMenuTriggerVariants = cva(
-	"group inline-flex items-center justify-between rounded-xl px-sm text-on-surface transition-[margin,box-shadow,background-color] hover:bg-surface-container-low hover:shadow-sm hover:cursor-pointer hover:text-on-surface active:inset-shadow-sm active:bg-surface-dim data-panel-open:bg-surface-dim data-panel-open:text-on-surface data-panel-open:inset-shadow-sm shrink-0",
-	{
-		variants: {
-			size: {
-				full: "w-full h-xl",
-				compact: "size-xl",
-			},
-		},
-		defaultVariants: {
-			size: "full",
-		},
-	},
-)
+export type SidebarMenuButtonProps = React.ComponentProps<'button'>
+export type SidebarMenuLinkProps = ButtonProps & {
+  isActive?: boolean
+}

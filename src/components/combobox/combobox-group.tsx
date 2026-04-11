@@ -1,20 +1,16 @@
-import { Combobox as BaseCombobox } from "@base-ui/react/combobox"
-import { cn } from "@/utils/cn"
-import type { ComboboxGroupProps } from "./combobox.types"
+import { Combobox as BaseCombobox } from '@base-ui/react/combobox'
+import { cn } from '@/utils/cn'
 
-export const ComboboxGroup = ({
-	className,
-	children,
-	ref,
-	...props
-}: ComboboxGroupProps) => {
-	return (
-		<BaseCombobox.Group
-			className={cn("block pb-3xs", className)}
-			ref={ref}
-			{...props}
-		>
-			{children}
-		</BaseCombobox.Group>
-	)
+import type { ComboboxGroupProps } from './combobox.types'
+
+export const ComboboxGroup = ({ className, children, ref, ...props }: ComboboxGroupProps) => {
+  return (
+    <BaseCombobox.Group
+      className={cn('block border-b-2 border-outline outline outline-outline-variant', className)}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </BaseCombobox.Group>
+  )
 }

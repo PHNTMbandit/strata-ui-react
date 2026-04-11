@@ -1,19 +1,17 @@
-import { Avatar as BaseAvatar } from "@base-ui/react/avatar"
-import { cn } from "@/utils/cn"
-import type { AvatarProps } from "./avatar.types"
+import { Avatar as BaseAvatar } from '@base-ui/react/avatar'
+import { avatarVariants, type AvatarProps } from './avatar.types'
+import { cn } from '@/utils/cn'
 
-export const Avatar = ({ className, children, ref, ...props }: AvatarProps) => {
-	return (
-		<BaseAvatar.Root
-			className={cn(
-				"inline-flex size-xl select-none items-center justify-center overflow-hidden rounded-full bg-surface-container-mid align-middle font-medium shadow-sm",
-				className,
-			)}
-			data-slot="avatar"
-			ref={ref}
-			{...props}
-		>
-			{children}
-		</BaseAvatar.Root>
-	)
+export const Avatar = ({ size = 'medium', className, children, ref, ...props }: AvatarProps) => {
+  return (
+    <BaseAvatar.Root
+      className={cn(avatarVariants({ className, size }))}
+      data-size={size}
+      data-slot="avatar"
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </BaseAvatar.Root>
+  )
 }

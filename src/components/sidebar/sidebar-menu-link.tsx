@@ -1,56 +1,35 @@
-import { cn } from "@/utils/cn"
-import {
-	type SidebarMenuLinkProps,
-	sidebarMenuLinkVariants,
-} from "./sidebar.types"
-import { useSidebar } from "./sidebar-provider"
+import { Button } from '../button'
+import { useSidebar } from './sidebar-provider'
+import { type SidebarMenuLinkProps } from './sidebar.types'
+import { cn } from '@/utils/cn'
 
 export const SidebarMenuLink = ({
-	isActive,
-	size,
-	label,
-	leadingIcon: Icon,
-	className,
-	children,
-	ref,
-	...props
+  isActive,
+  className,
+  children,
+  ref,
+  ...props
 }: SidebarMenuLinkProps) => {
-	const { open, collapsible } = useSidebar()
+  const { open, collapsible } = useSidebar()
+  const showText = collapsible === 'none' || open
 
-	const showText = collapsible === "none" || open
-	const linkSize = showText ? size : "compact"
-
-	return (
-		<div
-			className={cn(
-				sidebarMenuLinkVariants({ size: linkSize, className }),
-				!showText && "mx-auto",
-			)}
-			ref={ref}
-			{...props}
-		>
-			<div
-				className={cn(
-					"flex h-fit w-full items-center gap-xs",
-					isActive && "text-primary",
-				)}
-			>
-				{Icon && <Icon className="shrink-0" weight="bold" />}
-				{showText && (
-					<span
-						className={cn(
-							"style-text-default-0 transition-all duration-200 ease-out",
-							collapsible !== "none" &&
-								open &&
-								"slide-in-from-left-2 fade-in-0 animate-in",
-							size === "compact" && "hidden",
-						)}
-					>
-						{label}
-					</span>
-				)}
-			</div>
-			{showText && children}
-		</div>
-	)
+  return (
+    <Button
+      variant={isActive ? 'solid' : 'ghost'}
+      tone={isActive ? 'brand' : 'neutral'}
+      size={open ? 'medium' : 'iconMedium'}
+      className={cn(
+        'duration-200 ease-out [&>svg]:shrink-0',
+        className,
+        isActive && 'pointer-events-none',
+        !showText && 'mx-auto',
+        !open ? '*:hidden [&>svg]:block' : 'w-full justify-start',
+        collapsible !== 'none' && open && 'animate-in fade-in-0 slide-in-from-left-2',
+      )}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </Button>
+  )
 }

@@ -1,24 +1,24 @@
-export { Sidebar } from "./sidebar"
+export { Sidebar } from './sidebar'
 export type {
-	SidebarContentProps,
-	SidebarFooterProps,
-	SidebarGroupContentProps,
-	SidebarGroupLabelProps,
-	SidebarGroupProps,
-	SidebarHeaderProps,
-	SidebarMenuButtonProps,
-	SidebarMenuLinkProps,
-	SidebarMenuProps,
-	SidebarProps,
-	SidebarToggleProps,
-} from "./sidebar.types"
-export { SidebarContent } from "./sidebar-content"
-export { SidebarFooter } from "./sidebar-footer"
-export { SidebarGroup } from "./sidebar-group"
-export { SidebarGroupContent } from "./sidebar-group-content"
-export { SidebarGroupLabel } from "./sidebar-group-label"
-export { SidebarHeader } from "./sidebar-header"
-export { SidebarMenu } from "./sidebar-menu"
-export { SidebarMenuLink } from "./sidebar-menu-link"
-export { SidebarProvider, useSidebar } from "./sidebar-provider"
-export { SidebarToggle } from "./sidebar-toggle"
+  SidebarContentProps,
+  SidebarFooterProps,
+  SidebarGroupContentProps,
+  SidebarGroupLabelProps,
+  SidebarGroupProps,
+  SidebarHeaderProps,
+  SidebarMenuButtonProps,
+  SidebarMenuLinkProps,
+  SidebarMenuProps,
+  SidebarProps,
+  SidebarToggleProps,
+} from './sidebar.types'
+export { SidebarContent } from './sidebar-content'
+export { SidebarFooter } from './sidebar-footer'
+export { SidebarGroup } from './sidebar-group'
+export { SidebarGroupContent } from './sidebar-group-content'
+export { SidebarGroupLabel } from './sidebar-group-label'
+export { SidebarHeader } from './sidebar-header'
+export { SidebarMenu } from './sidebar-menu'
+export { SidebarMenuLink } from './sidebar-menu-link'
+export { SidebarProvider, useSidebar } from './sidebar-provider'
+export { SidebarToggle } from './sidebar-toggle'

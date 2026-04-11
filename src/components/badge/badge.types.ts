@@ -1,140 +1,109 @@
-import type { VariantProps } from "class-variance-authority"
-import { cva } from "class-variance-authority"
-import type { ComponentProps } from "react"
+import { cva } from 'class-variance-authority'
+
+import type { VariantProps } from 'class-variance-authority'
+import type { ComponentProps } from 'react'
 
 export const badgeVariants = cva(
-	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all rounded-full",
-	{
-		variants: {
-			tone: {
-				primary: "",
-				secondary: "",
-				neutral: "",
-				error: "",
-				success: "",
-				warning: "",
-			},
-			size: {
-				small: "[&>svg]:size-xs style-text-default--2 px-2xs h-md gap-3xs",
-				medium: "[&>svg]:size-sm style-text-default--1 px-xs h-lg gap-2xs",
-				large: "[&>svg]:size-md style-text-default-2 px-sm h-xl gap-xs",
-			},
-			style: {
-				light: "",
-				solid: "",
-				outline: "bg-transparent outline",
-			},
-		},
-		defaultVariants: {
-			size: "medium",
-			style: "light",
-			tone: "neutral",
-		},
-		compoundVariants: [
-			{
-				tone: "primary",
-				style: "light",
-				className:
-					"bg-primary-container text-on-primary-container border border-primary-outline",
-			},
-			{
-				tone: "primary",
-				style: "solid",
-				className: "bg-primary text-on-primary",
-			},
-			{
-				tone: "primary",
-				style: "outline",
-				className: "outline-primary text-primary",
-			},
-			{
-				tone: "secondary",
-				style: "light",
-				className:
-					"bg-secondary-container text-on-secondary-container border border-secondary-outline",
-			},
-			{
-				tone: "secondary",
-				style: "solid",
-				className: "bg-secondary text-on-secondary",
-			},
-			{
-				tone: "secondary",
-				style: "outline",
-				className: "outline-secondary text-secondary",
-			},
-			{
-				tone: "neutral",
-				style: "light",
-				className:
-					"bg-surface-container-low border border-outline text-on-surface",
-			},
-			{
-				tone: "neutral",
-				style: "solid",
-				className: "bg-surface-container-mid text-on-surface",
-			},
-			{
-				tone: "neutral",
-				style: "outline",
-				className: "border border-outline text-on-surface",
-			},
-			{
-				tone: "error",
-				style: "light",
-				className:
-					"bg-error-container text-on-error-container border border-error-outline",
-			},
-			{
-				tone: "error",
-				style: "solid",
-				className: "bg-error text-on-error",
-			},
-			{
-				tone: "error",
-				style: "outline",
-				className: "outline-error text-error",
-			},
-			{
-				tone: "success",
-				style: "light",
-				className:
-					"bg-success-container text-on-success-container border border-success-outline",
-			},
-			{
-				tone: "success",
-				style: "solid",
-				className: "bg-success text-on-success",
-			},
-			{
-				tone: "success",
-				style: "outline",
-				className: "outline-success text-success",
-			},
-			{
-				tone: "warning",
-				style: "light",
-				className:
-					"bg-warning-container text-on-warning-container border border-warning-outline",
-			},
-			{
-				tone: "warning",
-				style: "solid",
-				className: "bg-warning text-on-warning",
-			},
-			{
-				tone: "warning",
-				style: "outline",
-				className: "outline-warning text-warning",
-			},
-		],
-	},
+  'inline-flex items-center justify-center whitespace-nowrap select-none transition-all rounded-full',
+  {
+    variants: {
+      variant: {
+        light: 'outline',
+        solid: '',
+      },
+      tone: {
+        brand: '',
+        accent: '',
+        neutral: '',
+        error: '',
+        info: '',
+        success: '',
+        warning: '',
+      },
+      size: {
+        small: '[&>svg]:size-xs style-text-default--2 px-2xs h-md gap-3xs',
+        medium: '[&>svg]:size-sm style-text-default--1 px-xs h-lg gap-2xs',
+        large: '[&>svg]:size-md style-text-default-2 px-sm h-xl gap-xs',
+      },
+    },
+    defaultVariants: {
+      size: 'medium',
+      variant: 'light',
+      tone: 'neutral',
+    },
+    compoundVariants: [
+      {
+        tone: 'brand',
+        variant: 'light',
+        className: 'bg-brand-container text-on-brand-container outline-brand-outline',
+      },
+      {
+        tone: 'brand',
+        variant: 'solid',
+        className: 'bg-brand text-on-brand',
+      },
+      {
+        tone: 'accent',
+        variant: 'light',
+        className: 'bg-accent-container text-on-accent-container outline-accent-outline',
+      },
+      {
+        tone: 'accent',
+        variant: 'solid',
+        className: 'bg-accent text-on-accent',
+      },
+      {
+        tone: 'neutral',
+        variant: 'light',
+        className: 'bg-surface-container outline-outline text-on-surface',
+      },
+      {
+        tone: 'neutral',
+        variant: 'solid',
+        className: 'bg-surface-container text-on-surface',
+      },
+      {
+        tone: 'error',
+        variant: 'light',
+        className: 'bg-error-container text-on-error-container outline-error-outline',
+      },
+      {
+        tone: 'error',
+        variant: 'solid',
+        className: 'bg-error text-on-error',
+      },
+      {
+        tone: 'info',
+        variant: 'light',
+        className: 'bg-info-container text-on-info-container outline-info-outline',
+      },
+      {
+        tone: 'info',
+        variant: 'solid',
+        className: 'bg-info text-on-info',
+      },
+      {
+        tone: 'success',
+        variant: 'light',
+        className: 'bg-success-container text-on-success-container outline-success-outline',
+      },
+      {
+        tone: 'success',
+        variant: 'solid',
+        className: 'bg-success text-on-success',
+      },
+      {
+        tone: 'warning',
+        variant: 'light',
+        className: 'bg-warning-container text-on-warning-container outline-warning-outline',
+      },
+      {
+        tone: 'warning',
+        variant: 'solid',
+        className: 'bg-warning text-on-warning',
+      },
+    ],
+  },
 )
 
-type BadgeProps = ComponentProps<"div">
-
-export interface BadgeExtendedProps
-	extends Omit<BadgeProps, "style">,
-		VariantProps<typeof badgeVariants> {
-	style?: "light" | "solid" | "outline"
-}
+export type BadgeExtendedProps = ComponentProps<'div'> & VariantProps<typeof badgeVariants>

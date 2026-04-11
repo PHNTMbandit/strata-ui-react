@@ -1,15 +1,11 @@
-import { cn } from "@/utils/cn"
-import type { DialogHeaderProps } from "./dialog.types"
+import { cn } from '@/utils/cn'
 
-export const DialogHeader = ({
-	className,
-	children,
-	ref,
-	...props
-}: DialogHeaderProps) => {
-	return (
-		<div className={cn("px-md", className)} ref={ref} {...props}>
-			{children}
-		</div>
-	)
+import type { DialogHeaderProps } from './dialog.types'
+
+export const DialogHeader = ({ className, children, ref, ...props }: DialogHeaderProps) => {
+  return (
+    <div className={cn('px-md', className)} ref={ref} {...props}>
+      {children}
+    </div>
+  )
 }

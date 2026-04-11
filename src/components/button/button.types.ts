@@ -1,201 +1,172 @@
-import type { VariantProps } from "class-variance-authority"
-import { cva } from "class-variance-authority"
-import type { ComponentProps } from "react"
+import { cva } from 'class-variance-authority'
+
+import type { VariantProps } from 'class-variance-authority'
+import type React from 'react'
 
 export const buttonVariants = cva(
-	"inline-flex items-center justify-center whitespace-nowrap select-none transition-all disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
-	{
-		variants: {
-			tone: {
-				error: "",
-				neutral: "",
-				primary: "",
-				secondary: "",
-				success: "",
-				warning: "",
-			},
-			style: {
-				solid: "not-active:hover:-translate-y-3xs active:text-opacity-50",
-				outline: "active:border-transparent",
-				ghost: "",
-			},
-			size: {
-				large:
-					"h-2xl px-lg style-text-default-1 gap-xs [&>svg]:size-md rounded-2xl",
-				medium:
-					"h-xl px-md style-text-default-0 gap-2xs [&>svg]:size-sm rounded-xl",
-				small:
-					"h-lg px-sm style-text-default--1 gap-3xs [&>svg]:size-xs rounded-lg",
-				iconLarge: "size-2xl p-0 [&>svg]:size-md rounded-2xl",
-				iconMedium: "size-xl p-0 [&>svg]:size-sm rounded-xl",
-				iconSmall: "size-lg p-0 [&>svg]:size-xs rounded-lg",
-			},
-		},
-		defaultVariants: {
-			tone: "primary",
-			style: "solid",
-			size: "medium",
-		},
-		compoundVariants: [
-			{
-				style: "solid",
-				size: ["small", "iconSmall"],
-				className:
-					"not-active:inset-shadow-raised-sm not-active:shadow-sm not-active:hover:shadow-md active:inset-shadow-sm",
-			},
-			{
-				style: "solid",
-				size: ["medium", "iconMedium"],
-				className:
-					"not-active:inset-shadow-raised-md not-active:shadow-md not-active:hover:shadow-lg active:inset-shadow-md",
-			},
-			{
-				style: "solid",
-				size: ["large", "iconLarge"],
-				className:
-					"not-active:inset-shadow-raised-lg not-active:shadow-lg not-active:hover:shadow-xl active:inset-shadow-lg",
-			},
-			{
-				style: "outline",
-				size: ["small", "iconSmall"],
-				className: "border-1",
-			},
-			{
-				style: "outline",
-				size: ["medium", "iconMedium"],
-				className: "border-2",
-			},
-			{
-				style: "outline",
-				size: ["large", "iconLarge"],
-				className: "border-4",
-			},
-			{
-				style: "ghost",
-				size: ["small", "iconSmall"],
-				className:
-					"not-active:hover:bg-surface-bright not-active:hover:inset-shadow-raised-sm not-active:hover:shadow-sm active:bg-surface-dim active:inset-shadow-sm",
-			},
-			{
-				style: "ghost",
-				size: ["medium", "iconMedium"],
-				className:
-					"not-active:hover:bg-surface-bright not-active:hover:inset-shadow-raised-md not-active:hover:shadow-md active:bg-surface-dim active:inset-shadow-md",
-			},
-			{
-				style: "ghost",
-				size: ["large", "iconLarge"],
-				className:
-					"not-active:hover:bg-surface-bright not-active:hover:inset-shadow-raised-lg not-active:hover:shadow-lg active:bg-surface-dim active:inset-shadow-lg",
-			},
-			{
-				tone: "primary",
-				style: "solid",
-				className:
-					"bg-primary text-on-primary active:text-on-primary/70 active:bg-primary-variant",
-			},
-			{
-				tone: "primary",
-				style: "outline",
-				className:
-					"border-primary text-primary hover:text-on-primary-container hover:bg-primary-container active:bg-transparent",
-			},
-			{
-				tone: "primary",
-				style: "ghost",
-				className: "text-primary hover:surface-bright active:bg-surface-dim",
-			},
-			{
-				tone: "secondary",
-				style: "solid",
-				className:
-					"bg-secondary text-on-secondary active:text-on-secondary/70 active:bg-secondary-variant",
-			},
-			{
-				tone: "secondary",
-				style: "outline",
-				className:
-					"border-secondary text-secondary hover:text-on-secondary-container hover:bg-secondary-container active:bg-transparent",
-			},
-			{
-				tone: "secondary",
-				style: "ghost",
-				className: "text-secondary hover:surface-bright active:bg-surface-dim",
-			},
-			{
-				tone: "neutral",
-				style: "solid",
-				className:
-					"bg-surface-container-low text-on-surface active:text-on-surface/70 active:bg-surface-dim",
-			},
-			{
-				tone: "neutral",
-				style: "outline",
-				className:
-					"border-outline text-on-surface hover:text-on-surface hover:bg-surface-container-high active:bg-transparent",
-			},
-			{
-				tone: "neutral",
-				style: "ghost",
-				className: "text-on-surface hover:surface-bright active:bg-surface-dim",
-			},
-			{
-				tone: "error",
-				style: "solid",
-				className:
-					"bg-error text-on-error active:text-on-error/70 active:bg-error-variant",
-			},
-			{
-				tone: "error",
-				style: "outline",
-				className:
-					"border-error text-error hover:text-on-error-container hover:bg-error-container active:bg-transparent",
-			},
-			{
-				tone: "error",
-				style: "ghost",
-				className: "text-error hover:surface-bright active:bg-surface-dim",
-			},
-			{
-				tone: "success",
-				style: "solid",
-				className:
-					"bg-success text-on-success active:text-on-success/70 active:bg-success-variant",
-			},
-			{
-				tone: "success",
-				style: "outline",
-				className:
-					"border-success text-success hover:text-on-success-container hover:bg-success-container active:bg-transparent",
-			},
-			{
-				tone: "success",
-				style: "ghost",
-				className: "text-success hover:surface-bright active:bg-surface-dim",
-			},
-			{
-				tone: "warning",
-				style: "solid",
-				className:
-					"bg-warning text-on-warning active:text-on-warning/70 active:bg-warning-variant",
-			},
-			{
-				tone: "warning",
-				style: "outline",
-				className:
-					"border-warning text-warning hover:text-on-warning-container hover:bg-warning-container active:bg-transparent",
-			},
-			{
-				tone: "warning",
-				style: "ghost",
-				className: "text-warning hover:surface-bright active:bg-surface-dim",
-			},
-		],
-	},
+  'inline-flex items-center justify-center whitespace-nowrap select-none transition-all disabled:pointer-events-none disabled:opacity-50 cursor-pointer active:translate-y-px',
+  {
+    variants: {
+      variant: {
+        solid:
+          'transition-[border-color] active:opacity-90 border border-outline-variant dark:text-on-surface text-on-surface-inverse',
+        ghost: 'active:bg-surface-dim border border-transparent',
+        light: '',
+      },
+      tone: {
+        brand: '',
+        accent: '',
+        neutral: '',
+        error: '',
+        info: '',
+        success: '',
+        warning: '',
+      },
+      size: {
+        xlarge: 'h-3xl px-xl style-text-default-3 gap-md [&>svg]:size-lg rounded-3xl',
+        large: 'h-2xl px-lg style-text-default-1 gap-sm [&>svg]:size-md rounded-2xl',
+        medium: 'h-xl px-md style-text-default-0 gap-xs [&>svg]:size-sm rounded-xl',
+        small: 'h-lg px-sm style-text-default--1 gap-2xs [&>svg]:size-xs rounded-lg',
+        xsmall: 'h-md px-2xs style-text-default--2 gap-3xs [&>svg]:size-xs rounded-md',
+        iconXLarge: 'size-3xl [&>svg]:size-lg rounded-3xl',
+        iconLarge: 'size-2xl [&>svg]:size-md rounded-2xl',
+        iconMedium: 'size-xl [&>svg]:size-sm rounded-xl',
+        iconSmall: 'size-lg [&>svg]:size-xs rounded-lg',
+        iconXSmall: 'size-md [&>svg]:size-xs rounded-md',
+      },
+      shape: {
+        circle: 'rounded-full',
+        rounded: '',
+      },
+    },
+    defaultVariants: {
+      variant: 'solid',
+      tone: 'brand',
+      size: 'medium',
+    },
+    compoundVariants: [
+      {
+        variant: 'solid',
+        size: ['xlarge', 'iconLarge'],
+        class: 'border-2',
+      },
+      {
+        variant: 'solid',
+        size: [
+          'small',
+          'xsmall',
+          'iconSmall',
+          'iconXSmall',
+          'large',
+          'medium',
+          'iconLarge',
+          'iconMedium',
+        ],
+        class: 'border-1',
+      },
+      {
+        variant: 'solid',
+        size: ['xlarge', 'iconXLarge'],
+        className: 'elevation-xl',
+      },
+      {
+        variant: 'solid',
+        size: ['large', 'iconLarge'],
+        className: 'elevation-lg',
+      },
+      {
+        variant: 'solid',
+        size: ['medium', 'iconMedium'],
+        className: 'elevation-md',
+      },
+      {
+        variant: 'solid',
+        size: ['small', 'iconSmall'],
+        className: 'elevation-sm',
+      },
+      {
+        variant: 'solid',
+        size: ['xsmall', 'iconXSmall'],
+        className: 'elevation-xs',
+      },
+      {
+        variant: 'solid',
+        tone: 'brand',
+        class: 'bg-brand hover:not-active:border-brand-outline',
+      },
+      {
+        variant: 'solid',
+        tone: 'accent',
+        class: 'bg-accent hover:not-active:border-accent-outline',
+      },
+      {
+        variant: 'solid',
+        tone: 'neutral',
+        class: 'bg-surface-container-2 hover:not-active:border-outline text-on-surface',
+      },
+      {
+        variant: 'solid',
+        tone: 'error',
+        class: 'bg-error hover:not-active:border-error-outline',
+      },
+      {
+        variant: 'solid',
+        tone: 'info',
+        class: 'bg-info hover:not-active:border-info-outline',
+      },
+      {
+        variant: 'solid',
+        tone: 'success',
+        class: 'bg-success hover:not-active:border-success-outline',
+      },
+      {
+        variant: 'solid',
+        tone: 'warning',
+        class: 'bg-warning hover:not-active:border-warning-outline',
+      },
+      {
+        variant: 'ghost',
+        tone: 'brand',
+        className:
+          'text-brand-on-surface hover:bg-brand-container hover:text-on-brand-container hover:border-brand-outline',
+      },
+      {
+        variant: 'ghost',
+        tone: 'accent',
+        className:
+          'text-accent-on-surface hover:bg-accent-container hover:text-on-accent-container hover:border-accent-outline',
+      },
+      {
+        variant: 'ghost',
+        tone: 'neutral',
+        className: 'hover:bg-surface-container-2 hover:text-on-surface hover:border-outline',
+      },
+      {
+        variant: 'ghost',
+        tone: 'error',
+        className:
+          'text-error-on-surface hover:bg-error-container hover:text-on-error-container hover:border-error-outline',
+      },
+      {
+        variant: 'ghost',
+        tone: 'info',
+        className:
+          'text-info-on-surface hover:bg-info-container hover:text-on-info-container hover:border-info-outline',
+      },
+      {
+        variant: 'ghost',
+        tone: 'success',
+        className:
+          'text-success-on-surface hover:bg-success-container hover:text-on-success-container hover:border-success-outline',
+      },
+      {
+        variant: 'ghost',
+        tone: 'warning',
+        className:
+          'text-warning-on-surface hover:bg-warning-container hover:text-on-warning-container hover:border-warning-outline',
+      },
+    ],
+  },
 )
 
-export interface ButtonExtendedProps
-	extends Omit<ComponentProps<"button">, "style">,
-		VariantProps<typeof buttonVariants> {
-	style?: "solid" | "outline" | "ghost"
-}
+export type ButtonProps = React.ComponentProps<'button'> & VariantProps<typeof buttonVariants>

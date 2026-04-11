@@ -1,23 +1,16 @@
-import { Select as BaseSelect } from "@base-ui/react/select"
-import { cn } from "@/utils/cn"
-import type { SelectValueProps } from "./select.types"
+import { Select as BaseSelect } from '@base-ui/react/select'
+import { cn } from '@/utils/cn'
 
-export const SelectValue = ({
-	className,
-	children,
-	ref,
-	...props
-}: SelectValueProps) => {
-	return (
-		<BaseSelect.Value
-			className={cn(
-				"style-text-default-0 data-placeholder:opacity-70",
-				className,
-			)}
-			ref={ref}
-			{...props}
-		>
-			{children}
-		</BaseSelect.Value>
-	)
+import type { SelectValueProps } from './select.types'
+
+export const SelectValue = ({ className, children, ref, ...props }: SelectValueProps) => {
+  return (
+    <BaseSelect.Value
+      className={cn('style-text-default-0 data-placeholder:opacity-70', className)}
+      ref={ref}
+      {...props}
+    >
+      {children}
+    </BaseSelect.Value>
+  )
 }

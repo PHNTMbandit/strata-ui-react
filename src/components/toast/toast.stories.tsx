@@ -1,239 +1,193 @@
-import type { Meta, StoryObj } from "@storybook/react-vite"
-import { expect, within } from "storybook/test"
-import { cn } from "@/utils/cn"
-import { Button } from "../button"
-import { Toast } from "./toast"
-import { useToastManager } from "./toast-manager"
-import { ToastProvider } from "./toast-provider"
+import React from 'react'
+import { anchoredToastManager, stackToastManager } from '.'
+import { Button } from '../button'
+import { AnchoredToasts } from './anchored-toasts'
+import { StackToasts } from './stack-toasts'
+import { ToastProvider } from './toast-provider'
+import { cn } from '@/utils/cn'
 
-const TestButton = ({
-	tone,
-	className,
-	children,
-	ref,
-	...props
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const StackButton = ({
+  tone,
+  className,
+  children,
+  ref,
+  ...props
 }: React.ComponentProps<typeof Button> & {
-	tone?: "primary" | "secondary" | "neutral" | "success" | "error" | "warning"
+  tone?: 'brand' | 'accent' | 'neutral' | 'info' | 'success' | 'error' | 'warning'
 }) => {
-	const toast = useToastManager()
+  return (
+    <Button
+      className={cn('', className)}
+      ref={ref}
+      tone={tone}
+      {...props}
+      onClick={() => {
+        const id = stackToastManager.add({
+          title: 'Notification',
+          description: 'This is a sample toast notification. It will disappear after 10 seconds.',
+          variant: tone,
+          actionProps: {
+            children: 'Undo',
+            onClick() {
+              stackToastManager.close(id)
+              stackToastManager.add({
+                title: 'Action Undone',
+                description: 'The previous action has been undone.',
+                variant: tone,
+              })
+            },
+          },
+        })
+      }}
+    >
+      {children}
+    </Button>
+  )
+}
 
-	return (
-		<Button
-			className={cn("", className)}
-			ref={ref}
-			tone={tone}
-			{...props}
-			onClick={() => {
-				toast.add({
-					title: "Notification",
-					description: "This is a sample toast notification.",
-					variant: tone,
-				})
-			}}
-		>
-			{children}
-		</Button>
-	)
+const AnchoredButton = ({
+  tone,
+  className,
+  children,
+  ...props
+}: React.ComponentProps<typeof Button> & {
+  tone?: 'brand' | 'accent' | 'neutral' | 'info' | 'success' | 'error' | 'warning'
+}) => {
+  const [showingToast, setShowingToast] = React.useState(false)
+  const buttonRef = React.useRef<HTMLButtonElement | null>(null)
+
+  return (
+    <Button
+      className={cn('', className)}
+      disabled={showingToast}
+      ref={buttonRef}
+      tone={tone}
+      {...props}
+      onClick={() => {
+        setShowingToast(true)
+
+        anchoredToastManager.add({
+          title: 'Notification',
+          description: 'This is a sample toast notification.',
+          variant: tone,
+          positionerProps: {
+            anchor: buttonRef.current,
+            sideOffset: 8,
+          },
+          timeout: 5000,
+          onClose() {
+            setShowingToast(false)
+          },
+        })
+      }}
+    >
+      {children}
+    </Button>
+  )
 }
 
 export default {
-	title: "Components/Toast",
-	component: Toast,
-	subcomponents: { ToastProvider },
-	parameters: {
-		docs: {
-			subtitle: "A component for displaying brief messages to users",
-			description: {
-				component:
-					"The Toast component is used to show transient notifications to users. It typically appears at the bottom or top of the screen and automatically disappears after a short duration. This component is useful for providing feedback on user actions, such as form submissions or system alerts.",
-			},
-		},
-	},
-	args: {
-		position: "bottom-center",
-	},
-	argTypes: {
-		position: {
-			control: "select",
-			options: [
-				"top-left",
-				"top-center",
-				"top-right",
-				"bottom-left",
-				"bottom-center",
-				"bottom-right",
-			],
-		},
-	},
-} satisfies Meta<typeof Toast>
+  title: 'Components/Toast',
+  component: ToastProvider,
+  subcomponents: { StackToasts, AnchoredToasts },
+  parameters: {
+    docs: {
+      subtitle: 'A component for displaying brief messages to users',
+      description: {
+        component:
+          'The Toast component is used to show transient notifications to users. It typically appears at the bottom or top of the screen and automatically disappears after a short duration. This component is useful for providing feedback on user actions, such as form submissions or system alerts.',
+      },
+    },
+  },
+} satisfies Meta<typeof ToastProvider>
 
-type Story = StoryObj<typeof Toast>
+type Story = StoryObj<typeof ToastProvider>
 
-export const Primary: Story = {
-	args: {
-		position: "top-left",
-	},
-	render: (args) => {
-		return (
-			<ToastProvider position={args.position}>
-				<TestButton tone={"primary"}>Click here</TestButton>
-			</ToastProvider>
-		)
-	},
-	play: async ({ userEvent, canvasElement, step }) => {
-		const canvas = within(canvasElement)
-		const body = within(document.body)
-
-		await step("Check if toast uses variant tone", async () => {
-			const button = canvas.getByRole("button", { name: "Click here" })
-			await userEvent.click(button)
-
-			const toast = await body.findByRole("dialog")
-			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass(
-				"bg-primary-container",
-				"text-on-primary-container",
-			)
-		})
-	},
+export const Brand: Story = {
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <StackButton tone={'brand'}>Click here</StackButton>
+      </ToastProvider>
+    )
+  },
 }
 
-export const Secondary: Story = {
-	args: {
-		position: "top-center",
-	},
-	render: (args) => {
-		return (
-			<ToastProvider position={args.position}>
-				<TestButton tone={"secondary"}>Click here</TestButton>
-			</ToastProvider>
-		)
-	},
-	play: async ({ userEvent, canvasElement, step }) => {
-		const canvas = within(canvasElement)
-		const body = within(document.body)
-
-		await step("Check if toast uses variant tone", async () => {
-			const button = canvas.getByRole("button", { name: "Click here" })
-			await userEvent.click(button)
-
-			const toast = await body.findByRole("dialog")
-			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass(
-				"bg-secondary-container",
-				"text-on-secondary-container",
-			)
-		})
-	},
+export const Accent: Story = {
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <StackButton tone={'accent'}>Click here</StackButton>
+      </ToastProvider>
+    )
+  },
 }
 
 export const Neutral: Story = {
-	args: {
-		position: "bottom-left",
-	},
-	render: (args) => {
-		return (
-			<ToastProvider position={args.position}>
-				<TestButton tone={"neutral"}>Click here</TestButton>
-			</ToastProvider>
-		)
-	},
-	play: async ({ userEvent, canvasElement, step }) => {
-		const canvas = within(canvasElement)
-		const body = within(document.body)
-
-		await step("Check if toast uses variant tone", async () => {
-			const button = canvas.getByRole("button", { name: "Click here" })
-			await userEvent.click(button)
-
-			const toast = await body.findByRole("dialog")
-			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass("bg-surface-container-low", "text-on-surface")
-		})
-	},
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <StackButton tone={'neutral'}>Click here</StackButton>
+      </ToastProvider>
+    )
+  },
 }
 
 // biome-ignore lint/suspicious/noShadowRestrictedNames: This is a story name
 export const Error: Story = {
-	args: {
-		position: "bottom-right",
-	},
-	render: (args) => {
-		return (
-			<ToastProvider position={args.position}>
-				<TestButton tone={"error"}>Click here</TestButton>
-			</ToastProvider>
-		)
-	},
-	play: async ({ userEvent, canvasElement, step }) => {
-		const canvas = within(canvasElement)
-		const body = within(document.body)
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <StackButton tone={'error'}>Click here</StackButton>
+      </ToastProvider>
+    )
+  },
+}
 
-		await step("Check if toast uses variant tone", async () => {
-			const button = canvas.getByRole("button", { name: "Click here" })
-			await userEvent.click(button)
-
-			const toast = await body.findByRole("dialog")
-			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass("bg-error-container", "text-on-error-container")
-		})
-	},
+export const Info: Story = {
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <StackButton tone={'info'}>Click here</StackButton>
+      </ToastProvider>
+    )
+  },
 }
 
 export const Success: Story = {
-	args: {
-		position: "bottom-center",
-	},
-	render: (args) => {
-		return (
-			<ToastProvider position={args.position}>
-				<TestButton tone={"success"}>Click here</TestButton>
-			</ToastProvider>
-		)
-	},
-	play: async ({ userEvent, canvasElement, step }) => {
-		const canvas = within(canvasElement)
-		const body = within(document.body)
-
-		await step("Check if toast uses variant tone", async () => {
-			const button = canvas.getByRole("button", { name: "Click here" })
-			await userEvent.click(button)
-
-			const toast = await body.findByRole("dialog")
-			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass(
-				"bg-success-container",
-				"text-on-success-container",
-			)
-		})
-	},
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <StackButton tone={'success'}>Click here</StackButton>
+      </ToastProvider>
+    )
+  },
 }
 
 export const Warning: Story = {
-	args: {
-		position: "bottom-center",
-	},
-	render: (args) => {
-		return (
-			<ToastProvider position={args.position}>
-				<TestButton tone={"warning"}>Click here</TestButton>
-			</ToastProvider>
-		)
-	},
-	play: async ({ userEvent, canvasElement, step }) => {
-		const canvas = within(canvasElement)
-		const body = within(document.body)
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <StackButton tone={'warning'}>Click here</StackButton>
+      </ToastProvider>
+    )
+  },
+}
 
-		await step("Check if toast uses variant tone", async () => {
-			const button = canvas.getByRole("button", { name: "Click here" })
-			await userEvent.click(button)
+export const AnchoredToast: Story = {
+  render: (args) => {
+    return (
+      <ToastProvider {...args}>
+        <AnchoredButton tone={'brand'}>Click here</AnchoredButton>
+      </ToastProvider>
+    )
+  },
+}
 
-			const toast = await body.findByRole("dialog")
-			expect(toast).toBeInTheDocument()
-			expect(toast).toHaveClass(
-				"bg-warning-container",
-				"text-on-warning-container",
-			)
-		})
-	},
+export const Action: Story = {
+  render: (args) => {
+    return <ToastProvider {...args}></ToastProvider>
+  },
 }

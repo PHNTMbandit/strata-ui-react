@@ -1,29 +1,20 @@
-import { Combobox as BaseCombobox } from "@base-ui/react/combobox"
-import { cn } from "@/utils/cn"
-import type { ComboboxPopupProps } from "./combobox.types"
+import { Combobox as BaseCombobox } from '@base-ui/react/combobox'
+import { cn } from '@/utils/cn'
 
-export const ComboboxPopup = ({
-	className,
-	children,
-	ref,
-	...props
-}: ComboboxPopupProps) => {
-	return (
-		<BaseCombobox.Portal>
-			<BaseCombobox.Positioner
-				className={cn("", className)}
-				ref={ref}
-				sideOffset={24}
-				{...props}
-			>
-				<BaseCombobox.Popup
-					className={
-						"max-h-[23rem] w-[calc(var(--anchor-width)+var(--spacing-lg))] max-w-(--available-width) origin-(--transform-origin) rounded-md bg-surface-container-low pl-2xs shadow-md outline outline-outline transition-[transform,scale,opacity] duration-100 [--input-container-height:4rem] data-ending-style:scale-95 data-starting-style:scale-95 data-ending-style:opacity-0 data-starting-style:opacity-0"
-					}
-				>
-					{children}
-				</BaseCombobox.Popup>
-			</BaseCombobox.Positioner>
-		</BaseCombobox.Portal>
-	)
+import type { ComboboxPopupProps } from './combobox.types'
+
+export const ComboboxPopup = ({ className, children, ref, ...props }: ComboboxPopupProps) => {
+  return (
+    <BaseCombobox.Portal>
+      <BaseCombobox.Positioner className={cn('', className)} ref={ref} sideOffset={16} {...props}>
+        <BaseCombobox.Popup
+          className={
+            'max-h-[23rem] w-[calc(var(--anchor-width)+var(--spacing-md))] max-w-[calc(var(--available-width))] origin-(--transform-origin) overflow-hidden rounded-xl bg-surface-bright shadow-md outline outline-outline transition-[transform,scale,opacity] duration-100 [--input-container-height:4rem] data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0'
+          }
+        >
+          {children}
+        </BaseCombobox.Popup>
+      </BaseCombobox.Positioner>
+    </BaseCombobox.Portal>
+  )
 }
