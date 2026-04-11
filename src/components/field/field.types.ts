@@ -4,7 +4,7 @@ import type { Select } from '../select'
 import type { Slider } from '../slider'
 
 export type FieldDescriptionProps = React.ComponentProps<'p'>
-export type FieldErrorProps = React.ComponentProps<'ul'>
+export type FieldErrorsProps = React.ComponentProps<'ul'>
 export type FieldInputGroupProps = React.ComponentProps<typeof InputGroup>
 export type FieldInputGroupInputProps = React.ComponentProps<typeof InputGroupInput>
 export type FieldInputProps = React.ComponentProps<typeof Input>

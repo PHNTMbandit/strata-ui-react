@@ -18,7 +18,7 @@ export default {
     label: '',
     tone: 'default',
     orientation: 'horizontal',
-    thickness: 'medium',
+    weight: 'medium',
   },
   argTypes: {
     tone: {
@@ -29,7 +29,7 @@ export default {
       control: 'radio',
       options: ['horizontal', 'vertical'],
     },
-    thickness: {
+    weight: {
       control: 'radio',
       options: ['thick', 'medium', 'thin'],
     },
@@ -74,18 +74,18 @@ export const Vertical: Story = {
 
 export const Thin: Story = {
   args: {
-    thickness: 'thin',
+    weight: 'thin',
   },
 }
 
 export const Medium: Story = {
   args: {
-    thickness: 'medium',
+    weight: 'medium',
   },
 }
 
 export const Thick: Story = {
   args: {
-    thickness: 'thick',
+    weight: 'thick',
   },
 }

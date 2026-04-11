@@ -74,5 +74,7 @@ export const separatorVariants = cva('shrink-0 rounded-full bg-outline', {
   ],
 })
 
-export type SeparatorProps = Omit<React.ComponentProps<typeof BaseSeparator>, 'style'> &
-  VariantProps<typeof separatorVariants>
+export type SeparatorProps = React.ComponentProps<typeof BaseSeparator> &
+  VariantProps<typeof separatorVariants> & {
+    label?: React.ReactNode
+  }
