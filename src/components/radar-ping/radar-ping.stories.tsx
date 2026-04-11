@@ -65,7 +65,7 @@ export const Neutral: Story = {
   },
 }
 
-export const ErrorTone: Story = {
+export const Error: Story = {
   args: {
     tone: 'error',
   },
@@ -130,7 +130,7 @@ export const NotificationAmountMedium: Story = {
       <Button size={'medium'} tone="neutral">
         New Notifications
       </Button>
-      <RadarPing {...args}>12</RadarPing>
+      <RadarPing {...args}>1</RadarPing>
     </div>
   ),
 }
@@ -144,7 +144,7 @@ export const NotificationAmountLarge: Story = {
       <Button size={'large'} tone="neutral">
         New Notifications
       </Button>
-      <RadarPing {...args}>99</RadarPing>
+      <RadarPing {...args}>9</RadarPing>
     </div>
   ),
 }

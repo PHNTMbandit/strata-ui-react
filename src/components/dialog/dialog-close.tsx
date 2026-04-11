@@ -1,5 +1,6 @@
 import { Dialog as BaseDialog } from '@base-ui/react/dialog'
 import { XIcon } from '@phosphor-icons/react'
+import { Button } from '../button'
 import { cn } from '@/utils/cn'
 
 import type { DialogCloseProps } from './dialog.types'
@@ -11,13 +12,9 @@ export const DialogClose = ({ className, children, ref, ...props }: DialogCloseP
       ref={ref}
       {...props}
       render={
-        <button
-          aria-label="Close"
-          className="flex items-center justify-center rounded-lg border border-transparent p-3xs text-on-surface transition-colors hover:cursor-pointer hover:border-error-outline hover:bg-error-container hover:text-on-error-container"
-          type="button"
-        >
+        <Button variant={'ghost'} tone="error" size="iconXSmall" aria-label="Close" type="button">
           <XIcon className="size-sm" weight="bold" />
-        </button>
+        </Button>
       }
     >
       {children}

@@ -1,13 +1,10 @@
 import { Button } from '../button'
 import { useSidebar } from './sidebar-provider'
+import { type SidebarMenuLinkProps } from './sidebar.types'
 import { cn } from '@/utils/cn'
-
-import type { SidebarMenuLinkProps } from './sidebar.types'
 
 export const SidebarMenuLink = ({
   isActive,
-  label,
-  leadingIcon: Icon,
   className,
   children,
   ref,
@@ -18,30 +15,21 @@ export const SidebarMenuLink = ({
 
   return (
     <Button
+      variant={isActive ? 'solid' : 'ghost'}
+      tone={isActive ? 'brand' : 'neutral'}
+      size={open ? 'medium' : 'iconMedium'}
       className={cn(
-        'w-full',
-        isActive && 'text-primary',
+        'duration-200 ease-out [&>svg]:shrink-0',
         className,
+        isActive && 'pointer-events-none',
         !showText && 'mx-auto',
-        open && 'justify-start',
+        !open ? '*:hidden [&>svg]:block' : 'w-full justify-start',
+        collapsible !== 'none' && open && 'animate-in fade-in-0 slide-in-from-left-2',
       )}
       ref={ref}
-      size={open ? 'medium' : 'iconMedium'}
-      variant={'ghost'}
       {...props}
     >
-      {Icon && <Icon weight="bold" />}
-      {showText && (
-        <span
-          className={cn(
-            'style-text-default-0 transition-all duration-200 ease-out',
-            collapsible !== 'none' && open && 'animate-in fade-in-0 slide-in-from-left-2',
-          )}
-        >
-          {label}
-        </span>
-      )}
-      {showText && children}
+      {children}
     </Button>
   )
 }

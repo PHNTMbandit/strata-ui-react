@@ -24,9 +24,9 @@ export const SidebarToggle = ({ className, children, ref, ...props }: SidebarTog
       className={cn('shrink-0', className)}
       ref={ref}
       size={'iconMedium'}
-      variant={'ghost'}
-      {...props}
+      variant="ghost"
       onClick={handleClick}
+      {...props}
     >
       {children}
       <SidebarSimpleIcon weight="bold" />

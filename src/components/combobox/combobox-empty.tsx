@@ -5,7 +5,7 @@ export const ComboboxEmpty = ({ className, children, ref, ...props }: ComboboxEm
   return (
     <BaseCombobox.Empty
       className={cn(
-        'max-h-[min(23rem,var(--available-height))] scroll-py-[0.5rem] overflow-y-auto overscroll-contain p-sm empty:m-[0px] empty:p-[0px]',
+        'max-h-[min(23rem,var(--available-height))] scroll-py-[0.5rem] overflow-y-auto overscroll-contain p-xs empty:m-[0px] empty:p-[0px]',
         className,
       )}
       ref={ref}

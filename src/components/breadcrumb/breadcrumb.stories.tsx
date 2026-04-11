@@ -25,9 +25,6 @@ export default {
       },
     },
   },
-  args: {
-    style: 'solid',
-  },
 } satisfies Meta<typeof Breadcrumb>
 
 type Story = StoryObj<typeof Breadcrumb>
@@ -43,7 +40,7 @@ export const Default: Story = {
       <BreadcrumbEllipsis />
       <BreadcrumbSeparator />
       <BreadcrumbItem>
-        <HouseIcon weight="fill" />
+        <HouseIcon weight="bold" />
         Home
       </BreadcrumbItem>
     </Breadcrumb>

@@ -11,30 +11,23 @@ export const SelectPopup = ({ className, children, ref, ...props }: SelectPopupP
         className={cn('z-10 outline-none select-none', className)}
         ref={ref}
         {...props}
-        sideOffset={8}
       >
         <BaseSelect.Popup
           className={
-            'group min-w-(--anchor-width) origin-(--transform-origin) rounded-md bg-surface-bright bg-clip-padding p-sm shadow-md outline outline-outline-variant transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0 data-[side=none]:min-w-[calc(var(--anchor-width)+1rem)] data-[side=none]:data-ending-style:scale-90 data-[side=none]:data-ending-style:opacity-0 data-[side=none]:data-starting-style:scale-90 data-[side=none]:data-starting-style:opacity-0'
+            'group min-w-(--anchor-width) origin-(--transform-origin) rounded-xl bg-surface-bright bg-clip-padding p-2xs outline outline-outline transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0 data-[side=none]:min-w-(--anchor-width) data-[side=none]:data-ending-style:scale-90 data-[side=none]:data-ending-style:opacity-0 data-[side=none]:data-starting-style:scale-90 data-[side=none]:data-starting-style:opacity-0'
           }
         >
           <BaseSelect.ScrollUpArrow
             className={
-              "top-[0px] right-[0px] z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-md bg-surface-bright before:absolute before:left-[0px] before:h-full before:w-full before:content-[''] before:data-[side=none]:-top-full"
+              "top-0 right-0 z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-xl bg-surface-bright before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-top-full"
             }
           >
             <CaretUpIcon className="size-sm" weight="fill" />
           </BaseSelect.ScrollUpArrow>
-          <BaseSelect.List
-            className={
-              'relative max-h-(--available-height) scroll-py-md space-y-3xs overflow-y-auto'
-            }
-          >
-            {children}
-          </BaseSelect.List>
+          {children}
           <BaseSelect.ScrollDownArrow
             className={
-              "right-[0px] bottom-[0px] z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-md bg-surface-bright before:absolute before:left-[0px] before:h-full before:w-full before:content-[''] before:data-[side=none]:-bottom-full"
+              "right-0 bottom-0 z-[1px] flex h-md w-full cursor-default items-center justify-center rounded-xl bg-surface-bright before:absolute before:left-0 before:h-full before:w-full before:content-[''] data-[side=none]:before:-bottom-full"
             }
           >
             <CaretDownIcon className="size-sm" weight="fill" />

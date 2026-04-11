@@ -14,7 +14,7 @@ export const MenuPopup = ({ className, children, ref, ...props }: MenuPopupProps
       >
         <BaseMenu.Popup
           className={
-            'origin-(--transform-origin) rounded-md border border-outline bg-surface-container p-3xs py-2xs shadow-md outline outline-outline-variant transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0'
+            'w-[calc(100%+var(--spacing-xl))] origin-(--transform-origin) -translate-x-[calc(var(--spacing-xl)/2)] rounded-md bg-surface-bright py-3xs shadow-md outline outline-outline transition-[transform,scale,opacity] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0'
           }
         >
           {children}

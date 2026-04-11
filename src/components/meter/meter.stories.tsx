@@ -1,6 +1,7 @@
 import { SpinnerGapIcon, XIcon } from '@phosphor-icons/react'
 import { Button } from '../button'
 import { Meter } from './meter'
+import { MeterHeader } from './meter-header'
 import { MeterIndicator } from './meter-indicator'
 import { MeterLabel } from './meter-label'
 import { MeterSubtitle } from './meter-subtitle'
@@ -30,16 +31,17 @@ export default {
   },
   args: {
     value: 25,
-    max: 100,
     orientation: 'vertical',
   },
   render: (args) => (
     <Meter className="w-[500px]" {...args}>
-      <MeterLabel>Progress</MeterLabel>
+      <MeterHeader>
+        <MeterLabel>Progress</MeterLabel>
+        <MeterValue />
+      </MeterHeader>
       <MeterTrack>
         <MeterIndicator />
       </MeterTrack>
-      <MeterValue />
     </Meter>
   ),
 } satisfies Meta<typeof Meter>
@@ -51,15 +53,20 @@ export const Default: Story = {}
 export const Downloading: Story = {
   render: (args) => (
     <Meter className="w-[500px]" {...args}>
-      <MeterLabel>
-        Downloading File...
-        <SpinnerGapIcon className="animate-spin" />
-      </MeterLabel>
-      <MeterValue />
+      <MeterHeader>
+        <MeterLabel>
+          <SpinnerGapIcon className="animate-spin" />
+          Downloading File...
+        </MeterLabel>
+        <MeterValue />
+      </MeterHeader>
       <MeterTrack>
         <MeterIndicator />
       </MeterTrack>
-      <MeterSubtitle>75% downloaded</MeterSubtitle>
+      <MeterSubtitle>Please wait while the file is being downloaded.</MeterSubtitle>
+      <Button tone="error" className={'w-full'} size={'medium'}>
+        <XIcon weight="bold" /> Cancel
+      </Button>
     </Meter>
   ),
 }

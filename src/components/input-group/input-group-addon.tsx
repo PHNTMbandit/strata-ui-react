@@ -6,7 +6,7 @@ export const InputGroupAddon = ({ className, children, ref, ...props }: InputGro
   return (
     <div
       className={cn(
-        'inline-flex items-center gap-xs style-text-default-0 text-on-surface-variant',
+        'inline-flex items-center gap-3xs style-text-default-0 text-on-surface-variant',
         className,
       )}
       ref={ref}

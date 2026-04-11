@@ -7,7 +7,9 @@ export type {
   MenuPopupProps,
   MenuProps,
   MenuRadioItemProps,
-  MenuSeperatorProps,
+  MenuRadioGroupProps,
+  MenuSeparatorProps,
+  MenuShortcutProps,
   MenuSubmenuProps,
   MenuSubmenuTriggerProps,
   MenuTriggerProps,
@@ -18,7 +20,9 @@ export { MenuGroupLabel } from './menu-group-label'
 export { MenuItem } from './menu-item'
 export { MenuPopup } from './menu-popup'
 export { MenuRadioItem } from './menu-radio-item'
-export { MenuSeperator } from './menu-seperator'
+export { MenuRadioGroup } from './menu-radio-group'
+export { MenuSeparator } from './menu-separator'
+export { MenuShortcut } from './menu-shortcut'
 export { MenuSubmenu } from './menu-submenu'
 export { MenuSubmenuTrigger } from './menu-submenu-trigger'
 export { MenuTrigger } from './menu-trigger'

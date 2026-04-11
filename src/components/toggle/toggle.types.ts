@@ -17,18 +17,18 @@ export const toggleVariants = cva(
       },
       tone: {
         brand:
-          'hover:not-disabled:bg-brand-container hover:not-disabled:text-on-brand-container data-pressed:text-on-surface-inverse dark:data-pressed:text-on-surface data-pressed:bg-brand hover:border-brand-outline',
+          'hover:not-disabled:bg-brand-container hover:not-disabled:text-on-brand-container hover:border-brand-outline data-[pressed=true]:text-on-surface-inverse data-[pressed=true]:bg-brand data-pressed:text-brand-on-surface',
         accent:
-          'hover:not-disabled:bg-accent-container hover:not-disabled:text-on-accent-container data-pressed:text-on-surface dark:data-pressed:text-on-surface data-pressed:bg-accent hover:border-accent-outline',
+          'hover:not-disabled:bg-accent-container hover:not-disabled:text-on-accent-container hover:border-accent-outline data-[pressed=true]:text-on-surface data-[pressed=true]:bg-accent data-pressed:text-accent-on-surface',
         neutral:
-          'hover:not-disabled:not-active:bg-surface-container active:bg-surface-dim hover:not-disabled:text-on-surface-container data-pressed:text-on-surface data-pressed:bg-surface-container dark:data-pressed:text-on-surface hover:border-outline',
+          'hover:not-disabled:not-active:bg-surface-container active:bg-surface-dim hover:not-disabled:text-on-surface hover:border-outline data-[pressed=true]:text-on-surface data-[pressed=true]:bg-surface-container data-pressed:text-on-surface',
         error:
-          'hover:not-disabled:bg-error-container hover:not-disabled:text-on-error-container data-pressed:text-error dark:data-pressed:text-error data-pressed:bg-error hover:border-error-outline data-pressed:text-on-surface-inverse dark:data-pressed:text-on-surface',
-        info: 'hover:not-disabled:bg-info-container hover:not-disabled:text-on-info-container data-pressed:text-info dark:data-pressed:text-info data-pressed:bg-info hover:border-info-outline data-pressed:text-on-surface-inverse dark:data-pressed:text-on-surface',
+          'hover:not-disabled:bg-error-container hover:not-disabled:text-on-error-container hover:border-error-outline data-[pressed=true]:text-on-error data-[pressed=true]:bg-error data-pressed:text-error-on-surface',
+        info: 'hover:not-disabled:bg-info-container hover:not-disabled:text-on-info-container hover:border-info-outline data-[pressed=true]:text-on-info data-[pressed=true]:bg-info data-pressed:text-on-info',
         success:
-          'hover:not-disabled:bg-success-container hover:not-disabled:text-on-success-container data-pressed:text-success dark:data-pressed:text-success data-pressed:bg-success hover:border-success-outline data-pressed:text-on-surface-inverse dark:data-pressed:text-on-surface',
+          'hover:not-disabled:bg-success-container hover:not-disabled:text-on-success-container hover:border-success-outline data-[pressed=true]:text-on-success data-[pressed=true]:bg-success data-pressed:text-success-on-surface',
         warning:
-          'hover:not-disabled:bg-warning-container hover:not-disabled:text-on-warning-container data-pressed:text-warning dark:data-pressed:text-warning data-pressed:bg-warning hover:border-warning-outline data-pressed:text-on-surface-inverse dark:data-pressed:text-on-surface',
+          'hover:not-disabled:bg-warning-container hover:not-disabled:text-on-warning-container hover:border-warning-outline data-[pressed=true]:text-on-warning data-[pressed=true]:bg-warning data-pressed:text-warning-on-surface',
       },
     },
     defaultVariants: {

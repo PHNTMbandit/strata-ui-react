@@ -11,6 +11,7 @@ export const buttonVariants = cva(
         solid:
           'transition-[border-color] active:opacity-90 border border-outline-variant dark:text-on-surface text-on-surface-inverse',
         ghost: 'active:bg-surface-dim border border-transparent',
+        light: '',
       },
       tone: {
         brand: '',
@@ -31,7 +32,11 @@ export const buttonVariants = cva(
         iconLarge: 'size-2xl [&>svg]:size-md rounded-2xl',
         iconMedium: 'size-xl [&>svg]:size-sm rounded-xl',
         iconSmall: 'size-lg [&>svg]:size-xs rounded-lg',
-        iconXSmall: 'size-md [&>svg]:size-2xs rounded-md',
+        iconXSmall: 'size-md [&>svg]:size-xs rounded-md',
+      },
+      shape: {
+        circle: 'rounded-full',
+        rounded: '',
       },
     },
     defaultVariants: {
@@ -97,7 +102,7 @@ export const buttonVariants = cva(
       {
         variant: 'solid',
         tone: 'neutral',
-        class: 'bg-surface-bright hover:not-active:border-outline',
+        class: 'bg-surface-container-2 hover:not-active:border-outline text-on-surface',
       },
       {
         variant: 'solid',
@@ -134,7 +139,7 @@ export const buttonVariants = cva(
       {
         variant: 'ghost',
         tone: 'neutral',
-        className: 'hover:bg-surface-container hover:text-on-surface hover:border-outline',
+        className: 'hover:bg-surface-container-2 hover:text-on-surface hover:border-outline',
       },
       {
         variant: 'ghost',

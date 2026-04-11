@@ -3,7 +3,9 @@ import { Autocomplete as BaseAutocomplete } from '@base-ui/react/autocomplete'
 import type { Icon } from '@phosphor-icons/react'
 
 export type AutocompleteProps = React.ComponentProps<typeof BaseAutocomplete.Root>
-export type AutocompleteInputProps = React.ComponentProps<typeof BaseAutocomplete.Input> & {
+export type AutocompleteInputGroupInputProps = React.ComponentProps<
+  typeof BaseAutocomplete.Input
+> & {
   leadingIcon?: Icon
 }
 export type AutocompleteContentProps = React.ComponentProps<typeof BaseAutocomplete.Positioner> & {
@@ -24,6 +26,8 @@ export type AutocompleteGroupLabelProps = React.ComponentProps<typeof BaseAutoco
 export type AutocompleteCollectionProps = React.ComponentProps<typeof BaseAutocomplete.Collection>
 export type AutocompleteRowProps = React.ComponentProps<typeof BaseAutocomplete.Row>
 export type AutocompleteTriggerProps = React.ComponentProps<typeof BaseAutocomplete.Trigger>
+export type AutocompleteInputGroupProps = React.ComponentProps<'div'>
+export type AutocompleteInputGroupAddonProps = React.ComponentProps<'div'>
 
 export type AutocompleteStatusProps = React.ComponentProps<typeof BaseAutocomplete.Status>
 export const useFilter = BaseAutocomplete.useFilter

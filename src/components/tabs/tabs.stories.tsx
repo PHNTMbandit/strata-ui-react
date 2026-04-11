@@ -21,34 +21,14 @@ export default {
     },
   },
   args: {
-    style: 'default',
-    size: 'small',
-    orientation: 'vertical',
-    shape: 'rounded',
+    variant: 'default',
     fill: false,
   },
   argTypes: {
-    style: {
+    variant: {
       control: { type: 'radio' },
       options: ['default', 'underline'],
       description: 'Defines the visual style of the Tabs component, such as default or underline.',
-    },
-    size: {
-      control: { type: 'radio' },
-      options: ['small', 'medium', 'large'],
-      description:
-        'Specifies the size of the Tabs component, affecting the overall dimensions of the tabs and panels.',
-    },
-    orientation: {
-      control: { type: 'radio' },
-      options: ['horizontal', 'vertical'],
-      description: 'Defines the orientation of the Tabs component, either horizontal or vertical.',
-    },
-    shape: {
-      control: { type: 'radio' },
-      options: ['circle', 'rounded'],
-      description:
-        'Specifies the shape of the tabs within the Tabs component, such as circle or rounded.',
     },
   },
   render: (args) => {
@@ -72,51 +52,11 @@ export default {
 
 type Story = StoryObj<typeof Tabs>
 
-export const Horizontal: Story = {
-  args: {
-    orientation: 'horizontal',
-  },
-}
+export const Default: Story = {}
 
-export const Vertical: Story = {
+export const Underline: Story = {
   args: {
-    orientation: 'vertical',
-  },
-}
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-  },
-}
-
-export const Medium: Story = {
-  args: {
-    size: 'medium',
-  },
-}
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-  },
-}
-
-export const UnderlineStyle: Story = {
-  args: {
-    style: 'underline',
-  },
-}
-
-export const CircleShape: Story = {
-  args: {
-    shape: 'circle',
-  },
-}
-
-export const RoundedShape: Story = {
-  args: {
-    shape: 'rounded',
+    variant: 'underline',
   },
 }
 
@@ -128,10 +68,6 @@ export const FillTrue: Story = {
 
 export const CodeBlock: Story = {
   args: {
-    style: 'default',
-    size: 'small',
-    orientation: 'horizontal',
-    shape: 'rounded',
     fill: false,
   },
   render: (args) => {

@@ -7,7 +7,7 @@ export const SelectTrigger = ({ className, children, ref, ...props }: SelectTrig
   return (
     <BaseSelect.Trigger
       className={cn(
-        'flex h-xl min-w-[calc(var(--suwa-spacing-3xl)+5rem)] items-center justify-between gap-xl rounded-xl bg-surface-container pr-xs pl-md shadow-xs elevation-xs outline-2 outline-outline-variant transition-all hover:cursor-pointer hover:outline-offset-2 hover:outline-brand-outline data-popup-open:outline-transparent hover:data-[disabled=true]:outline-transparent',
+        'flex h-xl min-w-(--suwa-spacing-3xl) items-center justify-between gap-xl rounded-xl bg-surface-bright pr-sm pl-md outline outline-outline-variant transition-all hover:cursor-pointer aria-invalid:bg-error-container aria-invalid:outline-error-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 [&:not([data-popup-open=true])]:[&:not([aria-invalid=true])]:outline-outline',
         className,
       )}
       ref={ref}

@@ -14,13 +14,18 @@ export const ProgressIndicator = ({
   const { isCompleted = false, ...restProps } = props as {
     isCompleted?: boolean
   }
+  const stateClassName = isCompleted
+    ? 'border-none bg-accent text-on-accent shadow-none'
+    : isActive
+      ? 'border-accent-outline bg-accent-container text-on-accent-container'
+      : 'bg-surface-container text-accent-on-surface'
+
   return (
     <div className="relative">
       <div
         className={cn(
-          'flex size-md shrink-0 flex-col items-center justify-center rounded-full border border-outline bg-surface-container text-center style-text-default--2 text-success transition-colors ease-in-out [&>svg]:size-xs',
-          isActive && 'border-success-outline bg-success-container text-on-success-container',
-          isCompleted && 'border-none bg-success text-on-success shadow-none',
+          'flex size-md shrink-0 flex-col items-center justify-center rounded-full border border-outline text-center style-text-default--2 transition-colors ease-in-out [&>svg]:size-xs',
+          stateClassName,
           className,
         )}
         ref={ref}

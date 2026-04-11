@@ -8,10 +8,15 @@ export const TextArea = ({ className, ref, ...props }: TextAreaProps) => {
   const isMaxLengthExceeded = props.maxLength ? value.length >= props.maxLength : false
 
   return (
-    <div className="flex w-full flex-col overflow-hidden rounded-lg bg-surface-container shadow-xs outline-2 outline-transparent transition-colors focus-within:outline-brand hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50">
+    <div
+      className={cn(
+        'relative flex resize flex-col overflow-hidden rounded-lg border border-outline bg-surface-container outline outline-outline-variant transition-[outline] focus-within:outline-2 hover:not-focus-within:outline-2 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 data-[disabled=true]:hover:outline-transparent',
+        isMaxLengthExceeded ? 'outline-error' : 'focus-within:outline-brand',
+      )}
+    >
       <textarea
         className={cn(
-          'px-xs py-2xs style-text-prose-0 outline-none focus-within:caret-brand',
+          'grow resize-none px-xs py-2xs style-text-prose-0 outline-none focus-within:caret-brand',
           className,
         )}
         ref={ref}
@@ -19,17 +24,14 @@ export const TextArea = ({ className, ref, ...props }: TextAreaProps) => {
         onChange={(e) => setValue(e.target.value)}
         value={value}
       />
-      {props.maxLength && (
-        <span
-          className={cn(
-            'border-t border-outline px-xs py-2xs style-text-default--1 transition-colors',
-            isMaxLengthExceeded &&
-              'border-error-outline bg-error-container text-on-error-container',
-          )}
-        >
-          {value.length} / {props.maxLength}
-        </span>
-      )}
+      <span
+        className={cn(
+          'w-full px-xs py-2xs text-right style-text-default--1 text-on-surface-variant',
+          isMaxLengthExceeded && 'text-error',
+        )}
+      >
+        {value.length} / {props.maxLength}
+      </span>
     </div>
   )
 }

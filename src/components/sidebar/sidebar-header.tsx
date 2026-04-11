@@ -11,10 +11,8 @@ export const SidebarHeader = ({ className, children, ref, ...props }: SidebarHea
   return (
     <div
       className={cn(
-        'flex shrink-0 items-center justify-between truncate overflow-hidden style-text-strong-1 transition-all duration-300 ease-in-out',
-        isExpanded && 'pl-sm',
-        open && 'p-3xs py-xs pr-2xs',
-        !open && 'self-center',
+        'flex h-xl shrink-0 items-center justify-between truncate overflow-hidden style-text-strong-1 transition-all duration-300 ease-in-out',
+        !open ? 'self-center' : 'pl-sm',
         className,
       )}
       ref={ref}
@@ -28,7 +26,7 @@ export const SidebarHeader = ({ className, children, ref, ...props }: SidebarHea
           isExpanded ? 'fade-in-0' : 'fade-out-0',
         )}
       >
-        {children}
+        {typeof children === 'function' ? children(isExpanded!) : children}
       </div>
       {open && <SidebarToggle />}
     </div>

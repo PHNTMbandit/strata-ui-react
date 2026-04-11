@@ -105,25 +105,23 @@ export const StackToastItem = ({ className, ref, toast, ...props }: StackToastIt
         <div className="ml-xl flex items-center justify-center gap-xs">
           <BaseToast.Action
             render={(e) => (
-              <Button
-                onClick={e.onClick}
-                size={'small'}
-                tone={toast.data?.variant}
-                variant={'ghost'}
-              >
+              <Button onClick={e.onClick} size={'small'} tone={toast.data?.variant}>
                 {e.children}
               </Button>
             )}
           />
           <BaseToast.Close
             aria-label="Close"
-            className="flex size-sm items-center justify-center rounded-sm border border-transparent bg-transparent p-xs text-on-surface-variant transition-colors hover:cursor-pointer hover:border-error-outline hover:bg-error-container hover:text-on-error-container"
-          >
-            <XIcon className="size-sm shrink-0" weight="bold" />
-          </BaseToast.Close>
+            render={(e) => (
+              <Button onClick={e.onClick} size="iconXSmall" variant="ghost" tone="error">
+                {' '}
+                <XIcon className="size-sm shrink-0" weight="bold" />
+              </Button>
+            )}
+          />
         </div>
       </BaseToast.Content>
-      <div className="absolute bottom-[0px] left-[0px] h-2xs w-full border-t border-outline bg-surface-dim inset-shadow-xs">
+      <div className="absolute bottom-[0px] left-[0px] h-2xs w-full border-t border-outline-variant bg-surface-dim outline outline-outline">
         <div className={cn('h-full', getVariantColour())} style={{ width: `${progress * 100}%` }} />
       </div>
     </BaseToast.Root>

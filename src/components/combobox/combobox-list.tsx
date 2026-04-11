@@ -7,7 +7,7 @@ export const ComboboxList = ({ className, children, ref, ...props }: ComboboxLis
   return (
     <BaseCombobox.List
       className={cn(
-        'max-h-[min(calc(23rem-var(--input-container-height,0rem)),calc(var(--available-height)-var(--input-container-height,0rem)))] scroll-py-[0.5rem] space-y-3xs overflow-y-auto overscroll-contain data-empty:p-[0px]',
+        'max-h-[min(calc(23rem-var(--input-container-height,0rem)),calc(var(--available-height)-var(--input-container-height,0rem)))] scroll-py-[0.5rem] overflow-y-auto overscroll-contain data-empty:p-[0px]',
         className,
       )}
       ref={ref}

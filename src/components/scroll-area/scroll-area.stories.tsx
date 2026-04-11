@@ -100,8 +100,8 @@ export const Horizontal: Story = {
               width={300}
             />
           </div>
-          <figcaption className="pt-2 text-muted-foreground text-xs">
-            Photo by <span className="text-foreground font-semibold">{artwork.artist}</span>
+          <figcaption className="pt-3xs text-xs">
+            Photo by <span className="font-semibold">{artwork.artist}</span>
           </figcaption>
         </figure>
       ))}

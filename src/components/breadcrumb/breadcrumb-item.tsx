@@ -6,7 +6,7 @@ export const BreadcrumbItem = ({ className, children, ref, ...props }: Breadcrum
   return (
     <div
       className={cn(
-        'text-surface-on-surface-variant inline-flex h-md items-center justify-center gap-3xs style-text-default--1 [&>svg]:size-xs',
+        'inline-flex h-md items-center justify-center gap-2xs rounded-full px-2xs style-text-default--1 text-accent-on-surface [&>svg]:size-xs',
         className,
       )}
       ref={ref}

@@ -1,5 +1,5 @@
 import { Autocomplete as BaseAutocomplete } from '@base-ui/react/autocomplete'
-import { AutocompleteInput } from './autocomplete-input'
+import { AutocompleteInputGroupInput } from './autocomplete-input-group-input'
 import { cn } from '@/utils/cn'
 
 import type { AutocompleteGridContentProps } from './autocomplete.types'
@@ -23,11 +23,11 @@ export const AutocompleteGridContent = ({
       >
         <BaseAutocomplete.Popup
           className={
-            'bg-surface-base-bright max-h-[20.5rem] max-w-(--available-width) origin-(--transform-origin) overflow-hidden rounded-lg shadow-lg transition-[transform,scale,opacity] [--input-container-height:3rem] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0'
+            'max-h-[20.5rem] max-w-(--available-width) origin-(--transform-origin) overflow-hidden rounded-lg bg-surface-bright shadow-lg transition-[transform,scale,opacity] [--input-container-height:3rem] data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0'
           }
         >
           <div className="m-3xs flex h-(--input-container-height) items-center justify-center text-center">
-            <AutocompleteInput placeholder={placeholder} />
+            <AutocompleteInputGroupInput placeholder={placeholder} />
           </div>
           <BaseAutocomplete.Empty
             className={'p-sm style-text-prose--1 empty:m-[0px] empty:p-[0px]'}

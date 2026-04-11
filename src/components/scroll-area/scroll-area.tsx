@@ -15,7 +15,7 @@ export const ScrollArea = ({
     <BaseScrollArea.Root
       className={cn(
         className,
-        `rounded-lg bg-surface-container`,
+        `rounded-lg border border-outline bg-surface-container outline-outline-variant`,
         orientation === 'horizontal' && 'h-full',
       )}
       ref={ref}
@@ -26,7 +26,7 @@ export const ScrollArea = ({
     >
       <BaseScrollArea.Viewport
         className={cn(
-          'prose-step-0 flex h-full gap-xs overscroll-contain rounded-lg bg-surface-container py-xs pr-md inset-shadow-xs',
+          'flex h-full gap-xs overscroll-contain rounded-lg bg-surface-container py-xs pr-md style-text-prose-step-0 inset-shadow-xs',
           orientation === 'horizontal' && 'flex-row pb-md pl-sm',
           orientation === 'vertical' && 'flex-col pl-sm',
         )}
@@ -41,7 +41,7 @@ export const ScrollArea = ({
         )}
         orientation={orientation}
       >
-        <BaseScrollArea.Thumb className={'size-full rounded-full bg-accent shadow-xs'} />
+        <BaseScrollArea.Thumb className={'size-full rounded-full bg-accent shadow-sm'} />
       </BaseScrollArea.Scrollbar>
       <BaseScrollArea.Corner />
     </BaseScrollArea.Root>

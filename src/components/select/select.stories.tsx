@@ -1,7 +1,10 @@
 import { CaretUpDownIcon } from '@phosphor-icons/react'
 import { Select } from './select'
+import { SelectGroup } from './select-group'
+import { SelectGroupLabel } from './select-group-label'
 import { SelectIcon } from './select-icon'
 import { SelectItem } from './select-item'
+import { SelectList } from './select-list'
 import { SelectPopup } from './select-popup'
 import { SelectTrigger } from './select-trigger'
 import { SelectValue } from './select-value'
@@ -22,12 +25,42 @@ const apples = [
   { label: 'Empire', value: 'empire' },
 ]
 
+const groupedProduce = [
+  {
+    value: 'Fruits',
+    items: [
+      { value: 'apple', label: 'Apple' },
+      { value: 'banana', label: 'Banana' },
+      { value: 'mango', label: 'Mango' },
+      { value: 'kiwi', label: 'Kiwi' },
+      { value: 'grape', label: 'Grape' },
+      { value: 'orange', label: 'Orange' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'watermelon', label: 'Watermelon' },
+    ],
+  },
+  {
+    value: 'Vegetables',
+    items: [
+      { value: 'broccoli', label: 'Broccoli' },
+      { value: 'carrot', label: 'Carrot' },
+      { value: 'cauliflower', label: 'Cauliflower' },
+      { value: 'cucumber', label: 'Cucumber' },
+      { value: 'kale', label: 'Kale' },
+      { value: 'pepper', label: 'Bell pepper' },
+      { value: 'spinach', label: 'Spinach' },
+      { value: 'zucchini', label: 'Zucchini' },
+    ],
+  },
+]
+
 export default {
   title: 'Components/Select',
   component: Select,
   subcomponents: {
     SelectIcon,
     SelectItem,
+    SelectList,
     SelectPopup,
     SelectTrigger,
     SelectValue,
@@ -52,11 +85,15 @@ export default {
         </SelectIcon>
       </SelectTrigger>
       <SelectPopup>
-        {apples.map(({ label, value }) => (
-          <SelectItem key={label} value={value}>
-            {label}
-          </SelectItem>
-        ))}
+        <SelectList>
+          <SelectGroup>
+            {apples.map(({ label, value }) => (
+              <SelectItem key={label} value={value}>
+                {label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectList>
       </SelectPopup>
     </Select>
   ),
@@ -70,4 +107,31 @@ export const Multiple: Story = {
   args: {
     multiple: true,
   },
+}
+
+export const Grouped: Story = {
+  render: (args) => (
+    <Select {...args}>
+      <SelectTrigger>
+        <SelectValue placeholder="Select apples" />
+        <SelectIcon>
+          <CaretUpDownIcon weight="bold" />
+        </SelectIcon>
+      </SelectTrigger>
+      <SelectPopup sideOffset={8} alignItemWithTrigger={false}>
+        <SelectList>
+          {groupedProduce.map((group, index) => (
+            <SelectGroup key={index}>
+              <SelectGroupLabel>{group.value}</SelectGroupLabel>
+              {group.items.map((item) => (
+                <SelectItem key={item.value} value={item.value}>
+                  {item.label}
+                </SelectItem>
+              ))}
+            </SelectGroup>
+          ))}
+        </SelectList>
+      </SelectPopup>
+    </Select>
+  ),
 }

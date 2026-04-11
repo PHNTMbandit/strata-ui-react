@@ -7,7 +7,7 @@ export const ToggleGroup = ({ className, children, ref, ...props }: ToggleGroupP
   return (
     <BaseToggleGroup
       className={cn(
-        'flex w-fit gap-3xs rounded-lg bg-surface-container p-3xs outline outline-outline',
+        'flex w-fit gap-3xs rounded-lg border border-outline bg-surface-container p-3xs outline outline-outline-variant',
         className,
       )}
       ref={ref}

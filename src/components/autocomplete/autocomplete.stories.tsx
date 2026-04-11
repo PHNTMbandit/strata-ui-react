@@ -1,4 +1,4 @@
-import { SpinnerGapIcon } from '@phosphor-icons/react'
+import { MagnifyingGlassIcon, SpinnerGapIcon } from '@phosphor-icons/react'
 import React from 'react'
 import { Button } from '../button'
 import { Input } from '../input'
@@ -9,7 +9,9 @@ import { AutocompleteGridContent } from './autocomplete-grid-content'
 import { AutocompleteGridItem } from './autocomplete-grid-item'
 import { AutocompleteGroup } from './autocomplete-group'
 import { AutocompleteGroupLabel } from './autocomplete-group-label'
-import { AutocompleteInput } from './autocomplete-input'
+import { AutocompleteInputGroup } from './autocomplete-input-group'
+import { AutocompleteInputGroupAddon } from './autocomplete-input-group-addon'
+import { AutocompleteInputGroupInput } from './autocomplete-input-group-input'
 import { AutocompleteItem } from './autocomplete-item'
 import { AutocompleteRow } from './autocomplete-row'
 import { AutocompleteStatus } from './autocomplete-status'
@@ -261,7 +263,19 @@ const groupedTags: TagGroup[] = groupTags(tagsData)
 export default {
   title: 'Components/Autocomplete',
   component: Autocomplete,
-  subcomponents: { AutocompleteContent, AutocompleteInput, AutocompleteItem },
+  subcomponents: {
+    AutocompleteContent,
+    AutocompleteInputGroupInput,
+    AutocompleteItem,
+    AutocompleteGroup,
+    AutocompleteGroupLabel,
+    AutocompleteGridContent,
+    AutocompleteGridItem,
+    AutocompleteRow,
+    AutocompleteStatus,
+    AutocompleteTrigger,
+    AutocompleteInputGroupAddon,
+  },
   parameters: {
     docs: {
       subtitle: 'An autocomplete component that provides suggestions while typing.',
@@ -296,7 +310,12 @@ export default {
   },
   render: (args) => (
     <Autocomplete {...args}>
-      <AutocompleteInput placeholder="Search..." />
+      <AutocompleteInputGroup>
+        <AutocompleteInputGroupAddon>
+          <MagnifyingGlassIcon weight="bold" />
+        </AutocompleteInputGroupAddon>
+        <AutocompleteInputGroupInput placeholder="Search..." />
+      </AutocompleteInputGroup>
       <AutocompleteContent emptyText="No results found">
         <AutocompleteCollection>
           {(tag: Tag2) => (
@@ -325,7 +344,7 @@ export const Grouped: Story = {
   },
   render: (args) => (
     <Autocomplete {...args}>
-      <AutocompleteInput placeholder="Search tags..." />
+      <AutocompleteInputGroupInput placeholder="Search tags..." />
       <AutocompleteContent emptyText="No tags found">
         {groupedTags.map((group) => (
           <AutocompleteGroup items={group.items} key={group.value}>
@@ -551,15 +570,15 @@ const LoadingStateRender = () => {
       }}
       value={searchValue}
     >
-      <AutocompleteInput placeholder="e.g. Pulp Fiction or 1994" />
+      <AutocompleteInputGroupInput placeholder="e.g. Pulp Fiction or 1994" />
       <AutocompleteContent emptyText="">
         <AutocompleteStatus>{status}</AutocompleteStatus>
         <AutocompleteCollection>
           {(movie: Movie) => (
             <AutocompleteItem key={movie.id} value={movie}>
-              <div className="gap-1 flex w-full flex-col">
-                <div className="leading-5 font-medium">{movie.title}</div>
-                <div className="leading-4 text-sm opacity-80">{movie.year}</div>
+              <div className="flex w-full flex-col gap-3xs">
+                <div className="leading-xl font-medium">{movie.title}</div>
+                <div className="text-sm leading-lg opacity-80">{movie.year}</div>
               </div>
             </AutocompleteItem>
           )}

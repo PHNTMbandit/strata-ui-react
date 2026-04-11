@@ -12,14 +12,14 @@ export type MeterValueProps = React.ComponentProps<typeof BaseMeter.Value>
 export type MeterTrackProps = React.ComponentProps<typeof BaseMeter.Track>
 export type MeterIndicatorProps = React.ComponentProps<typeof BaseMeter.Indicator>
 export type MeterSubtitleProps = React.ComponentProps<'div'>
+export type MeterHeaderProps = React.ComponentProps<'div'>
 
 export const meterVariants = cva('', {
   variants: {
     orientation: {
       horizontal:
         'flex items-center justify-between gap-xs [&_[data-track]]:w-full [&_button]:shrink-0',
-      vertical:
-        'grid grid-cols-2 space-y-xs [&_[data-value]]:col-start-2 [&_[data-value]]:row-start-1',
+      vertical: 'flex flex-col space-y-xs',
     },
   },
   defaultVariants: {

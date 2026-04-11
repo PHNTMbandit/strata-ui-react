@@ -11,7 +11,7 @@ export const SidebarContent = ({ className, children, ref, ...props }: SidebarCo
     <div
       className={cn(
         'mb-auto flex flex-col items-center overflow-y-auto transition-all duration-300 ease-in-out [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
-        open ? 'gap-lg' : 'w-fit gap-xs divide-y divide-outline-variant self-center',
+        open ? 'gap-lg' : 'w-fit gap-xs divide-y divide-outline self-center',
         className,
       )}
       ref={ref}

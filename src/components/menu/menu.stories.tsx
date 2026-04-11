@@ -1,6 +1,15 @@
-import { CardsIcon, ClipboardIcon, CopyIcon, ScissorsIcon, TrashIcon } from '@phosphor-icons/react'
+import {
+  CardsIcon,
+  ClipboardIcon,
+  CommandIcon,
+  CopyIcon,
+  ScissorsIcon,
+  TrashIcon,
+} from '@phosphor-icons/react'
 import React from 'react'
 import { Button } from '../button'
+import { Kbd } from '../kbd'
+import { KbdGroup } from '../kbd/kbd-group'
 import { Menu } from './menu'
 import { MenuCheckboxItem } from './menu-checkbox-item'
 import { MenuGroup } from './menu-group'
@@ -9,7 +18,8 @@ import { MenuItem } from './menu-item'
 import { MenuPopup } from './menu-popup'
 import { MenuRadioGroup } from './menu-radio-group'
 import { MenuRadioItem } from './menu-radio-item'
-import { MenuSeperator } from './menu-seperator'
+import { MenuSeparator } from './menu-separator'
+import { MenuShortcut } from './menu-shortcut'
 import { MenuSubmenu } from './menu-submenu'
 import { MenuSubmenuTrigger } from './menu-submenu-trigger'
 import { MenuTrigger } from './menu-trigger'
@@ -33,21 +43,21 @@ export default {
         <Button>Open Menu</Button>
       </MenuTrigger>
       <MenuPopup>
-        <MenuItem>
+        <MenuItem tone="info">
           <CopyIcon /> Copy
         </MenuItem>
-        <MenuItem>
+        <MenuItem tone="brand">
           <ClipboardIcon /> Paste
         </MenuItem>
-        <MenuSeperator />
-        <MenuItem>
+        <MenuSeparator />
+        <MenuItem tone="accent">
           <ScissorsIcon /> Cut
         </MenuItem>
-        <MenuItem>
+        <MenuItem tone="error">
           <TrashIcon /> Delete
         </MenuItem>
-        <MenuSeperator />
-        <MenuItem>
+        <MenuSeparator />
+        <MenuItem tone="warning">
           <CardsIcon /> Select All
         </MenuItem>
       </MenuPopup>
@@ -104,7 +114,7 @@ export const RadioItems: Story = {
         <MenuTrigger>
           <Button>Open Menu</Button>
         </MenuTrigger>
-        <MenuPopup>
+        <MenuPopup align="center">
           <MenuRadioGroup onValueChange={setValue} value={value}>
             <MenuRadioItem value="date">Date</MenuRadioItem>
             <MenuRadioItem value="name">Name</MenuRadioItem>
@@ -128,7 +138,7 @@ export const GroupLabels: Story = {
           <MenuItem>Option 1</MenuItem>
           <MenuItem>Option 2</MenuItem>
         </MenuGroup>
-        <MenuSeperator />
+        <MenuSeparator />
         <MenuGroup>
           <MenuGroupLabel>Group 2</MenuGroupLabel>
           <MenuItem>Option 3</MenuItem>
@@ -154,6 +164,51 @@ export const Submenus: Story = {
             <MenuItem>Option 3</MenuItem>
           </MenuPopup>
         </MenuSubmenu>
+      </MenuPopup>
+    </Menu>
+  ),
+}
+
+export const Shortcuts: Story = {
+  render: (args) => (
+    <Menu {...args}>
+      <MenuTrigger>
+        <Button>Open Menu</Button>
+      </MenuTrigger>
+      <MenuPopup>
+        <MenuItem>
+          <CopyIcon /> Copy
+          <MenuShortcut>
+            <KbdGroup>
+              <Kbd>
+                <CommandIcon />
+              </Kbd>
+              <Kbd>C</Kbd>
+            </KbdGroup>
+          </MenuShortcut>
+        </MenuItem>
+        <MenuItem>
+          <ClipboardIcon /> Paste
+          <MenuShortcut>
+            <KbdGroup>
+              <Kbd>
+                <CommandIcon />
+              </Kbd>
+              <Kbd>V</Kbd>
+            </KbdGroup>
+          </MenuShortcut>
+        </MenuItem>
+        <MenuItem>
+          <ScissorsIcon /> Cut
+          <MenuShortcut>
+            <KbdGroup>
+              <Kbd>
+                <CommandIcon />
+              </Kbd>
+              <Kbd>X</Kbd>
+            </KbdGroup>
+          </MenuShortcut>
+        </MenuItem>
       </MenuPopup>
     </Menu>
   ),

@@ -1,14 +1,14 @@
 import { Combobox as BaseCombobox } from '@base-ui/react/combobox'
 import { CaretDownIcon, XIcon } from '@phosphor-icons/react'
-import React, { createElement } from 'react'
+import React from 'react'
+import { Button } from '../button'
+import { InputGroup, InputGroupAddon } from '../input-group'
 import { Separator } from '../separator'
 import { cn } from '@/utils/cn'
 
 import type { ComboboxInputProps } from './combobox.types'
 
 export const ComboboxInput = ({
-  leadingIcon,
-  showSeparator = false,
   inline = false,
   className,
   children,
@@ -22,7 +22,7 @@ export const ComboboxInput = ({
       <div className="h-(--input-container-height) py-2xs pr-2xs">
         <BaseCombobox.Input
           className={cn(
-            'h-xl w-full rounded-lg bg-surface-dim px-sm outline-2 outline-brand transition-all hover:outline-outline focus:caret-brand focus:-outline-offset-1 data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
+            'h-xl w-full rounded-lg bg-surface-dim px-sm outline-outline transition-all not-active:outline-1 focus-within:outline-2 hover:outline-2 focus:caret-brand focus:outline-brand data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50',
             'placeholder:opacity-60',
             'disabled:cursor-not-allowed',
             'text-ellipsis',
@@ -37,66 +37,44 @@ export const ComboboxInput = ({
   }
 
   return (
-    <div
-      aria-disabled={props.disabled}
-      className={cn(
-        'group text-prose-0 relative flex min-h-xl flex-col items-center gap-xs rounded-[28px] bg-surface-container p-sm pl-md elevation-sm outline-2 outline-outline-variant transition-all focus-within:caret-brand focus-within:outline-offset-2 focus-within:outline-brand hover:not-focus-within:outline-offset-2 hover:not-focus-within:outline-outline data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 hover:data-[disabled=true]:outline-transparent',
-        className,
-      )}
-      data-disabled={props.disabled}
-    >
+    <InputGroup className="flex h-full! max-w-[500px] flex-wrap py-xs [&:has([data-chips]:not(:empty))]:rounded-xl [&:has([data-chips]:empty)]:*:[[role=separator]]:hidden [&:not(:has([data-chips]))_[role=separator]]:hidden">
       {children}
-      <div className="flex w-full items-center [&>input]:pr-[calc(0.5rem+1.5rem)] has-[.combobox-clear]:[&>input]:pr-[calc(0.5rem+1.5rem*2)]">
-        {leadingIcon && (
-          <>
-            <div
-              className={cn(
-                'flex items-center justify-center text-on-surface-variant transition-all group-focus-within:text-brand [&>svg]:size-sm',
-              )}
-            >
-              {createElement(leadingIcon, {
-                weight: 'bold',
-              })}
-            </div>
-            {showSeparator && (
-              <Separator
-                className={'group-focus-within:bg-brand'}
-                orientation="vertical"
-                thickness={'thin'}
-              />
-            )}
-          </>
-        )}
+      <Separator weight={'thinnest'} />
+      <BaseCombobox.InputGroup className="relative flex w-full items-center justify-between [&>input]:pr-[calc(0.5rem+1.5rem)] has-[.combobox-clear]:[&>input]:pr-[calc(0.5rem+1.5rem*2)]">
         <BaseCombobox.Input
           className={cn(
-            'w-full outline-none',
-            'placeholder:opacity-60',
-            'disabled:cursor-not-allowed',
-            'text-ellipsis',
+            'w-full text-ellipsis outline-none placeholder:opacity-60 disabled:cursor-not-allowed',
             className,
           )}
           id={id}
           ref={ref}
           {...props}
         />
-        <div className="absolute right-xs inline-flex items-center gap-3xs">
+        <InputGroupAddon>
           <BaseCombobox.Clear
             aria-label="Clear selection"
-            className={
-              'combobox-clear flex items-center justify-center rounded-full border border-transparent bg-transparent p-3xs text-error transition-colors hover:cursor-pointer hover:border-error-outline hover:bg-error-container hover:text-on-error-container disabled:opacity-50'
-            }
+            className={cn(className)}
             keepMounted
-          >
-            <XIcon className="size-sm" weight="bold" />
-          </BaseCombobox.Clear>
+            render={(e) => (
+              <Button onClick={e.onClick} size={'iconSmall'} tone="error">
+                <XIcon weight="bold" />
+              </Button>
+            )}
+          />
           <BaseCombobox.Trigger
             aria-label="Open popup"
-            className="flex items-center justify-center rounded-full border border-transparent bg-transparent p-3xs transition-colors hover:cursor-pointer hover:border-brand-outline hover:bg-brand-container hover:text-on-brand-container data-popup-open:bg-brand data-popup-open:text-on-brand"
-          >
-            <CaretDownIcon className="size-sm" weight="bold" />
-          </BaseCombobox.Trigger>
-        </div>
-      </div>
-    </div>
+            render={(props, state) => (
+              <Button
+                onClick={props.onClick}
+                size={'iconSmall'}
+                tone={state.open ? 'brand' : 'neutral'}
+              >
+                <CaretDownIcon weight="bold" />
+              </Button>
+            )}
+          />
+        </InputGroupAddon>
+      </BaseCombobox.InputGroup>
+    </InputGroup>
   )
 }

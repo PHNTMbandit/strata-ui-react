@@ -59,6 +59,7 @@
   --color-surface-dim: var(--suwa-surface-dim);
   --color-surface-bright: var(--suwa-surface-bright);
   --color-surface-container: var(--suwa-surface-container);
+  --color-surface-container-2: var(--suwa-surface-container-2);
   --color-surface-inverse: var(--suwa-surface-inverse);
   --color-on-surface: var(--suwa-on-surface);
   --color-on-surface-variant: var(--suwa-on-surface-variant);
@@ -96,6 +97,35 @@
   --text-3xl: var(--suwa-text-3xl);
   --text-4xl: var(--suwa-text-4xl);
 
+  --border-*: initial;
+  --border-width-2xs: var(--suwa-border-width-2xs);
+  --border-width-xs: var(--suwa-border-width-xs);
+  --border-width-sm: var(--suwa-border-width-sm);
+  --border-width-md: var(--suwa-border-width-md);
+  --border-width-lg: var(--suwa-border-width-lg);
+  --border-width-xl: var(--suwa-border-width-xl);
+  --border-width-2xl: var(--suwa-border-width-2xl);
+
+  --outline-*: initial;
+  --outline-width-2xs: var(--suwa-outline-width-2xs);
+  --outline-width-xs: var(--suwa-outline-width-xs);
+  --outline-width-sm: var(--suwa-outline-width-sm);
+  --outline-width-md: var(--suwa-outline-width-md);
+  --outline-width-lg: var(--suwa-outline-width-lg);
+  --outline-width-xl: var(--suwa-outline-width-xl);
+  --outline-width-2xl: var(--suwa-outline-width-2xl);
+
+  --radius-*: initial;
+  --radius-xs: var(--suwa-radius-xs);
+  --radius-sm: var(--suwa-radius-sm);
+  --radius-md: var(--suwa-radius-md);
+  --radius-lg: var(--suwa-radius-lg);
+  --radius-xl: var(--suwa-radius-xl);
+  --radius-2xl: var(--suwa-radius-2xl);
+  --radius-3xl: var(--suwa-radius-3xl);
+  --radius-4xl: var(--suwa-radius-4xl);
+  --radius-full: var(--suwa-radius-full);
+
   --blur-*: initial;
   --blur-xs: var(--suwa-blur-xs);
   --blur-sm: var(--suwa-blur-sm);
@@ -129,6 +159,20 @@
   --elevation-md: var(--suwa-elevation-md);
   --elevation-lg: var(--suwa-elevation-lg);
   --elevation-xl: var(--suwa-elevation-xl);
+
+  --ease-out-bounce: cubic-bezier(0.22, 1.61, 0.57, 1);
+  --animate-fade-in: fade-in 0.16s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 }
 
 :root {
@@ -380,15 +424,16 @@
   --suwa-warning-on-surface: light-dark(var(--orange-900), var(--orange-200));
   --suwa-warning-outline: light-dark(var(--orange-900), var(--orange-600));
 
-  --suwa-surface: light-dark(var(--neutral-50), var(--neutral-900));
-  --suwa-surface-dim: light-dark(var(--neutral-200), var(--neutral-950));
+  --suwa-surface-dim: light-dark(var(--neutral-300), var(--neutral-950));
+  --suwa-surface: light-dark(var(--neutral-100), var(--neutral-900));
   --suwa-surface-bright: light-dark(var(--neutral-50), var(--neutral-800));
-  --suwa-surface-container: light-dark(var(--neutral-100), var(--neutral-800));
-  --suwa-surface-inverse: light-dark(var(--neutral-900), var(--neutral-50));
+  --suwa-surface-container: light-dark(var(--neutral-200), var(--neutral-800));
+  --suwa-surface-container-2: light-dark(var(--neutral-300), var(--neutral-700));
+  --suwa-surface-inverse: light-dark(var(--neutral-900), var(--neutral-100));
   --suwa-on-surface: light-dark(var(--neutral-900), var(--neutral-100));
   --suwa-on-surface-variant: light-dark(var(--neutral-600), var(--neutral-400));
   --suwa-on-surface-inverse: light-dark(var(--neutral-100), var(--neutral-900));
-  --suwa-outline: light-dark(var(--neutral-300), var(--neutral-700));
+  --suwa-outline: light-dark(var(--neutral-400), var(--neutral-600));
   --suwa-outline-variant: light-dark(var(--neutral-200), var(--neutral-950));
 
   --suwa-scrim: light-dark(#1a1a1ae5, #1a1a1ae5);
@@ -449,6 +494,32 @@
   --suwa-inset-shadow-md: inset 0 3px 3px 0 theme(--color-shadow);
   --suwa-inset-shadow-lg: inset 0 4px 4px 0 theme(--color-shadow);
   --suwa-inset-shadow-xl: inset 0 6px 6px 0 theme(--color-shadow);
+
+  --suwa-border-width-2xs: 0.5px;
+  --suwa-border-width-xs: 1px;
+  --suwa-border-width-sm: 2px;
+  --suwa-border-width-md: 3px;
+  --suwa-border-width-lg: 4px;
+  --suwa-border-width-xl: 6px;
+  --suwa-border-width-2xl: 8px;
+
+  --suwa-outline-width-2xs: 0.5px;
+  --suwa-outline-width-xs: 1px;
+  --suwa-outline-width-sm: 2px;
+  --suwa-outline-width-md: 3px;
+  --suwa-outline-width-lg: 4px;
+  --suwa-outline-width-xl: 6px;
+  --suwa-outline-width-2xl: 8px;
+
+  --suwa-radius-xs: 2px;
+  --suwa-radius-sm: 4px;
+  --suwa-radius-md: 6px;
+  --suwa-radius-lg: 8px;
+  --suwa-radius-xl: 12px;
+  --suwa-radius-2xl: 16px;
+  --suwa-radius-3xl: 24px;
+  --suwa-radius-4xl: 32px;
+  --suwa-radius-full: 9999px;
 
   --suwa-elevation-xs:
     inset 0px -1.5px 1.5px rgba(0, 0, 0, 0.3), inset 0px 1.5px 1px rgba(255, 255, 255, 0.2);

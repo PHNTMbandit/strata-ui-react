@@ -6,10 +6,10 @@ import type { PopoverTriggerProps } from './popover.types'
 export const PopoverTrigger = ({ className, ref, children, ...props }: PopoverTriggerProps) => {
   return (
     <BasePopover.Trigger
-      className={cn('inline-flex justify-start', className)}
+      className={cn('px-xs', className)}
       ref={ref}
-      render={children as React.ReactElement}
       {...props}
+      render={children as React.ReactElement}
     />
   )
 }

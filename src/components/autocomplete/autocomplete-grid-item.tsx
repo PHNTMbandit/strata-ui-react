@@ -12,7 +12,7 @@ export const AutocompleteGridItem = ({
   return (
     <BaseAutocomplete.Item
       className={cn(
-        'group hover:bg-secondary data-highlighted:bg-secondary flex h-lg min-w-(--anchor-width) cursor-default items-center rounded-md style-text-prose--1 select-none hover:cursor-pointer hover:text-surface data-highlighted:relative data-highlighted:z-0 data-highlighted:text-surface before:data-highlighted:absolute before:data-highlighted:inset-[0px] before:data-highlighted:z-[-1] before:data-highlighted:rounded-md',
+        'group flex h-lg min-w-(--anchor-width) cursor-default items-center rounded-md style-text-prose--1 select-none hover:cursor-pointer hover:bg-accent hover:text-surface data-highlighted:relative data-highlighted:z-0 data-highlighted:bg-accent data-highlighted:text-surface data-highlighted:before:absolute data-highlighted:before:inset-0 data-highlighted:before:z-[-1] data-highlighted:before:rounded-md data-highlighted:before:bg-accent',
         className,
       )}
       ref={ref}

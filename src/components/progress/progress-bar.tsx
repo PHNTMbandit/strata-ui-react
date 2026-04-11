@@ -15,8 +15,8 @@ export const ProgressBar = ({
     <div className="w-full">
       <div
         className={cn(
-          'h-3xs w-full grow rounded-full bg-success/20 transition-colors ease-in-out',
-          isCompleted && 'bg-success opacity-100',
+          'h-3xs w-full grow rounded-full bg-accent/20 transition-colors ease-in-out',
+          isCompleted && 'bg-accent opacity-100',
           className,
         )}
         ref={ref}

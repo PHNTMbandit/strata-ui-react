@@ -8,7 +8,8 @@ export const MenuRadioItem = ({ className, children, ref, ...props }: MenuRadioI
   return (
     <BaseMenu.RadioItem
       className={cn(
-        'grid cursor-default grid-cols-[1fr_2rem] items-center px-sm py-3xs leading-md outline outline-transparent select-none before:outline before:outline-transparent hover:cursor-pointer data-highlighted:relative data-highlighted:z-0 data-highlighted:text-on-brand-container before:data-highlighted:absolute before:data-highlighted:inset-x-3xs before:data-highlighted:inset-y-[0px] before:data-highlighted:z-[-1] before:data-highlighted:rounded-md before:data-highlighted:bg-brand-container before:data-highlighted:outline-brand-outline',
+        'rounded-md border border-transparent hover:border-outline',
+        'mx-3xs grid cursor-default grid-cols-[1fr_2rem] items-center px-2xs py-3xs leading-md outline-none select-none before:absolute before:inset-[0px] before:z-[-1] before:rounded-md before:content-[""] hover:cursor-pointer data-highlighted:relative data-highlighted:z-0 data-highlighted:text-on-surface data-highlighted:before:bg-surface-container-2',
         className,
       )}
       ref={ref}

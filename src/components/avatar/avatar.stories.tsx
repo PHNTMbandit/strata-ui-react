@@ -1,4 +1,6 @@
+import { PlusIcon } from '@phosphor-icons/react'
 import { Avatar } from './avatar'
+import { AvatarBadge } from './avatar-badge'
 import { AvatarFallback } from './avatar-fallback'
 import { AvatarImage } from './avatar-image'
 
@@ -17,22 +19,95 @@ export default {
       },
     },
   },
+  args: {
+    size: 'medium',
+  },
+  argTypes: {
+    size: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
+    },
+  },
+  render: (args) => (
+    <Avatar {...args}>
+      <AvatarImage src={'https://github.com/shadcn.png'} />
+    </Avatar>
+  ),
 } satisfies Meta<typeof Avatar>
 
 type Story = StoryObj<typeof Avatar>
 
-export const Default: Story = {
-  render: () => (
-    <Avatar>
-      <AvatarImage src={'https://github.com/shadcn.png'} />
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+}
+
+export const Medium: Story = {
+  args: {
+    size: 'medium',
+  },
+}
+export const Large: Story = {
+  args: {
+    size: 'large',
+  },
+}
+
+export const WithFallback: Story = {
+  render: (args) => (
+    <Avatar {...args}>
+      <AvatarFallback>SU</AvatarFallback>
     </Avatar>
   ),
 }
 
-export const WithFallback: Story = {
-  render: () => (
+type BadgeStory = StoryObj<typeof AvatarBadge>
+
+export const Badge: BadgeStory = {
+  args: {
+    tone: 'success',
+    position: 'bottomRight',
+  },
+  argTypes: {
+    tone: {
+      options: ['brand', 'accent', 'neutral', 'error', 'info', 'success', 'warning'],
+      control: { type: 'select' },
+    },
+    position: {
+      options: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
+      control: { type: 'select' },
+    },
+  },
+  render: (args) => (
+    <Avatar size="medium">
+      <AvatarImage src={'https://github.com/shadcn.png'} />
+      <AvatarBadge {...args} />
+    </Avatar>
+  ),
+}
+
+export const BadgeWithIcon: BadgeStory = {
+  args: {
+    tone: 'neutral',
+    position: 'bottomRight',
+  },
+  argTypes: {
+    tone: {
+      options: ['brand', 'accent', 'neutral', 'error', 'info', 'success', 'warning'],
+      control: { type: 'select' },
+    },
+    position: {
+      options: ['topLeft', 'topRight', 'bottomLeft', 'bottomRight'],
+      control: { type: 'select' },
+    },
+  },
+  render: (args) => (
     <Avatar>
-      <AvatarFallback>SU</AvatarFallback>
+      <AvatarImage src={'https://github.com/shadcn.png'} />
+      <AvatarBadge {...args}>
+        <PlusIcon weight="bold" />
+      </AvatarBadge>
     </Avatar>
   ),
 }

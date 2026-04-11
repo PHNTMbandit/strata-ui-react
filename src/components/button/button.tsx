@@ -4,13 +4,18 @@ import { cn } from '@/utils/cn'
 export function Button({
   className,
   children,
+  shape = 'rounded',
   tone = 'brand',
   size = 'medium',
   variant = 'solid',
   ...props
 }: ButtonProps) {
   return (
-    <button className={cn(buttonVariants({ tone, size, variant, className }))} {...props}>
+    <button
+      data-size={size}
+      className={cn(buttonVariants({ shape, tone, size, variant, className }))}
+      {...props}
+    >
       {children}
     </button>
   )

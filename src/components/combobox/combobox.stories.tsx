@@ -487,8 +487,8 @@ const countries: Country[] = [
   { code: 'zw', value: 'zimbabwe', label: 'Zimbabwe', continent: 'Africa' },
 ]
 
-const meta: Meta<typeof Combobox> = {
-  title: 'Components/Combo box',
+export default {
+  title: 'Components/Combobox',
   component: Combobox,
   subcomponents: {
     ComboboxEmpty,
@@ -524,9 +524,7 @@ const meta: Meta<typeof Combobox> = {
       </ComboboxPopup>
     </Combobox>
   ),
-}
-
-export default meta
+} as Meta<typeof Combobox>
 
 type Story = StoryObj<typeof Combobox>
 
@@ -899,9 +897,9 @@ export const AsyncLoading: Story = {
           <ComboboxList>
             {(user: DirectoryUser) => (
               <ComboboxItem key={user.id} value={user}>
-                <div className="gap-1 flex flex-col">
+                <div className="flex flex-col gap-3xs">
                   <div className="text-[0.95rem] font-medium">{user.name}</div>
-                  <div className="gap-3 flex flex-wrap text-[0.8125rem] text-on-surface-variant">
+                  <div className="flex flex-wrap gap-2xs text-[0.8125rem] text-on-surface-variant">
                     <span className="opacity-80">@{user.username}</span>
                     <span>{user.title}</span>
                   </div>

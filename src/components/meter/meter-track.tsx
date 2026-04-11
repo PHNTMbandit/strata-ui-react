@@ -7,7 +7,7 @@ export const MeterTrack = ({ className, children, ref, ...props }: MeterTrackPro
   return (
     <BaseMeter.Track
       className={cn(
-        'col-span-2 h-2xs overflow-hidden rounded-full bg-surface-dim inset-shadow-xs',
+        'h-2xs w-full self-center rounded-full bg-surface-dim inset-shadow-xs',
         className,
       )}
       data-track

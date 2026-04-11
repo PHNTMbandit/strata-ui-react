@@ -7,7 +7,6 @@ export const MeterValue = ({ className, ref, ...props }: MeterValueProps) => {
   return (
     <BaseMeter.Value
       className={cn('text-right style-text-default--1', className)}
-      data-value
       ref={ref}
       {...props}
     />

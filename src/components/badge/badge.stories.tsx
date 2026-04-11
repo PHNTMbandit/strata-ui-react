@@ -33,7 +33,7 @@ export default {
     },
     variant: {
       control: 'radio',
-      options: ['light', 'solid', 'outline'],
+      options: ['light', 'solid'],
     },
   },
   render: (args) => (

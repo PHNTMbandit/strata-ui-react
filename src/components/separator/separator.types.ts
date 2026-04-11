@@ -1,64 +1,78 @@
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 
 import type { Separator as BaseSeparator } from '@base-ui/react/separator'
-import type { ComponentProps } from 'react'
+import type { VariantProps } from 'class-variance-authority'
 
-export const separatorVariants = cva('relative shrink-0 rounded-full transition-all', {
+export const separatorVariants = cva('shrink-0 rounded-full bg-outline', {
   variants: {
-    tone: {
-      default: 'bg-outline',
-      variant: 'bg-outline-variant',
-    },
     orientation: {
       horizontal: 'w-full',
       vertical: 'h-full',
     },
-    thickness: {
-      thin: '',
-      medium: '',
+    style: {
+      rounded: 'rounded-full',
+      square: 'rounded-none',
+    },
+    tone: {
+      default: 'bg-outline',
+      variant: 'bg-surface-dim',
+    },
+    weight: {
       thick: '',
+      medium: '',
+      thin: '',
+      thinnest: '',
     },
   },
   defaultVariants: {
-    tone: 'default',
     orientation: 'horizontal',
-    thickness: 'medium',
+    style: 'rounded',
+    tone: 'default',
+    weight: 'medium',
   },
   compoundVariants: [
     {
       orientation: 'horizontal',
-      thickness: 'thick',
+      weight: 'thick',
+      className: 'h-[8px]',
+    },
+    {
+      orientation: 'horizontal',
+      weight: 'medium',
       className: 'h-[4px]',
     },
     {
       orientation: 'horizontal',
-      thickness: 'medium',
+      weight: 'thin',
       className: 'h-[2px]',
     },
     {
       orientation: 'horizontal',
-      thickness: 'thin',
+      weight: 'thinnest',
       className: 'h-[1px]',
     },
     {
       orientation: 'vertical',
-      thickness: 'thick',
+      weight: 'thick',
+      className: 'w-[8px]',
+    },
+    {
+      orientation: 'vertical',
+      weight: 'medium',
       className: 'w-[4px]',
     },
     {
       orientation: 'vertical',
-      thickness: 'medium',
+      weight: 'thin',
       className: 'w-[2px]',
     },
     {
       orientation: 'vertical',
-      thickness: 'thin',
+      weight: 'thinnest',
       className: 'w-[1px]',
     },
   ],
 })
 
-export type SeparatorProps = Omit<ComponentProps<typeof BaseSeparator>, 'style'> &
-  VariantProps<typeof separatorVariants> & {
-    label?: string
-  }
+export type SeparatorProps = Omit<React.ComponentProps<typeof BaseSeparator>, 'style'> &
+  VariantProps<typeof separatorVariants>

@@ -1,4 +1,6 @@
 import { CaretUpDownIcon } from '@phosphor-icons/react'
+import { Button } from '../button'
+import { Popover, PopoverDescription, PopoverPanel, PopoverTitle, PopoverTrigger } from '../popover'
 import { Profile } from './profile'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -32,9 +34,27 @@ export const Compact: Story = {
     compact: true,
   },
 }
-
 export const WithChildren: Story = {
-  args: {
-    children: <CaretUpDownIcon />,
-  },
+  render: (args) => (
+    <Profile {...args} className="w-[400px]">
+      <CaretUpDownIcon />
+    </Profile>
+  ),
+}
+export const AsButton: Story = {
+  render: (args) => (
+    <Popover>
+      <PopoverTrigger>
+        <Button variant={'ghost'} tone="neutral" size={'large'}>
+          <Profile {...args} className="w-[400px]">
+            <CaretUpDownIcon />
+          </Profile>
+        </Button>
+      </PopoverTrigger>
+      <PopoverPanel side="top">
+        <PopoverTitle>Profile Options</PopoverTitle>
+        <PopoverDescription>View your profile, settings, or log out.</PopoverDescription>
+      </PopoverPanel>
+    </Popover>
+  ),
 }

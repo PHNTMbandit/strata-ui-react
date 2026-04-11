@@ -11,7 +11,7 @@ export const ContextMenuSeparator = ({
 }: ContextMenuSeparatorProps) => {
   return (
     <BaseContextMenu.Separator
-      className={cn('mx-2xs my-3xs h-px bg-outline', className)}
+      className={cn('my-3xs h-px border-t border-outline-variant bg-outline pb-px', className)}
       ref={ref}
       {...props}
     >

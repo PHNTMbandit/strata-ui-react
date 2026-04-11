@@ -10,7 +10,11 @@ export const AutocompleteGroup = ({
   ...props
 }: AutocompleteGroupProps) => {
   return (
-    <BaseAutocomplete.Group className={cn('block space-y-3xs', className)} ref={ref} {...props}>
+    <BaseAutocomplete.Group
+      className={cn('block border-b-2 border-outline outline outline-outline-variant', className)}
+      ref={ref}
+      {...props}
+    >
       {children}
     </BaseAutocomplete.Group>
   )

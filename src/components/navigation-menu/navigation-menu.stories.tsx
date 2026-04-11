@@ -25,8 +25,8 @@ export default {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="p-4">
-              <h2 className="">Welcome to the Home Page</h2>
+            <div className="p-xs">
+              <h2>Welcome to the Home Page</h2>
               <p>This is the main landing page of the website.</p>
             </div>
           </NavigationMenuContent>
@@ -34,8 +34,8 @@ export default {
         <NavigationMenuItem>
           <NavigationMenuTrigger>About</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="p-4">
-              <h2 className="">About Us</h2>
+            <div className="p-xs">
+              <h2>About Us</h2>
               <p>Learn more about our mission and values.</p>
             </div>
           </NavigationMenuContent>
@@ -43,8 +43,8 @@ export default {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Services</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <div className="p-4">
-              <h2 className="">Our Services</h2>
+            <div className="p-xs">
+              <h2>Our Services</h2>
               <p>Discover the services we offer to our clients.</p>
             </div>
           </NavigationMenuContent>

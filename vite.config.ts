@@ -17,8 +17,8 @@ export default defineConfig({
     dts({
       tsconfigPath: './tsconfig.app.json',
       exclude: ['**/*.test.tsx', '**/*.stories.tsx'],
+      entryRoot: 'src',
       insertTypesEntry: true,
-      rollupTypes: true,
     }),
     tailwindCss(),
   ],

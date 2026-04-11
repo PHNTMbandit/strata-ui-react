@@ -56,7 +56,7 @@ export const Input = ({ className, ref, ...props }: InputProps) => {
   return (
     <BaseInput
       className={cn(
-        'flex h-xl w-full items-center gap-xs rounded-xl bg-surface-container p-sm style-text-prose-0 text-ellipsis elevation-xs outline outline-outline-variant transition-all placeholder:opacity-85 focus-within:caret-brand focus-within:outline-brand-outline hover:not-focus-within:outline-outline disabled:cursor-not-allowed data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 hover:data-[disabled=true]:outline-transparent',
+        'flex h-xl w-full items-center gap-xs rounded-xl border border-outline-variant bg-surface-container px-sm style-text-prose-0 text-ellipsis elevation-xs transition-all outline-none placeholder:opacity-85 focus-within:border-brand-outline focus-within:caret-brand hover:not-focus-within:border-outline disabled:cursor-not-allowed data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50 hover:data-[disabled=true]:border-transparent',
         className,
       )}
       ref={ref}

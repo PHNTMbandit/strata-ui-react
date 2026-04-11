@@ -14,45 +14,22 @@ export const Profile = ({
   ref,
   ...props
 }: ProfileProps) => {
-  if (compact) {
-    return (
-      <div className="group flex items-center justify-between gap-2xl rounded-full transition-all hover:cursor-pointer">
-        <button
-          className={cn(
-            'flex items-center gap-xs transition-colors hover:cursor-pointer',
-            className,
-          )}
-          ref={ref}
-          {...props}
-        >
-          <Avatar
-            className={'group-hover:border-primary border border-transparent transition-colors'}
-          >
-            <AvatarImage src={imageUrl} />
-            <AvatarFallback>{fallbackText}</AvatarFallback>
-          </Avatar>
-        </button>
-        {children}
-      </div>
-    )
-  }
-
   return (
-    <div className="flex items-center justify-between gap-2xl rounded-xl border border-transparent p-2xs transition-all hover:cursor-pointer hover:border-outline-variant hover:bg-surface-container hover:shadow-sm hover:elevation-xs">
-      <button
-        className={cn('flex items-center gap-xs transition-colors hover:cursor-pointer', className)}
-        ref={ref}
-        {...props}
-      >
+    <div
+      className={cn('flex w-full items-center justify-between gap-3xl rounded-full', className)}
+      ref={ref}
+      {...props}
+    >
+      <div className="flex items-center gap-xs">
         <Avatar>
           <AvatarImage src={imageUrl} />
           <AvatarFallback>{fallbackText}</AvatarFallback>
         </Avatar>
-        <div className={cn('flex flex-col items-start justify-start')}>
+        <div className={cn('flex flex-col items-start justify-start', compact && 'hidden')}>
           <span className="style-text-default-0">{profileName}</span>
           <span className="style-text-default--2 text-on-surface-variant">{profileEmail}</span>
         </div>
-      </button>
+      </div>
       {children}
     </div>
   )

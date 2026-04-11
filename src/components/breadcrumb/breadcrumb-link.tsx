@@ -6,7 +6,7 @@ export const BreadcrumbLink = ({ className, children, ref, ...props }: Breadcrum
   return (
     <div
       className={cn(
-        'text-surface-on-surface-variant inline-flex h-md items-center justify-center gap-3xs style-text-default--1 hover:cursor-pointer hover:underline hover:underline-offset-2 [&>svg]:size-xs',
+        'inline-flex h-md items-center justify-center gap-3xs rounded-md border border-transparent px-2xs style-text-default--1 text-on-surface-variant transition-colors select-none hover:cursor-pointer hover:border-outline hover:bg-surface-container active:bg-surface-dim [&>svg]:size-xs',
         className,
       )}
       ref={ref}

@@ -23,15 +23,9 @@ export default {
       control: { type: 'radio' },
       options: ['horizontal', 'vertical'],
     },
-    split: {
-      description: 'The type of split between buttons.',
-      control: { type: 'radio' },
-      options: ['gap', 'separator'],
-    },
   },
   args: {
     orientation: 'horizontal',
-    split: 'gap',
   },
   render: (args) => (
     <ButtonGroup {...args}>
@@ -56,26 +50,14 @@ export const Vertical: Story = {
   },
   render: (args) => (
     <ButtonGroup {...args}>
-      <Button>
+      <Button size="iconXSmall">
         <PlusIcon weight="bold" />
       </Button>
-      <Button>
+      <Button size="iconXSmall">
         <MinusIcon weight="bold" />
       </Button>
     </ButtonGroup>
   ),
-}
-
-export const Gap: Story = {
-  args: {
-    split: 'gap',
-  },
-}
-
-export const Separator: Story = {
-  args: {
-    split: 'separator',
-  },
 }
 
 export const Solid: Story = {
@@ -92,7 +74,7 @@ export const InputWithButton: Story = {
   render: (args) => (
     <ButtonGroup {...args}>
       <Input placeholder="Search..." />
-      <Button tone="neutral">
+      <Button tone="neutral" size={'iconMedium'}>
         <PlusIcon weight="bold" />
       </Button>
     </ButtonGroup>
@@ -106,6 +88,56 @@ export const MixedTextIcon: Story = {
       <Button size={'iconMedium'}>
         <CaretDownIcon weight="bold" />
       </Button>
+    </ButtonGroup>
+  ),
+}
+
+export const XSmall: Story = {
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button size="xsmall">Button 1</Button>
+      <Button size="xsmall">Button 2</Button>
+      <Button size="xsmall">Button 3</Button>
+    </ButtonGroup>
+  ),
+}
+
+export const Small: Story = {
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button size="small">Button 1</Button>
+      <Button size="small">Button 2</Button>
+      <Button size="small">Button 3</Button>
+    </ButtonGroup>
+  ),
+}
+
+export const Medium: Story = {
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button size="medium">Button 1</Button>
+      <Button size="medium">Button 2</Button>
+      <Button size="medium">Button 3</Button>
+    </ButtonGroup>
+  ),
+}
+
+export const Large: Story = {
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button size="large">Button 1</Button>
+      <Button size="large">Button 2</Button>
+      <Button size="large">Button 3</Button>
+    </ButtonGroup>
+  ),
+}
+
+export const ExtraLarge: Story = {
+  render: (args) => (
+    <ButtonGroup {...args}>
+      <Button size="xlarge">Button 1</Button>
+      <Button size="xlarge">Button 2</Button>
+      <Button size="xlarge">Button 3</Button>
     </ButtonGroup>
   ),
 }

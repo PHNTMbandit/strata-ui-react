@@ -1,5 +1,6 @@
 import { Combobox as BaseCombobox } from '@base-ui/react/combobox'
 import { XIcon } from '@phosphor-icons/react'
+import { Button } from '../button'
 import { cn } from '@/utils/cn'
 
 import type { ComboboxChipProps } from './combobox.types'
@@ -8,7 +9,7 @@ export const ComboboxChip = ({ className, children, ref, ...props }: ComboboxChi
   return (
     <BaseCombobox.Chip
       className={cn(
-        'inline-flex h-lg items-center gap-xs rounded-full bg-brand-container pr-2xs pl-sm style-text-default-0 text-on-brand-container outline outline-brand-outline',
+        'inline-flex h-lg items-center justify-center gap-xs rounded-full border border-outline bg-surface-container-2 pr-3xs pl-xs style-text-default-0',
         className,
       )}
       ref={ref}
@@ -17,12 +18,18 @@ export const ComboboxChip = ({ className, children, ref, ...props }: ComboboxChi
       {children}
       <BaseCombobox.ChipRemove
         aria-label="Remove"
-        className={
-          'rounded-full p-3xs transition-colors hover:cursor-pointer hover:bg-error-container hover:text-on-error-container'
-        }
-      >
-        <XIcon className="size-sm" weight="bold" />
-      </BaseCombobox.ChipRemove>
+        render={(e) => (
+          <Button
+            onClick={e.onClick}
+            shape={'circle'}
+            variant={'ghost'}
+            tone="error"
+            size="iconXSmall"
+          >
+            <XIcon className="size-sm" weight="bold" />
+          </Button>
+        )}
+      />
     </BaseCombobox.Chip>
   )
 }

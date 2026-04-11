@@ -23,15 +23,15 @@ export const NumberField = ({ label, className, ref, ...props }: NumberFieldType
           <CursorGrowIcon />
         </BaseNumberField.ScrubAreaCursor>
       </BaseNumberField.ScrubArea>
-      <BaseNumberField.Group className="flex w-fit items-center rounded-full bg-surface-container shadow-xs">
-        <BaseNumberField.Decrement className="peer inline-flex size-lg items-center justify-center rounded-full rounded-r-none text-error transition-colors hover:cursor-pointer hover:bg-error-container hover:text-on-error-container">
+      <BaseNumberField.Group className="flex w-fit items-center rounded-full border border-outline bg-surface-container shadow-xs outline outline-outline-variant">
+        <BaseNumberField.Decrement className="peer inline-flex size-lg items-center justify-center rounded-full rounded-r-none text-error-on-surface transition-colors hover:cursor-pointer hover:bg-error-container hover:text-on-error-container">
           <MinusIcon className="size-sm" weight="bold" />
         </BaseNumberField.Decrement>
         <BaseNumberField.Input
           aria-label="number-field"
           className="w-xl text-center style-text-default-0 focus:outline-none"
         />
-        <BaseNumberField.Increment className="inline-flex size-lg items-center justify-center rounded-full rounded-l-none text-success transition-colors hover:cursor-pointer hover:bg-success-container hover:text-on-success-container">
+        <BaseNumberField.Increment className="inline-flex size-lg items-center justify-center rounded-full rounded-l-none text-success-on-surface transition-colors hover:cursor-pointer hover:bg-success-container hover:text-on-success-container">
           <PlusIcon className="size-sm" weight="bold" />
         </BaseNumberField.Increment>
       </BaseNumberField.Group>

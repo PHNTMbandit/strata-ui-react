@@ -6,7 +6,8 @@ import type { ComboboxChipsProps } from './combobox.types'
 export const ComboboxChips = ({ className, children, ref, ...props }: ComboboxChipsProps) => {
   return (
     <BaseCombobox.Chips
-      className={cn('flex flex-wrap items-center gap-2xs not-empty:mb-2xs', className)}
+      data-chips
+      className={cn('group flex size-full flex-wrap items-center gap-2xs empty:hidden', className)}
       ref={ref}
       {...props}
     >

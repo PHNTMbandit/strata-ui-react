@@ -19,7 +19,7 @@ export const SidebarGroupLabel = ({
   return (
     <span
       className={cn(
-        'w-full truncate pl-sm style-text-default--2 text-on-surface-variant uppercase transition-all duration-200 ease-out',
+        'w-full truncate pl-md style-text-default--2 text-on-surface-variant uppercase transition-all duration-200 ease-out',
         collapsible !== 'none' && open && 'animate-in fade-in-0 slide-in-from-left-2',
         className,
       )}
